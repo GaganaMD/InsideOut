@@ -1,0 +1,17 @@
+{
+ "name": "G16_less_than_high_school",
+ "definition": "education = Less than high school",
+ "criteria": {
+  "education": [
+   "Less than high school"
+  ]
+ },
+ "label": "",
+ "n_total": 17,
+ "n_train": 14,
+ "n_test": 3,
+ "share_of_population": 0.00826044703595724,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=14 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

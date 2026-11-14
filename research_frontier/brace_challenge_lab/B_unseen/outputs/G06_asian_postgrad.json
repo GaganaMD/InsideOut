@@ -1,0 +1,20 @@
+{
+ "name": "G06_asian_postgrad",
+ "definition": "race = Asian; education = Postgraduate",
+ "criteria": {
+  "race": [
+   "Asian"
+  ],
+  "education": [
+   "Postgraduate"
+  ]
+ },
+ "label": "",
+ "n_total": 30,
+ "n_train": 25,
+ "n_test": 5,
+ "share_of_population": 0.014577259475218658,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=25 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

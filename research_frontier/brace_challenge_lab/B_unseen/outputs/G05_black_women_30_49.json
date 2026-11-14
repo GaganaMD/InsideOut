@@ -1,0 +1,23 @@
+{
+ "name": "G05_black_women_30_49",
+ "definition": "race = Black; sex = Female; age_band = 30-49",
+ "criteria": {
+  "race": [
+   "Black"
+  ],
+  "sex": [
+   "Female"
+  ],
+  "age_band": [
+   "30-49"
+  ]
+ },
+ "label": "",
+ "n_total": 48,
+ "n_train": 28,
+ "n_test": 20,
+ "share_of_population": 0.023323615160349854,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=28 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

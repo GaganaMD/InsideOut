@@ -1,0 +1,20 @@
+{
+ "name": "G20_noncitizen_65plus",
+ "definition": "citizen = No; age_band = 65+",
+ "criteria": {
+  "citizen": [
+   "No"
+  ],
+  "age_band": [
+   "65+"
+  ]
+ },
+ "label": "",
+ "n_total": 0,
+ "n_train": 0,
+ "n_test": 0,
+ "share_of_population": 0.0,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=0 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

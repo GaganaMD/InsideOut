@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\gagan\Desktop\brace-personas\src\personas.py", line 375, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\Users\gagan\Desktop\brace-personas\src\personas.py", line 346, in main
+    save(rep, to_markdown(rep), out=__import__("pathlib").Path(a.out))
+  File "C:\Users\gagan\Desktop\brace-personas\src\personas.py", line 301, in save
+    json.dump(rep, open(out / f"{slug}.json", "w", encoding="utf-8"), indent=1, default=float)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\gagan\\Desktop\\brace-personas\\research_frontier\\brace_challenge_lab\\B_unseen\\outputs\\probe\\slash_in_name.json'

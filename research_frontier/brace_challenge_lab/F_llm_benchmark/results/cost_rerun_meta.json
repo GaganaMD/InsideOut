@@ -1,0 +1,7 @@
+{
+ "full_persona_chars_median": 94898.5,
+ "demographics_chars_median": 1840.0,
+ "n_catalog_questions": 256,
+ "n_demographic_questions": 14,
+ "output_tokens_assumed": 50
+}

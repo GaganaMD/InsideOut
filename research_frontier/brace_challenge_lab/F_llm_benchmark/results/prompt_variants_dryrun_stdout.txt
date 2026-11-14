@@ -1,0 +1,209 @@
+{
+ "variant_hash": "4c1d7afbed1000bf",
+ "model": "openai/gpt-4.1",
+ "temperature": 0.7,
+ "pilot": {
+  "samples_per_prompt": 3,
+  "cells_per_study": 6,
+  "prompt_groups_checked": 72,
+  "by_study": {
+   "default_eric": {
+    "model": "openai/gpt-4.1",
+    "calls": 108,
+    "input_tokens_est": 54408,
+    "output_tokens_cap": 4320,
+    "usd_upper_bound": 0.1434,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   },
+   "targeting_fairness": {
+    "model": "openai/gpt-4.1",
+    "calls": 108,
+    "input_tokens_est": 52040,
+    "output_tokens_cap": 12960,
+    "usd_upper_bound": 0.2078,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   }
+  },
+  "total": {
+   "model": "openai/gpt-4.1",
+   "calls": 216,
+   "input_tokens_est": 106448,
+   "output_tokens_cap": 17280,
+   "usd_upper_bound": 0.3511,
+   "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+  },
+  "fake_transport_pipeline_check": {
+   "calls": 216,
+   "invalid": 0,
+   "usd": 0.22070400000000023,
+   "stopped": ""
+  }
+ },
+ "full": {
+  "samples_per_prompt": 4,
+  "cells_per_study": "all k>=5 cells present in both conditions",
+  "prompt_groups_checked": 776,
+  "by_study": {
+   "default_eric": {
+    "model": "openai/gpt-4.1",
+    "calls": 1344,
+    "input_tokens_est": 676978,
+    "output_tokens_cap": 53760,
+    "usd_upper_bound": 1.784,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   },
+   "targeting_fairness": {
+    "model": "openai/gpt-4.1",
+    "calls": 984,
+    "input_tokens_est": 474162,
+    "output_tokens_cap": 118080,
+    "usd_upper_bound": 1.893,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   }
+  },
+  "total": {
+   "model": "openai/gpt-4.1",
+   "calls": 2328,
+   "input_tokens_est": 1151140,
+   "output_tokens_cap": 171840,
+   "usd_upper_bound": 3.677,
+   "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+  }
+ }
+}
+
+===== default_eric | demo | green_default | 30-49 | Male | $100,000 or more | college degree =====
+[system]
+You simulate how a person with the described characteristics would answer a survey question. Answer as that person would, not as an expert. Respond with JSON only.
+[user]
+Person:
+- age: 30-49
+- sex: Male
+- household income: $100,000 or more
+- education: college degree
+
+Scenario:
+Imagine you have to relocate to another town. After you move into your new flat, you receive a letter from the electric power supplier, GreenGrid. You are told that by moving into your new flat you became a GreenGrid customer. GreenGrid sells clean electricity, generated from renewable energy sources. Your monthly premium is $39. Some weeks later you find a flyer from the electric power supplier Twon: you can easily switch, and Twon's low-priced tariff costs $32 per month.
+
+Question: Which electricity supplier do you choose?
+Options:
+A: GreenGrid: renewable electricity, $39 per month
+B: Twon: standard electricity, $32 per month
+
+Reply with exactly this JSON and nothing else: {"choice": "<one of A | B>", "p": <your probability, 0-1, that this person picks option A>}
+
+===== default_eric | demo_stat | green_default | 30-49 | Male | $100,000 or more | college degree =====
+[system]
+You simulate how a person with the described characteristics would answer a survey question. Answer as that person would, not as an expert. Respond with JSON only.
+[user]
+Person:
+- age: 30-49
+- sex: Male
+- household income: $100,000 or more
+- education: college degree
+
+Estimated profile of people with these characteristics (a statistical estimate from a survey of US adults, not this person's own answers). Typical value; percentile among US adults; range covering 80% of similar people:
+- green (pro-environmental) values (1-5 scale, higher = stronger pro-environmental values): 3.5; 45th percentile; 2.3 to 4.8
+- neuroticism (1-5 scale, higher = more anxious and emotionally reactive): 2.6; 44th percentile; 1.4 to 3.7
+- social desirability (0-13 scale, higher = stronger tendency to present oneself favourably): 6; 42nd percentile; 1 to 10
+- spending style (4-26 scale, 4 = strong tightwad, 26 = strong spendthrift): 14; 51st percentile; 9 to 20
+- cognitive reflection (0-4 correct answers on a reasoning test): 2.4; 46th percentile; 1.0 to 3.9
+- generosity (share of a hypothetical $5 given to a stranger, 0-100%): 39; 16th percentile; 15 to 62
+
+Scenario:
+Imagine you have to relocate to another town. After you move into your new flat, you receive a letter from the electric power supplier, GreenGrid. You are told that by moving into your new flat you became a GreenGrid customer. GreenGrid sells clean electricity, generated from renewable energy sources. Your monthly premium is $39. Some weeks later you find a flyer from the electric power supplier Twon: you can easily switch, and Twon's low-priced tariff costs $32 per month.
+
+Question: Which electricity supplier do you choose?
+Options:
+A: GreenGrid: renewable electricity, $39 per month
+B: Twon: standard electricity, $32 per month
+
+Reply with exactly this JSON and nothing else: {"choice": "<one of A | B>", "p": <your probability, 0-1, that this person picks option A>}
+
+===== default_eric | demo_narr | green_default | 30-49 | Male | $100,000 or more | college degree =====
+[system]
+You simulate how a person with the described characteristics would answer a survey question. Answer as that person would, not as an expert. Respond with JSON only.
+[user]
+Person:
+- age: 30-49
+- sex: Male
+- household income: $100,000 or more
+- education: college degree
+
+About people like this person (a statistical estimate from a survey of US adults, not this person's own answers):
+On green (pro-environmental) values (1-5 scale, higher = stronger pro-environmental values) they typically score 3.5, around the 45th percentile of US adults, and 80% of similar people fall between 2.3 and 4.8. On neuroticism (1-5 scale, higher = more anxious and emotionally reactive) they typically score 2.6, around the 44th percentile of US adults, and 80% of similar people fall between 1.4 and 3.7. On social desirability (0-13 scale, higher = stronger tendency to present oneself favourably) they typically score 6, around the 42nd percentile of US adults, and 80% of similar people fall between 1 and 10. On spending style (4-26 scale, 4 = strong tightwad, 26 = strong spendthrift) they typically score 14, around the 51st percentile of US adults, and 80% of similar people fall between 9 and 20. On cognitive reflection (0-4 correct answers on a reasoning test) they typically score 2.4, around the 46th percentile of US adults, and 80% of similar people fall between 1.0 and 3.9. On generosity (share of a hypothetical $5 given to a stranger, 0-100%) they typically score 39, around the 16th percentile of US adults, and 80% of similar people fall between 15 and 62.
+
+Scenario:
+Imagine you have to relocate to another town. After you move into your new flat, you receive a letter from the electric power supplier, GreenGrid. You are told that by moving into your new flat you became a GreenGrid customer. GreenGrid sells clean electricity, generated from renewable energy sources. Your monthly premium is $39. Some weeks later you find a flyer from the electric power supplier Twon: you can easily switch, and Twon's low-priced tariff costs $32 per month.
+
+Question: Which electricity supplier do you choose?
+Options:
+A: GreenGrid: renewable electricity, $39 per month
+B: Twon: standard electricity, $32 per month
+
+Reply with exactly this JSON and nothing else: {"choice": "<one of A | B>", "p": <your probability, 0-1, that this person picks option A>}
+
+===== targeting_fairness | demo | targeted_women | 50-64 | Male | $100,000 or more | college degree =====
+[system]
+You simulate how a person with the described characteristics would answer a survey question. Answer as that person would, not as an expert. Respond with JSON only.
+[user]
+Person:
+- age: 50-64
+- sex: Male
+- household income: $100,000 or more
+- education: college degree
+
+Scenario:
+A snack foods company has developed a new line of snacks. Initial testing showed that, due to the taste and texture profile of the snacks, the snacks are better suited to the preferences of their female customers. The company is developing a marketing plan to promote the snacks. Because they believe the snacks are best suited to their female customers, they will advertise the snacks to women directly.
+
+Question: How fair is this advertising plan?
+Answer on a scale from 1 (not at all fair) to 9 (very fair).
+
+Reply with exactly this JSON and nothing else: {"rating": <integer 1-9, this person's most likely answer>, "probs": [<9 probabilities for answers 1..9, summing to 1>]}
+
+===== targeting_fairness | demo_stat | targeted_women | 50-64 | Male | $100,000 or more | college degree =====
+[system]
+You simulate how a person with the described characteristics would answer a survey question. Answer as that person would, not as an expert. Respond with JSON only.
+[user]
+Person:
+- age: 50-64
+- sex: Male
+- household income: $100,000 or more
+- education: college degree
+
+Estimated profile of people with these characteristics (a statistical estimate from a survey of US adults, not this person's own answers). Typical value; percentile among US adults; range covering 80% of similar people:
+- green (pro-environmental) values (1-5 scale, higher = stronger pro-environmental values): 3.6; 46th percentile; 2.4 to 4.9
+- neuroticism (1-5 scale, higher = more anxious and emotionally reactive): 2.1; 31st percentile; 1.0 to 3.3
+- social desirability (0-13 scale, higher = stronger tendency to present oneself favourably): 7; 54th percentile; 2 to 11
+- spending style (4-26 scale, 4 = strong tightwad, 26 = strong spendthrift): 14; 45th percentile; 8 to 19
+- cognitive reflection (0-4 correct answers on a reasoning test): 2.5; 46th percentile; 1.0 to 3.9
+- generosity (share of a hypothetical $5 given to a stranger, 0-100%): 37; 16th percentile; 14 to 60
+
+Scenario:
+A snack foods company has developed a new line of snacks. Initial testing showed that, due to the taste and texture profile of the snacks, the snacks are better suited to the preferences of their female customers. The company is developing a marketing plan to promote the snacks. Because they believe the snacks are best suited to their female customers, they will advertise the snacks to women directly.
+
+Question: How fair is this advertising plan?
+Answer on a scale from 1 (not at all fair) to 9 (very fair).
+
+Reply with exactly this JSON and nothing else: {"rating": <integer 1-9, this person's most likely answer>, "probs": [<9 probabilities for answers 1..9, summing to 1>]}
+
+===== targeting_fairness | demo_narr | targeted_women | 50-64 | Male | $100,000 or more | college degree =====
+[system]
+You simulate how a person with the described characteristics would answer a survey question. Answer as that person would, not as an expert. Respond with JSON only.
+[user]
+Person:
+- age: 50-64
+- sex: Male
+- household income: $100,000 or more
+- education: college degree
+
+About people like this person (a statistical estimate from a survey of US adults, not this person's own answers):
+On green (pro-environmental) values (1-5 scale, higher = stronger pro-environmental values) they typically score 3.6, around the 46th percentile of US adults, and 80% of similar people fall between 2.4 and 4.9. On neuroticism (1-5 scale, higher = more anxious and emotionally reactive) they typically score 2.1, around the 31st percentile of US adults, and 80% of similar people fall between 1.0 and 3.3. On social desirability (0-13 scale, higher = stronger tendency to present oneself favourably) they typically score 7, around the 54th percentile of US adults, and 80% of similar people fall between 2 and 11. On spending style (4-26 scale, 4 = strong tightwad, 26 = strong spendthrift) they typically score 14, around the 45th percentile of US adults, and 80% of similar people fall between 8 and 19. On cognitive reflection (0-4 correct answers on a reasoning test) they typically score 2.5, around the 46th percentile of US adults, and 80% of similar people fall between 1.0 and 3.9. On generosity (share of a hypothetical $5 given to a stranger, 0-100%) they typically score 37, around the 16th percentile of US adults, and 80% of similar people fall between 14 and 60.
+
+Scenario:
+A snack foods company has developed a new line of snacks. Initial testing showed that, due to the taste and texture profile of the snacks, the snacks are better suited to the preferences of their female customers. The company is developing a marketing plan to promote the snacks. Because they believe the snacks are best suited to their female customers, they will advertise the snacks to women directly.
+
+Question: How fair is this advertising plan?
+Answer on a scale from 1 (not at all fair) to 9 (very fair).
+
+Reply with exactly this JSON and nothing else: {"rating": <integer 1-9, this person's most likely answer>, "probs": [<9 probabilities for answers 1..9, summing to 1>]}

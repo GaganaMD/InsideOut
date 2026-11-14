@@ -1,0 +1,26 @@
+id,name,criteria,category,rationale
+G01,broad_men,sex=Male,broad,near-half of panel; profile should be near-null
+G02,broad_married,marital=Married,broad,large group; age-confounded (married skew older)
+G03,whole_population_all_ages,age_band=18-29|30-49|50-64|65+,whole population,every level of one variable = entire panel
+G04,near_whole_citizens,citizen=Yes,whole population,2054/2058 of panel
+G05,black_women_30_49,race=Black; sex=Female; age_band=30-49,narrow intersection,three-way intersection
+G06,asian_postgrad,race=Asian; education=Postgraduate,narrow intersection,two minority levels
+G07,selfemployed_men_50plus,employment=Self-employed; sex=Male; age_band=50-64|65+,narrow intersection,three-way with multi-level age
+G08,older_low_income,"age_band=65+; income=Less than $30,000",age-challenge,does income counteract the 65+ calm?
+G09,young_high_income,"age_band=18-29; income=$100,000 or more",age-challenge,does income counteract young neuroticism?
+G10,young_married,age_band=18-29; marital=Married,age-challenge,contrast with P3 young never-married
+G11,widowed_under65,marital=Widowed; age_band=18-29|30-49|50-64,age-challenge / rare,widowhood outside typical age
+G12,divorced_separated_living_alone,marital=Divorced|Separated; hh_size=1,narrow intersection,marital x household
+G13,homemakers,employment=Home-maker,weak profile expected,small single-level group
+G14,midwest_associate_degree,"education=Associate's degree; region=Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)",weak profile expected,mid-education mid-region
+G15,pacific_hi_ak,"region=Pacific (HI, AK)",rare,16 people in full panel
+G16,less_than_high_school,education=Less than high school,rare,17 people in full panel
+G17,students,employment=Student,rare / overlapping,students overlap heavily with 18-29
+G18,retired_65plus,employment=Retired; age_band=65+,overlapping,large overlap with P1 (age 65+)
+G19,never_married_under50,marital=Never been married; age_band=18-29|30-49,overlapping,superset of P3
+G20,noncitizen_65plus,citizen=No; age_band=65+,empty intersection,citizen=No has 4 people
+G21,unknown_variable,occupation=Nurse,unsupported,variable not in data
+G22,misspelled_level_case,sex=female,unsupported,case variant of a valid level
+G23,abbreviated_region,region=South,unsupported,short form of a valid level
+G24,contradictory_duplicate_var,sex=Male; sex=Female,contradictory,"same variable twice, impossible intersection"
+G25,party_tier_b,party=Democrat,unsupported (non-Tier-A),self-reported party without --allow-party

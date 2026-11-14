@@ -1,0 +1,209 @@
+{
+ "variant_hash": "4c1d7afbed1000bf",
+ "model": "openai/gpt-4.1",
+ "temperature": 0.7,
+ "pilot": {
+  "samples_per_prompt": 3,
+  "cells_per_study": 6,
+  "coverage": {
+   "default_eric": {
+    "n_train_scored": 428,
+    "n_in_k5_cells": 427,
+    "n_in_sent_cells": 93,
+    "n_cells_sent": 6,
+    "profile_source_n": 1014,
+    "profile_model": {
+     "green": {
+      "alpha": 100.0,
+      "resid_sd": 0.9820351084397885
+     },
+     "neuroticism": {
+      "alpha": 10.0,
+      "resid_sd": 0.9033299182926762
+     },
+     "social_desirability": {
+      "alpha": 31.622776601683793,
+      "resid_sd": 3.335833642182406
+     },
+     "spendthrift": {
+      "alpha": 100.0,
+      "resid_sd": 4.3094883975279785
+     },
+     "crt": {
+      "alpha": 1000.0,
+      "resid_sd": 1.1247187211763314
+     },
+     "dictator_give": {
+      "alpha": 316.22776601683796,
+      "resid_sd": 18.143847795459337
+     }
+    }
+   },
+   "targeting_fairness": {
+    "n_train_scored": 260,
+    "n_in_k5_cells": 259,
+    "n_in_sent_cells": 64,
+    "n_cells_sent": 6,
+    "profile_source_n": 1182,
+    "profile_model": {
+     "green": {
+      "alpha": 100.0,
+      "resid_sd": 0.9706230016541897
+     },
+     "neuroticism": {
+      "alpha": 10.0,
+      "resid_sd": 0.911785107125747
+     },
+     "social_desirability": {
+      "alpha": 31.622776601683793,
+      "resid_sd": 3.3199682143849487
+     },
+     "spendthrift": {
+      "alpha": 31.622776601683793,
+      "resid_sd": 4.289212391710323
+     },
+     "crt": {
+      "alpha": 1000.0,
+      "resid_sd": 1.1064380689181927
+     },
+     "dictator_give": {
+      "alpha": 316.22776601683796,
+      "resid_sd": 18.10444668332563
+     }
+    }
+   }
+  },
+  "prompt_groups_checked": 72,
+  "by_study": {
+   "default_eric": {
+    "model": "openai/gpt-4.1",
+    "calls": 108,
+    "input_tokens_est": 54408,
+    "output_tokens_cap": 4320,
+    "usd_upper_bound": 0.1434,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   },
+   "targeting_fairness": {
+    "model": "openai/gpt-4.1",
+    "calls": 108,
+    "input_tokens_est": 52040,
+    "output_tokens_cap": 12960,
+    "usd_upper_bound": 0.2078,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   }
+  },
+  "total": {
+   "model": "openai/gpt-4.1",
+   "calls": 216,
+   "input_tokens_est": 106448,
+   "output_tokens_cap": 17280,
+   "usd_upper_bound": 0.3511,
+   "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+  },
+  "fake_transport_pipeline_check": {
+   "calls": 216,
+   "invalid": 0,
+   "usd": 0.22070400000000023,
+   "stopped": ""
+  }
+ },
+ "full": {
+  "samples_per_prompt": 4,
+  "cells_per_study": "all k>=5 cells present in both conditions",
+  "coverage": {
+   "default_eric": {
+    "n_train_scored": 428,
+    "n_in_k5_cells": 427,
+    "n_in_sent_cells": 384,
+    "n_cells_sent": 56,
+    "profile_source_n": 1014,
+    "profile_model": {
+     "green": {
+      "alpha": 100.0,
+      "resid_sd": 0.9820351084397885
+     },
+     "neuroticism": {
+      "alpha": 10.0,
+      "resid_sd": 0.9033299182926762
+     },
+     "social_desirability": {
+      "alpha": 31.622776601683793,
+      "resid_sd": 3.335833642182406
+     },
+     "spendthrift": {
+      "alpha": 100.0,
+      "resid_sd": 4.3094883975279785
+     },
+     "crt": {
+      "alpha": 1000.0,
+      "resid_sd": 1.1247187211763314
+     },
+     "dictator_give": {
+      "alpha": 316.22776601683796,
+      "resid_sd": 18.143847795459337
+     }
+    }
+   },
+   "targeting_fairness": {
+    "n_train_scored": 260,
+    "n_in_k5_cells": 259,
+    "n_in_sent_cells": 210,
+    "n_cells_sent": 41,
+    "profile_source_n": 1182,
+    "profile_model": {
+     "green": {
+      "alpha": 100.0,
+      "resid_sd": 0.9706230016541897
+     },
+     "neuroticism": {
+      "alpha": 10.0,
+      "resid_sd": 0.911785107125747
+     },
+     "social_desirability": {
+      "alpha": 31.622776601683793,
+      "resid_sd": 3.3199682143849487
+     },
+     "spendthrift": {
+      "alpha": 31.622776601683793,
+      "resid_sd": 4.289212391710323
+     },
+     "crt": {
+      "alpha": 1000.0,
+      "resid_sd": 1.1064380689181927
+     },
+     "dictator_give": {
+      "alpha": 316.22776601683796,
+      "resid_sd": 18.10444668332563
+     }
+    }
+   }
+  },
+  "prompt_groups_checked": 776,
+  "by_study": {
+   "default_eric": {
+    "model": "openai/gpt-4.1",
+    "calls": 1344,
+    "input_tokens_est": 676978,
+    "output_tokens_cap": 53760,
+    "usd_upper_bound": 1.784,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   },
+   "targeting_fairness": {
+    "model": "openai/gpt-4.1",
+    "calls": 984,
+    "input_tokens_est": 474162,
+    "output_tokens_cap": 118080,
+    "usd_upper_bound": 1.893,
+    "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+   }
+  },
+  "total": {
+   "model": "openai/gpt-4.1",
+   "calls": 2328,
+   "input_tokens_est": 1151140,
+   "output_tokens_cap": 171840,
+   "usd_upper_bound": 3.677,
+   "price_snapshot": "overnight/pricing_snapshot.json (2026-11-14; re-verify before any paid run)"
+  }
+ }
+}

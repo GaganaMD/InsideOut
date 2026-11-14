@@ -1,0 +1,20 @@
+{
+ "name": "G10_young_married",
+ "definition": "age_band = 18-29; marital = Married",
+ "criteria": {
+  "age_band": [
+   "18-29"
+  ],
+  "marital": [
+   "Married"
+  ]
+ },
+ "label": "",
+ "n_total": 42,
+ "n_train": 26,
+ "n_test": 16,
+ "share_of_population": 0.02040816326530612,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=26 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

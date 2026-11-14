@@ -1,0 +1,203 @@
+{
+ "name": "G07_selfemployed_men_50plus",
+ "definition": "employment = Self-employed; sex = Male; age_band in {50-64, 65+}",
+ "criteria": {
+  "employment": [
+   "Self-employed"
+  ],
+  "sex": [
+   "Male"
+  ],
+  "age_band": [
+   "50-64",
+   "65+"
+  ]
+ },
+ "label": "",
+ "n_total": 74,
+ "n_train": 47,
+ "n_test": 27,
+ "share_of_population": 0.03595724003887269,
+ "built_from": "train split only",
+ "status": "ok",
+ "inner": [
+  {
+   "construct": "green",
+   "label": "Green values (1-5)",
+   "n": 47,
+   "typical_shrunk": 3.541309408686393,
+   "raw_mean": 3.5744680851063824,
+   "mean_ci_lo": 3.287915946689389,
+   "mean_ci_hi": 3.8610202235233757,
+   "shrink_weight": 0.3174153683238683,
+   "sd": 1.0022971867312336,
+   "p10": 2.1666666666666665,
+   "median": 4.0,
+   "p90": 4.733333333333333,
+   "pop_mean": 3.52588996763754,
+   "pop_sd": 1.002783579419562,
+   "d": 0.04844327177451443,
+   "d_lo": -0.23731344014019154,
+   "d_hi": 0.3341999836892204,
+   "share_opposite_side_of_pop_median": 0.425531914893617,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w1_score_GREEN"
+  },
+  {
+   "construct": "social_desirability",
+   "label": "Social desirability (0-13)",
+   "n": 47,
+   "typical_shrunk": 6.3748086993360165,
+   "raw_mean": 6.48936170212766,
+   "mean_ci_lo": 5.506424579693412,
+   "mean_ci_hi": 7.472298824561907,
+   "shrink_weight": 0.4560177122196722,
+   "sd": 3.4381007170006694,
+   "p10": 2.0,
+   "median": 7.0,
+   "p90": 11.0,
+   "pop_mean": 6.278779472954231,
+   "pop_sd": 3.4270356965490634,
+   "d": 0.06144734044803795,
+   "d_lo": -0.2253711258504134,
+   "d_hi": 0.3482658067464893,
+   "share_opposite_side_of_pop_median": 0.40425531914893614,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w2_score_socialdesirability"
+  },
+  {
+   "construct": "spendthrift",
+   "label": "Tightwad(4)-spendthrift(26)",
+   "n": 47,
+   "typical_shrunk": 13.388885673242296,
+   "raw_mean": 12.212765957446809,
+   "mean_ci_lo": 11.259071940977984,
+   "mean_ci_hi": 13.166459973915634,
+   "shrink_weight": 0.35957628555559135,
+   "sd": 3.335814679275227,
+   "p10": 8.600000000000001,
+   "median": 12.0,
+   "p90": 16.0,
+   "pop_mean": 14.049237170596394,
+   "pop_sd": 4.394771999834098,
+   "d": -0.417876334248719,
+   "d_lo": -0.6348828175213043,
+   "d_hi": -0.20086985097613372,
+   "share_opposite_side_of_pop_median": 0.2553191489361702,
+   "confidence": "distinct",
+   "source": "Twin-2K-500 st_tw_rescored"
+  },
+  {
+   "construct": "crt",
+   "label": "Cognitive reflection (0-4)",
+   "n": 47,
+   "typical_shrunk": 2.427407584838209,
+   "raw_mean": 2.5531914893617023,
+   "mean_ci_lo": 2.250343499190288,
+   "mean_ci_hi": 2.8560394795331163,
+   "shrink_weight": 0.07318130624318141,
+   "sd": 1.0592965393065645,
+   "p10": 1.0,
+   "median": 3.0,
+   "p90": 4.0,
+   "pop_mean": 2.4174757281553396,
+   "pop_sd": 1.1209566437290976,
+   "d": 0.12107137413885667,
+   "d_lo": -0.14909785307043738,
+   "d_hi": 0.3912406013481507,
+   "share_opposite_side_of_pop_median": 0.3829787234042553,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w1_crt2_score"
+  },
+  {
+   "construct": "dictator_give",
+   "label": "Dictator giving, % of $5 (hypothetical)",
+   "n": 47,
+   "typical_shrunk": 39.41747572815534,
+   "raw_mean": 38.297872340425535,
+   "mean_ci_lo": 32.85640988537782,
+   "mean_ci_hi": 43.73933479547325,
+   "shrink_weight": 0.0,
+   "sd": 19.033054649417057,
+   "p10": 12.00000000000001,
+   "median": 40.0,
+   "p90": 60.0,
+   "pop_mean": 39.41747572815534,
+   "pop_sd": 18.363109830449137,
+   "d": -0.06097024948755205,
+   "d_lo": -0.3572960083208871,
+   "d_hi": 0.235355509345783,
+   "share_opposite_side_of_pop_median": 0.19148936170212766,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w3_score_dictator_sender"
+  },
+  {
+   "construct": "neuroticism",
+   "label": "Neuroticism (1-5)",
+   "n": 47,
+   "typical_shrunk": 2.5516493689847977,
+   "raw_mean": 2.484042553191489,
+   "mean_ci_lo": 2.212530169040095,
+   "mean_ci_hi": 2.7555549373428834,
+   "shrink_weight": 0.7019920272789651,
+   "sd": 0.9496913905476326,
+   "p10": 1.2750000000000001,
+   "median": 2.375,
+   "p90": 3.8,
+   "pop_mean": 2.710904993065187,
+   "pop_sd": 0.9847573188802247,
+   "d": -0.23037395663295512,
+   "d_lo": -0.506088976918494,
+   "d_hi": 0.04534106365258378,
+   "share_opposite_side_of_pop_median": 0.40425531914893614,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w1_score_neuroticism"
+  }
+ ],
+ "green_choice": [
+  {
+   "condition": "grey_default",
+   "n": 8,
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.3244156195108769,
+   "pop_rate": 0.3592233009708738,
+   "pop_n": 206,
+   "status": "INSUFFICIENT EVIDENCE (n=8 < 20)"
+  },
+  {
+   "condition": "green_default",
+   "n": 15,
+   "rate": 0.4666666666666667,
+   "lo": 0.24809225259746442,
+   "hi": 0.6988336984894921,
+   "pop_rate": 0.5765765765765766,
+   "pop_n": 222,
+   "status": "INSUFFICIENT EVIDENCE (n=15 < 20)"
+  }
+ ],
+ "say_do_gap": [
+  {
+   "condition": "grey_default",
+   "n_high_green": 4,
+   "share_declining": 1.0,
+   "lo": 0.5100999795960008,
+   "hi": 1.0,
+   "pop_share_declining": 0.47126436781609193,
+   "status": "INSUFFICIENT EVIDENCE (n<10)"
+  },
+  {
+   "condition": "green_default",
+   "n_high_green": 7,
+   "share_declining": 0.1428571428571429,
+   "lo": 0.02567895594897479,
+   "hi": 0.51313450331903,
+   "pop_share_declining": 0.2134831460674157,
+   "status": "INSUFFICIENT EVIDENCE (n<10)"
+  }
+ ],
+ "mega_study_participation": {
+  "n_train_in_default_eric": 23
+ },
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

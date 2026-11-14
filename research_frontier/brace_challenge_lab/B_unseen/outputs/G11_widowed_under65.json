@@ -1,0 +1,22 @@
+{
+ "name": "G11_widowed_under65",
+ "definition": "marital = Widowed; age_band in {18-29, 30-49, 50-64}",
+ "criteria": {
+  "marital": [
+   "Widowed"
+  ],
+  "age_band": [
+   "18-29",
+   "30-49",
+   "50-64"
+  ]
+ },
+ "label": "",
+ "n_total": 42,
+ "n_train": 29,
+ "n_test": 13,
+ "share_of_population": 0.02040816326530612,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=29 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

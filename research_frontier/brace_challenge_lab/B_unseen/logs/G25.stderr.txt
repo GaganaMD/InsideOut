@@ -1,0 +1,1 @@
+ERROR: 'party' is not an allowed outer-layer variable (party needs --allow-party; it is self-reported, Tier B). Allowed: ['region', 'sex', 'age_band', 'education', 'race', 'citizen', 'marital', 'income', 'hh_size', 'employment']

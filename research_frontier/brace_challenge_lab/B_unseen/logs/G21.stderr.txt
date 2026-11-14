@@ -1,0 +1,1 @@
+ERROR: 'occupation' is not an allowed outer-layer variable. Allowed: ['region', 'sex', 'age_band', 'education', 'race', 'citizen', 'marital', 'income', 'hh_size', 'employment']

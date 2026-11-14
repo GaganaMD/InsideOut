@@ -1,0 +1,62 @@
+{
+ "n_train": 1442,
+ "persona_n_train": {
+  "P1": 194,
+  "P2": 291,
+  "P3": 197
+ },
+ "P2_share_18_29": 0.3711340206185567,
+ "P2_share_unemployed": 0.2268041237113402,
+ "pop_share_unemployed": 0.11858529819694869,
+ "P2_share_students": 0.06872852233676977,
+ "P2_neuro_decomp_bootCI": {
+  "total": [
+   0.3631523629631392,
+   0.579076152352677
+  ],
+  "age_mix": [
+   0.16322208299459148,
+   0.30079444939565175
+  ],
+  "income_within_age": [
+   0.1524280623728372,
+   0.33044954702621177
+  ]
+ },
+ "P3_composition": {
+  "share_male_P3": 0.5634517766497462,
+  "share_male_other18_29": 0.36,
+  "share_student_P3": 0.2131979695431472,
+  "share_lowinc_P3": 0.41116751269035534,
+  "share_lowinc_other18_29": 0.36,
+  "share_BA_P3": 0.3299492385786802,
+  "share_BA_other18_29": 0.6,
+  "share_hh1_P3": 0.1218274111675127,
+  "share_republican_P3": 0.233502538071066,
+  "share_republican_other18_29": 0.26666666666666666,
+  "marital_other18_29": {
+   "Living with a partner": 47,
+   "Married": 26,
+   "Divorced": 1,
+   "Widowed": 1,
+   "Separated": 0,
+   "Never been married": 0
+  },
+  "n_18_29": 272,
+  "n_P3": 197
+ },
+ "P1_composition": {
+  "share_retired": 0.5051546391752577,
+  "share_BA": 0.5515463917525774,
+  "share_BA_under65": 0.5024038461538461,
+  "share_male": 0.4639175257731959,
+  "share_white": 0.845360824742268,
+  "share_white_under65": 0.6506410256410257,
+  "share_lowinc": 0.4845360824742268,
+  "share_married": 0.4381443298969072
+ },
+ "corr_sd_neuroticism_train": -0.4428071846046125,
+ "corr_sd_green_train": 0.09997612284865011,
+ "corr_acq_sd_train": -0.5086871305767738,
+ "corr_neufwd_neurev_train": 0.7130571947189722
+}

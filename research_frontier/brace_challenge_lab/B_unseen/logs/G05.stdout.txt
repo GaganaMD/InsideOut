@@ -1,0 +1,2 @@
+wrote C:\Users\gagan\Desktop\brace-personas\research_frontier\brace_challenge_lab\B_unseen\outputs\G05_black_women_30_49.md
+INSUFFICIENT EVIDENCE: n_train=28 < 30
