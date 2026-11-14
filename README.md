@@ -2,10 +2,11 @@
 
 This is Brace's research assignment: how much census-observable facts reveal about people's psychology and their (hypothetical) choices.
 
-**Read in this order:**
+**Read in this order** (what to submit and what is supporting or historical: [`SUBMISSION.md`](SUBMISSION.md)):
 1. [`reports/memo.md`](reports/memo.md) (4 A4 pages, conclusions first).
-2. The three persona cards in [`reports/personas/`](reports/personas/) (`P1_…md`, `P2_…md`, `P3_…md`; full tables in `*_evidence.md`).
-3. [`reports/final_audit/`](reports/final_audit/): the statistical audit, headline challenge, live-review simulation and reviewer preparation.
+2. The three one-page persona cards: [`P1_adults_65plus.md`](reports/personas/P1_adults_65plus.md), [`P2_under50_income_below_50k.md`](reports/personas/P2_under50_income_below_50k.md), [`P3_young_never_married.md`](reports/personas/P3_young_never_married.md). Full tables are in `*_evidence.md`.
+3. [`reports/exploration_log.md`](reports/exploration_log.md) and [`reports/ai_note.md`](reports/ai_note.md).
+4. [`reports/final_audit/statistical_audit.md`](reports/final_audit/statistical_audit.md): the scoring defects found in the dataset and how they were corrected.
 
 ## Reproduce everything
 
@@ -25,8 +26,8 @@ python run_all.py            # download → audit → analyses → holdout → p
 
 ```bash
 python src/personas.py list-levels
-python src/personas.py build --name midwest_women --corrected-scores --criteria "region=Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); sex=Female"
-python src/personas.py build --name grads_65 --corrected-scores --criteria "age_band=65+; education=College graduate/some postgrad|Postgraduate"
+python src/personas.py build --name midwest_women --criteria "region=Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); sex=Female"
+python src/personas.py build --name grads_65 --criteria "age_band=65+; education=College graduate/some postgrad|Postgraduate"
 ```
 
 **Criteria syntax:** `var=level[|level]; var2=level`.
@@ -34,7 +35,7 @@ python src/personas.py build --name grads_65 --corrected-scores --criteria "age_
 - `party` needs `--allow-party`, and the report is labelled as a sensitivity persona.
 - Groups with fewer than 30 training members return **INSUFFICIENT EVIDENCE**.
 - Behavioural estimates need at least 20 people per default condition.
-- **`--corrected-scores`** (recommended) uses the audited item-level social-desirability and CRT scores. Without it, the shipped scores are used, which reproduces the frozen analysis.
+- **Scoring mode:** `build` uses **corrected** item-level social-desirability and CRT scores by default. `--legacy-scores` reproduces the dataset's shipped scores, **including their known scoring defects** (180 and 450 people mis-scored), and exists only for historical reproduction. `--corrected-scores` is still accepted but does nothing extra.
 
 Output goes to `reports/generated/`. New personas are built from the training split and carry CIs, but they have **no** holdout check. Only the three submission personas were validated.
 

@@ -29,7 +29,7 @@ Two web-fetch subagents read the dataset cards and the two arXiv papers to confi
 | Rick, Cryder & Loewenstein (2008), *Journal of Consumer Research* 34(6), 767–782 | Verified |
 | Reynolds (1982), *Journal of Clinical Psychology* 38(1), 119–125; Form C, 13 items | Verified |
 | Thomson & Oppenheimer (2016), *Judgment and Decision Making* 11(1), 99–113; CRT-2 | Verified |
-| Soto, John, Gosling & Potter (2011), "Age differences in personality traits from 10 to 65", *JPSP* | Title and sample verified; author order and volume/pages **not** confirmed. It covers ages 10–65, so not the 65+ cell |
+| Soto, John, Gosling & Potter (2011), "Age differences in personality traits from 10 to 65: Big Five domains and facets in a large cross-sectional sample", *Journal of Personality and Social Psychology* | Title, authors, year and journal agree across several secondary records (library catalogue, textbook citation, aggregators). Volume, pages and DOI appear only in secondary aggregators and could not be checked against the publisher or PubMed, so **they are deliberately omitted**. (A PubMed Central link that search results associated with this paper turned out to be a different article.) It covers ages 10–65, so not the 65+ cell |
 
 The persona cards cite these only as "published age differences", and they no longer depend on any specific quoted figure.
 

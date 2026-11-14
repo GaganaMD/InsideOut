@@ -39,9 +39,9 @@ We pre-registered a hypothesis that was wrong: we expected cognition to be the v
 ## Demonstration: a new persona live
 ```bash
 python src/personas.py list-levels
-python src/personas.py build --name demo_midwest_women_50plus --corrected-scores --criteria "region=Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); sex=Female; age_band=50-64|65+"
+python src/personas.py build --name demo_midwest_women_50plus --criteria "region=Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); sex=Female; age_band=50-64|65+"
 ```
-The output, in `reports/generated/`, contains n (train and held out), typical value and spread, d vs population with CI, a confidence label, and the green-choice rate per default condition. Cells below 20 people per condition, or groups below 30 training members, are flagged INSUFFICIENT EVIDENCE. Prohibited variables (party without `--allow-party`, ideology, religion) are rejected with exit code 2.
+Corrected scores are the default (`--legacy-scores` reproduces the defective shipped scores, for history only). The output, in `reports/generated/`, contains n (train and held out), typical value and spread, d vs population with CI, a confidence label, and the green-choice rate per default condition. Cells below 20 people per condition, or groups below 30 training members, are flagged INSUFFICIENT EVIDENCE. Prohibited variables (party without `--allow-party`, ideology, religion) are rejected with exit code 2.
 
 Explaining a new persona is the analyst's job: the generator reports numbers and evidence labels, never narrative.
 

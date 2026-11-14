@@ -18,7 +18,7 @@ STEPS = [
     ["src/holdout.py"],
     ["src/personas.py", "build-config"],
     ["src/personas.py", "build", "--name", "sensitivity_party_republican", "--criteria", "party=Republican",
-     "--allow-party", "--out", "reports/sensitivity"],
+     "--allow-party", "--out", "reports/sensitivity", "--legacy-scores"],  # historical artefact: frozen legacy scoring
     ["src/exploratory_values.py"],  # EXPLORATORY follow-up; train split only; writes reports/exploratory/
     ["src/exploratory_redistribution.py"],  # EXPLORATORY follow-up #2; train only; reports/exploratory/redistribution/
     ["src/robust_demographics.py"],  # EXPLORATORY robustness; train only; reports/robustness/

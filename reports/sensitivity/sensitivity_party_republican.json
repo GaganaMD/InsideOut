@@ -192,5 +192,5 @@
  "mega_study_participation": {
   "n_train_in_default_eric": 123
  },
- "scores": "shipped scores (frozen original); add --corrected-scores for audited SD/CRT"
+ "scores": "LEGACY (historical reproduction): shipped social-desirability and CRT scores, which contain known scoring defects (180 and 450 people mis-scored). Do not use these values as current findings"
 }

@@ -43,3 +43,28 @@ def test_corrected_path_changes_only_sd_and_crt():
     assert (a.social_desirability != b.social_desirability).sum() == 180
     assert (a.crt != b.crt).sum() == 450
     assert b.social_desirability.between(0, 13).all() and b.crt.between(0, 4).all()
+
+
+def _cli_build(tmp_path, *extra):
+    import json as _json
+    import personas
+    assert personas.main(["build", "--name", "t", "--criteria", "age_band=65+", "--out", str(tmp_path), *extra]) == 0
+    return _json.load(open(tmp_path / "t.json", encoding="utf-8"))
+
+
+def test_cli_defaults_to_corrected_scores(tmp_path):
+    rep = _cli_build(tmp_path)
+    assert rep["scores"].startswith("CORRECTED")
+    p = load_people(True)
+    tr = p[(p.split == "train") & (p.age_band == "65+")]
+    sd = next(r for r in rep["inner"] if r["construct"] == "social_desirability")
+    assert np.isclose(sd["raw_mean"], tr.social_desirability.mean())
+
+
+def test_cli_legacy_mode_is_explicit_and_labelled(tmp_path):
+    rep = _cli_build(tmp_path, "--legacy-scores")
+    assert rep["scores"].startswith("LEGACY") and "known" in rep["scores"]
+    p = load_people(False)
+    tr = p[(p.split == "train") & (p.age_band == "65+")]
+    crt = next(r for r in rep["inner"] if r["construct"] == "crt")
+    assert np.isclose(crt["raw_mean"], tr.crt.mean())

@@ -5,10 +5,16 @@ Criteria syntax:  "var=level[|level...]; var2=level"   e.g.  "age_band=65+"  or
 Variables must be on the Tier A whitelist (party only with --allow-party, labelled as a sensitivity persona).
 
 Usage:
-  python src/personas.py build --name retirees --criteria "age_band=65+"
+  python src/personas.py build --name retirees --criteria "age_band=65+"     # NEW group, corrected scores (default)
+  python src/personas.py build ... --legacy-scores   # historical reproduction: shipped SD/CRT WITH known scoring defects
   python src/personas.py select-p3           # pre-registered rule, train data only
-  python src/personas.py build-config        # the three submission personas from config/personas.json
+  python src/personas.py build-config        # the three submission personas (frozen estimates + one-page cards)
   python src/personas.py list-levels         # valid variables and levels
+
+Scoring modes. CORRECTED (default for `build`): social desirability and CRT are re-scored from items. LEGACY
+(`--legacy-scores`, and the frozen `build-config` estimates/evidence files): the dataset's shipped scores, which are
+mis-scored for 180 (social desirability) and 450 (CRT) people; kept only to reproduce the pre-audit results exactly.
+See reports/final_audit/statistical_audit.md.
 """
 import argparse
 import itertools
@@ -171,15 +177,16 @@ def fmt(x, nd=2):
     return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{nd}f}"
 
 
-def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | None = None) -> str:
+def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | None = None,
+                scores_note: str | None = None) -> str:
     L = [f"# Persona: {rep['name']}", ""]
     if rep.get("label"):
         L += [f"> **{rep['label']}**", ""]
     L += [f"**Outer-layer definition:** {rep['definition']}  ",
           f"**n** = {rep['n_total']} ({rep['share_of_population']:.1%} of the panel); built from {rep['n_train']} "
           f"train members, {rep['n_test']} held out.", ""]
-    if rep.get("scores"):
-        L += [f"*Scores: {rep['scores']}.*", ""]
+    if rep.get("scores") or scores_note:
+        L += [f"> **Scores:** {scores_note or rep['scores']}.", ""]
     if rep["status"] != "ok":
         return "\n".join(L + [f"**{rep['status']}** — no profile is reported for this group.", ""])
     if interp and "Bottom line" in interp:
@@ -250,11 +257,10 @@ def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None) -> str:
     """One-page persona card (template fields); full tables live in <name>_evidence.md."""
     L = [f"# Persona: {rep['name']}", "",
          f"**Who (outer layer only):** {rep['definition']} · **n = {rep['n_total']}** "
-         f"({rep['n_train']} train / {rep['n_test']} held out) · scores: Twin-2K-500 waves 1–3 · "
-         f"full tables: `{rep['name']}_evidence.md`", "", "## Bottom line", "", interp["Bottom line"], "",
-         "## Inner layer", "",
-         "| Part | Typical [p10–p90] | d vs population (95% CI) | Held-out d | Confidence |",
-         "|---|---|---|---|---|"]
+         f"({rep['n_train']} train / {rep['n_test']} held out) · source: Twin-2K-500 waves 1–3 · "
+         f"evidence: `{rep['name']}_evidence.md`", "", f"**Bottom line.** {interp['Bottom line']}", "",
+         "| Part | Typical [p10–p90] | d vs pop. (95% CI) | Held-out d | Held-out error cut | Confidence |",
+         "|---|---|---|---|---|---|"]
     hd = holdout.set_index("construct") if holdout is not None and len(holdout) else None
     corr_path = ROOT / "reports/final_audit/corrected_scores/personas_sd_crt.csv"
     cc = pd.read_csv(corr_path) if corr_path.exists() else pd.DataFrame(columns=["persona", "construct"])
@@ -266,18 +272,27 @@ def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None) -> str:
             dtxt = f"{x.d_train_corrected:+.2f} ({x.d_lo_corrected:+.2f}, {x.d_hi_corrected:+.2f})†"
             ttxt, conf = f"{x.d_test_corrected:+.2f}†", x.confidence_corrected
             typ = f"{fmt(x.typical_corrected)} [{fmt(x.p10_corrected, 0)}–{fmt(x.p90_corrected, 0)}]†"
+            gain = x.gain_pct_corrected
         else:
             dtxt = f"{r['d']:+.2f} ({r['d_lo']:+.2f}, {r['d_hi']:+.2f})"
             ttxt = f"{hd.loc[c, 'test_d']:+.2f}" if hd is not None else "–"
             conf, typ = r["confidence"], f"{fmt(r['typical_shrunk'])} [{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)}]"
-        L.append(f"| {r['label']} | {typ} | {dtxt} | {ttxt} | {conf} |")
-    L += ["", "† Social desirability and CRT use the audited item-level re-scores (the shipped scores are mis-scored for 180 "
-          "and 450 people; see `reports/final_audit/statistical_audit.md`). Frozen original values are in the evidence file. "
-          "*Distinct* = |d| ≥ 0.20 and CI excludes 0.", ""]
+            gain = hd.loc[c, "gain_pct"] if hd is not None else np.nan
+        conf = {"not distinguishable from population": "same as population", "weak difference": "weak"}.get(conf, conf)
+        gtxt = "–" if pd.isna(gain) else ("0%" if abs(gain) < 0.5 else f"{gain:+.0f}%")
+        L.append(f"| {r['label'].split(' (')[0].split(',')[0]} | {typ} | {dtxt} | {ttxt} | {gtxt} | {conf} |")
+    L += ["", "Held-out error cut = reduction in absolute error vs the population mean on held-out members. "
+          "*Distinct* = |d| ≥ 0.20 with CI excluding 0. † Corrected item-level scores; the dataset's shipped social-desirability "
+          "and CRT scores are mis-scored for 180/450 people (`reports/final_audit/statistical_audit.md`, values in "
+          "`reports/final_audit/corrected_scores/personas_sd_crt.csv`). Frozen legacy values: evidence file.", ""]
     for k, v in interp.items():
         if k not in ("Bottom line",):
-            L += [f"## {k}", "", v, ""]
+            L += [f"**{k}.** {v}", ""]
     return "\n".join(L)
+
+
+LEGACY_LABEL = ("LEGACY (historical reproduction): shipped social-desirability and CRT scores, which contain known "
+                "scoring defects (180 and 450 people mis-scored). Do not use these values as current findings")
 
 
 def save(rep: dict, md: str, out=OUT) -> None:
@@ -300,8 +315,11 @@ def main(argv=None) -> int:
     b.add_argument("--criteria", required=True)
     b.add_argument("--allow-party", action="store_true")
     b.add_argument("--out", default=str(ROOT / "reports/generated"), help="output folder")
-    b.add_argument("--corrected-scores", action="store_true",
-                   help="use item-level re-scored social desirability and CRT (recommended; see final audit)")
+    mode = b.add_mutually_exclusive_group()
+    mode.add_argument("--corrected-scores", action="store_true",
+                      help="(default) item-level re-scored social desirability and CRT; flag kept for compatibility")
+    mode.add_argument("--legacy-scores", action="store_true",
+                      help="HISTORICAL REPRODUCTION ONLY: shipped SD/CRT scores, which contain known scoring defects")
     sub.add_parser("select-p3")
     sub.add_parser("build-config")
     sub.add_parser("list-levels")
@@ -313,7 +331,7 @@ def main(argv=None) -> int:
             print(f"{v}{' (Tier B, needs --allow-party)' if v in TIER_B else ''}: {list(people[v].cat.categories)}")
         return 0
     green = load_green()
-    if a.cmd == "build" and a.corrected_scores:
+    if a.cmd == "build" and not a.legacy_scores:  # corrected scores are the default for new personas
         people, green = load_people(corrected=True), load_green(corrected=True)
     if a.cmd == "build":
         try:
@@ -323,8 +341,8 @@ def main(argv=None) -> int:
             return 2
         label = "SENSITIVITY PERSONA — uses self-reported party (Tier B), not census-observable" if "party" in crit else ""
         rep = build(a.name, crit, people, green, label)
-        rep["scores"] = ("corrected social desirability and CRT (item-level re-scores, final audit)" if a.corrected_scores
-                         else "shipped scores (frozen original); add --corrected-scores for audited SD/CRT")
+        rep["scores"] = (LEGACY_LABEL if a.legacy_scores
+                         else "CORRECTED (default): social desirability and CRT re-scored from items (final audit)")
         save(rep, to_markdown(rep), out=__import__("pathlib").Path(a.out))
         print(rep["status"])
         return 0
@@ -345,7 +363,9 @@ def main(argv=None) -> int:
             interp = p.get("interpretation", {})
             # evidence file: every table (frozen original values + correction note); card: one-page summary
             ev = {k: v for k, v in interp.items() if k in ("Bottom line",)}
-            (OUT / f"{p['name']}_evidence.md").write_text(to_markdown(rep, ev, h), encoding="utf-8")
+            note = ("FROZEN HISTORICAL ESTIMATES. Tables below use the " + LEGACY_LABEL + ". Corrected values for those two constructs follow the inner-layer table and are the ones cited "
+                    "in the persona card and memo")
+            (OUT / f"{p['name']}_evidence.md").write_text(to_markdown(rep, ev, h, scores_note=note), encoding="utf-8")
             save(rep, to_card(rep, interp, h))
         return 0
     return 1

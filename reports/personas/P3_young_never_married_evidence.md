@@ -3,9 +3,11 @@
 **Outer-layer definition:** age_band = 18-29; marital = Never been married  
 **n** = 285 (13.8% of the panel); built from 197 train members, 88 held out.
 
+> **Scores:** FROZEN HISTORICAL ESTIMATES. Tables below use the LEGACY (historical reproduction): shipped social-desirability and CRT scores, which contain known scoring defects (180 and 450 people mis-scored). Do not use these values as current findings. Corrected values for those two constructs follow the inner-layer table and are the ones cited in the persona card and memo.
+
 ## Bottom line
 
-P3 was chosen by a pre-registered search rule. Its robust trait, **higher neuroticism**, is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile and concentrated in young never-married men**, and helps almost no individual prediction. Treat that trait as a hypothesis. Behaviour cannot be assessed.
+P3 was chosen by a pre-registered search rule. Its robust trait, **higher neuroticism** (stable in all 6 redefinitions), is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile and concentrated in young never-married men**, and it barely improves individual prediction. Treat it as a hypothesis. Behaviour cannot be assessed.
 
 ## Inner layer (train members; typical = shrunken mean)
 

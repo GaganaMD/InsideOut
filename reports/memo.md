@@ -18,7 +18,7 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
      | CRT | 0.01* |
      | Dictator giving | 0.00 |
 
-   - The held-out R² values are almost identical: 0.17, 0.08*, 0.02, 0.02, 0.02* and 0.00. *Corrected scoring (see §2); the frozen originals were 0.05 and 0.02 on train, 0.07 and 0.02 held out.
+   - The held-out R² values are almost identical: 0.17, 0.08*, 0.02, 0.02, 0.02* and 0.00. *Corrected scoring (see §2; `reports/final_audit/corrected_scores/`). The frozen legacy values, which reproduce known scoring defects, were 0.05 and 0.02 on train and 0.07 and 0.02 held out.
    - Most of the signal comes from **age band**: age alone gives about half of neuroticism's R² (0.074 of 0.151) and nearly all of social desirability's. Income, employment and sex add the rest for neuroticism.
    - Our pre-registered H1 got this **backwards**. We expected cognition (CRT) to be the predictable construct and temperament not. CRT is not predictable (R² ≈ 0.01), though it is also unreliable (KR-20 0.58), so H1 is falsified in both directions.
 
@@ -30,7 +30,7 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
 
 3. **Personas get group averages right on the traits the outer layer sees, and stop there.** On the frozen holdout:
    - Every trait marked "distinct" on training data kept its direction, with similar or larger effect sizes.
-   - Where it is distinct, the persona mean reduced individual-level error by **11–14%** vs the population mean (4 of 6 cases; CIs exclude 0). On everything else, the gain was about 0.
+   - Where it is distinct, the persona mean reduced individual-level error by **9–14%** vs the population mean (4 of 6 cases; CIs exclude 0; social desirability uses the corrected score). On everything else, the gain was about 0.
    - Behavioural predictions from personas did **not** beat the population rate (Brier scores tied or worse).
 
 4. **The practical answer to Brace's question:**
@@ -52,7 +52,7 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
 | H6a: persona means beat the population on distinct traits | **Supported** (4 of 6). |
 | H6b: no gain on non-distinct traits | **Supported.** |
 | H6c: 80% intervals cover 70–90% | **Mostly** (15 of 18 cells). Over-coverage comes from discrete scales. |
-| H6d: individual gain < 10% | **Narrowly falsified.** Best gains were 11–14%. |
+| H6d: individual gain < 10% | **Narrowly falsified.** Neuroticism gains were 11–14%; social desirability 9% (corrected). |
 
 **Surprises**
 - **Three of the six shipped scale scores are mis-scored.** In each case a string-matching rule fails on some answer formats, and in each case we reproduced the bug exactly:
@@ -92,7 +92,7 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
 | Persona (n; train/test) | Distinct traits (train d → test d) | Individual MAE gain vs population mean | Hypothetical green choice |
 |---|---|---|---|
 | P1: age 65+ (277; 194/83) | Social desirability +0.39 → +0.47 (corrected; frozen original +0.42 → +0.49); neuroticism −0.43 → −0.58 | +9.3% (original 11.6%) and +13.2% (both CIs > 0) | Within ±7 points of the population; no gain |
-| P2: 18–49 and income < $50k (425; 291/134) | Neuroticism +0.47 → +0.55; social desirability −0.22 → −0.23 | +11.2% (> 0); +2.0% (CI includes 0) | Grey-default rate 27% on train vs 47% on test: **failed** |
+| P2: 18–49 and income < $50k (425; 291/134) | Neuroticism +0.47 → +0.55; social desirability −0.21 → −0.25 (corrected) | +11.2% (> 0); +2.0% (CI includes 0) | Grey-default rate 27% on train vs 47% on test: **failed** |
 | P3: 18–29 never married (285; 197/88) | Neuroticism +0.43 → +0.55; green values −0.27 → −0.40 | +14.4% (> 0); +0.7% (CI includes 0) | Insufficient evidence (16–17 per cell) |
 
 The 80% intervals covered 72–99% of held-out members. Coverage is only informative for neuroticism, green values and spendthrift; on bounded or discrete scales it is inflated by ties (CRT's p10–p90 spans its whole 0–4 range). Group gaps are not individual predictions: a random 65+ member is more neurotic than a random 18–29-year-old 25% of the time, despite d = −0.87.

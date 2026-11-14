@@ -5,7 +5,7 @@
 **Outer-layer definition:** party = Republican  
 **n** = 540 (26.2% of the panel); built from 387 train members, 153 held out.
 
-*Scores: shipped scores (frozen original); add --corrected-scores for audited SD/CRT.*
+> **Scores:** LEGACY (historical reproduction): shipped social-desirability and CRT scores, which contain known scoring defects (180 and 450 people mis-scored). Do not use these values as current findings.
 
 ## Inner layer (train members; typical = shrunken mean)
 

@@ -3,9 +3,11 @@
 **Outer-layer definition:** age_band in {18-29, 30-49}; income in {Less than $30,000, $30,000-$50,000}  
 **n** = 425 (20.7% of the panel); built from 291 train members, 134 held out.
 
+> **Scores:** FROZEN HISTORICAL ESTIMATES. Tables below use the LEGACY (historical reproduction): shipped social-desirability and CRT scores, which contain known scoring defects (180 and 450 people mis-scored). Do not use these values as current findings. Corrected values for those two constructs follow the inner-layer table and are the ones cited in the persona card and memo.
+
 ## Bottom line
 
-Under-50s with household income below $50k show **higher neuroticism**, the largest robust group difference in the project. It reflects **two** visible facts: youth, and lower income *within* every age band. Do not use this persona for money style (the pre-registered 'more spendthrift' prediction failed) or for responses to a costed green offer (the apparent cost effect did not replicate).
+**Higher neuroticism** is the one dependable trait. It is the project's largest robust group difference and holds in all 6 redefinitions. It combines youth with lower income, and income still matters *within* each age band. The 'more spendthrift' prediction failed. The lower social desirability is fragile (it vanishes if the group is widened to 18–64), and the earlier CRT difference was a scoring artefact.
 
 ## Inner layer (train members; typical = shrunken mean)
 

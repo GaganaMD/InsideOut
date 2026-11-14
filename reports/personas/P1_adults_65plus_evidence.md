@@ -3,9 +3,11 @@
 **Outer-layer definition:** age_band = 65+  
 **n** = 277 (13.5% of the panel); built from 194 train members, 83 held out.
 
+> **Scores:** FROZEN HISTORICAL ESTIMATES. Tables below use the LEGACY (historical reproduction): shipped social-desirability and CRT scores, which contain known scoring defects (180 and 450 people mis-scored). Do not use these values as current findings. Corrected values for those two constructs follow the inner-layer table and are the ones cited in the persona card and memo.
+
 ## Bottom line
 
-A 65+ group is **calmer** (lower neuroticism) and **presents itself more favourably** (higher social desirability) than the panel. Both differences replicate on held-out people and survive redefining the group. On values, money style, reflection, generosity and the hypothetical green choice, treat this group as the population average.
+This group is **calmer** (lower neuroticism) and **describes itself more favourably** (higher social desirability) than the panel. Both differences replicate on held-out people and survive all 5 one-criterion redefinitions. On values, money style, reflection, generosity and the hypothetical green choice, treat it as the population average. The earlier 'less reflective' (CRT) result was a scoring artefact and is withdrawn.
 
 ## Inner layer (train members; typical = shrunken mean)
 
