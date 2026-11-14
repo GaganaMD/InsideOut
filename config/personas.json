@@ -1,0 +1,30 @@
+{
+ "P1": {
+  "name": "P1_adults_65plus",
+  "criteria": "age_band=65+",
+  "interpretation": {
+   "Why it fits": "The outer layer sees **life stage**, and the two constructs it separates best for adults 65+ are the two with the steepest monotonic age gradients in the whole panel. **Social desirability** is +0.42 SD; the train means by age band are 5.1, 5.0, 6.2 and 7.3. **Neuroticism** is −0.43 SD; the means are 3.14, 2.82, 2.51 and 2.28. Both match published cross-sectional patterns: emotional stability rises with age (the maturity principle; Roberts et al. 2006, Soto et al. 2011), and so does socially desirable self-presentation. Age is the strongest single Tier A predictor of neuroticism in the drop-one analysis. In contrast, what older adults *do* in the green-energy scenario is not distinguishable from the population.",
+   "Alternative explanations": "(1) **Cohort, not ageing.** The data are cross-sectional, so a 1950s-born cohort effect cannot be separated from age. (2) **Self-presentation.** Social desirability and neuroticism correlate at r = −0.39. Adjusting for social desirability shrinks the 65+ neuroticism gap from −0.50 to −0.32 SD (95% CI −0.46 to −0.18). About a third of the 'calmer' profile may therefore be how older people *describe* themselves, though the gap does not disappear. (3) **Panel selection.** Older online-panel members are probably unusual for their age group, so this describes 65+ panelists, not 65+ Americans.",
+   "Where it breaks": "About 30% of members sit on the 'wrong' side of the population median on each of the two defining traits, so the persona describes the group, not a given individual. Dictator giving, CRT, spendthrift and green values are at most weakly different from the population. The behavioural cells are small (40–49 per condition), and 65+ adults are over-represented in the Mega-Study (22% of participants vs 10% of non-participants), so experiment results lean old."
+  }
+ },
+ "P2": {
+  "name": "P2_under50_income_below_50k",
+  "criteria": "age_band=18-29|30-49; income=Less than $30,000|$30,000-$50,000",
+  "interpretation": {
+   "Why it fits": "The defining feature is **neuroticism** (+0.47 SD, the largest effect among the three personas), and it has two additive sources. Age contributes because younger people are higher. Income contributes too: within *every* age band, the lower-income group scores higher (train 18–29: 3.36 vs 2.99; 30–49: 3.07 vs 2.69; adjusted gap +0.30 SD, 95% CI 0.20 to 0.40). This is consistent with financial strain and negative affect reinforcing each other, though the direction cannot be identified here. Lower social desirability (−0.22 SD) follows the age gradient.",
+   "Alternative explanations": "(1) **Reverse causation or a third factor.** Emotional instability can lower earnings, and poor health can drive both. (2) **Household-income misclassification.** Students and young adults may report parental or partner income, so 'below $50k' mixes constrained adults with students. (3) The pre-registered prediction that P2 would be **more spendthrift failed** (d = −0.08, CI includes 0). Low income here does not show up as loose spending, which weakens a simple 'impulsive budget' story.",
+   "Where it breaks": "In the green scenario, P2 chose the $39 renewable option less often when it required switching (27% vs 36% for the population, n = 33, CI 15–44%). That is directionally a cost effect, but the population model's income term is null (OR 1.13, 0.73–1.74) and the green values × income interaction is not detectable. **We cannot claim a larger say–do gap for the financially constrained.** The top-third-green subgroup has 11 or fewer members per condition, too few to estimate."
+  }
+ },
+ "P3": {
+  "name": "P3_young_never_married",
+  "criteria": "age_band=18-29; marital=Never been married",
+  "selected_by": "pre-registered rule in hypotheses.md H6 (src/personas.py select-p3, train only); top of results/p3_selection.csv",
+  "interpretation": {
+   "Why it fits": "This group was chosen by the pre-registered rule as the most inner-layer-distinctive Tier A group of 150 or more people that is not mostly P1 or P2. It is high on **neuroticism** (+0.43 SD), mostly the age gradient it shares with P2. Its surprising feature is **lower green values** (−0.27 SD). Among 18–29-year-olds, the never-married score 3.25 vs 3.84 for those who are married, partnered or previously married. The gap survives adjustment for sex, income band and education (−0.45 SD, 95% CI −0.72 to −0.18). This contradicts the 'young people are greener' stereotype. One reading is that settling down (partnering, household formation) goes with environmental concern. That is a post-hoc hypothesis, not a finding.",
+   "Alternative explanations": "(1) **Composition.** P3 is 56% male vs 36% among other 18–29s. The adjustment handles sex as a main effect only. (2) **Selection of the never-married-young into this panel.** (3) **Chance.** The green gap was found while describing a persona that a search over about 1,000 candidate groups had selected. It was not pre-registered, so it is exploratory and needs the holdout.",
+   "Where it breaks": "There is too little behaviour to say anything: only 33 members were in the green-energy experiment (17 and 16 per condition), below the 20-per-condition threshold, so **no behavioural profile is reported**. Its neuroticism profile duplicates P2's, which shows that much of what Tier A 'sees' collapses onto a single age axis."
+  }
+ }
+}

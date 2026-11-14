@@ -1,0 +1,277 @@
+"""C/D. Persona generator (CLI). Builds a persona from outer-layer criteria using the TRAIN split only.
+
+Criteria syntax:  "var=level[|level...]; var2=level"   e.g.  "age_band=65+"  or
+                  "age_band=18-29|30-49; income=Less than $30,000|$30,000-$50,000"
+Variables must be on the Tier A whitelist (party only with --allow-party, labelled as a sensitivity persona).
+
+Usage:
+  python src/personas.py build --name retirees --criteria "age_band=65+"
+  python src/personas.py select-p3           # pre-registered rule, train data only
+  python src/personas.py build-config        # the three submission personas from config/personas.json
+  python src/personas.py list-levels         # valid variables and levels
+"""
+import argparse
+import itertools
+import json
+import sys
+
+import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+
+from common import CONSTRUCTS, RESULTS, ROOT, TIER_A, TIER_B, load_green, load_people, low_income, wilson
+
+MIN_N_TRAIN = 30          # below this the persona is "insufficient evidence"
+MIN_N_BEHAVIOUR = 20      # per default condition, for the green-choice estimate
+D_DISTINCT = 0.20         # |Cohen's d| threshold for calling a construct distinctive
+OUT = ROOT / "reports/personas"
+
+
+class CriteriaError(ValueError):
+    pass
+
+
+# ----------------------------------------------------------------------------- criteria
+def parse_criteria(text: str, people: pd.DataFrame, allow_party: bool = False) -> dict[str, list[str]]:
+    allowed = TIER_A + (TIER_B if allow_party else [])
+    crit = {}
+    for part in [p.strip() for p in text.split(";") if p.strip()]:
+        if "=" not in part:
+            raise CriteriaError(f"'{part}': expected var=level")
+        var, levels = (s.strip() for s in part.split("=", 1))
+        if var not in allowed:
+            hint = " (party needs --allow-party; it is self-reported, Tier B)" if var in TIER_B else ""
+            raise CriteriaError(f"'{var}' is not an allowed outer-layer variable{hint}. Allowed: {allowed}")
+        valid = list(people[var].cat.categories)
+        lv = [l.strip() for l in levels.split("|")]
+        bad = [l for l in lv if l not in valid]
+        if bad:
+            raise CriteriaError(f"{var}: unknown level(s) {bad}. Valid: {valid}")
+        crit[var] = lv
+    if not crit:
+        raise CriteriaError("empty criteria")
+    return crit
+
+
+def mask(people: pd.DataFrame, crit: dict) -> pd.Series:
+    m = pd.Series(True, index=people.index)
+    for var, lv in crit.items():
+        m &= people[var].astype(str).isin(lv)
+    return m
+
+
+def describe(crit: dict) -> str:
+    return "; ".join(f"{v} in {{{', '.join(l)}}}" if len(l) > 1 else f"{v} = {l[0]}" for v, l in crit.items())
+
+
+# ----------------------------------------------------------------------------- shrinkage prior
+def tau2_by_construct(train: pd.DataFrame) -> dict[str, float]:
+    """Method-of-moments between-group variance across single-level Tier A groups (n_train >= 30)."""
+    out = {}
+    for c in CONSTRUCTS:
+        means, noise = [], []
+        for var in TIER_A:
+            for _, g in train.groupby(var, observed=True):
+                if len(g) >= 30:
+                    means.append(g[c].mean())
+                    noise.append(g[c].var(ddof=1) / len(g))
+        out[c] = max(0.0, float(np.var(means, ddof=1) - np.mean(noise)))
+    return out
+
+
+# ----------------------------------------------------------------------------- core
+def build(name: str, crit: dict, people: pd.DataFrame, green: pd.DataFrame, sensitivity_label: str = "") -> dict:
+    train = people[people.split == "train"]
+    m = mask(people, crit)
+    mem_tr = people[m & (people.split == "train")]
+    rep = dict(name=name, definition=describe(crit), criteria=crit, label=sensitivity_label,
+               n_total=int(m.sum()), n_train=len(mem_tr), n_test=int((m & (people.split == "test")).sum()),
+               share_of_population=float(m.mean()), built_from="train split only")
+    if len(mem_tr) < MIN_N_TRAIN:
+        rep["status"] = f"INSUFFICIENT EVIDENCE: n_train={len(mem_tr)} < {MIN_N_TRAIN}"
+        return rep
+    rep["status"] = "ok"
+    tau2 = tau2_by_construct(train)
+    inner = []
+    for c, (_, label, _) in CONSTRUCTS.items():
+        x, pop = mem_tr[c], train[c]
+        n, mu_p, s_p = len(x), x.mean(), x.std(ddof=1)
+        mu0, sd0 = pop.mean(), pop.std(ddof=1)
+        se = s_p / np.sqrt(n)
+        w = tau2[c] / (tau2[c] + se ** 2) if tau2[c] > 0 else 0.0
+        shrunk = w * mu_p + (1 - w) * mu0
+        d, d_se = (mu_p - mu0) / sd0, se / sd0
+        d_lo, d_hi = d - 1.96 * d_se, d + 1.96 * d_se
+        distinct = abs(d) >= D_DISTINCT and (d_lo > 0 or d_hi < 0)
+        weak = (not distinct) and (d_lo > 0 or d_hi < 0)
+        side = np.sign(mu_p - mu0)
+        opposite = float(((x - pop.median()) * side < 0).mean()) if side != 0 else np.nan
+        inner.append(dict(
+            construct=c, label=label, n=n, typical_shrunk=shrunk, raw_mean=mu_p,
+            mean_ci_lo=mu_p - 1.96 * se, mean_ci_hi=mu_p + 1.96 * se, shrink_weight=w,
+            sd=s_p, p10=x.quantile(.1), median=x.median(), p90=x.quantile(.9),
+            pop_mean=mu0, pop_sd=sd0, d=d, d_lo=d_lo, d_hi=d_hi,
+            share_opposite_side_of_pop_median=opposite,
+            confidence="distinct" if distinct else ("weak difference" if weak else "not distinguishable from population"),
+            source=f"Twin-2K-500 {CONSTRUCTS[c][0]}"))
+    rep["inner"] = inner
+
+    # Behaviour: hypothetical green-energy choice (default_eric), train members only
+    gtr = green[green.split == "train"]
+    gm = gtr[gtr.pid.isin(mem_tr.pid)]
+    beh = []
+    for cond in ("grey_default", "green_default"):
+        s, p = gm[gm.green_condition == cond], gtr[gtr.green_condition == cond]
+        k, n = int(s.chose_green.sum()), len(s)
+        lo, hi = wilson(k, n)
+        beh.append(dict(condition=cond, n=n, rate=k / n if n else np.nan, lo=lo, hi=hi,
+                        pop_rate=p.chose_green.mean(), pop_n=len(p),
+                        status="ok" if n >= MIN_N_BEHAVIOUR else f"INSUFFICIENT EVIDENCE (n={n} < {MIN_N_BEHAVIOUR})"))
+    rep["green_choice"] = beh
+    # say-do: among members with GREEN in the population top tercile, share declining green per condition
+    thr = gtr.green.quantile(2 / 3)
+    gap = []
+    for cond in ("grey_default", "green_default"):
+        s = gm[(gm.green >= thr) & (gm.green_condition == cond)]
+        p = gtr[(gtr.green >= thr) & (gtr.green_condition == cond)]
+        lo, hi = wilson(int((1 - s.chose_green).sum()), len(s))
+        gap.append(dict(condition=cond, n_high_green=len(s), share_declining=1 - s.chose_green.mean() if len(s) else np.nan,
+                        lo=lo, hi=hi, pop_share_declining=1 - p.chose_green.mean(),
+                        status="ok" if len(s) >= 10 else "INSUFFICIENT EVIDENCE (n<10)"))
+    rep["say_do_gap"] = gap
+    rep["mega_study_participation"] = dict(n_train_in_default_eric=len(gm))
+    return rep
+
+
+# ----------------------------------------------------------------------------- P3 selection (pre-registered)
+def select_p3(people: pd.DataFrame, p1: dict, p2: dict) -> pd.DataFrame:
+    tr = people[people.split == "train"]
+    m1, m2 = mask(tr, p1), mask(tr, p2)
+    mu, sd = tr[list(CONSTRUCTS)].mean(), tr[list(CONSTRUCTS)].std(ddof=1)
+    singles = [(v, str(l)) for v in TIER_A for l in tr[v].cat.categories]
+    cands = [{v: [l]} for v, l in singles]
+    cands += [{a[0]: [a[1]], b[0]: [b[1]]} for a, b in itertools.combinations(singles, 2) if a[0] != b[0]]
+    rows = []
+    for c in cands:
+        mm = mask(tr, c)
+        n = int(mm.sum())
+        if n < 150:
+            continue
+        ov1, ov2 = (mm & m1).sum() / n, (mm & m2).sum() / n
+        if ov1 > 0.5 or ov2 > 0.5:
+            continue
+        d = ((tr.loc[mm, list(CONSTRUCTS)].mean() - mu) / sd).abs()
+        rows.append(dict(definition=describe(c), criteria=json.dumps(c), n_train=n, overlap_p1=ov1, overlap_p2=ov2,
+                         mean_abs_d=d.mean(), **{f"d_{k}": v for k, v in d.items()}))
+    return pd.DataFrame(rows).sort_values("mean_abs_d", ascending=False)
+
+
+# ----------------------------------------------------------------------------- rendering
+def fmt(x, nd=2):
+    return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{nd}f}"
+
+
+def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | None = None) -> str:
+    L = [f"# Persona: {rep['name']}", ""]
+    if rep.get("label"):
+        L += [f"> **{rep['label']}**", ""]
+    L += [f"**Outer-layer definition:** {rep['definition']}  ",
+          f"**n** = {rep['n_total']} ({rep['share_of_population']:.1%} of the panel); built from {rep['n_train']} "
+          f"train members, {rep['n_test']} held out.", ""]
+    if rep["status"] != "ok":
+        return "\n".join(L + [f"**{rep['status']}** — no profile is reported for this group.", ""])
+    L += ["## Inner layer (train members; typical = shrunken mean)", "",
+          "| Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % on other side of pop. median | Confidence |",
+          "|---|---|---|---|---|---|---|"]
+    for r in rep["inner"]:
+        L.append(f"| {r['label']} | {fmt(r['typical_shrunk'])} | {fmt(r['mean_ci_lo'])}–{fmt(r['mean_ci_hi'])} | "
+                 f"{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)} ({fmt(r['sd'])}) | {r['d']:+.2f} ({r['d_lo']:+.2f}, {r['d_hi']:+.2f}) | "
+                 f"{r['share_opposite_side_of_pop_median']:.0%} | {r['confidence']} |")
+    L += ["", "Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit).", "",
+          "## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)", "",
+          "| Default condition | n | Chose renewable | 95% CI | Population |", "|---|---|---|---|---|"]
+    for b in rep["green_choice"]:
+        val = f"{b['rate']:.0%}" if b["status"] == "ok" else b["status"]
+        L.append(f"| {b['condition']} | {b['n']} | {val} | {fmt(b['lo'])}–{fmt(b['hi'])} | {b['pop_rate']:.0%} (n={b['pop_n']}) |")
+    L += ["", "**Say vs do** — members in the population's top third on green values who still declined the renewable option:", ""]
+    for g in rep["say_do_gap"]:
+        val = f"{g['share_declining']:.0%} ({fmt(g['lo'])}–{fmt(g['hi'])})" if g["status"] == "ok" else g["status"]
+        L.append(f"- {g['condition']}: {val}, n={g['n_high_green']} (population {g['pop_share_declining']:.0%})")
+    L += ["", "*These are hypothetical survey choices, not purchases.*", ""]
+    if interp:
+        for k in ("Why it fits", "Alternative explanations", "Where it breaks"):
+            if k in interp:
+                L += [f"## {k}", "", interp[k], ""]
+    if holdout is not None and len(holdout):
+        L += ["## Held-out check (frozen test split, evaluated once)", "",
+              "| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |",
+              "|---|---|---|---|---|---|"]
+        for _, h in holdout.iterrows():
+            L.append(f"| {h['construct']} | {int(h['n_test'])} | {fmt(h['mae_persona'])} | {fmt(h['mae_pop'])} | "
+                     f"{h['gain_pct']:+.1f}% ({h['gain_lo']:+.3f}, {h['gain_hi']:+.3f}) | {h['cov_persona']:.0%} / {h['cov_pop']:.0%} |")
+        L.append("")
+    return "\n".join(L)
+
+
+def save(rep: dict, md: str) -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    slug = rep["name"].replace(" ", "_")
+    json.dump(rep, open(OUT / f"{slug}.json", "w"), indent=1, default=float)
+    (OUT / f"{slug}.md").write_text(md, encoding="utf-8")
+    print("wrote", OUT / f"{slug}.md")
+
+
+def load_config() -> dict:
+    return json.load(open(ROOT / "config/personas.json", encoding="utf-8"))
+
+
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    b = sub.add_parser("build")
+    b.add_argument("--name", required=True)
+    b.add_argument("--criteria", required=True)
+    b.add_argument("--allow-party", action="store_true")
+    sub.add_parser("select-p3")
+    sub.add_parser("build-config")
+    sub.add_parser("list-levels")
+    a = ap.parse_args(argv)
+
+    people = load_people()
+    if a.cmd == "list-levels":
+        for v in TIER_A + TIER_B:
+            print(f"{v}{' (Tier B, needs --allow-party)' if v in TIER_B else ''}: {list(people[v].cat.categories)}")
+        return 0
+    green = load_green()
+    if a.cmd == "build":
+        try:
+            crit = parse_criteria(a.criteria, people, a.allow_party)
+        except CriteriaError as e:
+            print(f"ERROR: {e}", file=sys.stderr)
+            return 2
+        label = "SENSITIVITY PERSONA — uses self-reported party (Tier B), not census-observable" if "party" in crit else ""
+        rep = build(a.name, crit, people, green, label)
+        save(rep, to_markdown(rep))
+        print(rep["status"])
+        return 0
+    cfg = load_config()
+    if a.cmd == "select-p3":
+        p1, p2 = (parse_criteria(cfg[k]["criteria"], people) for k in ("P1", "P2"))
+        t = select_p3(people, p1, p2)
+        RESULTS.mkdir(exist_ok=True)
+        t.round(4).to_csv(RESULTS / "p3_selection.csv", index=False)
+        print(t.head(10).round(3).to_string(index=False))
+        return 0
+    if a.cmd == "build-config":
+        hold = pd.read_csv(RESULTS / "holdout_personas.csv") if (RESULTS / "holdout_personas.csv").exists() else None
+        for key, p in cfg.items():
+            crit = parse_criteria(p["criteria"], people, allow_party=p.get("allow_party", False))
+            rep = build(p["name"], crit, people, green, p.get("label", ""))
+            h = hold[hold.persona == p["name"]] if hold is not None else None
+            save(rep, to_markdown(rep, p.get("interpretation"), h))
+        return 0
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

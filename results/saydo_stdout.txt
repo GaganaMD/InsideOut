@@ -1,0 +1,60 @@
+{
+ "n_train": 428,
+ "randomisation_check_llr_p": 0.042517188316546196,
+ "ames": {
+  "ame_green_1sd": {
+   "est": 0.1883801754015244,
+   "lo": 0.15305738779943673,
+   "hi": 0.21969812220526647
+  },
+  "ame_default": {
+   "est": 0.24706781228054137,
+   "lo": 0.16252167002868612,
+   "hi": 0.331062661737491
+  },
+  "ame_green_1sd_greydef": {
+   "est": 0.2142006752175714,
+   "lo": 0.15923982683231305,
+   "hi": 0.26219669061582923
+  },
+  "ame_green_1sd_greendef": {
+   "est": 0.15952614586572,
+   "lo": 0.11708155728994944,
+   "hi": 0.20117568243720166
+  },
+  "default_minus_green": {
+   "est": 0.05868763687901696,
+   "lo": -0.03398287274022685,
+   "hi": 0.15458644645649194
+  }
+ },
+ "primary_pseudo_r2": 0.1539359898585133
+}
+                 term   coef    se     p    OR  OR_lo  OR_hi
+            Intercept -0.877 0.199 0.000 0.416  0.282  0.614
+              green_z  1.081 0.208 0.000 2.947  1.958  4.434
+        green_default  1.237 0.230 0.000 3.444  2.196  5.403
+green_z:green_default -0.226 0.259 0.384 0.798  0.480  1.326
+              low_inc  0.119 0.222 0.591 1.127  0.729  1.743
+H5: fitted min cell 82
+                 term   coef    se     p    OR  OR_lo  OR_hi
+            Intercept -0.888 0.201 0.000 0.412  0.278  0.610
+              green_z  1.149 0.230 0.000 3.154  2.009  4.950
+        green_default  1.229 0.230 0.000 3.418  2.178  5.365
+green_z:green_default -0.210 0.260 0.420 0.811  0.487  1.351
+              low_inc  0.130 0.223 0.559 1.139  0.736  1.763
+      green_z:low_inc -0.177 0.245 0.469 0.838  0.518  1.353
+SD-adjusted:
+                  term   coef    se     p    OR  OR_lo  OR_hi
+            Intercept -0.873 0.199 0.000 0.418  0.283  0.617
+              green_z  1.070 0.210 0.000 2.917  1.933  4.400
+        green_default  1.234 0.230 0.000 3.435  2.189  5.391
+green_z:green_default -0.216 0.260 0.407 0.806  0.484  1.342
+              low_inc  0.115 0.223 0.605 1.122  0.725  1.736
+                 sd_z  0.047 0.109 0.664 1.048  0.847  1.298
+green_condition  high_green  size  mean
+  green_default       False   105 0.390
+  green_default        True   117 0.744
+   grey_default       False    88 0.182
+   grey_default        True   118 0.492
+{'gap_top_tercile_decline_grey_default': {'n': 87, 'share_decline': np.float64(0.47126436781609193)}, 'gap_top_tercile_decline_green_default': {'n': 89, 'share_decline': np.float64(0.2134831460674157)}}
