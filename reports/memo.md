@@ -20,7 +20,7 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
 
    - The held-out R² values are almost identical: 0.17, 0.08*, 0.02, 0.02, 0.02* and 0.00. *Corrected scoring (see §2; `reports/final_audit/corrected_scores/`). The frozen legacy values, which reproduce known scoring defects, were 0.05 and 0.02 on train and 0.07 and 0.02 held out.
    - Most of the signal comes from **age band**: age alone gives about half of neuroticism's R² (0.074 of 0.151) and nearly all of social desirability's. Income, employment and sex add the rest for neuroticism.
-   - Our pre-registered H1 got this **backwards**. We expected cognition (CRT) to be the predictable construct and temperament not. CRT is not predictable (R² ≈ 0.01), though it is also unreliable (KR-20 0.58), so H1 is falsified in both directions.
+   - Our pre-registered H1 got this **backwards**. We expected cognition (CRT) to be the predictable construct and temperament not. CRT shows no robust predictability: training CV R² is about 0.01 with a CI including 0, and its held-out R² of 0.02 excludes zero only when the fitted model is held fixed. It is also unreliable (KR-20 0.58). H1 is therefore falsified in both directions.
 
 2. **Values do predict the hypothetical green choice, and that gap is a stable feature of the population.**
    - In the $39 renewable vs $32 supplier scenario, +1 SD of green values raises the chance of choosing renewable by **+19 points** (95% CI 15–22; OR 2.95). A randomised green default adds **+25 points** (16–33).

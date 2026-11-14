@@ -22,7 +22,11 @@ This is an applied-research study of 2,058 US adults from the public Twin-2K-500
 
 ![Held-out R² by construct](figures/fig1_heldout_r2.png)
 
-*Figure 1. Held-out R² for the frozen ridge model (Tier A census variables, fitted on the training split; n = 616 held out). Bars: 95% bootstrap intervals over held-out participants. † Corrected item-level scoring applied after the audit. Source: [`figures/data/fig1_heldout_r2.csv`](figures/data/fig1_heldout_r2.csv).*
+*Figure 1. Held-out predictive performance of the frozen ridge model (Tier A census variables, fitted on the training split only).*
+- *R² is the share of individual-level variance among the 616 held-out participants that the model predicts, relative to the population mean.*
+- *Because the predictions are averages for demographic cells, R² = 0.17 for neuroticism means those averages differ meaningfully while 83% of person-to-person variation remains unexplained.*
+- *Bars: 95% bootstrap intervals over held-out participants, conditional on the fitted model. They do not include model-refitting uncertainty, which a training-only check found similar for neuroticism but about 2–3× larger for green values and CRT. CRT's held-out R² of 0.02 is therefore not a robust positive signal: with refitting, its training-only interval includes zero ([audit](research_frontier/01_project_red_team.md)).*
+- *† Corrected item-level scoring applied after the audit. Source: [`figures/data/fig1_heldout_r2.csv`](figures/data/fig1_heldout_r2.csv).*
 
 ## The three personas
 
@@ -34,15 +38,19 @@ Membership is defined only by census-observable facts. Each card fits on one pag
 | [P2](reports/personas/P2_under50_income_below_50k.md) | Age 18–49, household income < $50k | 425 | Higher neuroticism (+0.47 → +0.55), within every age band | "More spendthrift" falsified; "budget-constrained green chooser" failed the holdout |
 | [P3](reports/personas/P3_young_never_married.md) | Age 18–29, never married | 285 | Higher neuroticism (+0.43 → +0.55) | Lower green values (−0.27 → −0.40) are concentrated in men and hold in only 3 of 6 redefinitions |
 
-![Persona differences with confidence intervals](figures/fig3_persona_d.png)
+![Persona differences with confidence intervals](figures/fig2_persona_d.png)
 
-*Figure 2. Standardised differences from the training population, with 95% CIs, for training members (circles) and held-out members (squares). † Corrected scores. Source: [`figures/data/fig3_persona_d.csv`](figures/data/fig3_persona_d.csv).*
+*Figure 2. Standardised differences from the training population, with 95% CIs, for training members (circles) and held-out members (squares). † Corrected scores. Source: [`figures/data/fig2_persona_d.csv`](figures/data/fig2_persona_d.csv).*
 
 ## Does measuring an attitude help? (exploratory)
 
-![Green-choice prediction: Brier change vs baseline](figures/fig2_green_choice_brier.png)
+![Green-choice prediction: Brier change vs baseline](figures/fig3_green_choice_brier.png)
 
-*Figure 3. **Exploratory, training split only (n = 428).** Out-of-fold Brier change against the prevalence baseline for a **hypothetical** survey choice of a $39 renewable tariff over a $32 one; this is not a purchase. Bars: 95% paired participant-bootstrap intervals. The randomised default has a large causal effect on the choice rate (+25 points), but adds little prediction once green values are known. Source: [`figures/data/fig2_green_choice_brier.csv`](figures/data/fig2_green_choice_brier.csv).*
+*Figure 3. **Exploratory, training split only (n = 428).***
+- *Shows the out-of-fold Brier change against the prevalence baseline, for a **hypothetical** survey choice of a $39 renewable tariff over a $32 one; this is not a purchase.*
+- *Lower Brier is better. Bars: 95% paired participant-bootstrap intervals.*
+- *The randomised default has a large causal effect on the choice rate (+25 points). It also adds predictive value: in a later post-hoc, training-only comparison (same participants and folds), "green values + default" improved Brier by −0.014 (95% CI −0.025 to −0.003) over "green values only", both without demographics ([X1](research_frontier/04_experiment_designs.md)).*
+- *Source: [`figures/data/fig3_green_choice_brier.csv`](figures/data/fig3_green_choice_brier.csv).*
 
 ## Research design
 

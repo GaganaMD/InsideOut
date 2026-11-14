@@ -4,15 +4,17 @@
 
 Figure 1  Held-out R2 by construct: frozen confirmatory ridge model (Tier A, fitted on train), scored on the frozen
           test split. Social desirability and CRT use the corrected item-level scores (post-audit re-scoring of the SAME
-          model; the shipped scores are defective). 95% intervals: bootstrap over held-out participants, model fixed.
+          model; the shipped scores are defective). 95% intervals: bootstrap over held-out participants CONDITIONAL ON THE
+          FITTED MODEL (model-refit uncertainty is not included; see research_frontier/01_project_red_team.md A1-a).
           Checks: point estimates must equal results/holdout_predictability.csv (unaffected constructs) and
           reports/final_audit/corrected_scores/predictability_sd_crt.csv (SD, CRT).
-Figure 2  EXPLORATORY, train only (n = 428): out-of-fold Brier change vs the prevalence baseline for the hypothetical
+Figure 2  Persona standardized differences (d vs train population) with 95% CIs, training members vs held-out members,
+          corrected SD/CRT. Checks against reports/personas/*.json (frozen) and corrected_scores/personas_sd_crt.csv.
+Figure 3  EXPLORATORY, train only (n = 428): out-of-fold Brier change vs the prevalence baseline for the hypothetical
           green-energy choice. Inputs: reports/exploratory/oof_predictions.csv and
           reports/robustness/demographic_complexity/oof_green.csv (same participants and folds; checked).
           95% intervals: paired participant bootstrap.
-Figure 3  Persona standardized differences (d vs train population) with 95% CIs, training members vs held-out members,
-          corrected SD/CRT. Checks against reports/personas/*.json (frozen) and corrected_scores/personas_sd_crt.csv.
+Figure numbers follow the order in which the README displays the figures (Figure 4 = tools/render_mermaid.py).
 Nothing here selects models or changes any frozen output.
 """
 import sys
@@ -86,16 +88,16 @@ def fig1() -> pd.DataFrame:
     h1 = ax.plot([], [], "o", color=BLUE, label="frozen confirmatory estimate")[0]
     h2 = ax.plot([], [], "o", color=ORANGE, mfc="white", mew=2, label="† corrected item-level scoring (post-audit)")[0]
     ax.legend(handles=[h1, h2], loc="lower right", frameon=False, fontsize=8.5)
-    fig.text(0.01, 0.01, "Ridge regression fitted on the training split only; bars = 95% bootstrap interval over held-out "
-             "participants (model fixed).\nEven the largest value (0.17) is a modest group-level signal, not accurate "
-             "individual prediction.", fontsize=7.5, color="#333333")
+    fig.text(0.01, 0.01, "R² = share of individual-level variance predicted for held-out participants (vs the population mean). "
+             "Bars = 95% bootstrap\nintervals conditional on the fitted model; they omit model-refit uncertainty, "
+             "which is larger for the weakest constructs.", fontsize=7.5, color="#333333")
     fig.tight_layout(rect=(0, 0.1, 1, 0.95))
     save(fig, "fig1_heldout_r2")
     return d
 
 
 # ----------------------------------------------------------------------------- Figure 2
-def fig2() -> pd.DataFrame:
+def fig_green_choice() -> pd.DataFrame:
     a = pd.read_csv(ROOT / "reports/exploratory/oof_predictions.csv")
     b = pd.read_csv(ROOT / "reports/robustness/demographic_complexity/oof_green.csv")
     assert (a.pid.to_numpy() == b.pid.to_numpy()).all() and (a.y == b.y).all() and (a.fold == b.fold).all()
@@ -123,7 +125,7 @@ def fig2() -> pd.DataFrame:
         rows.append(dict(model=col, label=lab, group=grp, brier=brier(p, allidx), d_brier=brier(p, allidx) - brier(base, allidx),
                          lo=np.quantile(diffs, .025), hi=np.quantile(diffs, .975)))
     d = pd.DataFrame(rows)
-    d.round(5).to_csv(DATA / "fig2_green_choice_brier.csv", index=False)
+    d.round(5).to_csv(DATA / "fig3_green_choice_brier.csv", index=False)
 
     colors = {"Demographics only": GREY, "+ randomised default": ORANGE, "+ measured green values": GREEN}
     sub = d[d.model != "M0"].reset_index(drop=True)
@@ -146,12 +148,12 @@ def fig2() -> pd.DataFrame:
              "Logistic models; same\nparticipants and 5 folds for every model; preprocessing inside folds; bars = 95% paired "
              "participant-bootstrap intervals.", fontsize=7.5, color="#333333")
     fig.tight_layout(rect=(0, 0.1, 1, 0.92))
-    save(fig, "fig2_green_choice_brier")
+    save(fig, "fig3_green_choice_brier")
     return d
 
 
 # ----------------------------------------------------------------------------- Figure 3
-def fig3() -> pd.DataFrame:
+def fig_personas() -> pd.DataFrame:
     p = load_people(corrected=True)
     tr, te = p[p.split == "train"], p[p.split == "test"]
     corr = pd.read_csv(ROOT / "reports/final_audit/corrected_scores/personas_sd_crt.csv")
@@ -176,7 +178,7 @@ def fig3() -> pd.DataFrame:
                              d_heldout=d_te, lo_heldout=d_te - 1.96 * se_te, hi_heldout=d_te + 1.96 * se_te,
                              scoring="corrected" if c in ("social_desirability", "crt") else "frozen (unaffected)"))
     d = pd.DataFrame(rows)
-    d.round(4).to_csv(DATA / "fig3_persona_d.csv", index=False)
+    d.round(4).to_csv(DATA / "fig2_persona_d.csv", index=False)
 
     titles = {"P1": "P1 · age 65+", "P2": "P2 · age 18–49, income < $50k", "P3": "P3 · age 18–29, never married"}
     order = ["neuroticism", "social_desirability", "green", "spendthrift", "crt", "dictator_give"]
@@ -209,13 +211,13 @@ def fig3() -> pd.DataFrame:
              "Group mean differences, not individual predictions:\na random 65+ panelist is still more neurotic than a random "
              "18–29-year-old 25% of the time.", fontsize=7.5, color="#333333")
     fig.tight_layout(rect=(0, 0.14, 1, 0.95))
-    save(fig, "fig3_persona_d")
+    save(fig, "fig2_persona_d")
     return d
 
 
 def main() -> None:
     DATA.mkdir(parents=True, exist_ok=True)
-    for f in (fig1, fig2, fig3):
+    for f in (fig1, fig_personas, fig_green_choice):
         print(f.__name__, "\n", f().round(3).to_string(index=False))
 
 
