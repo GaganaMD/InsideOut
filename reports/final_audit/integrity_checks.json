@@ -29,6 +29,7 @@
  "commits_touching_models_split_hypotheses_after_holdout_script": [],
  "persona_names_and_criteria_unchanged_since_holdout_script": true,
  "commits_touching_persona_config_after_holdout_script (interpretation text only if criteria unchanged)": [
+  "da98907 Submission polish: one-page persona cards, corrected scores default for new personas, legacy mode labelled",
   "85215f3 Final audit phase 3: evidence-tiered persona cards (observed / interpretation / speculation)"
  ],
  "saydo_OR_green_recomputed": 2.946800896403104,
