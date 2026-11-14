@@ -24,6 +24,10 @@ Every change below is either a code defect fix or a correction to reporting and 
 | 9 | **Two wording slips** (Workstream C). | "One cheap inner-layer item, a 6-item scale". And "the default itself added a borderline ~0.01", which reads as "the default barely matters". | Now "one cheap inner-layer measure, the 6-item scale", and "added ~0.01 to *prediction*; its causal effect is still +25 points". | `reports/memo.md` §5, §6 |
 | 10 | **Small-cell overconfidence in the P3 card** (Workstream A). | Adjusting for sex does not remove the gap. | "Marital status mostly marks who is in the group" became "partly marks …, but adjusting for sex does not remove the gap". | `config/personas.json` → P3 card |
 
+| 11 | **"Nearly all" of social desirability's R² comes from age** (Workstream D). | `reports/final_audit/headline_challenge/nested.csv`: age-only R² 0.038 vs full Tier A 0.062 (corrected scores). | Now "about 60% of social desirability's (0.038 of 0.062)". | `reports/memo.md` §1 |
+
+Checked and **not** changed: the memo's "22% are 65+ vs 10%" is correct for the 600 `default_eric` participants (22.0% vs 9.95%). `audit/AUDIT.md` reports 21% on a different base.
+
 ## Verification
 - **Page limits:** `tools/page_count.py` gives the memo 4 A4 pages and each persona card 1 page.
 - **Tests:** the full suite passes after this commit. The `test_originals_untouched` guards compare protected files with the committed versions, so they pass once these authorized edits are committed.
