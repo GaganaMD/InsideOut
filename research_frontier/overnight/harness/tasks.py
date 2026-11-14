@@ -73,3 +73,28 @@ def build(k_min: int = 5, samples: int = 1, arms=("empty", "tierA", "tierA_condi
                 mapping += [(int(pid), arm, cond, cell) for pid in members.pid]
     assert all("pid" not in str(t.profile).lower() for t in tasks)
     return tasks, pd.DataFrame(mapping, columns=["pid", "arm", "cond", "cell"]), g[["pid", "cell", "k"]]
+
+
+PILOT = {"n_cells": 10, "cell_samples": 3, "empty_samples": 10}   # 2x10 empty + 10 cells x 2 cond x 3 = 80 calls
+
+
+def pilot_cells(g: pd.DataFrame, n_cells: int, k_min: int = 5) -> list[str]:
+    """Largest training cells present in BOTH default conditions (deterministic: size desc, then name)."""
+    both = g.groupby("cell").green_condition.nunique()
+    sizes = g.groupby("cell").size()
+    ok = [c for c in sizes.index if both[c] == 2 and g.loc[g.cell == c, "k"].iloc[0] >= k_min]
+    return sorted(ok, key=lambda c: (-sizes[c], c))[:n_cells]
+
+
+def build_pilot(n_cells: int = PILOT["n_cells"], cell_samples: int = PILOT["cell_samples"],
+                empty_samples: int = PILOT["empty_samples"]):
+    """Subset of the full design (same task keys, so pilot results are re-usable by a later full run)."""
+    tasks, mapping, g = build(samples=max(cell_samples, empty_samples), arms=("empty", "tierA"))
+    from common import load_green
+    gg = load_green()
+    gg = gg[gg.split == "train"].copy()
+    gg["cell"], gg["k"] = cells(gg), g.set_index("pid").loc[gg.pid, "k"].to_numpy()
+    keep_cells = set(pilot_cells(gg, n_cells))
+    out = [t for t in tasks if (t.arm == "empty" and t.sample < empty_samples)
+           or (t.arm == "tierA" and t.sample < cell_samples and t.task_id.split("/")[2] in keep_cells)]
+    return out, sorted(keep_cells)

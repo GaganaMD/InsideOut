@@ -1,14 +1,15 @@
 """OpenRouter chat client with pluggable transport, retries and secret hygiene.
 
-The API key is read from the OPENROUTER_API_KEY environment variable only at send time; it is never stored on the
+The API key is read (OPEN_ROUTER_KEY, alias OPENROUTER_API_KEY) only at send time; it is never stored on the
 object, logged, cached or checkpointed. Use MockTransport (tests) or DryRunTransport (no network) by default.
 """
 import json
-import os
 import random
 import time
 import urllib.error
 import urllib.request
+
+from .credentials import get_key, secret_values
 
 URL = "https://openrouter.ai/api/v1/chat/completions"
 RETRY_STATUS = {408, 409, 425, 429, 500, 502, 503, 504}
@@ -21,8 +22,9 @@ class TransportError(Exception):
 
 
 def redact(text: str) -> str:
-    key = os.environ.get("OPENROUTER_API_KEY", "")
-    out = text.replace(key, "[REDACTED]") if key else text
+    out = text
+    for secret in secret_values():
+        out = out.replace(secret, "[REDACTED]")
     return out
 
 
@@ -33,9 +35,9 @@ class HttpTransport:
         self.timeout = timeout
 
     def send(self, payload: dict) -> dict:
-        key = os.environ.get("OPENROUTER_API_KEY")
+        key = get_key()
         if not key:
-            raise RuntimeError("OPENROUTER_API_KEY is not set")
+            raise RuntimeError("API key not set (OPEN_ROUTER_KEY or OPENROUTER_API_KEY)")
         req = urllib.request.Request(URL, data=json.dumps(payload).encode(), method="POST",
                                      headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
         try:
