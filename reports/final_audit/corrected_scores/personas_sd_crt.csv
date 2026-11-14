@@ -1,7 +1,7 @@
-persona,construct,d_train_original,d_train_corrected,d_lo_corrected,d_hi_corrected,confidence_corrected,d_test_original,d_test_corrected,gain_pct_original,gain_pct_corrected,gain_lo_corrected,gain_hi_corrected,cov_corrected
-P1_adults_65plus,social_desirability,0.4209,0.3879,0.2557,0.5201,distinct,0.4941,0.4671,11.5618,9.294,0.068,0.5015,0.8313
-P1_adults_65plus,crt,-0.1801,-0.0643,-0.2117,0.083,not distinguishable from population,-0.2297,-0.0715,0.9513,-0.0923,-0.0042,0.0024,0.9036
-P2_under50_income_below_50k,social_desirability,-0.2159,-0.2127,-0.3242,-0.1012,distinct,-0.2318,-0.2512,1.9965,1.9737,-0.0446,0.1487,0.8657
-P2_under50_income_below_50k,crt,0.1337,0.0046,-0.11,0.1193,not distinguishable from population,-0.0079,-0.1394,-0.697,0.005,-0.0002,0.0003,0.8955
-P3_young_never_married,social_desirability,-0.1858,-0.1628,-0.2939,-0.0317,weak difference,-0.3061,-0.2969,1.3272,1.75,-0.0445,0.123,0.9205
-P3_young_never_married,crt,-0.0074,-0.069,-0.2131,0.0751,not distinguishable from population,0.1165,0.0432,-0.0048,-0.3793,-0.0073,-0.0004,0.875
+persona,construct,d_train_original,d_train_corrected,d_lo_corrected,d_hi_corrected,confidence_corrected,d_test_original,d_test_corrected,gain_pct_original,gain_pct_corrected,gain_lo_corrected,gain_hi_corrected,cov_corrected,typical_corrected,p10_corrected,p90_corrected
+P1_adults_65plus,social_desirability,0.4209,0.3879,0.2557,0.5201,distinct,0.4941,0.4671,11.5618,9.294,0.068,0.5015,0.8313,7.3395,3.0,11.0
+P1_adults_65plus,crt,-0.1801,-0.0643,-0.2117,0.083,not distinguishable from population,-0.2297,-0.0715,0.9513,-0.0923,-0.0042,0.0024,0.9036,2.4023,1.0,4.0
+P2_under50_income_below_50k,social_desirability,-0.2159,-0.2127,-0.3242,-0.1012,distinct,-0.2318,-0.2512,1.9965,1.9737,-0.0446,0.1487,0.8657,5.6612,1.0,10.0
+P2_under50_income_below_50k,crt,0.1337,0.0046,-0.11,0.1193,not distinguishable from population,-0.0079,-0.1394,-0.697,0.005,-0.0002,0.0003,0.8955,2.4191,1.0,4.0
+P3_young_never_married,social_desirability,-0.1858,-0.1628,-0.2939,-0.0317,weak difference,-0.3061,-0.2969,1.3272,1.75,-0.0445,0.123,0.9205,5.8322,1.0,10.0
+P3_young_never_married,crt,-0.0074,-0.069,-0.2131,0.0751,not distinguishable from population,0.1165,0.0432,-0.0048,-0.3793,-0.0073,-0.0004,0.875,2.4007,1.0,4.0

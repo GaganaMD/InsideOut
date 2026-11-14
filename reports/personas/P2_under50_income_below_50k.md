@@ -1,61 +1,41 @@
 # Persona: P2_under50_income_below_50k
 
-**Outer-layer definition:** age_band in {18-29, 30-49}; income in {Less than $30,000, $30,000-$50,000}  
-**n** = 425 (20.7% of the panel); built from 291 train members, 134 held out.
+**Who (outer layer only):** age_band in {18-29, 30-49}; income in {Less than $30,000, $30,000-$50,000} · **n = 425** (291 train / 134 held out) · scores: Twin-2K-500 waves 1–3 · full tables: `P2_under50_income_below_50k_evidence.md`
 
-## Inner layer (train members; typical = shrunken mean)
+## Bottom line
 
-| Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % on other side of pop. median | Confidence |
-|---|---|---|---|---|---|---|
-| Green values (1-5) | 3.41 | 3.26–3.49 | 2.0–4.5 (0.96) | -0.15 (-0.26, -0.04) | 39% | weak difference |
-| Social desirability (0-13) | 5.05 | 4.50–5.33 | 0.0–10.0 (3.63) | -0.22 (-0.33, -0.10) | 34% | distinct |
-| Tightwad(4)-spendthrift(26) | 13.84 | 13.14–14.27 | 8.0–21.0 (4.88) | -0.08 (-0.21, +0.05) | 42% | not distinguishable from population |
-| Cognitive reflection (0-4) | 2.10 | 2.07–2.34 | 1.0–4.0 (1.16) | +0.13 (+0.02, +0.24) | 31% | weak difference |
-| Dictator giving, % of $5 (hypothetical) | 39.42 | 39.16–43.59 | 20.0–60.0 (19.25) | +0.11 (-0.01, +0.23) | 14% | not distinguishable from population |
-| Neuroticism (1-5) | 3.15 | 3.07–3.28 | 1.9–4.4 (0.92) | +0.47 (+0.36, +0.58) | 25% | distinct |
+Under-50s with household income below $50k show **higher neuroticism**, the largest robust group difference in the project. It reflects **two** visible facts: youth, and lower income *within* every age band. Do not use this persona for money style (the pre-registered 'more spendthrift' prediction failed) or for responses to a costed green offer (the apparent cost effect did not replicate).
 
-Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit).
+## Inner layer
 
-## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)
-
-| Default condition | n | Chose renewable | 95% CI | Population |
+| Part | Typical [p10–p90] | d vs population (95% CI) | Held-out d | Confidence |
 |---|---|---|---|---|
-| grey_default | 33 | 27% | 0.15–0.44 | 36% (n=206) |
-| green_default | 36 | 58% | 0.42–0.73 | 58% (n=222) |
+| Green values (1-5) | 3.41 [2.0–4.5] | -0.15 (-0.26, -0.04) | -0.15 | weak difference |
+| Social desirability (0-13) | 5.66 [1–10]† | -0.21 (-0.32, -0.10)† | -0.25† | distinct |
+| Tightwad(4)-spendthrift(26) | 13.84 [8.0–21.0] | -0.08 (-0.21, +0.05) | +0.06 | not distinguishable from population |
+| Cognitive reflection (0-4) | 2.42 [1–4]† | +0.00 (-0.11, +0.12)† | -0.14† | not distinguishable from population |
+| Dictator giving, % of $5 (hypothetical) | 39.42 [20.0–60.0] | +0.11 (-0.01, +0.23) | +0.01 | not distinguishable from population |
+| Neuroticism (1-5) | 3.15 [1.9–4.4] | +0.47 (+0.36, +0.58) | +0.55 | distinct |
 
-**Say vs do** — members in the population's top third on green values who still declined the renewable option:
+† Social desirability and CRT use the audited item-level re-scores (the shipped scores are mis-scored for 180 and 450 people; see `reports/final_audit/statistical_audit.md`). Frozen original values are in the evidence file. *Distinct* = |d| ≥ 0.20 and CI excludes 0.
 
-- grey_default: 64% (0.35–0.85), n=11 (population 47%)
-- green_default: INSUFFICIENT EVIDENCE (n<10), n=7 (population 21%)
+## Claim ledger
 
-*These are hypothetical survey choices, not purchases.*
+| Claim | Held-out MAE gain vs population mean | Stable in 6 redefinitions | Status |
+|---|---|---|---|
+| Higher neuroticism | +11.2% (CI > 0) | 6/6 | **Robust** |
+| Lower social desirability (corrected) | +2.0% (CI includes 0) | 5/6 | Fragile: gone if widened to 18–64 |
+| More spendthrift (pre-registered) | ≈0 | — | **Falsified** |
+| Higher cognitive reflection | — | — | **Withdrawn** (CRT scoring artefact; corrected d +0.00) |
 
 ## Why it fits
 
-The defining feature is **neuroticism** (+0.47 SD, the largest effect among the three personas), and it has two additive sources. Age contributes because younger people are higher. Income contributes too: within *every* age band, the lower-income group scores higher (train 18–29: 3.36 vs 2.99; 30–49: 3.07 vs 2.69; adjusted gap +0.30 SD, 95% CI 0.20 to 0.40). This is consistent with financial strain and negative affect reinforcing each other, though the direction cannot be identified here. Lower social desirability (−0.22 SD) follows the age gradient.
+**Observed.** Within each age band, lower-income members are more neurotic (18–29: 3.36 vs 2.99; 30–49: 3.07 vs 2.69; age-adjusted +0.30 SD, CI 0.20 to 0.40). Adding sex and income to age raises neuroticism predictability from R² 0.074 to 0.117. **Interpretation.** This is consistent with the documented link between financial strain and negative affect. **Speculation.** The direction is unknown: strain could raise distress, distress could lower earnings, or health could drive both. Household income may also misclassify students living on parental income.
 
-## Alternative explanations
+## Say vs do
 
-(1) **Reverse causation or a third factor.** Emotional instability can lower earnings, and poor health can drive both. (2) **Household-income misclassification.** Students and young adults may report parental or partner income, so 'below $50k' mixes constrained adults with students. (3) The pre-registered prediction that P2 would be **more spendthrift failed** (d = −0.08, CI includes 0). Low income here does not show up as loose spending, which weakens a simple 'impulsive budget' story.
+When choosing renewable meant switching, 27% chose it on train (n = 33; population 36%), but 47% did on held-out members (n = 19). A tempting 'budget-constrained idealist' story **failed** the holdout, so no behavioural prediction is offered.
 
 ## Where it breaks
 
-In the green scenario, P2 chose the $39 renewable option less often when it required switching (27% vs 36% for the population, n = 33, CI 15–44%). That is directionally a cost effect, but the population model's income term is null (OR 1.13, 0.73–1.74) and the green values × income interaction is not detectable. **We cannot claim a larger say–do gap for the financially constrained.** The top-third-green subgroup has 11 or fewer members per condition, too few to estimate.
-
-## Held-out check (frozen test split, evaluated once)
-
-| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |
-|---|---|---|---|---|---|
-| green | 134 | 0.81 | 0.81 | -0.1% (-0.019, +0.018) | 81% / 84% |
-| social_desirability | 134 | 2.98 | 3.04 | +2.0% (-0.051, +0.162) | 93% / 96% |
-| spendthrift | 134 | 4.07 | 4.04 | -0.8% (-0.068, -0.001) | 84% / 77% |
-| crt | 134 | 1.04 | 1.03 | -0.7% (-0.017, +0.003) | 83% / 100% |
-| dictator_give | 134 | 13.62 | 13.62 | +0.0% (+0.000, +0.000) | 83% / 83% |
-| neuroticism | 134 | 0.88 | 1.00 | +11.2% (+0.044, +0.184) | 76% / 69% |
-
-Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):
-
-| Condition | n test | Test rate | Persona train rate | Brier persona / population |
-|---|---|---|---|---|
-| green_default | 10 | 80% | 58% | 0.207 / 0.210 |
-| grey_default | 19 | 47% | 27% | 0.290 / 0.262 |
+About a quarter of members are calmer than the median panel member. The neuroticism gain is a group-level shift that helps individual prediction by about a tenth.

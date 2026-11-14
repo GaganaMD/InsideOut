@@ -1,61 +1,44 @@
 # Persona: P3_young_never_married
 
-**Outer-layer definition:** age_band = 18-29; marital = Never been married  
-**n** = 285 (13.8% of the panel); built from 197 train members, 88 held out.
+**Who (outer layer only):** age_band = 18-29; marital = Never been married · **n = 285** (197 train / 88 held out) · scores: Twin-2K-500 waves 1–3 · full tables: `P3_young_never_married_evidence.md`
 
-## Inner layer (train members; typical = shrunken mean)
+## Bottom line
 
-| Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % on other side of pop. median | Confidence |
-|---|---|---|---|---|---|---|
-| Green values (1-5) | 3.35 | 3.11–3.40 | 1.9–4.5 (1.03) | -0.27 (-0.42, -0.13) | 34% | distinct |
-| Social desirability (0-13) | 5.18 | 4.53–5.53 | 0.0–10.0 (3.55) | -0.19 (-0.32, -0.05) | 35% | weak difference |
-| Tightwad(4)-spendthrift(26) | 14.27 | 13.80–15.06 | 9.0–21.0 (4.49) | +0.09 (-0.06, +0.23) | 46% | not distinguishable from population |
-| Cognitive reflection (0-4) | 2.04 | 1.86–2.20 | 0.0–3.0 (1.25) | -0.01 (-0.15, +0.14) | 45% | not distinguishable from population |
-| Dictator giving, % of $5 (hypothetical) | 39.42 | 37.98–43.85 | 0.0–60.0 (21.02) | +0.08 (-0.08, +0.24) | 19% | not distinguishable from population |
-| Neuroticism (1-5) | 3.10 | 3.01–3.26 | 2.0–4.2 (0.89) | +0.43 (+0.31, +0.56) | 27% | distinct |
+P3 was chosen by a pre-registered search rule. Its robust trait, **higher neuroticism**, is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile and concentrated in young never-married men**, and helps almost no individual prediction. Treat that trait as a hypothesis. Behaviour cannot be assessed.
 
-Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit).
+## Inner layer
 
-## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)
-
-| Default condition | n | Chose renewable | 95% CI | Population |
+| Part | Typical [p10–p90] | d vs population (95% CI) | Held-out d | Confidence |
 |---|---|---|---|---|
-| grey_default | 17 | INSUFFICIENT EVIDENCE (n=17 < 20) | 0.10–0.47 | 36% (n=206) |
-| green_default | 16 | INSUFFICIENT EVIDENCE (n=16 < 20) | 0.44–0.86 | 58% (n=222) |
+| Green values (1-5) | 3.35 [1.9–4.5] | -0.27 (-0.42, -0.13) | -0.40 | distinct |
+| Social desirability (0-13) | 5.83 [1–10]† | -0.16 (-0.29, -0.03)† | -0.30† | weak difference |
+| Tightwad(4)-spendthrift(26) | 14.27 [9.0–21.0] | +0.09 (-0.06, +0.23) | +0.10 | not distinguishable from population |
+| Cognitive reflection (0-4) | 2.40 [1–4]† | -0.07 (-0.21, +0.08)† | +0.04† | not distinguishable from population |
+| Dictator giving, % of $5 (hypothetical) | 39.42 [0.0–60.0] | +0.08 (-0.08, +0.24) | -0.17 | not distinguishable from population |
+| Neuroticism (1-5) | 3.10 [2.0–4.2] | +0.43 (+0.31, +0.56) | +0.55 | distinct |
 
-**Say vs do** — members in the population's top third on green values who still declined the renewable option:
+† Social desirability and CRT use the audited item-level re-scores (the shipped scores are mis-scored for 180 and 450 people; see `reports/final_audit/statistical_audit.md`). Frozen original values are in the evidence file. *Distinct* = |d| ≥ 0.20 and CI excludes 0.
 
-- grey_default: INSUFFICIENT EVIDENCE (n<10), n=4 (population 47%)
-- green_default: INSUFFICIENT EVIDENCE (n<10), n=6 (population 21%)
+## Claim ledger
 
-*These are hypothetical survey choices, not purchases.*
+| Claim | Held-out MAE gain vs population mean | Stable in 6 redefinitions | Status |
+|---|---|---|---|
+| Higher neuroticism | +14.4% (CI > 0) | 6/6 | **Robust** (shared with P2) |
+| Lower green values | +0.7% (CI includes 0) | 3/6 | **Fragile**: see caveat |
+| Lower social desirability (corrected) | +1.8% (CI includes 0) | 5/6 | Weak |
+
+## Sex-composition caveat
+
+P3 is 56% male vs 36% among other 18–29s. Never-married **men**: d −0.40 (−0.59, −0.20), n = 111. Never-married **women**: d −0.12 (−0.32, +0.09), n = 86, not distinguishable. The gap also vanishes without the marital criterion (all 18–29: d −0.11) or at ages 30–49 (d −0.09). It came from a search over about 1,000 candidate groups, so it should be confirmed on new data before use.
 
 ## Why it fits
 
-This group was chosen by the pre-registered rule as the most inner-layer-distinctive Tier A group of 150 or more people that is not mostly P1 or P2. It is high on **neuroticism** (+0.43 SD), mostly the age gradient it shares with P2. Its surprising feature is **lower green values** (−0.27 SD). Among 18–29-year-olds, the never-married score 3.25 vs 3.84 for those who are married, partnered or previously married. The gap survives adjustment for sex, income band and education (−0.45 SD, 95% CI −0.72 to −0.18). This contradicts the 'young people are greener' stereotype. One reading is that settling down (partnering, household formation) goes with environmental concern. That is a post-hoc hypothesis, not a finding.
+**Observed.** Among 18–29s, the never-married score 3.25 on green values vs 3.84 for others. The gap persists after adjusting for sex, income and education as main effects (−0.45 SD). **Interpretation.** Marital status mostly marks *who* is in the group: more men, and 21% students. **Speculation (not claimed).** That partnering raises environmental concern; composition and selection explain the data equally well.
 
-## Alternative explanations
+## Say vs do
 
-(1) **Composition.** P3 is 56% male vs 36% among other 18–29s. The adjustment handles sex as a main effect only. (2) **Selection of the never-married-young into this panel.** (3) **Chance.** The green gap was found while describing a persona that a search over about 1,000 candidate groups had selected. It was not pre-registered, so it is exploratory and needs the holdout.
+**Insufficient evidence.** Only 33 members took part in the green experiment (17 and 16 per condition, below the 20-per-condition threshold).
 
 ## Where it breaks
 
-There is too little behaviour to say anything: only 33 members were in the green-energy experiment (17 and 16 per condition), below the 20-per-condition threshold, so **no behavioural profile is reported**. Its neuroticism profile duplicates P2's, which shows that much of what Tier A 'sees' collapses onto a single age axis.
-
-## Held-out check (frozen test split, evaluated once)
-
-| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |
-|---|---|---|---|---|---|
-| green | 88 | 0.90 | 0.90 | +0.7% (-0.030, +0.044) | 73% / 77% |
-| social_desirability | 88 | 2.77 | 2.81 | +1.3% (-0.075, +0.149) | 99% / 100% |
-| spendthrift | 88 | 3.72 | 3.73 | +0.1% (-0.039, +0.049) | 86% / 81% |
-| crt | 88 | 1.11 | 1.11 | -0.0% (-0.001, +0.000) | 86% / 100% |
-| dictator_give | 88 | 12.14 | 12.14 | +0.0% (+0.000, +0.000) | 99% / 83% |
-| neuroticism | 88 | 0.79 | 0.92 | +14.4% (+0.061, +0.203) | 72% / 74% |
-
-Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):
-
-| Condition | n test | Test rate | Persona train rate | Brier persona / population |
-|---|---|---|---|---|
-| green_default | 7 | 43% | 69% (not used) | 0.267 / 0.267 |
-| grey_default | 6 | 50% | 24% (not used) | 0.270 / 0.270 |
+P3 predicts individual green values no better than the population mean. Its neuroticism profile duplicates P2's, so census facts mostly reveal one age axis, not three archetypes.

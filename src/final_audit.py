@@ -195,7 +195,8 @@ def corrected_reruns() -> dict:
                              d_test_corrected=(y.mean() - r["pop_mean"]) / r["pop_sd"],
                              gain_pct_original=ho.gain_pct, gain_pct_corrected=100 * (e_0.mean() - e_p.mean()) / e_0.mean(),
                              gain_lo_corrected=float(np.quantile(boots, .025)), gain_hi_corrected=float(np.quantile(boots, .975)),
-                             cov_corrected=float(((y >= r["p10"]) & (y <= r["p90"])).mean())))
+                             cov_corrected=float(((y >= r["p10"]) & (y <= r["p90"])).mean()),
+                             typical_corrected=r["typical_shrunk"], p10_corrected=r["p10"], p90_corrected=r["p90"]))
     out["personas"] = pd.DataFrame(prow)
     cfg = load_config()
     p1, p2 = (parse_criteria(cfg[k]["criteria"], pc) for k in ("P1", "P2"))

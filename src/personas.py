@@ -178,8 +178,12 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
     L += [f"**Outer-layer definition:** {rep['definition']}  ",
           f"**n** = {rep['n_total']} ({rep['share_of_population']:.1%} of the panel); built from {rep['n_train']} "
           f"train members, {rep['n_test']} held out.", ""]
+    if rep.get("scores"):
+        L += [f"*Scores: {rep['scores']}.*", ""]
     if rep["status"] != "ok":
         return "\n".join(L + [f"**{rep['status']}** — no profile is reported for this group.", ""])
+    if interp and "Bottom line" in interp:
+        L += ["## Bottom line", "", interp["Bottom line"], ""]
     L += ["## Inner layer (train members; typical = shrunken mean)", "",
           "| Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % on other side of pop. median | Confidence |",
           "|---|---|---|---|---|---|---|"]
@@ -187,7 +191,26 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
         L.append(f"| {r['label']} | {fmt(r['typical_shrunk'])} | {fmt(r['mean_ci_lo'])}–{fmt(r['mean_ci_hi'])} | "
                  f"{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)} ({fmt(r['sd'])}) | {r['d']:+.2f} ({r['d_lo']:+.2f}, {r['d_hi']:+.2f}) | "
                  f"{r['share_opposite_side_of_pop_median']:.0%} | {r['confidence']} |")
-    L += ["", "Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit).", "",
+    L += ["", "Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit). "
+          "**Typical** is an empirical-Bayes estimate pulled toward the population mean by an amount set by n and by how "
+          "much Tier A groups differ on that construct (none, for dictator giving, so it equals the population mean). "
+          "The **95% CI** is for the raw member mean, a different estimand. **d** is relative to the train population SD. "
+          "**Confidence**: *distinct* = |d| ≥ 0.20 and CI excludes 0; *weak* = CI excludes 0 but |d| < 0.20.", ""]
+    corr_path = ROOT / "reports/final_audit/corrected_scores/personas_sd_crt.csv"
+    if corr_path.exists() and not rep.get("scores"):
+        cc = pd.read_csv(corr_path)
+        cc = cc[cc.persona == rep["name"]]
+        if len(cc):
+            L += ["**Measurement correction (final audit).** The shipped social-desirability and CRT scores are mis-scored "
+                  "for 180 and 450 people (case- and format-sensitive string matching; see "
+                  "`reports/final_audit/statistical_audit.md`). The table above keeps the frozen original values. "
+                  "With corrected scores (same definition, train-built):", ""]
+            for _, c in cc.iterrows():
+                L.append(f"- {c['construct']}: d {c['d_train_original']:+.2f} → **{c['d_train_corrected']:+.2f}** "
+                         f"({c['d_lo_corrected']:+.2f}, {c['d_hi_corrected']:+.2f}), {c['confidence_corrected']}; "
+                         f"holdout d {c['d_test_corrected']:+.2f}, MAE gain {c['gain_pct_corrected']:+.1f}%")
+            L.append("")
+    L += [
           "## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)", "",
           "| Default condition | n | Chose renewable | 95% CI | Population |", "|---|---|---|---|---|"]
     for b in rep["green_choice"]:
@@ -199,9 +222,9 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
         L.append(f"- {g['condition']}: {val}, n={g['n_high_green']} (population {g['pop_share_declining']:.0%})")
     L += ["", "*These are hypothetical survey choices, not purchases.*", ""]
     if interp:
-        for k in ("Why it fits", "Alternative explanations", "Where it breaks"):
-            if k in interp:
-                L += [f"## {k}", "", interp[k], ""]
+        for k, v in interp.items():
+            if k != "Bottom line":
+                L += [f"## {k}", "", v, ""]
     if holdout is not None and len(holdout):
         L += ["## Held-out check (frozen test split, evaluated once)", "",
               "| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |",
@@ -220,6 +243,40 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
                 L.append(f"| {h['condition']} | {int(h['n_test'])} | {h['test_rate']:.0%} | {h['persona_train_rate']:.0%}"
                          f"{'' if h['used_persona_rate'] else ' (not used)'} | {h['brier_persona']:.3f} / {h['brier_pop']:.3f} |")
             L.append("")
+    return "\n".join(L)
+
+
+def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None) -> str:
+    """One-page persona card (template fields); full tables live in <name>_evidence.md."""
+    L = [f"# Persona: {rep['name']}", "",
+         f"**Who (outer layer only):** {rep['definition']} · **n = {rep['n_total']}** "
+         f"({rep['n_train']} train / {rep['n_test']} held out) · scores: Twin-2K-500 waves 1–3 · "
+         f"full tables: `{rep['name']}_evidence.md`", "", "## Bottom line", "", interp["Bottom line"], "",
+         "## Inner layer", "",
+         "| Part | Typical [p10–p90] | d vs population (95% CI) | Held-out d | Confidence |",
+         "|---|---|---|---|---|"]
+    hd = holdout.set_index("construct") if holdout is not None and len(holdout) else None
+    corr_path = ROOT / "reports/final_audit/corrected_scores/personas_sd_crt.csv"
+    cc = pd.read_csv(corr_path) if corr_path.exists() else pd.DataFrame(columns=["persona", "construct"])
+    cc = cc[cc.persona == rep["name"]].set_index("construct")
+    for r in rep["inner"]:
+        c = r["construct"]
+        if c in cc.index:  # corrected measurement (final audit) shown; original kept in the evidence file
+            x = cc.loc[c]
+            dtxt = f"{x.d_train_corrected:+.2f} ({x.d_lo_corrected:+.2f}, {x.d_hi_corrected:+.2f})†"
+            ttxt, conf = f"{x.d_test_corrected:+.2f}†", x.confidence_corrected
+            typ = f"{fmt(x.typical_corrected)} [{fmt(x.p10_corrected, 0)}–{fmt(x.p90_corrected, 0)}]†"
+        else:
+            dtxt = f"{r['d']:+.2f} ({r['d_lo']:+.2f}, {r['d_hi']:+.2f})"
+            ttxt = f"{hd.loc[c, 'test_d']:+.2f}" if hd is not None else "–"
+            conf, typ = r["confidence"], f"{fmt(r['typical_shrunk'])} [{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)}]"
+        L.append(f"| {r['label']} | {typ} | {dtxt} | {ttxt} | {conf} |")
+    L += ["", "† Social desirability and CRT use the audited item-level re-scores (the shipped scores are mis-scored for 180 "
+          "and 450 people; see `reports/final_audit/statistical_audit.md`). Frozen original values are in the evidence file. "
+          "*Distinct* = |d| ≥ 0.20 and CI excludes 0.", ""]
+    for k, v in interp.items():
+        if k not in ("Bottom line",):
+            L += [f"## {k}", "", v, ""]
     return "\n".join(L)
 
 
@@ -243,6 +300,8 @@ def main(argv=None) -> int:
     b.add_argument("--criteria", required=True)
     b.add_argument("--allow-party", action="store_true")
     b.add_argument("--out", default=str(ROOT / "reports/generated"), help="output folder")
+    b.add_argument("--corrected-scores", action="store_true",
+                   help="use item-level re-scored social desirability and CRT (recommended; see final audit)")
     sub.add_parser("select-p3")
     sub.add_parser("build-config")
     sub.add_parser("list-levels")
@@ -254,6 +313,8 @@ def main(argv=None) -> int:
             print(f"{v}{' (Tier B, needs --allow-party)' if v in TIER_B else ''}: {list(people[v].cat.categories)}")
         return 0
     green = load_green()
+    if a.cmd == "build" and a.corrected_scores:
+        people, green = load_people(corrected=True), load_green(corrected=True)
     if a.cmd == "build":
         try:
             crit = parse_criteria(a.criteria, people, a.allow_party)
@@ -262,6 +323,8 @@ def main(argv=None) -> int:
             return 2
         label = "SENSITIVITY PERSONA — uses self-reported party (Tier B), not census-observable" if "party" in crit else ""
         rep = build(a.name, crit, people, green, label)
+        rep["scores"] = ("corrected social desirability and CRT (item-level re-scores, final audit)" if a.corrected_scores
+                         else "shipped scores (frozen original); add --corrected-scores for audited SD/CRT")
         save(rep, to_markdown(rep), out=__import__("pathlib").Path(a.out))
         print(rep["status"])
         return 0
@@ -279,7 +342,11 @@ def main(argv=None) -> int:
             crit = parse_criteria(p["criteria"], people, allow_party=p.get("allow_party", False))
             rep = build(p["name"], crit, people, green, p.get("label", ""))
             h = hold[hold.persona == p["name"]] if hold is not None else None
-            save(rep, to_markdown(rep, p.get("interpretation"), h))
+            interp = p.get("interpretation", {})
+            # evidence file: every table (frozen original values + correction note); card: one-page summary
+            ev = {k: v for k, v in interp.items() if k in ("Bottom line",)}
+            (OUT / f"{p['name']}_evidence.md").write_text(to_markdown(rep, ev, h), encoding="utf-8")
+            save(rep, to_card(rep, interp, h))
         return 0
     return 1
 
