@@ -1,0 +1,7 @@
+persona,construct,n_members,adjusted_for,raw_diff,raw_lo,raw_hi,adj_diff,adj_lo,adj_hi,retained_share,verdict
+P1,neuroticism,194,"region, sex, education, race, citizen, marital, income, hh_size, employment",-0.5015,-0.6434,-0.3595,-0.3168,-0.4822,-0.1515,0.6318,"survives adjustment (>=50% retained, CI excl. 0)"
+P1,social_desirability,194,"region, sex, education, race, citizen, marital, income, hh_size, employment",0.4482,0.3046,0.5918,0.3436,0.1688,0.5185,0.7667,"survives adjustment (>=50% retained, CI excl. 0)"
+P2,neuroticism,291,"region, sex, education, race, citizen, marital, hh_size, employment",0.5908,0.4689,0.7126,0.3411,0.2072,0.475,0.5773,"survives adjustment (>=50% retained, CI excl. 0)"
+P2,social_desirability,291,"region, sex, education, race, citizen, marital, hh_size, employment",-0.2665,-0.3923,-0.1407,-0.1501,-0.2866,-0.0136,0.5632,"survives adjustment (>=50% retained, CI excl. 0)"
+P3,neuroticism,197,"region, sex, education, race, citizen, income, hh_size, employment",0.5005,0.3629,0.6381,0.3849,0.2198,0.55,0.7691,"survives adjustment (>=50% retained, CI excl. 0)"
+P3,green,197,"region, sex, education, race, citizen, income, hh_size, employment",-0.3172,-0.4712,-0.1632,-0.2098,-0.3918,-0.0278,0.6614,"survives adjustment (>=50% retained, CI excl. 0)"

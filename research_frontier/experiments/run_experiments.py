@@ -119,7 +119,9 @@ def x1_x2() -> dict:
                  ("default only", "M1D demographics + default (existing)"),
                  ("attitude items (2,4,5) + default", "default only"),
                  ("behaviour/cost items (1,3,6) + default", "default only"),
-                 ("attitude items (2,4,5) + default", "behaviour/cost items (1,3,6) + default")]
+                 ("attitude items (2,4,5) + default", "behaviour/cost items (1,3,6) + default"),
+                 # POST-HOC (added after first run, not pre-specified): does the default add prediction beyond GREEN?
+                 ("GREEN + default", "GREEN only")]
     comp = pd.DataFrame([dict(contrast=f"{a} vs {b}", **paired(y, preds[a], preds[b], rng)) for a, b in contrasts])
     # descriptive: standardized logit slopes (full-sample, train) for the item subsets
     z = lambda s: (s - s.mean()) / s.std()

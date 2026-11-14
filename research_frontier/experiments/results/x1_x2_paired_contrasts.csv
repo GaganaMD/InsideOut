@@ -1,0 +1,10 @@
+contrast,d_brier,lo,hi,verdict
+default only vs prevalence,-0.01094,-0.02051,-0.00013,meaningful improvement
+GREEN only vs prevalence,-0.03206,-0.04652,-0.01731,meaningful improvement
+GREEN + default vs default only,-0.03551,-0.05162,-0.01978,meaningful improvement
+GREEN + default vs M3 demographics + GREEN + default (existing),-0.0116,-0.02381,-0.00083,meaningful improvement
+default only vs M1D demographics + default (existing),-0.0113,-0.02498,0.0022,no detectable difference
+"attitude items (2,4,5) + default vs default only",-0.02634,-0.03983,-0.01256,meaningful improvement
+"behaviour/cost items (1,3,6) + default vs default only",-0.04091,-0.05782,-0.02491,meaningful improvement
+"attitude items (2,4,5) + default vs behaviour/cost items (1,3,6) + default",0.01457,0.00678,0.02219,worse
+GREEN + default vs GREEN only,-0.01439,-0.02523,-0.00278,meaningful improvement

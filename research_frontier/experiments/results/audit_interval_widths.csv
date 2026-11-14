@@ -1,0 +1,5 @@
+construct,oob_r2_mean,oob_lo,oob_hi,oob_width,fig1_fixed_model_width,note
+neuroticism,0.1373,0.0823,0.1833,0.101,0.102,OOB refit interval (train only) vs Figure 1 fixed-model held-out interval
+social_desirability,0.045,-0.0109,0.0823,0.0932,0.0788,OOB refit interval (train only) vs Figure 1 fixed-model held-out interval
+green,0.0104,-0.0345,0.0417,0.0762,0.0448,OOB refit interval (train only) vs Figure 1 fixed-model held-out interval
+crt,-0.0125,-0.0622,0.0155,0.0777,0.0243,OOB refit interval (train only) vs Figure 1 fixed-model held-out interval

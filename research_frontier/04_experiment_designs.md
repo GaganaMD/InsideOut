@@ -59,3 +59,58 @@ The candidate list was screened for whether a result could change an interpretat
 - LLM demographic baseline: see `06_llm_experiment_roadmap.md`.
 - Any incentivised or real-behaviour outcome.
 - Test–retest reliability of the scales: wave 4 repeated only the heuristics-and-biases items.
+
+---
+
+## Results (added after running; design sections above unchanged since commit `61c451b`)
+Command: `python research_frontier/experiments/run_experiments.py`. Two runs gave byte-identical output. Training participants only.
+
+### X1 · Decomposition (n = 428; out-of-fold; paired bootstrap 95% CI, conditional on the fold models)
+
+| Model | Brier | AUC | Calibration slope |
+|---|---|---|---|
+| Prevalence | 0.249 | – | – |
+| Default only | 0.238 | 0.59 | 0.97 |
+| Green values only | 0.217 | 0.71 | 0.99 |
+| **Green values + default (no demographics)** | **0.203** | **0.75** | 0.99 |
+| M1D: demographics + default (existing) | 0.250 | 0.60 | 0.45 |
+| M3: demographics + green values + default (existing) | 0.214 | 0.73 | 0.70 |
+
+| Contrast | ΔBrier (95% CI) | Verdict |
+|---|---|---|
+| Default only vs prevalence | −0.011 (−0.021, −0.000) | Meaningful, but barely clears the threshold |
+| Default only vs M1D | −0.011 (−0.025, +0.002) | Not detectable |
+| Green values + default vs default only | −0.036 (−0.052, −0.020) | Meaningful |
+| **Green values + default vs M3 (adding demographics)** | **−0.012 (−0.024, −0.001)** | **Meaningful: demographics make it worse** |
+| *Post-hoc:* green values + default vs green values only | −0.014 (−0.025, −0.003) | Meaningful (not pre-specified) |
+
+**Interpretation.**
+- (c) is supported: on its own the default carries predictive value, which demographic overfitting cancels in M1D.
+- (a) is supported and strengthened: at this n, demographics *harm* prediction and calibration.
+- The post-hoc contrast shows the README's "adds little prediction once green values are known" undersells the default (see `01_project_red_team.md` #1).
+
+### X2 · Construct overlap
+- The attitude-only subscale (items 2, 4, 5; α 0.82) + default beats default-only by **−0.026 (−0.040, −0.013)**: meaningful.
+- The behaviour/cost subscale (items 1, 3, 6; α 0.89) + default beats default-only by −0.041. It is better than the attitude-only subscale by 0.015 (0.007, 0.022).
+- The subscales correlate at r = 0.89.
+- OR per SD, adjusted for the default: full scale 2.54, attitude-only 2.18 (1.73–2.75), behaviour/cost 2.78 (2.16–3.57).
+
+**Interpretation.** The attitude–choice link is **not** merely item overlap, because concern and identity items alone predict meaningfully. But the items describing purchasing and cost-willingness predict more strongly, partly because they are more reliable. The accurate phrase is "a measured environmental disposition", not "a pure attitude".
+
+### X3 · Composition adjustment (n = 1,442; HC3 95% CIs; corrected scores)
+
+| Persona and trait | Raw difference (SD units) | Adjusted for other census variables | Retained |
+|---|---|---|---|
+| P1 neuroticism | −0.50 (−0.64, −0.36) | −0.32 (−0.48, −0.15) | 63% |
+| P1 social desirability | +0.45 (+0.31, +0.59) | +0.34 (+0.17, +0.52) | 77% |
+| P2 neuroticism | +0.59 (+0.47, +0.71) | +0.34 (+0.21, +0.48) | 58% |
+| P2 social desirability | −0.27 (−0.39, −0.14) | −0.15 (−0.29, −0.01) | 56% |
+| P3 neuroticism | +0.50 (+0.36, +0.64) | +0.39 (+0.22, +0.55) | 77% |
+| P3 green values | −0.32 (−0.47, −0.16) | −0.21 (−0.39, −0.03) | 66% |
+
+The raw differences here are vs non-members, so they are larger than the d vs the whole population shown in the cards.
+
+**Interpretation.** No robust persona trait is merely a proxy for other demographics. All keep more than half their size, with CIs excluding 0. Adjustment controls only main effects, though: P3's concentration in men is an *interaction* and remains a caveat. The adjustment may also remove real effects that operate through composition, so this is not causal.
+
+### Not run
+The Dual-Process CRT × default and Prospect Theory loss-aversion × default tests were not run (see `03_theory_audit.md`). The reasons are low power, an unreliable or mostly unscorable moderator, and forking-path risk.
