@@ -1,0 +1,216 @@
+{
+ "model_id": "Qwen/Qwen2.5-7B-Instruct",
+ "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+ "license": "apache-2.0",
+ "gpu": "NVIDIA A10",
+ "load_s": 8.006786584854126,
+ "score_s": 2.46793794631958,
+ "results": [
+  {
+   "id": "empty|green_default|AB|ALL|-",
+   "pA": 0.26894137263298035,
+   "pB": 0.7310583591461182,
+   "mass": 0.9999997317790985,
+   "top_token": "B",
+   "n_prompt_tokens": 191
+  },
+  {
+   "id": "empty|green_default|BA|ALL|-",
+   "pA": 0.060086607933044434,
+   "pB": 0.9399126768112183,
+   "mass": 0.9999992847442627,
+   "top_token": "B",
+   "n_prompt_tokens": 191
+  },
+  {
+   "id": "empty|grey_default|AB|ALL|-",
+   "pA": 0.5621764063835144,
+   "pB": 0.43782341480255127,
+   "mass": 0.9999998211860657,
+   "top_token": "A",
+   "n_prompt_tokens": 188
+  },
+  {
+   "id": "empty|grey_default|BA|ALL|-",
+   "pA": 0.9982991814613342,
+   "pB": 0.0017007223796099424,
+   "mass": 0.9999999038409442,
+   "top_token": "A",
+   "n_prompt_tokens": 188
+  },
+  {
+   "id": "demo|green_default|AB|18-29 | Female | $100,000 or more | college degree|-",
+   "pA": 0.6791784763336182,
+   "pB": 0.32082119584083557,
+   "mass": 0.9999996721744537,
+   "top_token": "A",
+   "n_prompt_tokens": 229
+  },
+  {
+   "id": "demo|green_default|BA|30-49 | Female | $50,000-$75,000 | college degree|-",
+   "pA": 0.006692849565297365,
+   "pB": 0.9933069348335266,
+   "mass": 0.999999784398824,
+   "top_token": "B",
+   "n_prompt_tokens": 233
+  },
+  {
+   "id": "demo|grey_default|AB|50-64 | Female | $50,000-$75,000 | no college degree|-",
+   "pA": 0.006692850962281227,
+   "pB": 0.9933071732521057,
+   "mass": 1.000000024214387,
+   "top_token": "B",
+   "n_prompt_tokens": 231
+  },
+  {
+   "id": "demo|grey_default|BA|65+ | Female | $75,000-$100,000 | college degree|-",
+   "pA": 0.924141526222229,
+   "pB": 0.07585815340280533,
+   "mass": 0.9999996796250343,
+   "top_token": "A",
+   "n_prompt_tokens": 228
+  },
+  {
+   "id": "profile|green_default|AB|18-29 | Female | $100,000 or more | college degree|0",
+   "pA": 0.11920277774333954,
+   "pB": 0.8807960152626038,
+   "mass": 0.9999987930059433,
+   "top_token": "B",
+   "n_prompt_tokens": 352
+  },
+  {
+   "id": "profile|green_default|AB|50-64 | Male | $100,000 or more | no college degree|1",
+   "pA": 0.00407013762742281,
+   "pB": 0.9959297776222229,
+   "mass": 0.9999999152496457,
+   "top_token": "B",
+   "n_prompt_tokens": 353
+  },
+  {
+   "id": "profile|green_default|BA|30-49 | Female | $50,000-$75,000 | college degree|0",
+   "pA": 0.017986206337809563,
+   "pB": 0.9820135235786438,
+   "mass": 0.9999997299164534,
+   "top_token": "B",
+   "n_prompt_tokens": 356
+  },
+  {
+   "id": "profile|green_default|BA|65+ | Male | $30,000-$50,000 | no college degree|1",
+   "pA": 0.43782344460487366,
+   "pB": 0.5621764659881592,
+   "mass": 0.9999999105930328,
+   "top_token": "B",
+   "n_prompt_tokens": 354
+  },
+  {
+   "id": "narrative|green_default|AB|18-29 | Female | $100,000 or more | college degree|0",
+   "pA": 0.32082003355026245,
+   "pB": 0.6791759729385376,
+   "mass": 0.9999960064888,
+   "top_token": "B",
+   "n_prompt_tokens": 346
+  },
+  {
+   "id": "narrative|green_default|AB|50-64 | Male | $100,000 or more | no college degree|1",
+   "pA": 0.0011695100693032146,
+   "pB": 0.9988303780555725,
+   "mass": 0.9999998881248757,
+   "top_token": "B",
+   "n_prompt_tokens": 346
+  },
+  {
+   "id": "narrative|green_default|BA|30-49 | Female | $50,000-$75,000 | college degree|0",
+   "pA": 0.00029595711384899914,
+   "pB": 0.9997039437294006,
+   "mass": 0.9999999008432496,
+   "top_token": "B",
+   "n_prompt_tokens": 358
+  },
+  {
+   "id": "narrative|green_default|BA|65+ | Male | $30,000-$50,000 | no college degree|1",
+   "pA": 0.18242548406124115,
+   "pB": 0.8175742626190186,
+   "mass": 0.9999997466802597,
+   "top_token": "B",
+   "n_prompt_tokens": 355
+  }
+ ],
+ "repeat": [
+  {
+   "id": "empty|green_default|AB|ALL|-",
+   "pA": 0.26894137263298035,
+   "pB": 0.7310583591461182,
+   "mass": 0.9999997317790985,
+   "top_token": "B",
+   "n_prompt_tokens": 191
+  },
+  {
+   "id": "empty|green_default|BA|ALL|-",
+   "pA": 0.060086607933044434,
+   "pB": 0.9399126768112183,
+   "mass": 0.9999992847442627,
+   "top_token": "B",
+   "n_prompt_tokens": 191
+  },
+  {
+   "id": "empty|grey_default|AB|ALL|-",
+   "pA": 0.5621764063835144,
+   "pB": 0.43782341480255127,
+   "mass": 0.9999998211860657,
+   "top_token": "A",
+   "n_prompt_tokens": 188
+  },
+  {
+   "id": "empty|grey_default|BA|ALL|-",
+   "pA": 0.9982991814613342,
+   "pB": 0.0017007223796099424,
+   "mass": 0.9999999038409442,
+   "top_token": "A",
+   "n_prompt_tokens": 188
+  },
+  {
+   "id": "demo|green_default|AB|18-29 | Female | $100,000 or more | college degree|-",
+   "pA": 0.6791784763336182,
+   "pB": 0.32082119584083557,
+   "mass": 0.9999996721744537,
+   "top_token": "A",
+   "n_prompt_tokens": 229
+  },
+  {
+   "id": "demo|green_default|BA|30-49 | Female | $50,000-$75,000 | college degree|-",
+   "pA": 0.006692849565297365,
+   "pB": 0.9933069348335266,
+   "mass": 0.999999784398824,
+   "top_token": "B",
+   "n_prompt_tokens": 233
+  },
+  {
+   "id": "demo|grey_default|AB|50-64 | Female | $50,000-$75,000 | no college degree|-",
+   "pA": 0.006692850962281227,
+   "pB": 0.9933071732521057,
+   "mass": 1.000000024214387,
+   "top_token": "B",
+   "n_prompt_tokens": 231
+  },
+  {
+   "id": "demo|grey_default|BA|65+ | Female | $75,000-$100,000 | college degree|-",
+   "pA": 0.924141526222229,
+   "pB": 0.07585815340280533,
+   "mass": 0.9999996796250343,
+   "top_token": "A",
+   "n_prompt_tokens": 228
+  }
+ ],
+ "torch": "2.5.1+cu124",
+ "mode": "smoke",
+ "model_key": "qwen25_7b",
+ "n_prompts": 16,
+ "wall_s": 21.70168161392212,
+ "worst_case_usd": 0.60645,
+ "download": {
+  "sha": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "license": "apache-2.0",
+  "gb": 15.242788168,
+  "s": 0.16384196281433105
+ }
+}

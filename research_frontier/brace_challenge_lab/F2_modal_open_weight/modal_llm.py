@@ -49,7 +49,9 @@ def download(model_id: str, revision: str | None) -> dict:
 
 
 @app.function(gpu=GPU, cpu=CPU, memory=MEM_GIB * 1024, timeout=TIMEOUT["full"], retries=0, volumes={"/cache": cache})
-def score(model_id: str, revision: str | None, prompts: list[dict], repeat_first: int = 0, batch: int = 16) -> dict:
+def score(model_id: str, revision: str | None, prompts: list[dict], repeat_first: int = 0, batch: int = 1) -> dict:
+    # batch=1 (no padding). 2026-11-15 smoke FAILED the determinism check with batch=16: left padding without explicit
+    # position_ids made a prompt's score depend on its batch-mates (max diff 0.217). Unpadded scoring removes this.
     import os
     os.environ["HF_HUB_OFFLINE"] = "1"                  # set before HF imports: load from the pre-filled cache only
     import torch
@@ -68,7 +70,7 @@ def score(model_id: str, revision: str | None, prompts: list[dict], repeat_first
     assert all(len(v) == 1 for v in ids.values()), ids
     a_id, b_id = ids["A"][0], ids["B"][0]
 
-    def run(ps):
+    def run(ps, ckpt=None):
         out = []
         for i in range(0, len(ps), batch):
             chunk = ps[i:i + batch]
@@ -82,13 +84,18 @@ def score(model_id: str, revision: str | None, prompts: list[dict], repeat_first
                 pa, pb = float(row[a_id]), float(row[b_id])
                 out.append({"id": p["id"], "pA": pa, "pB": pb, "mass": pa + pb, "top_token": tok.decode([int(tp)]),
                             "n_prompt_tokens": int(n)})
+            if ckpt and (len(out) % 200 == 0 or len(out) == len(ps)):   # durable partial results on the Volume
+                ck = Path("/cache/checkpoints") / f"{ckpt}.json"
+                ck.parent.mkdir(parents=True, exist_ok=True)
+                ck.write_text(json.dumps({"revision": sha, "done": len(out), "of": len(ps), "results": out}))
+                cache.commit()
         return out
     t1 = time.time()
-    res = run(prompts)
-    rep = run(prompts[:repeat_first]) if repeat_first else []
+    res = run(prompts, ckpt=f"{model_id.split('/')[-1]}__{sha[:12]}__n{len(prompts)}")
+    rep = run(prompts[:repeat_first][::-1])[::-1] if repeat_first else []   # re-score in reverse order
     return {"model_id": model_id, "revision": sha, "license": (info.card_data or {}).get("license"),
-            "gpu": torch.cuda.get_device_name(0), "load_s": t_load, "score_s": time.time() - t1,
-            "results": res, "repeat": rep, "torch": torch.__version__}
+            "gpu": str(torch.cuda.get_device_name(0)), "load_s": t_load, "score_s": time.time() - t1,
+            "results": res, "repeat": rep, "torch": str(torch.__version__)}
 
 
 @app.local_entrypoint()
