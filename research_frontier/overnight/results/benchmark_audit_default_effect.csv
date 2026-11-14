@@ -1,0 +1,8 @@
+source,ate,lo,hi,minus_human,diff_lo,diff_hi
+Humans,0.2174,0.1233,0.3066,0.0,0.0,0.0
+LLM demographics-only (T=0.7),0.1106,0.017,0.2059,-0.1068,-0.2305,0.0152
+LLM demographics-only (T=0),0.1421,0.0494,0.2381,-0.0753,-0.1961,0.0452
+LLM empty persona (T=0.7),0.8738,0.8265,0.9178,0.6565,0.5565,0.7622
+LLM full persona (no reasoning),0.0839,-0.0082,0.1778,-0.1334,-0.2382,-0.0286
+"Green values + default (stat, OOF)",0.4285,0.3452,0.5122,0.2111,0.1076,0.3218
+"Default only (stat, OOF)",1.0,1.0,1.0,0.7826,0.6934,0.8767

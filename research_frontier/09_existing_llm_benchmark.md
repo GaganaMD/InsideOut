@@ -50,3 +50,15 @@ Run: `python research_frontier/experiments/llm_benchmark.py`. It downloads about
 1. Confirm the demographics-only persona fields by downloading the Mega-Study `results.zip` or `data/personas_demographics_only_text`, if published.
 2. Extend the benchmark to the other 18 Mega-Study studies, with Tier A logistic or ridge models fitted on training participants. That would compare per outcome against Peng et al.'s r = 0.145.
 3. If you approve an API run: obtain LLM *probabilities* (log-probabilities or repeated sampling) so Brier and calibration can be compared (`06_llm_experiment_roadmap.md`).
+
+---
+
+## Audit corrections (added by `overnight/BENCHMARK_VALIDITY.md`; uncertainty from `overnight/benchmark_audit.py`)
+1. **"Demographics add nothing in the LLM either"** → **"No detectable difference at this n."** Demographics-only GPT-4.1 (T = 0) minus empty persona: accuracy +0.000 (95% CI −0.063 to +0.065). Differences up to about ±6 points cannot be excluded.
+2. **"One measured disposition matches a full ~500-item profile"** → **"Comparable within ±5 points."** Full persona minus green values + default: +0.009 (−0.035 to +0.056). The full persona *does* beat demographics-only: +0.098 (+0.054 to +0.143).
+3. **Group-rate table.** The statistical rows were *thresholded* probabilities. Those exaggerate condition differences (default-only thresholded gives 1.00 vs 0.00), so they are not comparable with the LLM rows, which are random draws at T = 0.7. Only the T = 0.7 LLM rows estimate choice rates. Treatment-effect recovery is now reported properly in `overnight/benchmark_audit.py`.
+4. **Randomised default effect** (humans +0.217, CI 0.123–0.307), new:
+   - empty persona +0.874: **exaggerated**, difference +0.66 (CI excludes 0);
+   - demographics-only (T = 0.7) +0.111: difference −0.11 (CI −0.23 to +0.02);
+   - full persona +0.084: **attenuated**, difference −0.13 (CI −0.24 to −0.03).
+5. Information access is unchanged: the demographics-only fields remain unverified (the construction code is not public).
