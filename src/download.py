@@ -59,7 +59,10 @@ def fetch(repo: str, filename: str, tries: int = 8) -> None:
         except Exception as e:  # network resets: back off and retry
             print(f"retry {i + 1}/{tries} {filename}: {type(e).__name__}", file=sys.stderr)
             time.sleep(2 + 2 * i)
-    raise SystemExit(f"FAILED to download {repo}/{filename}")
+    if filename.endswith("README.md"):  # documentation only; the analysis does not read it
+        print(f"WARNING: could not download optional {repo}/{filename}; continuing", file=sys.stderr)
+        return
+    raise SystemExit(f"FAILED to download {repo}/{filename} (re-run: existing files are skipped)")
 
 
 def main() -> None:
