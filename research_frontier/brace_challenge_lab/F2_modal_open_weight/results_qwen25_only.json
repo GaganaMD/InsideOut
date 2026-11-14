@@ -1,0 +1,229 @@
+{
+ "n": 427,
+ "n_cells": 76,
+ "models": {
+  "Qwen2.5-7B-Instruct": {
+   "model_id": "Qwen/Qwen2.5-7B-Instruct",
+   "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+   "license": "apache-2.0",
+   "gpu": "NVIDIA A10",
+   "load_s": 7.901762962341309,
+   "score_s": 181.77259922027588,
+   "n_prompts": 1524,
+   "mean_mass": 0.9999992157676366,
+   "share_mass_below_0_5": 0.0,
+   "order_gap_mean_abs": 0.5066940928825622
+  }
+ },
+ "methods": {
+  "A_population": {
+   "brier": 0.24140352495742443,
+   "confidence_mean_abs_p_minus_half": 0.10658080683570911,
+   "calibration": {
+    "intercept": -0.009737066507568642,
+    "slope": 0.7864836925981062
+   },
+   "mean_pred": 0.4665391515301508,
+   "cell_mae_weighted": 0.23721167047890082,
+   "cell_pred_sd_weighted": 0.1096896592727452,
+   "brier_small_cells_le3": 0.23351088564412475,
+   "n_small": 55
+  },
+  "B_demographic_model": {
+   "brier": 0.24098514710392668,
+   "confidence_mean_abs_p_minus_half": 0.12346849339214656,
+   "calibration": {
+    "intercept": -0.04160178301978705,
+    "slope": 0.6349290888230973
+   },
+   "mean_pred": 0.4716086938097526,
+   "cell_mae_weighted": 0.22651655640689594,
+   "cell_pred_sd_weighted": 0.14210245148281997,
+   "brier_small_cells_le3": 0.23653794738995845,
+   "n_small": 55
+  },
+  "Qwen2.5-7B-Instruct:empty": {
+   "brier": 0.24089418422285147,
+   "confidence_mean_abs_p_minus_half": 0.1592484779574353,
+   "calibration": {
+    "intercept": 0.026449575639441707,
+    "slope": 0.6473511764235722
+   },
+   "mean_pred": 0.448847328699921,
+   "cell_mae_weighted": 0.23999001813570497,
+   "cell_pred_sd_weighted": 0.16114486994051266,
+   "brier_small_cells_le3": 0.21902806311212075,
+   "n_small": 55,
+   "default_effect": {
+    "predicted": 0.3224887822033368,
+    "abs_error": 0.10705144969004776,
+    "signed_error": 0.10705144969004776,
+    "signed_error_ci": [
+     -0.02426679080457511,
+     0.2391433776374153
+    ]
+   }
+  },
+  "Qwen2.5-7B-Instruct:demo": {
+   "brier": 0.3592781693671948,
+   "confidence_mean_abs_p_minus_half": 0.39211748430692056,
+   "calibration": {
+    "intercept": 0.02684189746862395,
+    "slope": 0.050348144740055285
+   },
+   "mean_pred": 0.2871120550030972,
+   "cell_mae_weighted": 0.3697569159885179,
+   "cell_pred_sd_weighted": 0.35728006839375104,
+   "brier_small_cells_le3": 0.30304864354075123,
+   "n_small": 55,
+   "default_effect": {
+    "predicted": 0.34499275491971604,
+    "abs_error": 0.12955542240642698,
+    "signed_error": 0.12955542240642698,
+    "signed_error_ci": [
+     -0.04374065777349156,
+     0.2987847778439426
+    ]
+   }
+  },
+  "Qwen2.5-7B-Instruct:profile": {
+   "brier": 0.29028963112917594,
+   "confidence_mean_abs_p_minus_half": 0.16998651676826093,
+   "calibration": {
+    "intercept": -0.1066182883760778,
+    "slope": 0.03531484609029063
+   },
+   "mean_pred": 0.44782887168178726,
+   "cell_mae_weighted": 0.2784245895368007,
+   "cell_pred_sd_weighted": 0.21488059273897273,
+   "brier_small_cells_le3": 0.28593816167264885,
+   "n_small": 55,
+   "default_effect": {
+    "predicted": 0.03687047278516531,
+    "abs_error": 0.17856685972812375,
+    "signed_error": -0.17856685972812375,
+    "signed_error_ci": [
+     -0.3278223917559421,
+     -0.026666725775959122
+    ]
+   },
+   "corr_with_green_z": 0.6249290127633048
+  },
+  "Qwen2.5-7B-Instruct:narrative": {
+   "brier": 0.3257001444844621,
+   "confidence_mean_abs_p_minus_half": 0.22870784636560837,
+   "calibration": {
+    "intercept": -0.12000859074553684,
+    "slope": 0.01533703571161336
+   },
+   "mean_pred": 0.509667497181157,
+   "cell_mae_weighted": 0.3037377908661645,
+   "cell_pred_sd_weighted": 0.2690572935902201,
+   "brier_small_cells_le3": 0.30935645758263197,
+   "n_small": 55,
+   "default_effect": {
+    "predicted": 0.006061633214178516,
+    "abs_error": 0.20937569929911054,
+    "signed_error": -0.20937569929911054,
+    "signed_error_ci": [
+     -0.35207531162136113,
+     -0.06252898239827734
+    ]
+   },
+   "corr_with_green_z": 0.7620697878668311
+  }
+ },
+ "contrasts": {
+  "B_demographic_model - A_population": {
+   "diff": -0.00041837785349769103,
+   "ci": [
+    -0.013809876349137122,
+    0.012707567901212746
+   ]
+  },
+  "Qwen2.5-7B-Instruct:empty - A_population": {
+   "diff": -0.0005093407345728532,
+   "ci": [
+    -0.008704686361329265,
+    0.00782620319431749
+   ]
+  },
+  "Qwen2.5-7B-Instruct:demo - A_population": {
+   "diff": 0.11787464440977043,
+   "ci": [
+    0.06496803281855733,
+    0.17242227714105401
+   ]
+  },
+  "Qwen2.5-7B-Instruct:profile - A_population": {
+   "diff": 0.048886106171751535,
+   "ci": [
+    0.01441758730304394,
+    0.08948067002713507
+   ]
+  },
+  "Qwen2.5-7B-Instruct:narrative - A_population": {
+   "diff": 0.08429661952703776,
+   "ci": [
+    0.039561922125819785,
+    0.13551748228305885
+   ]
+  },
+  "Qwen2.5-7B-Instruct:empty - B_demographic_model": {
+   "diff": -9.096288107515993e-05,
+   "ci": [
+    -0.01634007441751219,
+    0.016613607443366554
+   ]
+  },
+  "Qwen2.5-7B-Instruct:demo - B_demographic_model": {
+   "diff": 0.1182930222632681,
+   "ci": [
+    0.06255281983111473,
+    0.17364202064827403
+   ]
+  },
+  "Qwen2.5-7B-Instruct:profile - B_demographic_model": {
+   "diff": 0.04930448402524923,
+   "ci": [
+    0.0164654005240423,
+    0.08817371415261144
+   ]
+  },
+  "Qwen2.5-7B-Instruct:narrative - B_demographic_model": {
+   "diff": 0.08471499738053545,
+   "ci": [
+    0.04302304435827477,
+    0.13168889494643898
+   ]
+  },
+  "Qwen2.5-7B-Instruct: profile - demo": {
+   "diff": -0.0689885382380189,
+   "ci": [
+    -0.12155483305915911,
+    -0.011609447821488752
+   ]
+  },
+  "Qwen2.5-7B-Instruct: narrative - profile": {
+   "diff": 0.03541051335528623,
+   "ci": [
+    -0.005862325286156523,
+    0.08100590890388241
+   ]
+  },
+  "Qwen2.5-7B-Instruct: narrative - profile (confidence)": {
+   "diff": 0.05872132959734744,
+   "ci": [
+    0.021877620817752883,
+    0.09302167172303634
+   ]
+  }
+ },
+ "human_default_effect": {
+  "human_ate": 0.21543733251328906,
+  "human_ci": [
+   0.08334540456592139,
+   0.3467555730079119
+  ]
+ }
+}
