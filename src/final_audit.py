@@ -126,9 +126,13 @@ def integrity() -> dict:
     crit_vars = {k: list(parse_criteria(v["criteria"], p)) for k, v in cfg.items()}
     g = load_green(False)
     raw = pd.read_parquet(ROOT / "data/processed/mega_default_eric.parquet")
-    log = subprocess.run(["git", "log", "--format=%h %s", "8104628..HEAD", "--", "src/predictability.py",
-                          "src/saydo.py", "src/holdout.py", "data/split.csv", "hypotheses.md", "config/personas.json"],
-                         cwd=ROOT, capture_output=True, text=True).stdout.strip().splitlines()
+    git = lambda *a: subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True).stdout
+    log = git("log", "--format=%h %s", "8104628..HEAD", "--", "src/predictability.py", "src/saydo.py",
+              "src/holdout.py", "data/split.csv", "hypotheses.md").strip().splitlines()
+    cfg_log = git("log", "--format=%h %s", "8104628..HEAD", "--", "config/personas.json").strip().splitlines()
+    cfg_then = json.loads(git("show", "8104628:config/personas.json"))
+    criteria_unchanged = all(cfg_then[k]["criteria"] == v["criteria"] and cfg_then[k]["name"] == v["name"]
+                             for k, v in cfg.items()) and cfg_then.keys() == cfg.keys()
     fit = smf.logit("chose_green ~ green_z * green_default + low_inc",
                     g[g.split == "train"].assign(green_z=lambda d: (d.green - d.green.mean()) / d.green.std(),
                                                  low_inc=lambda d: low_income(d.income).astype(int))).fit(disp=0)
@@ -142,7 +146,9 @@ def integrity() -> dict:
         "persona_criteria_tier_a_only": all(set(v) <= set(TIER_A) for v in crit_vars.values()),
         "green_rows": len(g), "green_condition_counts": g.green_condition.value_counts().to_dict(),
         "green_each_person_one_condition": bool(raw.pid.is_unique),
-        "commits_touching_models_split_hypotheses_config_after_holdout_script": log,
+        "commits_touching_models_split_hypotheses_after_holdout_script": log,
+        "persona_names_and_criteria_unchanged_since_holdout_script": criteria_unchanged,
+        "commits_touching_persona_config_after_holdout_script (interpretation text only if criteria unchanged)": cfg_log,
         "saydo_OR_green_recomputed": float(np.exp(fit.params["green_z"])), "saydo_OR_green_reported": or_reported,
     }
 

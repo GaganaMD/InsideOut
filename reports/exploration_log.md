@@ -33,3 +33,7 @@ In order. ✗ = dropped, ✓ = kept, ⚠ = problem found.
 23. ✓ **Robustness: demographic complexity.** Compact, regularised and tuned demographic models never reach the pre-set threshold. Best result: AUC 0.58, ΔBrier −0.004.
 24. ⚠ **Robustness: persona stability.** Neuroticism is stable in all 17 variants. P3's green gap is fragile and concentrated in young never-married men, so the memo was corrected. P2's social desirability is fragile.
 25. ✓ **Neuroticism re-derived from BFI items** (exact match). Social desirability, CRT and dictator giving are still not re-derived.
+26. ⚠ **Final audit: two more shipped scores are mis-scored.** Social desirability (180 people; 'True' vs 'TRUE') and CRT-2 (450; 'emily' or '8.0'). Both are reproduced exactly from the raw exports, and both are age-related. The CRT 'decline with age' was an artefact. P1 and P2 CRT claims were withdrawn; social-desirability conclusions hold. Originals are kept, and corrected reruns sit beside them.
+27. ✓ **Headline challenge (exploratory).** Neuroticism predictability survives OLS, ridge and boosting (0.13–0.15), and about half of it is age. Values and choices stay at R² ≤ 0.04 in every model family. Reweighting the experiment to the panel's age mix leaves the green-values OR unchanged.
+28. ✗ **Persona text rewritten as evidence-tiered cards** (observed / interpretation / speculation; claim ledger). The 'partnering raises green concern' story was dropped as speculation.
+29. ⚠ **requirements.txt was missing six runtime packages.** Fixed and tested in a fresh virtual environment.

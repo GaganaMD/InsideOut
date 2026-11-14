@@ -5,6 +5,8 @@
 **Outer-layer definition:** party = Republican  
 **n** = 540 (26.2% of the panel); built from 387 train members, 153 held out.
 
+*Scores: shipped scores (frozen original); add --corrected-scores for audited SD/CRT.*
+
 ## Inner layer (train members; typical = shrunken mean)
 
 | Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % on other side of pop. median | Confidence |
@@ -16,7 +18,7 @@
 | Dictator giving, % of $5 (hypothetical) | 39.42 | 34.49–38.38 | 0.0–60.0 (19.49) | -0.16 (-0.27, -0.06) | 15% | weak difference |
 | Neuroticism (1-5) | 2.52 | 2.42–2.60 | 1.4–3.9 (0.91) | -0.21 (-0.30, -0.11) | 41% | distinct |
 
-Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit).
+Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit). **Typical** is an empirical-Bayes estimate pulled toward the population mean by an amount set by n and by how much Tier A groups differ on that construct (none, for dictator giving, so it equals the population mean). The **95% CI** is for the raw member mean, a different estimand. **d** is relative to the train population SD. **Confidence**: *distinct* = |d| ≥ 0.20 and CI excludes 0; *weak* = CI excludes 0 but |d| < 0.20.
 
 ## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)
 

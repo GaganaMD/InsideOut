@@ -60,6 +60,11 @@
   "sha256": "807d07b6ca7cd06c1f4dd412b9b8b0a3f493880496b040b63930a14d497dd90e"
  },
  {
+  "path": "data/raw/Twin-2K-500/raw_data/wave_2_labels_anonymized.csv",
+  "bytes": 9813162,
+  "sha256": "99800cf8bb2888fe9174e0bcdef32c8660d4db6cf440c5aff47a17fc5678757f"
+ },
+ {
   "path": "data/raw/Twin-2K-500/README.md",
   "bytes": 10970,
   "sha256": "9f71a028d2510476cdb3dd365f4525e7b7cc0736f17939adcfeae9bf91a52d4b"

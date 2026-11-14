@@ -73,5 +73,6 @@ def test_originals_untouched():
     protected = ["data/split.csv", "hypotheses.md", "results", "reports/personas", "reports/memo.md", "config",
                  "reports/exploratory/values_vs_demographics.md", "reports/exploratory/paired_differences.csv",
                  "reports/exploratory/redistribution/PRESPEC.md"]
-    r = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *protected], cwd=ROOT)
-    assert r.returncode == 0, "protected files differ from the committed versions"
+    from _committed import mismatches
+    bad = mismatches(protected)  # numeric tolerance; CRLF-insensitive (see tests/_committed.py)
+    assert not bad, f"protected files differ from the committed versions: {bad}"

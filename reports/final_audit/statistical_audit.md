@@ -74,7 +74,9 @@ with age) and two persona rows are withdrawn. The memo and persona reports now c
 1. **Joins.** 2,058 unique `pid`s. Score files use `TWIN_ID` (same set). The Mega-Study raw `TWIN_ID` equals the parquet `PID` ("pid_n") for all three studies.
 2. **Train/test isolation.**
    - The split is disjoint and complete: 1,442 / 616, sha256 checked by a test.
-   - No commit after the holdout-script commit `8104628` touched `src/predictability.py`, `src/saydo.py`, `src/holdout.py`, `data/split.csv`, `hypotheses.md` or `config/personas.json` (`integrity_checks.json`).
+   - No commit after the holdout-script commit `8104628` touched `src/predictability.py`, `src/saydo.py`, `src/holdout.py`, `data/split.csv` or `hypotheses.md`.
+   - Persona names and criteria are identical to those at `8104628`. The only later config commit is `85215f3` (final-audit phase 3), which rewrote the interpretation text (`integrity_checks.json`).
+   - A fresh-clone rerun flagged an earlier wording of this check, which said `config/personas.json` was untouched. That was true when first run, before phase 3; the check now tests the criteria.
    - All follow-ups use the training split only, enforced by tests.
 3. **Group definitions.** P1 uses {age_band}, P2 {age_band, income}, P3 {age_band, marital}, all Tier A. The CLI rejects party (unless flagged), ideology and unknown levels.
 4. **Score construction.** Covered in C1; missing values are 0 for all six constructs.

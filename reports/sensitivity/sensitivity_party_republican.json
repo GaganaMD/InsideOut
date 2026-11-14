@@ -191,5 +191,6 @@
  ],
  "mega_study_participation": {
   "n_train_in_default_eric": 123
- }
+ },
+ "scores": "shipped scores (frozen original); add --corrected-scores for audited SD/CRT"
 }
