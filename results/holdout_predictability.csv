@@ -1,0 +1,7 @@
+construct,n_test,test_r2,mae_model,mae_baseline
+green,616,0.0205,0.8384,0.8477
+social_desirability,616,0.0673,3.0011,3.1234
+spendthrift,616,0.0224,3.6115,3.6383
+crt,616,0.0158,1.0716,1.0701
+dictator_give,616,0.0044,12.0476,11.9313
+neuroticism,616,0.171,0.7755,0.8682

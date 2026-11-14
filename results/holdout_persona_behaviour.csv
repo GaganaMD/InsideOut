@@ -1,0 +1,7 @@
+persona,condition,n_test,test_rate,persona_train_rate,used_persona_rate,pop_train_rate,brier_persona,brier_pop
+P1_adults_65plus,green_default,18,0.6667,0.55,True,0.5766,0.2358,0.2303
+P1_adults_65plus,grey_default,25,0.4,0.4286,True,0.3592,0.2408,0.2417
+P2_under50_income_below_50k,green_default,10,0.8,0.5833,True,0.5766,0.2069,0.2099
+P2_under50_income_below_50k,grey_default,19,0.4737,0.2727,True,0.3592,0.2897,0.2624
+P3_young_never_married,green_default,7,0.4286,0.6875,False,0.5766,0.2668,0.2668
+P3_young_never_married,grey_default,6,0.5,0.2353,False,0.3592,0.2698,0.2698
