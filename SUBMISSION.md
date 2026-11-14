@@ -14,6 +14,7 @@
 |---|---|
 | Full persona tables (frozen legacy-scored estimates, plus a correction note) | `reports/personas/*_evidence.md`, `reports/personas/*.json` |
 | Final statistical audit (scale re-derivation, scoring defects, corrected reruns) | `reports/final_audit/statistical_audit.md`, `scale_verification.csv`, `misscoring_by_age.csv`, `reliability.csv`, `integrity_checks.json`, `corrected_scores/` |
+| Post-review corrections (2026-11-15: criteria bug, table units, softened claims; no estimate changed) | `reports/final_audit/post_review_corrections.md` |
 | Headline challenge (exploratory sensitivity checks) | `reports/final_audit/headline_challenge.md`, `headline_challenge/` |
 | Fresh-environment reproduction and CLI simulation | `reports/final_audit/live_review_simulation.md`, `live_review/` |
 | Data audit and frozen split provenance | `audit/AUDIT.md` and the `audit/` tables |

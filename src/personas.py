@@ -19,6 +19,7 @@ See reports/final_audit/statistical_audit.md.
 import argparse
 import itertools
 import json
+import re
 import sys
 
 import numpy as np
@@ -53,6 +54,12 @@ def parse_criteria(text: str, people: pd.DataFrame, allow_party: bool = False) -
         bad = [l for l in lv if l not in valid]
         if bad:
             raise CriteriaError(f"{var}: unknown level(s) {bad}. Valid: {valid}")
+        lv = list(dict.fromkeys(lv))                      # drop duplicate levels, keep order
+        if var in crit:                                   # repeated variable: clauses are ANDed, so intersect levels
+            both = [l for l in crit[var] if l in lv]       # (previously the last clause silently overwrote the first)
+            if not both:
+                raise CriteriaError(f"{var}: contradictory repeated criteria {crit[var]} and {lv} (no level satisfies both)")
+            lv = both
         crit[var] = lv
     if not crit:
         raise CriteriaError("empty criteria")
@@ -215,7 +222,8 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
             for _, c in cc.iterrows():
                 L.append(f"- {c['construct']}: d {c['d_train_original']:+.2f} → **{c['d_train_corrected']:+.2f}** "
                          f"({c['d_lo_corrected']:+.2f}, {c['d_hi_corrected']:+.2f}), {c['confidence_corrected']}; "
-                         f"holdout d {c['d_test_corrected']:+.2f}, MAE gain {c['gain_pct_corrected']:+.1f}%")
+                         f"holdout d {c['d_test_corrected']:+.2f}, MAE gain {c['gain_pct_corrected']:+.1f}% "
+                         f"(reduction CI {c['gain_lo_corrected']:+.3f} to {c['gain_hi_corrected']:+.3f} scale units)")
             L.append("")
     L += [
           "## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)", "",
@@ -223,7 +231,7 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
     for b in rep["green_choice"]:
         val = f"{b['rate']:.0%}" if b["status"] == "ok" else b["status"]
         L.append(f"| {b['condition']} | {b['n']} | {val} | {fmt(b['lo'])}–{fmt(b['hi'])} | {b['pop_rate']:.0%} (n={b['pop_n']}) |")
-    L += ["", "**Say vs do** — members in the population's top third on green values who still declined the renewable option:", ""]
+    L += ["", "**Say vs do** — members at or above the population's 67th-percentile green-values score (with ties, more than a third of people) who still declined the renewable option:", ""]
     for g in rep["say_do_gap"]:
         val = f"{g['share_declining']:.0%} ({fmt(g['lo'])}–{fmt(g['hi'])})" if g["status"] == "ok" else g["status"]
         L.append(f"- {g['condition']}: {val}, n={g['n_high_green']} (population {g['pop_share_declining']:.0%})")
@@ -234,12 +242,14 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
                 L += [f"## {k}", "", v, ""]
     if holdout is not None and len(holdout):
         L += ["## Held-out check (frozen test split, evaluated once)", "",
-              "| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |",
-              "|---|---|---|---|---|---|"]
+              "| Construct | n test | MAE persona | MAE population mean | Gain, % of population MAE | MAE reduction in scale units (95% CI) | 80% interval coverage: persona / population |",
+              "|---|---|---|---|---|---|---|"]
         for _, h in holdout.iterrows():
             L.append(f"| {h['construct']} | {int(h['n_test'])} | {fmt(h['mae_persona'])} | {fmt(h['mae_pop'])} | "
-                     f"{h['gain_pct']:+.1f}% ({h['gain_lo']:+.3f}, {h['gain_hi']:+.3f}) | {h['cov_persona']:.0%} / {h['cov_pop']:.0%} |")
-        L.append("")
+                     f"{h['gain_pct']:+.1f}% | {h['mae_pop'] - h['mae_persona']:+.3f} ({h['gain_lo']:+.3f}, {h['gain_hi']:+.3f}) | "
+                     f"{h['cov_persona']:.0%} / {h['cov_pop']:.0%} |")
+        L += ["", "*The CI is a participant bootstrap of the mean reduction in absolute error, in the construct's own units "
+                  "(not in percent).*", ""]
         bp = RESULTS / "holdout_persona_behaviour.csv"
         if bp.exists():
             hb = pd.read_csv(bp)
@@ -334,6 +344,9 @@ def main(argv=None) -> int:
     if a.cmd == "build" and not a.legacy_scores:  # corrected scores are the default for new personas
         people, green = load_people(corrected=True), load_green(corrected=True)
     if a.cmd == "build":
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", a.name) or ".." in a.name:   # file-name safe, no paths
+            print(f"ERROR: --name must use letters, digits, '_', '-', '.' only (got {a.name!r})", file=sys.stderr)
+            return 2
         try:
             crit = parse_criteria(a.criteria, people, a.allow_party)
         except CriteriaError as e:

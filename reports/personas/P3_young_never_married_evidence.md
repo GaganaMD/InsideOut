@@ -7,7 +7,7 @@
 
 ## Bottom line
 
-P3 was chosen by a pre-registered search rule. Its robust trait, **higher neuroticism** (stable in all 6 redefinitions), is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile and concentrated in young never-married men**, and it barely improves individual prediction. Treat it as a hypothesis. Behaviour cannot be assessed.
+P3 was chosen by a pre-registered search rule. Its robust trait, **higher neuroticism** (stable in all 6 redefinitions), is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile** (no reliable sex difference), and it barely improves individual prediction. Treat it as a hypothesis. Behaviour cannot be assessed.
 
 ## Inner layer (train members; typical = shrunken mean)
 
@@ -24,8 +24,8 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 
 **Measurement correction (final audit).** The shipped social-desirability and CRT scores are mis-scored for 180 and 450 people (case- and format-sensitive string matching; see `reports/final_audit/statistical_audit.md`). The table above keeps the frozen original values. With corrected scores (same definition, train-built):
 
-- social_desirability: d -0.19 → **-0.16** (-0.29, -0.03), weak difference; holdout d -0.30, MAE gain +1.8%
-- crt: d -0.01 → **-0.07** (-0.21, +0.08), not distinguishable from population; holdout d +0.04, MAE gain -0.4%
+- social_desirability: d -0.19 → **-0.16** (-0.29, -0.03), weak difference; holdout d -0.30, MAE gain +1.8% (reduction CI -0.044 to +0.123 scale units)
+- crt: d -0.01 → **-0.07** (-0.21, +0.08), not distinguishable from population; holdout d +0.04, MAE gain -0.4% (reduction CI -0.007 to -0.000 scale units)
 
 ## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)
 
@@ -34,7 +34,7 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 | grey_default | 17 | INSUFFICIENT EVIDENCE (n=17 < 20) | 0.10–0.47 | 36% (n=206) |
 | green_default | 16 | INSUFFICIENT EVIDENCE (n=16 < 20) | 0.44–0.86 | 58% (n=222) |
 
-**Say vs do** — members in the population's top third on green values who still declined the renewable option:
+**Say vs do** — members at or above the population's 67th-percentile green-values score (with ties, more than a third of people) who still declined the renewable option:
 
 - grey_default: INSUFFICIENT EVIDENCE (n<10), n=4 (population 47%)
 - green_default: INSUFFICIENT EVIDENCE (n<10), n=6 (population 21%)
@@ -43,14 +43,16 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 
 ## Held-out check (frozen test split, evaluated once)
 
-| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |
-|---|---|---|---|---|---|
-| green | 88 | 0.90 | 0.90 | +0.7% (-0.030, +0.044) | 73% / 77% |
-| social_desirability | 88 | 2.77 | 2.81 | +1.3% (-0.075, +0.149) | 99% / 100% |
-| spendthrift | 88 | 3.72 | 3.73 | +0.1% (-0.039, +0.049) | 86% / 81% |
-| crt | 88 | 1.11 | 1.11 | -0.0% (-0.001, +0.000) | 86% / 100% |
-| dictator_give | 88 | 12.14 | 12.14 | +0.0% (+0.000, +0.000) | 99% / 83% |
-| neuroticism | 88 | 0.79 | 0.92 | +14.4% (+0.061, +0.203) | 72% / 74% |
+| Construct | n test | MAE persona | MAE population mean | Gain, % of population MAE | MAE reduction in scale units (95% CI) | 80% interval coverage: persona / population |
+|---|---|---|---|---|---|---|
+| green | 88 | 0.90 | 0.90 | +0.7% | +0.006 (-0.030, +0.044) | 73% / 77% |
+| social_desirability | 88 | 2.77 | 2.81 | +1.3% | +0.037 (-0.075, +0.149) | 99% / 100% |
+| spendthrift | 88 | 3.72 | 3.73 | +0.1% | +0.005 (-0.039, +0.049) | 86% / 81% |
+| crt | 88 | 1.11 | 1.11 | -0.0% | -0.000 (-0.001, +0.000) | 86% / 100% |
+| dictator_give | 88 | 12.14 | 12.14 | +0.0% | +0.000 (+0.000, +0.000) | 99% / 83% |
+| neuroticism | 88 | 0.79 | 0.92 | +14.4% | +0.133 (+0.061, +0.203) | 72% / 74% |
+
+*The CI is a participant bootstrap of the mean reduction in absolute error, in the construct's own units (not in percent).*
 
 Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):
 

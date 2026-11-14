@@ -36,7 +36,7 @@ All six constructs were re-derived from item-level data (`scale_verification.csv
 | Social desirability: train CV R² / holdout R² | 0.051 / 0.067 | 0.062 / 0.077 | Holds, slightly stronger |
 | Social desirability means by age band (18–29 → 65+) | 5.14 → 7.30 | 5.75 → 7.61 | Gradient holds, ~30% smaller range |
 | P1 social desirability, d train → test | +0.42 → +0.49 | +0.39 → +0.47 | Holds, still distinct |
-| P1 social desirability holdout MAE gain | +11.6% | +9.3% (CI 0.07–0.50) | Holds |
+| P1 social desirability holdout MAE gain | +11.6% | +9.3% (MAE reduction 0.32 scale points, CI 0.07–0.50 points) | Holds |
 | P2 social desirability, d | −0.22 | −0.21 | Holds |
 | CRT: train CV R² / holdout R² | 0.016 / 0.016 | 0.006 (CI −0.001 to 0.013) / 0.021 | CRT is even *less* predictable |
 | CRT means by age band | 2.06, 2.21, 1.93, 1.82 | 2.38, 2.45, 2.43, 2.35 | **The age decline was an artefact** |

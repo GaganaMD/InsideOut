@@ -55,6 +55,38 @@ def test_whitelist_rejects_party_and_unknown(people):
     assert parse_criteria("party=Republican", people, allow_party=True) == {"party": ["Republican"]}
 
 
+MIDWEST = "Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)"
+
+
+def test_repeated_variable_contradiction_is_rejected(people):
+    # regression: the last clause used to overwrite the first, silently profiling a different group
+    with pytest.raises(CriteriaError, match="contradictory"):
+        parse_criteria("sex=Male; sex=Female", people)
+    with pytest.raises(CriteriaError, match="contradictory"):
+        parse_criteria("age_band=18-29|30-49; age_band=65+", people)
+
+
+def test_repeated_variable_consistent_is_intersected(people):
+    assert parse_criteria("sex=Female; sex=Female", people) == {"sex": ["Female"]}
+    crit = parse_criteria(f"age_band=18-29|30-49; region={MIDWEST}; age_band=30-49|50-64", people)
+    assert crit == {"age_band": ["30-49"], "region": [MIDWEST]}
+    assert parse_criteria("age_band=65+|65+", people) == {"age_band": ["65+"]}
+
+
+def test_impossible_group_abstains_cleanly(people):
+    crit = parse_criteria("age_band=18-29; employment=Retired; marital=Widowed", people)
+    rep = build("impossible", crit, people, load_green())
+    assert rep["n_train"] < 30 and rep["status"].startswith("INSUFFICIENT EVIDENCE")
+
+
+def test_cli_rejects_duplicate_criteria_and_unsafe_names(tmp_path):
+    import personas
+    assert personas.main(["build", "--name", "x", "--criteria", "sex=Male; sex=Female", "--out", str(tmp_path)]) == 2
+    assert personas.main(["build", "--name", "../escape", "--criteria", "sex=Male", "--out", str(tmp_path)]) == 2
+    assert personas.main(["build", "--name", "a/b", "--criteria", "sex=Male", "--out", str(tmp_path)]) == 2
+    assert not any(tmp_path.iterdir())
+
+
 def test_tier_a_has_no_inner_layer():
     assert not {"party", "ideology", "religion", "religious_attendance"} & set(TIER_A)
 

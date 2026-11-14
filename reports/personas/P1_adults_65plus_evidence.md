@@ -24,8 +24,8 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 
 **Measurement correction (final audit).** The shipped social-desirability and CRT scores are mis-scored for 180 and 450 people (case- and format-sensitive string matching; see `reports/final_audit/statistical_audit.md`). The table above keeps the frozen original values. With corrected scores (same definition, train-built):
 
-- social_desirability: d +0.42 → **+0.39** (+0.26, +0.52), distinct; holdout d +0.47, MAE gain +9.3%
-- crt: d -0.18 → **-0.06** (-0.21, +0.08), not distinguishable from population; holdout d -0.07, MAE gain -0.1%
+- social_desirability: d +0.42 → **+0.39** (+0.26, +0.52), distinct; holdout d +0.47, MAE gain +9.3% (reduction CI +0.068 to +0.501 scale units)
+- crt: d -0.18 → **-0.06** (-0.21, +0.08), not distinguishable from population; holdout d -0.07, MAE gain -0.1% (reduction CI -0.004 to +0.002 scale units)
 
 ## Behaviour: hypothetical $39 renewable vs $32 supplier (Mega-Study `default_eric`)
 
@@ -34,7 +34,7 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 | grey_default | 49 | 43% | 0.30–0.57 | 36% (n=206) |
 | green_default | 40 | 55% | 0.40–0.69 | 58% (n=222) |
 
-**Say vs do** — members in the population's top third on green values who still declined the renewable option:
+**Say vs do** — members at or above the population's 67th-percentile green-values score (with ties, more than a third of people) who still declined the renewable option:
 
 - grey_default: 43% (0.26–0.63), n=23 (population 47%)
 - green_default: 29% (0.13–0.53), n=17 (population 21%)
@@ -43,14 +43,16 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 
 ## Held-out check (frozen test split, evaluated once)
 
-| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |
-|---|---|---|---|---|---|
-| green | 83 | 0.83 | 0.86 | +3.2% (+0.006, +0.046) | 81% / 78% |
-| social_desirability | 83 | 3.05 | 3.45 | +11.6% (+0.137, +0.640) | 82% / 88% |
-| spendthrift | 83 | 3.23 | 3.29 | +1.9% (-0.017, +0.138) | 86% / 88% |
-| crt | 83 | 1.20 | 1.22 | +1.0% (-0.000, +0.023) | 88% / 100% |
-| dictator_give | 83 | 11.66 | 11.66 | +0.0% (+0.000, +0.000) | 84% / 84% |
-| neuroticism | 83 | 0.75 | 0.86 | +13.2% (+0.041, +0.190) | 83% / 78% |
+| Construct | n test | MAE persona | MAE population mean | Gain, % of population MAE | MAE reduction in scale units (95% CI) | 80% interval coverage: persona / population |
+|---|---|---|---|---|---|---|
+| green | 83 | 0.83 | 0.86 | +3.2% | +0.027 (+0.006, +0.046) | 81% / 78% |
+| social_desirability | 83 | 3.05 | 3.45 | +11.6% | +0.398 (+0.137, +0.640) | 82% / 88% |
+| spendthrift | 83 | 3.23 | 3.29 | +1.9% | +0.062 (-0.017, +0.138) | 86% / 88% |
+| crt | 83 | 1.20 | 1.22 | +1.0% | +0.012 (-0.000, +0.023) | 88% / 100% |
+| dictator_give | 83 | 11.66 | 11.66 | +0.0% | +0.000 (+0.000, +0.000) | 84% / 84% |
+| neuroticism | 83 | 0.75 | 0.86 | +13.2% | +0.114 (+0.041, +0.190) | 83% / 78% |
+
+*The CI is a participant bootstrap of the mean reduction in absolute error, in the construct's own units (not in percent).*
 
 Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):
 

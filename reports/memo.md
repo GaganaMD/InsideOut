@@ -22,10 +22,10 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
    - Most of the signal comes from **age band**: age alone gives about half of neuroticism's R² (0.074 of 0.151) and nearly all of social desirability's. Income, employment and sex add the rest for neuroticism.
    - Our pre-registered H1 got this **backwards**. We expected cognition (CRT) to be the predictable construct and temperament not. CRT shows no robust predictability: training CV R² is about 0.01 with a CI including 0, and its held-out R² of 0.02 excludes zero only when the fitted model is held fixed. It is also unreliable (KR-20 0.58). H1 is therefore falsified in both directions.
 
-2. **Values do predict the hypothetical green choice, and that gap is a stable feature of the population.**
+2. **Values do predict the hypothetical green choice, yet many high scorers still decline it.**
    - In the $39 renewable vs $32 supplier scenario, +1 SD of green values raises the chance of choosing renewable by **+19 points** (95% CI 15–22; OR 2.95). A randomised green default adds **+25 points** (16–33).
    - We predicted the default would clearly outweigh attitudes (H3). It doesn't: the difference is +6 points, CI −3 to +15, so the two are comparable.
-   - The **say–do gap** is substantial and replicates. Among people in the top third on green values, **47%** (train, n = 87) and **50%** (test, n = 46) still decline renewable when choosing it means switching suppliers. Only 21% and 14% opt out when renewable is the default.
+   - A **say–do gap** in the loose sense. Among people at or above the 67th-percentile green-values score (≥ 4.0; 41% of train because of ties), **47%** (train, n = 87, CI 37–58%) and **50%** (test, n = 46, CI 36–64%) still decline renewable when it means switching. Only 21% and 14% opt out when it is the default. The items never mention paying more and the choice is hypothetical, so this is not a measured attitude–behaviour contradiction.
    - The model trained on the training set beats a condition-only baseline on held-out people (log loss 0.592 vs 0.650).
 
 3. **Personas get group averages right on the traits the outer layer sees, and stop there.** On the frozen holdout:
@@ -61,10 +61,10 @@ Every number below comes from `results/` (frozen) or `reports/` (exploratory, au
   - CRT-2: "emily" or "8.0" marked incorrect, for 450 people, mostly 50+.
 
   All three are re-scored from items (`reports/final_audit/statistical_audit.md`). Because the CRT errors were age-related, **the apparent decline in CRT with age was an artefact**: corrected means are flat (2.38, 2.45, 2.43, 2.35). The social-desirability conclusions survive correction.
-- **Young never-married adults are *less* green.** Among 18–29-year-olds, the never-married average 3.25 vs 3.84 for others. The gap survives adjustment for sex, income and education (−0.45 SD) and replicates out of sample (test d = −0.40 vs the population). *Robustness check:* the gap is concentrated in young never-married **men** (d −0.40, CI −0.59 to −0.20). For women it is d −0.12 (CI includes 0, n = 86), and it disappears without the marital criterion. Treat it as exploratory.
+- **Young never-married adults are *less* green.** Among 18–29-year-olds, the never-married average 3.25 vs 3.84 for others. The gap survives adjustment for sex, income and education (−0.45 SD) and replicates out of sample (test d = −0.40 vs the population). *Robustness check:* against the whole population it looks larger in men (d −0.40, CI −0.59 to −0.20) than women (d −0.12, n = 86), but a sex difference is not supported: the interaction is null (within 18–29, never-married vs partnered: men −0.41, women −0.59; interaction +0.18, CI −0.31 to 0.66). It disappears without the marital criterion. Treat it as exploratory.
   - This is the reverse of the "young people are greener" stereotype. Note also that a group shift this size improves individual prediction by **less than 1%**.
-- **Part of the older group's "calm" profile is self-presentation.** Social desirability correlates −0.44 with neuroticism (corrected scores). Controlling for it shrinks the 65+ neuroticism gap from −0.50 to −0.31 SD. It does not erase it.
-- **Low income goes with higher neuroticism within every age band** (+0.30 SD, 0.20–0.40). We can't tell the direction of causation, but it is the strongest non-age outer→inner link we found.
+- **Part of the older group's "calm" profile may be self-presentation.** Social desirability correlates −0.44 with neuroticism (corrected scores). Controlling for it shrinks the 65+ neuroticism gap from −0.50 to −0.31 SD, without erasing it. One self-report scale cannot separate response style from genuine adjustment.
+- **Low income goes with higher neuroticism within each age band under 65** (age-adjusted +0.30 SD, 0.20–0.40; at 65+ +0.15, CI −0.11 to 0.42). We can't tell the direction of causation, but it is the strongest non-age outer→inner link we found.
 - **Party (sensitivity analysis only) triples the predictability of green values** (R² 0.023 → 0.068). Values are tied to identity, and census variables don't capture identity.
 
 ## 3. Methods and why we chose them
@@ -110,7 +110,7 @@ The 80% intervals covered 72–99% of held-out members. Coverage is only informa
 1. Model behaviour hierarchically: persona effects as random effects on the population model, instead of raw cell rates.
 2. Add the LLM-from-demographics baseline the brief suggests. We didn't run it. The Mega-Study authors report demographic-only twins at r ≈ 0.15 with compressed variance, which is the bar to beat.
 3. Bring in ACS margins to reweight the panel, and test whether the age gradients survive.
-4. Ask the client for **one** cheap inner-layer item, a 6-item green-values scale. It predicts the target choice with OR ≈ 3 per SD, far beyond anything the outer layer offers.
+4. Ask the client for **one** cheap inner-layer measure, the 6-item green-values scale. It predicts the target choice with OR ≈ 3 per SD, far beyond anything the outer layer offers.
 
 **Stop**
 - Defining personas on demographic intersections alone and treating their behaviour rates as forecasts.
@@ -122,7 +122,7 @@ Two out-of-fold comparisons on the training split ask whether one measured attit
 - **Green energy: a hypothetical costed choice with a randomised default** (n = 428).
   - Tier A demographics did not beat the base rate (ΔBrier +0.011, CI −0.004 to +0.026).
   - Adding the green-values scale improved prediction by ΔBrier −0.035 (−0.051 to −0.019) with the default held constant; AUC rose from 0.60 to 0.73.
-  - The default itself added a borderline ~0.01.
+  - The default added a borderline ~0.01 to *prediction*; its causal effect on the choice is still +25 points.
 - **Redistribution: a stated attitude with no choice, cost or randomisation** (n = 833).
   - Demographics again added nothing (ΔR² +0.006, −0.036 to +0.048).
   - Policy support measured five months earlier added ΔR² +0.34 (+0.28 to +0.40).
