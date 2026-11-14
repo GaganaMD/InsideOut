@@ -159,3 +159,21 @@ def test_published_contrasts_match_benchmark_audit():
         c = ap.contrast(pr.assign(arm="empty", cell="ALL"), hum, "empty", "participant", nb=50)
         assert c["model_contrast"] == pytest.approx(ref.loc[name, "ate"], abs=1e-4)
         assert c["human_contrast"] == pytest.approx(ref.loc["Humans", "ate"], abs=1e-4)
+
+
+def test_auth_error_stops_run_immediately(tmp_path):
+    from harness.client import Client, TransportError
+    from harness.runner import RunConfig, Runner, RateLimiter
+    from harness.tasks import build_pilot
+
+    class Expired:
+        calls = 0
+
+        def send(self, payload):
+            Expired.calls += 1
+            raise TransportError(401, "API key expired")
+
+    cfg = RunConfig(model="m", price_in_per_m=1, price_out_per_m=1, budget_usd=1, max_workers=1, out_dir=tmp_path)
+    r = Runner(cfg, Client(Expired(), sleep=lambda s: None), RateLimiter(10**6, sleep=lambda s: None))
+    r.run(build_pilot()[0])
+    assert Expired.calls == 1 and r.ledger.stopped_reason == "fatal_http_401" and r.ledger.cost_usd < 1e-9

@@ -65,10 +65,11 @@ class DryRunTransport:
 class Client:
     def __init__(self, transport, max_retries: int = 5, base_delay: float = 1.0, sleep=time.sleep):
         self.transport, self.max_retries, self.base_delay, self.sleep = transport, max_retries, base_delay, sleep
+        self.retries: list[int] = []                      # HTTP status of every retried attempt (for the run summary)
 
     def chat(self, model: str, messages: list[dict], temperature: float, max_tokens: int, seed: int | None = None) -> dict:
         payload = {"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens,
-                   "response_format": {"type": "json_object"}}
+                   "response_format": {"type": "json_object"}, "usage": {"include": True}}   # OpenRouter reports billed cost
         if seed is not None:
             payload["seed"] = seed
         for attempt in range(self.max_retries + 1):
@@ -77,5 +78,6 @@ class Client:
             except TransportError as e:
                 if e.status not in RETRY_STATUS or attempt == self.max_retries:
                     raise
+                self.retries.append(e.status)
                 self.sleep(self.base_delay * (2 ** attempt) * (1 + 0.25 * random.random()))
         raise RuntimeError("unreachable")

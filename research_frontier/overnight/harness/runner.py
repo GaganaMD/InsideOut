@@ -8,6 +8,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from .client import Client, redact
+
+FATAL_STATUS = {401, 402, 403}                      # auth / payment errors stop the whole run
 from .prompts import TEMPLATE_HASH, render
 from .schema import InvalidOutput, parse_choice
 
@@ -119,6 +121,10 @@ class Runner:
             with self.ledger.lock:
                 self.ledger.cost_usd -= est
             self._append(self.log_path, {"event": "error", "task": task.task_id, "error": str(e)[:300]})
+            if getattr(e, "status", None) in FATAL_STATUS:     # bad/expired key or no credit: never keep sending
+                with self.ledger.lock:
+                    self.ledger.stopped_reason = f"fatal_http_{e.status}"
+                self.stop.set()
             return None
         usage = resp.get("usage", {})
         actual = self.cost(usage)
@@ -139,6 +145,7 @@ class Runner:
                     self.stop.set()
         rec = {"key": k, "task_id": task.task_id, "arm": task.arm, "sample": task.sample, "model": self.cfg.model,
                "template": TEMPLATE_HASH, "valid": valid, "result": parsed, "usage": usage, "cost_usd": actual,
+               "served_model": resp.get("model"), "provider": resp.get("provider"), "generation_id": resp.get("id"),
                "dry_run": bool(resp.get("dry_run"))}
         if valid:                                             # only valid results are cached (invalid ones retry on resume)
             self._append(self.cache_path, rec)
@@ -151,5 +158,6 @@ class Runner:
         with ThreadPoolExecutor(max_workers=self.cfg.max_workers) as ex:
             results = list(ex.map(self._one, tasks))
         summary = {k: v for k, v in self.ledger.__dict__.items() if k != "lock"}
+        summary["retries"] = list(getattr(self.client, "retries", []))
         (self.cfg.out_dir / "summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
         return results
