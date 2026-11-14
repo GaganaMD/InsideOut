@@ -1,0 +1,96 @@
+{
+ "task": "C|targeting_fairness|cv",
+ "experiment": "C",
+ "study": "targeting_fairness",
+ "spec": "cv",
+ "outcome": "rating_1_9",
+ "loss": "squared_error",
+ "constant_baseline_loss": 4.341109467455621,
+ "models": {
+  "M0_condition": {
+   "mean_loss": 3.9514837241340692,
+   "skill_vs_constant": 0.08975257275645632,
+   "sd_over_repeats": 0.01150504387893271
+  },
+  "M1_tierA": {
+   "mean_loss": 4.563176937443541,
+   "skill_vs_constant": -0.051154542785136536,
+   "sd_over_repeats": 0.14591378940185518
+  },
+  "M2_attitudes": {
+   "mean_loss": 3.903389879835387,
+   "skill_vs_constant": 0.10083127156818439,
+   "sd_over_repeats": 0.056982611842024196
+  },
+  "M3_tierA_attitudes": {
+   "mean_loss": 4.560924773627223,
+   "skill_vs_constant": -0.050635743654821486,
+   "sd_over_repeats": 0.17016755299280917
+  },
+  "M4_tierA_llm": {
+   "mean_loss": 4.591649417703413,
+   "skill_vs_constant": -0.05771334543070994,
+   "sd_over_repeats": 0.1530160025668082
+  },
+  "M5_llm_only": {
+   "mean_loss": 3.961525234060895,
+   "skill_vs_constant": 0.08743945211250459,
+   "sd_over_repeats": 0.02795211783544032
+  }
+ },
+ "contrasts": {
+  "M1_tierA_vs_M0_condition": {
+   "loss_reduction": -0.6116932133094719,
+   "ci": [
+    -0.9780634354377957,
+    -0.2622495414979606
+   ],
+   "share_of_baseline": -0.14090711554159288
+  },
+  "M2_attitudes_vs_M0_condition": {
+   "loss_reduction": 0.048093844298681576,
+   "ci": [
+    -0.1697709311230712,
+    0.265397595185539
+   ],
+   "share_of_baseline": 0.011078698811727957
+  },
+  "M3_tierA_attitudes_vs_M1_tierA": {
+   "loss_reduction": 0.0022521638163181183,
+   "ci": [
+    -0.24953606142066956,
+    0.2574887627542386
+   ],
+   "share_of_baseline": 0.0005187991303149836
+  },
+  "M3_tierA_attitudes_vs_M2_attitudes": {
+   "loss_reduction": -0.6575348937918354,
+   "ci": [
+    -1.0144232250323302,
+    -0.32585485808496534
+   ],
+   "share_of_baseline": -0.15146701522300585
+  },
+  "M4_tierA_llm_vs_M1_tierA": {
+   "loss_reduction": -0.028472480259871917,
+   "ci": [
+    -0.1282061521750239,
+    0.06016377588087141
+   ],
+   "share_of_baseline": -0.006558802645573459
+  },
+  "M2_attitudes_vs_M5_llm_only": {
+   "loss_reduction": 0.05813535422550825,
+   "ci": [
+    -0.18458620603573134,
+    0.2981519518194792
+   ],
+   "share_of_baseline": 0.013391819455679866
+  }
+ },
+ "n": 260,
+ "repeats": 100,
+ "folds": 5,
+ "nb": 2000,
+ "runtime_s": 27.06987166404724
+}

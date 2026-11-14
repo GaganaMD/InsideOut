@@ -1,0 +1,93 @@
+{
+ "task": "B|default_eric|demographics_t0",
+ "experiment": "B",
+ "study": "default_eric",
+ "spec": "demographics_t0",
+ "outcome": "binary",
+ "individual": {
+  "bias": 0.06775700934579443,
+  "sd_ratio": 0.9984106356725122,
+  "corr": 0.18758456797855172,
+  "accuracy": 0.5911214953271028,
+  "brier": 0.4088785046728972,
+  "brier_constant_baseline": 0.24921390514455413
+ },
+ "individual_ci": {
+  "bias": [
+   0.004672897196261738,
+   0.12616822429906543
+  ],
+  "sd_ratio": [
+   0.9859290133991193,
+   1.0090358055790258
+  ],
+  "corr": [
+   0.09428354635510955,
+   0.28362895517583725
+  ],
+  "accuracy": [
+   0.544392523364486,
+   0.6378504672897196
+  ],
+  "brier": [
+   0.3621495327102804,
+   0.45560747663551404
+  ],
+  "brier_constant_baseline": [
+   0.24440999213905146,
+   0.2499945410079483
+  ]
+ },
+ "by_arm": {
+  "0": {
+   "bias": 0.10679611650485438,
+   "sd_ratio": 1.0397504898200727,
+   "corr": 0.1321349580813008,
+   "accuracy": 0.5728155339805825,
+   "brier": 0.42718446601941745,
+   "brier_constant_baseline": 0.23018192101046286
+  },
+  "1": {
+   "bias": 0.03153153153153154,
+   "sd_ratio": 0.9880014886068549,
+   "corr": 0.1897770420006017,
+   "accuracy": 0.6081081081081081,
+   "brier": 0.3918918918918919,
+   "brier_constant_baseline": 0.2441360279198117
+  }
+ },
+ "distribution": {
+  "levels": [
+   0,
+   1
+  ],
+  "human": [
+   0.5280373831775701,
+   0.4719626168224299
+  ],
+  "llm": [
+   0.4602803738317757,
+   0.5397196261682243
+  ],
+  "total_variation": 0.0677570093457944
+ },
+ "cell": {
+  "n_cells": 18,
+  "n_people": 208,
+  "min_cell": 8,
+  "corr_cell_means": 0.3921298949351852,
+  "corr_ci": [
+   -0.04508683769815362,
+   0.7486322999623171
+  ],
+  "sd_ratio_cell_means": 1.0954431289512294,
+  "sd_ratio_ci": [
+   0.7426367037714557,
+   1.5554734059177813
+  ],
+  "note": "cell means mix sampling noise (small cells) with true heterogeneity; human cell SD is inflated by noise"
+ },
+ "n": 428,
+ "nb": 10000,
+ "runtime_s": 10.789542436599731
+}

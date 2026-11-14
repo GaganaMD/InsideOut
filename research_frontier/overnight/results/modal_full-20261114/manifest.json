@@ -1,0 +1,46 @@
+{
+ "run_id": "full-20261114",
+ "tasks": [
+  "A|default_eric|demographics_t07",
+  "A|default_eric|demographics_t0",
+  "A|default_eric|empty_t07",
+  "A|default_eric|full_persona_t07",
+  "A|targeting_fairness|demographics_t07",
+  "A|targeting_fairness|demographics_t0",
+  "A|targeting_fairness|empty_t07",
+  "A|targeting_fairness|full_persona_t07",
+  "B|default_eric|demographics_t07",
+  "B|default_eric|demographics_t0",
+  "B|default_eric|empty_t07",
+  "B|default_eric|full_persona_t07",
+  "B|targeting_fairness|demographics_t07",
+  "B|targeting_fairness|demographics_t0",
+  "B|targeting_fairness|empty_t07",
+  "B|targeting_fairness|full_persona_t07",
+  "C|default_eric|cv",
+  "C|targeting_fairness|cv"
+ ],
+ "nb": 10000,
+ "repeats": 100,
+ "bundle": {
+  "default_eric": {
+   "n_train": 428,
+   "sha256": "69b250dd499599e9f50ef81b34eb4d058e074eaa050c74903d01183cf9adb374",
+   "bytes": 22254
+  },
+  "targeting_fairness": {
+   "n_train": 260,
+   "sha256": "471b31886e58e622369f591424292119be3119796aee76b617097fc344dab125",
+   "bytes": 20358
+  }
+ },
+ "worker": {
+  "cpu": "1.0",
+  "memory": "1024",
+  "timeout": "1800",
+  "max_containers": "4",
+  "retries": "<modal.retries.Retries object at 0x2b372540c190>"
+ },
+ "worst_case_cost_usd": 1.042875,
+ "started": 1794679666.2486346
+}

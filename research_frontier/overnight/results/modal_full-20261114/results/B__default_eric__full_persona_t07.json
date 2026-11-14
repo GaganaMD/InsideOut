@@ -1,0 +1,93 @@
+{
+ "task": "B|default_eric|full_persona_t07",
+ "experiment": "B",
+ "study": "default_eric",
+ "spec": "full_persona_t07",
+ "outcome": "binary",
+ "individual": {
+  "bias": -0.03037383177570091,
+  "sd_ratio": 0.994717934585372,
+  "corr": 0.37510848326862756,
+  "accuracy": 0.6892523364485982,
+  "brier": 0.3107476635514019,
+  "brier_constant_baseline": 0.24921390514455413
+ },
+ "individual_ci": {
+  "bias": [
+   -0.08411214953271023,
+   0.0210280373831776
+  ],
+  "sd_ratio": [
+   0.9814857342210802,
+   1.0038735675292632
+  ],
+  "corr": [
+   0.28635000478180317,
+   0.4629100676768394
+  ],
+  "accuracy": [
+   0.6448598130841121,
+   0.7336448598130841
+  ],
+  "brier": [
+   0.26635514018691586,
+   0.35514018691588783
+  ],
+  "brier_constant_baseline": [
+   0.24440999213905146,
+   0.2499945410079483
+  ]
+ },
+ "by_arm": {
+  "0": {
+   "bias": 0.03883495145631066,
+   "sd_ratio": 1.0202695922892344,
+   "corr": 0.3626331930107487,
+   "accuracy": 0.6990291262135923,
+   "brier": 0.30097087378640774,
+   "brier_constant_baseline": 0.23018192101046286
+  },
+  "1": {
+   "bias": -0.09459459459459457,
+   "sd_ratio": 1.011281115556328,
+   "corr": 0.3704880348580183,
+   "accuracy": 0.6801801801801802,
+   "brier": 0.31981981981981983,
+   "brier_constant_baseline": 0.2441360279198117
+  }
+ },
+ "distribution": {
+  "levels": [
+   0,
+   1
+  ],
+  "human": [
+   0.5280373831775701,
+   0.4719626168224299
+  ],
+  "llm": [
+   0.5584112149532711,
+   0.441588785046729
+  ],
+  "total_variation": 0.030373831775700938
+ },
+ "cell": {
+  "n_cells": 18,
+  "n_people": 208,
+  "min_cell": 8,
+  "corr_cell_means": 0.38506411136175206,
+  "corr_ci": [
+   0.002380036585749737,
+   0.7293846247182728
+  ],
+  "sd_ratio_cell_means": 1.0776118528786085,
+  "sd_ratio_ci": [
+   0.7674662128450156,
+   1.5383018297046316
+  ],
+  "note": "cell means mix sampling noise (small cells) with true heterogeneity; human cell SD is inflated by noise"
+ },
+ "n": 428,
+ "nb": 10000,
+ "runtime_s": 12.402555465698242
+}

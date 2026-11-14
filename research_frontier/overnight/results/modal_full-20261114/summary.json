@@ -1,0 +1,102 @@
+{
+ "run_id": "full-20261114",
+ "n_tasks": 18,
+ "done": 18,
+ "skipped_existing": 0,
+ "failed": 0,
+ "tasks": [
+  {
+   "task": "A|default_eric|demographics_t07",
+   "status": "done",
+   "runtime_s": 2.8610520362854004
+  },
+  {
+   "task": "A|default_eric|demographics_t0",
+   "status": "done",
+   "runtime_s": 2.6388978958129883
+  },
+  {
+   "task": "A|default_eric|empty_t07",
+   "status": "done",
+   "runtime_s": 2.069340229034424
+  },
+  {
+   "task": "A|default_eric|full_persona_t07",
+   "status": "done",
+   "runtime_s": 3.0937981605529785
+  },
+  {
+   "task": "A|targeting_fairness|demographics_t07",
+   "status": "done",
+   "runtime_s": 2.035714864730835
+  },
+  {
+   "task": "A|targeting_fairness|demographics_t0",
+   "status": "done",
+   "runtime_s": 2.7067079544067383
+  },
+  {
+   "task": "A|targeting_fairness|empty_t07",
+   "status": "done",
+   "runtime_s": 3.3062996864318848
+  },
+  {
+   "task": "A|targeting_fairness|full_persona_t07",
+   "status": "done",
+   "runtime_s": 2.9134931564331055
+  },
+  {
+   "task": "B|default_eric|demographics_t07",
+   "status": "done",
+   "runtime_s": 7.9597227573394775
+  },
+  {
+   "task": "B|default_eric|demographics_t0",
+   "status": "done",
+   "runtime_s": 10.789542436599731
+  },
+  {
+   "task": "B|default_eric|empty_t07",
+   "status": "done",
+   "runtime_s": 9.561777591705322
+  },
+  {
+   "task": "B|default_eric|full_persona_t07",
+   "status": "done",
+   "runtime_s": 12.402555465698242
+  },
+  {
+   "task": "B|targeting_fairness|demographics_t07",
+   "status": "done",
+   "runtime_s": 7.706012487411499
+  },
+  {
+   "task": "B|targeting_fairness|demographics_t0",
+   "status": "done",
+   "runtime_s": 10.891297578811646
+  },
+  {
+   "task": "B|targeting_fairness|empty_t07",
+   "status": "done",
+   "runtime_s": 9.924401998519897
+  },
+  {
+   "task": "B|targeting_fairness|full_persona_t07",
+   "status": "done",
+   "runtime_s": 7.709676742553711
+  },
+  {
+   "task": "C|default_eric|cv",
+   "status": "done",
+   "runtime_s": 51.82986497879028
+  },
+  {
+   "task": "C|targeting_fairness|cv",
+   "status": "done",
+   "runtime_s": 27.06987166404724
+  }
+ ],
+ "started": 1794679666.2486346,
+ "ended": 1794679758.954859,
+ "wall_s": 92.7062246799469
+}

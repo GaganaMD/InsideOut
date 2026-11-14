@@ -1,0 +1,56 @@
+{
+ "task": "A|targeting_fairness|full_persona_t07",
+ "experiment": "A",
+ "study": "targeting_fairness",
+ "spec": "full_persona_t07",
+ "outcome": "rating_1_9",
+ "human_ate": -1.2838518518518516,
+ "llm_ate": -0.8506666666666671,
+ "diff_llm_minus_human": 0.43318518518518445,
+ "ratio_llm_over_human": 0.662589429956151,
+ "human_std_effect": -0.6476464189060265,
+ "llm_std_effect": -0.42912367151608666,
+ "human_ate_ci": [
+  -1.756155555555555,
+  -0.8062222222222228
+ ],
+ "llm_ate_ci": [
+  -1.0299259259259257,
+  -0.6785111111111118
+ ],
+ "diff_llm_minus_human_ci": [
+  -0.0643185185185187,
+  0.9217925925925924
+ ],
+ "ratio_llm_over_human_ci": [
+  0.4566777060598139,
+  1.0771773077752362
+ ],
+ "human_std_effect_ci": [
+  -0.9082585357233631,
+  -0.4036049790366324
+ ],
+ "llm_std_effect_ci": [
+  -0.5356846431754166,
+  -0.3378619719589063
+ ],
+ "sign_agrees": true,
+ "boot_share_same_sign": 1.0,
+ "human_ci_excludes_0": true,
+ "llm_ci_excludes_0": true,
+ "arm_means": {
+  "human": [
+   7.632,
+   6.348148148148148
+  ],
+  "llm": [
+   7.384,
+   6.533333333333333
+  ]
+ },
+ "n": 260,
+ "n_treated": 135,
+ "bootstrap": "paired participant bootstrap stratified by arm",
+ "nb": 10000,
+ "runtime_s": 2.9134931564331055
+}

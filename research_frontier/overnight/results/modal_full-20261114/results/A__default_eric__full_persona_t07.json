@@ -1,0 +1,56 @@
+{
+ "task": "A|default_eric|full_persona_t07",
+ "experiment": "A",
+ "study": "default_eric",
+ "spec": "full_persona_t07",
+ "outcome": "binary",
+ "human_ate": 0.21735327560570278,
+ "llm_ate": 0.08392372955479754,
+ "diff_llm_minus_human": -0.13342954605090523,
+ "ratio_llm_over_human": 0.3861167002012074,
+ "human_std_effect": 0.44607483466547276,
+ "llm_std_effect": 0.17223694320383148,
+ "human_ate_ci": [
+  0.12446427009533806,
+  0.306787369894166
+ ],
+ "llm_ate_ci": [
+  -0.010014869238170243,
+  0.17716259949269658
+ ],
+ "diff_llm_minus_human_ci": [
+  -0.23602728942534767,
+  -0.02667716259949271
+ ],
+ "ratio_llm_over_human_ci": [
+  -0.055914763218007466,
+  0.8421419856971428
+ ],
+ "human_std_effect_ci": [
+  0.2515918632501437,
+  0.6463696998794545
+ ],
+ "llm_std_effect_ci": [
+  -0.020511443576509487,
+  0.3655213971881464
+ ],
+ "sign_agrees": true,
+ "boot_share_same_sign": 0.9621,
+ "human_ci_excludes_0": true,
+ "llm_ci_excludes_0": false,
+ "arm_means": {
+  "human": [
+   0.3592233009708738,
+   0.5765765765765766
+  ],
+  "llm": [
+   0.39805825242718446,
+   0.481981981981982
+  ]
+ },
+ "n": 428,
+ "n_treated": 222,
+ "bootstrap": "paired participant bootstrap stratified by arm",
+ "nb": 10000,
+ "runtime_s": 3.0937981605529785
+}

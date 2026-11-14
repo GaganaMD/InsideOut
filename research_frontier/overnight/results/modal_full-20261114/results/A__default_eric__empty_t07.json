@@ -1,0 +1,56 @@
+{
+ "task": "A|default_eric|empty_t07",
+ "experiment": "A",
+ "study": "default_eric",
+ "spec": "empty_t07",
+ "outcome": "binary",
+ "human_ate": 0.21735327560570278,
+ "llm_ate": 0.8738301408204321,
+ "diff_llm_minus_human": 0.6564768652147293,
+ "ratio_llm_over_human": 4.020321931589537,
+ "human_std_effect": 0.44607483466547276,
+ "llm_std_effect": 1.793364440935777,
+ "human_ate_ci": [
+  0.12446427009533806,
+  0.306787369894166
+ ],
+ "llm_ate_ci": [
+  0.8259861803551124,
+  0.9199335257587684
+ ],
+ "diff_llm_minus_human_ci": [
+  0.5552271932126303,
+  0.7580753083180266
+ ],
+ "ratio_llm_over_human_ci": [
+  2.830099511033077,
+  6.99859179077172
+ ],
+ "human_std_effect_ci": [
+  0.2515918632501437,
+  0.6463696998794545
+ ],
+ "llm_std_effect_ci": [
+  1.6935596526337537,
+  1.900492965609843
+ ],
+ "sign_agrees": true,
+ "boot_share_same_sign": 1.0,
+ "human_ci_excludes_0": true,
+ "llm_ci_excludes_0": true,
+ "arm_means": {
+  "human": [
+   0.3592233009708738,
+   0.5765765765765766
+  ],
+  "llm": [
+   0.06310679611650485,
+   0.9369369369369369
+  ]
+ },
+ "n": 428,
+ "n_treated": 222,
+ "bootstrap": "paired participant bootstrap stratified by arm",
+ "nb": 10000,
+ "runtime_s": 2.069340229034424
+}
