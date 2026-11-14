@@ -1,0 +1,7 @@
+construct,heldout_r2,lo,hi,n_test,scoring,legacy_heldout_r2
+dictator_give,0.0044,-0.0025,0.0116,616,frozen confirmatory,0.0044
+green,0.0205,-0.0012,0.0436,616,frozen confirmatory,0.0205
+crt,0.0208,0.0089,0.0332,616,corrected (post-audit),0.0158
+spendthrift,0.0224,-0.0073,0.0534,616,frozen confirmatory,0.0224
+social_desirability,0.0765,0.0374,0.1162,616,corrected (post-audit),0.0673
+neuroticism,0.171,0.1191,0.2211,616,frozen confirmatory,0.171

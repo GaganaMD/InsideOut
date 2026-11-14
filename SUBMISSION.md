@@ -19,6 +19,8 @@
 | Data audit and frozen split provenance | `audit/AUDIT.md` and the `audit/` tables |
 | Frozen confirmatory outputs (byte-stable since the holdout run) | `results/` |
 | Pre-registration | `hypotheses.md` (commit `2540e2c`) |
+| README figures and their source data | `figures/*.svg`, `figures/*.png`, `figures/data/*.csv`, `figures/pipeline.mmd`. Regenerate with `python tools/make_figures.py` and `python tools/render_mermaid.py` |
+| Previous README, archived verbatim | `docs/README_original.md` |
 
 ## C. Historical or exploratory artefacts (kept for provenance; not current findings)
 | What | File(s) | Caveat |

@@ -1,0 +1,25 @@
+flowchart TD
+    A["Twin-2K-500 survey<br/>2,058 US adults, ~500 items"] --> C
+    B["Mega-Study experiment default_eric<br/>hypothetical green tariff, n = 600"] --> C
+    C["Data audit: ID joins, codebook, missingness"] --> D
+    subgraph PRE["Before the holdout was inspected"]
+        D["Frozen 70/30 participant split<br/>1,442 train / 616 test (hashed)"]
+        S["Item-scoring check<br/>spendthrift re-scored from items"]
+        E["Pre-registered hypotheses<br/>committed before modelling"]
+        F["Training-only model selection<br/>predictability map, say-do model, P3 rule"]
+        G["Three personas built from<br/>training members only"]
+        D --> S --> E --> F --> G
+    end
+    H["One-time held-out evaluation<br/>616 test participants"]
+    subgraph POST["After the holdout was inspected: labelled audit or exploratory"]
+        I["Full item-scoring audit<br/>SD and CRT shipped scores corrected"]
+        J["Same frozen models re-scored<br/>with corrected measures"]
+        K["Exploratory follow-ups and robustness<br/>training split only"]
+        I --> J
+    end
+    G --> H
+    H --> I
+    H --> K
+    J --> L["Memo and one-page persona cards"]
+    K --> L
+    G --> M["Persona generator CLI<br/>new outer-layer criteria, corrected scores by default"]

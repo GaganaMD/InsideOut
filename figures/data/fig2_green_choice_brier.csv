@@ -1,0 +1,9 @@
+model,label,group,brier,d_brier,lo,hi
+M0,Prevalence baseline,Baseline,0.24922,0.0,,
+D1,Age + income + education,Demographics only,0.2611,0.01187,0.00568,0.01827
+M1,All 10 census variables,Demographics only,0.26033,0.01111,-0.00434,0.02594
+D3,"All 10, strongly regularised",Demographics only,0.24701,-0.00221,-0.00964,0.00531
+D4,"All 10, regularisation tuned",Demographics only,0.24674,-0.00249,-0.00556,0.00068
+M1D,All 10 + randomised default,+ randomised default,0.24959,0.00037,-0.01573,0.01769
+M2,All 10 + measured green values,+ measured green values,0.22698,-0.02225,-0.04195,-0.00329
+M3,All 10 + green values + default,+ measured green values,0.21437,-0.03485,-0.05501,-0.01439
