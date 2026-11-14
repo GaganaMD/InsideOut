@@ -28,3 +28,8 @@ In order. ✗ = dropped, ✓ = kept, ⚠ = problem found.
 18. ✓ **Holdout evaluated once** (first-run commit recorded in `results/holdout_first_run.json`). Later pipeline runs reproduce identical numbers, and nothing was tuned after it.
 19. ⚠ **Post-holdout finding: the shrinkage prior over-shrinks non-Tier-A groups** (party sensitivity persona, dictator giving). I documented it rather than fixing it, because modelling changes after the holdout would be tuning on the test set.
 20. ✗ **Not done:** LLM-from-demographics baseline, ACS reweighting, hierarchical behaviour model, and use of the other 16 Mega-Study studies.
+21. ✓ **Exploratory follow-up 1 (train only, after the holdout).** Measured GREEN vs demographics for the green choice. Demographics did not beat the base rate; GREEN added ΔBrier −0.035 with the default held constant.
+22. ⚠ **Exploratory follow-up 2: redistribution (pre-specified in `0234938`).** The survey has no randomisation, so condition models were not applicable, and the outcome is a stated attitude, not a decision. Policy support added ΔR² +0.34. Ideology did as well, which points to construct proximity.
+23. ✓ **Robustness: demographic complexity.** Compact, regularised and tuned demographic models never reach the pre-set threshold. Best result: AUC 0.58, ΔBrier −0.004.
+24. ⚠ **Robustness: persona stability.** Neuroticism is stable in all 17 variants. P3's green gap is fragile and concentrated in young never-married men, so the memo was corrected. P2's social desirability is fragile.
+25. ✓ **Neuroticism re-derived from BFI items** (exact match). Social desirability, CRT and dictator giving are still not re-derived.

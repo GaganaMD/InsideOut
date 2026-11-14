@@ -4,3 +4,4 @@ audit/_dl.log
 __pycache__/
 .cache/
 reports/generated/
+reports/robustness/cli_examples/

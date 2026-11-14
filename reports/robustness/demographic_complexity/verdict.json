@@ -1,0 +1,4 @@
+{
+ "negative_finding_overturned": false,
+ "rule": "any model: dBrier <= -0.010 and CI excludes 0"
+}

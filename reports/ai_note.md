@@ -26,3 +26,5 @@ Two web-fetch subagents read the dataset cards and the two arXiv papers to confi
 - Rick et al. 2008 (tightwad–spendthrift scoring).
 
 The scoring rule was nonetheless confirmed empirically against the item data. Treat the age-trend citations as pointers, not checked quotations.
+
+**Later additions.** The same tools produced the exploratory follow-ups, the robustness analyses and the adversarial review (`reports/exploratory/`, `reports/robustness/`). They were checked the same way: numbers come from script outputs; tests check training-only data, leakage, reproducibility and that original files are unchanged; and memo figures were cross-checked against the result CSVs. Neuroticism was re-derived from its items and matched exactly.

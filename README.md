@@ -42,7 +42,9 @@ Output goes to `reports/generated/`. New personas are built from the training sp
 | `hypotheses.md` | Pre-registered predictions and falsifiers (committed before modelling) |
 | `results/` | All numeric outputs |
 | `reports/` | Memo, personas, exploration log, AI note, party sensitivity persona |
-| `tests/` | Integrity tests (split hash, coding, whitelist, train-only, insufficient evidence) |
+| `src/exploratory_*.py` → `reports/exploratory/` | EXPLORATORY follow-ups (train only): green values vs demographics; redistribution attitude vs demographics |
+| `src/robust_*.py` → `reports/robustness/` | EXPLORATORY robustness (train only): demographic model complexity, persona stability, CLI checks, adversarial review |
+| `tests/` | Integrity tests (split hash, coding, whitelist, train-only, leakage, reproducibility, originals untouched) |
 
 ## Data caveats
 - Every "do" outcome is a **hypothetical** scenario choice. There are no incentives.

@@ -1,0 +1,8 @@
+case,criteria,extra,exit_code,expected_exit,last_line,passed
+new_group_west_women_college,"region=West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM); sex=Female; education=College graduate/some postgrad|Postgraduate",,0,0,ok,True
+new_group_single_hh_retired,hh_size=1; employment=Retired,,0,0,ok,True
+new_group_tiny,age_band=18-29; employment=Retired,,0,0,INSUFFICIENT EVIDENCE: n_train=0 < 30,True
+rejected_party,party=Democrat,,2,2,"ERROR: 'party' is not an allowed outer-layer variable (party needs --allow-party; it is self-reported, Tier B). Allowed: ['region', 'sex', 'age_band', 'educatio",True
+rejected_ideology,ideology=Liberal,,2,2,"ERROR: 'ideology' is not an allowed outer-layer variable. Allowed: ['region', 'sex', 'age_band', 'education', 'race', 'citizen', 'marital', 'income', 'hh_size',",True
+rejected_bad_level,age_band=40-60,,2,2,"ERROR: age_band: unknown level(s) ['40-60']. Valid: ['18-29', '30-49', '50-64', '65+']",True
+sensitivity_party,party=Democrat,--allow-party,0,0,ok,True

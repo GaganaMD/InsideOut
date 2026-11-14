@@ -21,6 +21,8 @@ STEPS = [
      "--allow-party", "--out", "reports/sensitivity"],
     ["src/exploratory_values.py"],  # EXPLORATORY follow-up; train split only; writes reports/exploratory/
     ["src/exploratory_redistribution.py"],  # EXPLORATORY follow-up #2; train only; reports/exploratory/redistribution/
+    ["src/robust_demographics.py"],  # EXPLORATORY robustness; train only; reports/robustness/
+    ["src/robust_personas.py"],  # EXPLORATORY robustness; train only; reports/robustness/
 ]
 
 

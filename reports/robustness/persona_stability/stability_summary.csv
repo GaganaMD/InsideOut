@@ -1,0 +1,19 @@
+persona,construct,original_confidence,original_d,n_variants,sign_kept,ci_excl_0,d_min,d_max,max_abs_change,stable,stability_rule
+P1,crt,weak difference,-0.1801,5,5,1,-0.1494,-0.091,0.0891,True,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P1,dictator_give,not distinguishable from population,0.0766,5,2,0,-0.0439,0.1823,0.1205,True,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P1,green,weak difference,0.1464,5,5,3,0.0149,0.227,0.1315,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P1,neuroticism,distinct,-0.434,5,5,5,-0.4989,-0.2001,0.2339,True,sign kept and CI excludes 0 in every variant
+P1,social_desirability,distinct,0.4209,5,5,5,0.1215,0.5086,0.2994,True,sign kept and CI excludes 0 in every variant
+P1,spendthrift,weak difference,-0.1297,5,5,1,-0.1749,-0.0458,0.0839,True,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P2,crt,weak difference,0.1337,6,6,2,0.0055,0.2093,0.1281,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P2,dictator_give,not distinguishable from population,0.1066,6,6,1,0.0068,0.2536,0.147,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P2,green,weak difference,-0.1509,6,6,4,-0.2812,-0.0689,0.1303,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P2,neuroticism,distinct,0.4715,6,6,6,0.2242,0.6579,0.2473,True,sign kept and CI excludes 0 in every variant
+P2,social_desirability,distinct,-0.2159,6,6,5,-0.2928,-0.0827,0.1332,False,sign kept and CI excludes 0 in every variant
+P2,spendthrift,not distinguishable from population,-0.0784,6,4,1,-0.1777,0.0588,0.1372,True,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P3,crt,not distinguishable from population,-0.0074,6,1,2,-0.1947,0.2343,0.2417,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P3,dictator_give,not distinguishable from population,0.0815,6,5,0,-0.0657,0.0906,0.1472,True,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P3,green,distinct,-0.2739,6,6,3,-0.3957,-0.0914,0.1824,False,sign kept and CI excludes 0 in every variant
+P3,neuroticism,distinct,0.4321,6,6,6,0.2074,0.6699,0.2378,True,sign kept and CI excludes 0 in every variant
+P3,social_desirability,weak difference,-0.1858,6,6,5,-0.287,-0.1074,0.1012,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
+P3,spendthrift,not distinguishable from population,0.087,6,3,1,-0.0651,0.2216,0.1521,False,"no variant turns it into a distinct (|d|>=0.2, CI excl. 0) difference"
