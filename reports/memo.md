@@ -110,3 +110,17 @@ The 80% intervals covered 72–99% of held-out members. Coverage above 90% happe
 **Stop**
 - Defining personas on demographic intersections alone and treating their behaviour rates as forecasts.
 - Trusting shipped scale scores without re-deriving at least one from items.
+
+## 6. Exploratory follow-ups (added after the holdout was inspected; training split only)
+Two out-of-fold comparisons on the training split ask whether one measured attitude beats demographics. Details are in `reports/exploratory/`.
+
+- **Green energy: a hypothetical costed choice with a randomised default** (n = 428).
+  - Tier A demographics did not beat the base rate (ΔBrier +0.011, CI −0.004 to +0.026).
+  - Adding the green-values scale improved prediction by ΔBrier −0.035 (−0.051 to −0.019) with the default held constant; AUC rose from 0.60 to 0.73.
+  - The default itself added a borderline ~0.01.
+- **Redistribution: a stated attitude with no choice, cost or randomisation** (n = 833).
+  - Demographics again added nothing (ΔR² +0.006, −0.036 to +0.048).
+  - Policy support measured five months earlier added ΔR² +0.34 (+0.28 to +0.40).
+  - A single ideology item did as well. The size of the gain reflects how close predictor and outcome are as constructs, not psychological depth. This is not a say–do test.
+
+The finding that holds across both domains is the negative one: census-level demographics gave no out-of-fold signal for either outcome. One directly measured, domain-relevant item gave a large signal in both.
