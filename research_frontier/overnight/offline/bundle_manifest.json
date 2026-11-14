@@ -1,0 +1,113 @@
+{
+ "seed": 20261114,
+ "specs": {
+  "demographics_t07": [
+   "demographics_only_2025-07-31",
+   "demographics_only_2025-07-31"
+  ],
+  "demographics_t0": [
+   "demographics_only_temperature_zero_2025-08-18",
+   "demographics_only_temperature_zero_2025-08-18"
+  ],
+  "empty_t07": [
+   "empty_persona_2025-07-22",
+   "empty_persona_2025-07-22"
+  ],
+  "full_persona_t07": [
+   "full_persona_without_reasoning_2025-06-18",
+   "full_persona_without_reasoning_2025-06-23"
+  ]
+ },
+ "attitudes": [
+  "green",
+  "social_desirability",
+  "spendthrift",
+  "crt",
+  "dictator_give",
+  "neuroticism"
+ ],
+ "tier_a": [
+  "region",
+  "sex",
+  "age_band",
+  "education",
+  "race",
+  "citizen",
+  "marital",
+  "income",
+  "hh_size",
+  "employment"
+ ],
+ "studies": {
+  "default_eric": {
+   "n_train": 428,
+   "n_treat": 222,
+   "columns": [
+    "row",
+    "treat",
+    "y_human",
+    "y_demographics_t07",
+    "y_demographics_t0",
+    "y_empty_t07",
+    "y_full_persona_t07",
+    "region",
+    "sex",
+    "age_band",
+    "education",
+    "race",
+    "citizen",
+    "marital",
+    "income",
+    "hh_size",
+    "employment",
+    "cell",
+    "att_green",
+    "att_social_desirability",
+    "att_spendthrift",
+    "att_crt",
+    "att_dictator_give",
+    "att_neuroticism"
+   ],
+   "sha256": "69b250dd499599e9f50ef81b34eb4d058e074eaa050c74903d01183cf9adb374",
+   "bytes": 22254,
+   "human_treat_mean": 0.5765765765765766,
+   "human_control_mean": 0.3592233009708738,
+   "cells_k5": 427
+  },
+  "targeting_fairness": {
+   "n_train": 260,
+   "n_treat": 135,
+   "columns": [
+    "row",
+    "treat",
+    "y_human",
+    "y_demographics_t07",
+    "y_demographics_t0",
+    "y_empty_t07",
+    "y_full_persona_t07",
+    "region",
+    "sex",
+    "age_band",
+    "education",
+    "race",
+    "citizen",
+    "marital",
+    "income",
+    "hh_size",
+    "employment",
+    "cell",
+    "att_green",
+    "att_social_desirability",
+    "att_spendthrift",
+    "att_crt",
+    "att_dictator_give",
+    "att_neuroticism"
+   ],
+   "sha256": "471b31886e58e622369f591424292119be3119796aee76b617097fc344dab125",
+   "bytes": 20358,
+   "human_treat_mean": 6.348148148148148,
+   "human_control_mean": 7.632,
+   "cells_k5": 259
+  }
+ }
+}
