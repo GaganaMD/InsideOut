@@ -1,0 +1,14 @@
+P1: 89 of 428 train default_eric participants
+P2: 69 of 428 train default_eric participants
+P3: 33 of 428 train default_eric participants
+(e) default_eric train n=428; out-of-fold Brier, 5-fold x 20 repeats, L2 logistic C=1;
+    delta = model - condition-only (negative = better); 95% participant bootstrap
+  condition only                                Brier 0.2375  delta +0.0000 (+0.0000, +0.0000)
+  condition + persona membership (P1,P2,P3)     Brier 0.2411  delta +0.0036 (+0.0017, +0.0055)
+  condition + Tier A                            Brier 0.2518  delta +0.0144 (+0.0013, +0.0275)
+  condition + green values                      Brier 0.2022  delta -0.0353 (-0.0512, -0.0202)
+Persona choice rates on train (rate, n) by condition:
+  P1: green_default 0.55 (n=40); grey_default 0.43 (n=49)
+  P2: green_default 0.58 (n=36); grey_default 0.27 (n=33)
+  P3: green_default 0.69 (n=16); grey_default 0.24 (n=17)
+

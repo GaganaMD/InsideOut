@@ -1,0 +1,16 @@
+(a) CV R2 (ridge, 5x5 CV, train n=1442, corrected scores)
+construct                         full Tier A       Tier A minus age               age only
+neuroticism               0.151 (0.121,0.181)    0.117 (0.093,0.142)    0.074 (0.046,0.102)
+social_desirability       0.062 (0.042,0.083)    0.040 (0.024,0.056)    0.038 (0.019,0.056)
+green                     0.023 (0.008,0.038)    0.023 (0.007,0.039)   0.001 (-0.004,0.007)
+spendthrift               0.037 (0.015,0.059)    0.038 (0.017,0.059)  -0.001 (-0.005,0.004)
+crt                      0.006 (-0.001,0.013)    0.007 (0.001,0.014)  -0.001 (-0.002,0.000)
+dictator_give            0.002 (-0.002,0.006)   0.002 (-0.002,0.005)  -0.000 (-0.002,0.001)
+Age-band index (0-3) predicted from the other 9 Tier A variables: CV R2 0.455 (0.423,0.488)
+
+
+real	3m3.783s
+user	0m0.139s
+sys	0m0.218s
+
+[exited with code 0]

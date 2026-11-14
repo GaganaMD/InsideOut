@@ -1,0 +1,17 @@
+{
+ "name": "d_noncitizen",
+ "definition": "citizen = No",
+ "criteria": {
+  "citizen": [
+   "No"
+  ]
+ },
+ "label": "",
+ "n_total": 4,
+ "n_train": 4,
+ "n_test": 0,
+ "share_of_population": 0.001943634596695821,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=4 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

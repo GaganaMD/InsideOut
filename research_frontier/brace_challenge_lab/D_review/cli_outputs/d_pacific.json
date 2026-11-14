@@ -1,0 +1,17 @@
+{
+ "name": "d_pacific",
+ "definition": "region = Pacific (HI, AK)",
+ "criteria": {
+  "region": [
+   "Pacific (HI, AK)"
+  ]
+ },
+ "label": "",
+ "n_total": 16,
+ "n_train": 14,
+ "n_test": 2,
+ "share_of_population": 0.007774538386783284,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=14 < 30",
+ "scores": "CORRECTED (default): social desirability and CRT re-scored from items (final audit)"
+}

@@ -1,0 +1,8 @@
+(c) CV R2 by available field set (ridge, 5x5 CV, train only, corrected scores)
+neuroticism: age+sex 0.089; short-form-like (age, sex, race, hh_size) 0.098; + region 0.095; full Tier A (ACS-type) 0.151
+social_desirability: age+sex 0.037; short-form-like (age, sex, race, hh_size) 0.066; + region 0.064; full Tier A (ACS-type) 0.062
+green: age+sex 0.007; short-form-like (age, sex, race, hh_size) 0.008; + region 0.006; full Tier A (ACS-type) 0.023
+spendthrift: age+sex 0.016; short-form-like (age, sex, race, hh_size) 0.028; + region 0.028; full Tier A (ACS-type) 0.037
+crt: age+sex 0.001; short-form-like (age, sex, race, hh_size) 0.006; + region 0.004; full Tier A (ACS-type) 0.006
+dictator_give: age+sex 0.003; short-form-like (age, sex, race, hh_size) 0.002; + region 0.001; full Tier A (ACS-type) 0.002
+
