@@ -1,0 +1,58 @@
+variable,level,study,share_participants,share_nonparticipants
+age_band,18-29,default_eric,0.11,0.221
+age_band,30-49,default_eric,0.33,0.368
+age_band,50-64,default_eric,0.34,0.311
+age_band,65+,default_eric,0.22,0.099
+age_band,18-29,preference_redistribution,0.143,0.252
+age_band,30-49,preference_redistribution,0.329,0.397
+age_band,50-64,preference_redistribution,0.355,0.271
+age_band,65+,preference_redistribution,0.174,0.08
+age_band,18-29,context_effects,0.098,0.218
+age_band,30-49,context_effects,0.331,0.365
+age_band,50-64,context_effects,0.345,0.311
+age_band,65+,context_effects,0.226,0.105
+education,Less than high school,default_eric,0.007,0.009
+education,High school graduate,default_eric,0.145,0.127
+education,"Some college, no degree",default_eric,0.208,0.235
+education,Associate's degree,default_eric,0.135,0.118
+education,College graduate/some postgrad,default_eric,0.345,0.362
+education,Postgraduate,default_eric,0.16,0.149
+education,Less than high school,preference_redistribution,0.006,0.012
+education,High school graduate,preference_redistribution,0.134,0.129
+education,"Some college, no degree",preference_redistribution,0.239,0.212
+education,Associate's degree,preference_redistribution,0.128,0.116
+education,College graduate/some postgrad,preference_redistribution,0.341,0.38
+education,Postgraduate,preference_redistribution,0.153,0.151
+education,Less than high school,context_effects,0.008,0.008
+education,High school graduate,context_effects,0.144,0.128
+education,"Some college, no degree",context_effects,0.198,0.237
+education,Associate's degree,context_effects,0.142,0.117
+education,College graduate/some postgrad,context_effects,0.351,0.359
+education,Postgraduate,context_effects,0.158,0.15
+party,Republican,default_eric,0.277,0.257
+party,Democrat,default_eric,0.417,0.409
+party,Independent,default_eric,0.288,0.299
+party,Something else,default_eric,0.018,0.035
+party,Republican,preference_redistribution,0.265,0.259
+party,Democrat,preference_redistribution,0.407,0.419
+party,Independent,preference_redistribution,0.301,0.29
+party,Something else,preference_redistribution,0.028,0.033
+party,Republican,context_effects,0.281,0.256
+party,Democrat,context_effects,0.415,0.41
+party,Independent,context_effects,0.281,0.301
+party,Something else,context_effects,0.022,0.033
+income,"Less than $30,000",default_eric,0.192,0.173
+income,"$30,000-$50,000",default_eric,0.205,0.198
+income,"$50,000-$75,000",default_eric,0.2,0.2
+income,"$75,000-$100,000",default_eric,0.157,0.152
+income,"$100,000 or more",default_eric,0.247,0.277
+income,"Less than $30,000",preference_redistribution,0.199,0.149
+income,"$30,000-$50,000",preference_redistribution,0.191,0.213
+income,"$50,000-$75,000",preference_redistribution,0.194,0.207
+income,"$75,000-$100,000",preference_redistribution,0.152,0.156
+income,"$100,000 or more",preference_redistribution,0.263,0.276
+income,"Less than $30,000",context_effects,0.186,0.176
+income,"$30,000-$50,000",context_effects,0.21,0.197
+income,"$50,000-$75,000",context_effects,0.192,0.202
+income,"$75,000-$100,000",context_effects,0.15,0.155
+income,"$100,000 or more",context_effects,0.263,0.27

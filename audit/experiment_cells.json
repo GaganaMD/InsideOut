@@ -1,0 +1,54 @@
+{
+ "default_eric_green": [
+  {
+   "green_condition": "green_default",
+   "split": "test",
+   "size": 78,
+   "mean": 0.692
+  },
+  {
+   "green_condition": "green_default",
+   "split": "train",
+   "size": 222,
+   "mean": 0.577
+  },
+  {
+   "green_condition": "grey_default",
+   "split": "test",
+   "size": 94,
+   "mean": 0.362
+  },
+  {
+   "green_condition": "grey_default",
+   "split": "train",
+   "size": 206,
+   "mean": 0.359
+  }
+ ],
+ "default_eric_organ": [
+  {
+   "organ_condition": "donor_default",
+   "split": "test",
+   "size": 90,
+   "mean": 0.589
+  },
+  {
+   "organ_condition": "donor_default",
+   "split": "train",
+   "size": 209,
+   "mean": 0.617
+  },
+  {
+   "organ_condition": "nondonor_default",
+   "split": "test",
+   "size": 82,
+   "mean": 0.659
+  },
+  {
+   "organ_condition": "nondonor_default",
+   "split": "train",
+   "size": 219,
+   "mean": 0.53
+  }
+ ]
+}

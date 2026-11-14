@@ -1,0 +1,71 @@
+{
+ "default_eric": {
+  "raw_rows": 600,
+  "raw_pid_missing": 0,
+  "raw_pid_unique": 600,
+  "parquet_rows": 600,
+  "parquet_pid_format": "pid_1",
+  "parquet_pid_set_equals_raw": true,
+  "in_twin": 600,
+  "train": 428,
+  "test": 172,
+  "finished_all": true,
+  "incentive_terms_in_qsf": {
+   "bonus": 0,
+   "real money": 0,
+   "lottery": 0,
+   "randomly selected": 0,
+   "fixed fee": 0,
+   "incentive": 1
+  },
+  "incentive_context": [
+   ":null,\"TertiaryAttribute\":null,\"Payload\":{\"Notes\":[{\"Message\":\"We need to figure out how to explain incentive structure.\",\"ID\":\"NO_cG4R4uQ0nFZvaeO\",\"UserID\":\"UR_0diA49F42CJMWoJ\",\"Timestamp\":1668009298"
+  ]
+ },
+ "preference_redistribution": {
+  "raw_rows": 1198,
+  "raw_pid_missing": 0,
+  "raw_pid_unique": 1198,
+  "parquet_rows": 1198,
+  "parquet_pid_format": "pid_1",
+  "parquet_pid_set_equals_raw": true,
+  "in_twin": 1198,
+  "train": 841,
+  "test": 357,
+  "finished_all": true,
+  "incentive_terms_in_qsf": {
+   "bonus": 0,
+   "real money": 0,
+   "lottery": 0,
+   "randomly selected": 0,
+   "fixed fee": 1,
+   "incentive": 0
+  },
+  "incentive_context": [
+   "discomfort related to this experiment.<br>\\n<br>\\nPAYMENT FOR PARTICIPATION<br>\\nYou will receive a fixed fee of $2 for participating in the survey.<br>\\n<br>\\nCONFIDENTIALITY No confidential informat"
+  ]
+ },
+ "context_effects": {
+  "raw_rows": 501,
+  "raw_pid_missing": 0,
+  "raw_pid_unique": 501,
+  "parquet_rows": 501,
+  "parquet_pid_format": "pid_1",
+  "parquet_pid_set_equals_raw": true,
+  "in_twin": 501,
+  "train": 362,
+  "test": 139,
+  "finished_all": true,
+  "incentive_terms_in_qsf": {
+   "bonus": 0,
+   "real money": 0,
+   "lottery": 0,
+   "randomly selected": 0,
+   "fixed fee": 0,
+   "incentive": 1
+  },
+  "incentive_context": [
+   ":null,\"TertiaryAttribute\":null,\"Payload\":{\"Notes\":[{\"Message\":\"We need to figure out how to explain incentive structure.\",\"ID\":\"NO_cG4R4uQ0nFZvaeO\",\"UserID\":\"UR_0diA49F42CJMWoJ\",\"Timestamp\":1668009298"
+  ]
+ }
+}

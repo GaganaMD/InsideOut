@@ -1,0 +1,7 @@
+persona,n,n_train,n_test,default_eric_train,default_eric_test,preference_redistribution_train,preference_redistribution_test,context_effects_train,context_effects_test,green_green_default_n,green_grey_default_n
+P1_retirees_65plus,143,98,45,51,25,81,36,44,21,37,39
+P2_young_grads_lowinc,51,37,14,3,1,17,5,5,1,1,3
+P2b_young_grads_any_income,157,110,47,19,5,53,16,18,3,10,14
+P2c_under50_grads_lowinc,143,95,48,20,10,45,23,20,7,14,16
+P3_republicans_tierB,540,387,153,123,43,233,84,102,39,78,88
+P3alt_noncollege_men_50plus_south_midwest,102,75,27,33,10,51,19,31,10,23,20

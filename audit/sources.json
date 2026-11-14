@@ -1,0 +1,117 @@
+[
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/generate_catalog_and_csvs.py",
+  "bytes": 23692,
+  "sha256": "3ca381bbf3a0704fe2e3318811045b5a77cfb9d9c6bf7270c41eee7f65ea7c3d"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/question_catalog.json",
+  "bytes": 214137,
+  "sha256": "e72e305f0c7c83bb990e97de4c0cf2c718ead18cc197239b7feeb354c9ac1bef"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/question_catalog_README.md",
+  "bytes": 10078,
+  "sha256": "eaf3ccb2a5a0382723a057d8e05a0d3a9464c8c9cef1a675205eb55f739689f8"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/wave1_3_response.csv",
+  "bytes": 5462260,
+  "sha256": "fc227b1682e2654fd4b2a8152294b68118c0e3be4d83f4a9af5f3e96df56d3f0"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/wave1_3_response_label.csv",
+  "bytes": 21102001,
+  "sha256": "4d735be9e5f00d072d17be25029cef524de9ec383911a4acc44f0b64a9c5818c"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/wave4_response.csv",
+  "bytes": 633807,
+  "sha256": "09ec1a88bdd48fec95963da3102df0ca467378bf729cbc1c0b869b0f1e4fb942"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/question_catalog_and_human_response_csv/wave4_response_label.csv",
+  "bytes": 4728435,
+  "sha256": "02eb7eeff000406ff70c954565dada7a4a8d997c2f8152aec8d32a1e719e3681"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/raw_data/wave 1 scores.csv",
+  "bytes": 370231,
+  "sha256": "67b5f20bd7c6539a54350d1ac70cbe96f967db371de33d0a7df22dc0f6005f76"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/raw_data/wave 2 scores.csv",
+  "bytes": 248725,
+  "sha256": "a8536099fc182c1f7ce0be2910ef1397ed89b76c98514a29f2bb0f76ab86dd9f"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/raw_data/wave 3 scores.csv",
+  "bytes": 186726,
+  "sha256": "2b1b22cbcb97bb39fa8d022c20c5145a720e901f0cc7ad5639c45a765a3adb72"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/raw_data/wave_1_labels_anonymized.csv",
+  "bytes": 12131596,
+  "sha256": "2367ea2e666ec160e949d6d8c49b84438055132f32a76593c4ced5fb3b46f160"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/raw_data/wave_1_numbers_anonymized.csv",
+  "bytes": 5838141,
+  "sha256": "807d07b6ca7cd06c1f4dd412b9b8b0a3f493880496b040b63930a14d497dd90e"
+ },
+ {
+  "path": "data/raw/Twin-2K-500/README.md",
+  "bytes": 10970,
+  "sha256": "9f71a028d2510476cdb3dd365f4525e7b7cc0736f17939adcfeae9bf91a52d4b"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/.dat/context_effects/raw_data/response.csv",
+  "bytes": 161489,
+  "sha256": "34fa162ebdf097b886ba562d20ba74d81b5269efba89b8a28fa0e0e6bad97c80"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/.dat/context_effects/raw_data/survey.qsf",
+  "bytes": 836604,
+  "sha256": "0bb1a6e0aea2166927816ffe97037c59253f50ea162b59a4faa3a55d88c1bcb8"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/.dat/default_eric/raw_data/response.csv",
+  "bytes": 130005,
+  "sha256": "1eefaaab60f5a514b2b3fc344c16e875caefbe14cbda3bba413fffe5f15de25e"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/.dat/default_eric/raw_data/survey.qsf",
+  "bytes": 764407,
+  "sha256": "5a74369bd46641971eabadd676ab94f5217622724f465a6bb692293d7ea6287b"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/.dat/preference_redistribution/raw_data/response.csv",
+  "bytes": 150316,
+  "sha256": "37bd54c916e643238095cec95ea184b83ac1608c90d0210fe03c8b8242ea50b9"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/.dat/preference_redistribution/raw_data/survey.qsf",
+  "bytes": 49066,
+  "sha256": "9b4ffc0e00c7cbfbba76b499cdb2127caa71977104321dda37cb2296f7d6bfe6"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/data/context_effects-00000-of-00001.parquet",
+  "bytes": 704925,
+  "sha256": "d66dda7a2d0062c6f58b14136920ac39255cf317bde7aaa5cbfa94df82e57695"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/data/default_eric-00000-of-00001.parquet",
+  "bytes": 63354,
+  "sha256": "11bfdbad9067813b322de6596b804e17a4556a33a5eece30810f29e02b7d9099"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/data/preference_redistribution-00000-of-00001.parquet",
+  "bytes": 3848033,
+  "sha256": "c130042dc862162795e0de2c57fe74ff8c01235d0821693c55a5d1a691b13720"
+ },
+ {
+  "path": "data/raw/Twin-2K-500-Mega-Study/README.md",
+  "bytes": 4431,
+  "sha256": "c02748e78826d1c195cb8090490e34b466a22ecf3e7d325bc6f1472295e45f6a"
+ }
+]

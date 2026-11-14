@@ -1,0 +1,8 @@
+{
+ "split_sha256": "8ef47da04a8d814d9a874a63310be9043f9c9f937e74679c15073bebfa5dbe5f",
+ "seed": 20261114,
+ "test_frac": 0.3,
+ "n_train": 1442,
+ "n_test": 616,
+ "income_median_band": "$50,000-$75,000"
+}
