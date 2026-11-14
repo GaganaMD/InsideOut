@@ -23,7 +23,8 @@ STEPS = [
     ["src/exploratory_redistribution.py"],  # EXPLORATORY follow-up #2; train only; reports/exploratory/redistribution/
     ["src/robust_demographics.py"],  # EXPLORATORY robustness; train only; reports/robustness/
     ["src/robust_personas.py"],  # EXPLORATORY robustness; train only; reports/robustness/
-    ["src/final_audit.py"],  # final audit: scale verification + corrected-score reruns; reports/final_audit/
+    ["src/final_audit.py"],
+    ["src/headline_challenge.py"],  # final audit phase 2 (exploratory, train only)  # final audit: scale verification + corrected-score reruns; reports/final_audit/
 ]
 
 

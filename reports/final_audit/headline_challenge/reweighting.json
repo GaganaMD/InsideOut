@@ -1,0 +1,7 @@
+{
+ "OR_green_unweighted": 2.5370833125375314,
+ "OR_green_age_reweighted": 2.56015282486734,
+ "OR_default_unweighted": 3.3080504719422725,
+ "OR_default_age_reweighted": 3.6520947159936243,
+ "note": "age-band weights to the Twin train distribution; freq_weights SEs not reported (point check only)"
+}

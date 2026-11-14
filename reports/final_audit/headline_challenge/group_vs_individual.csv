@@ -1,0 +1,5 @@
+construct,age_band_eta2,mean_18_29,mean_65plus,d_65_vs_18_29,prob_random_65plus_scores_higher_than_random_18_29
+neuroticism,0.0783,3.1383,2.2835,-0.8681,0.2513
+social_desirability,0.0428,5.75,7.6082,0.5422,0.6591
+green,0.007,3.4124,3.6727,0.2596,0.5818
+crt,0.0012,2.3824,2.3454,-0.033,0.4875

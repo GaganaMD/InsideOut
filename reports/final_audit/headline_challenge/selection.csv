@@ -1,0 +1,11 @@
+variable,std_diff_participants_minus_others,participants,others
+green,0.008,,
+social_desirability,0.0201,,
+spendthrift,-0.2874,,
+crt,0.0988,,
+dictator_give,-0.0996,,
+neuroticism,-0.1886,,
+share age 18-29,,0.1121,0.2209
+share age 30-49,,0.3341,0.3669
+share age 50-64,,0.3458,0.3087
+share age 65+,,0.2079,0.1036

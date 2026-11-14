@@ -1,0 +1,13 @@
+construct,spec,r2_mean,r2_lo,r2_hi,gain_over_age_mean,gain_over_age_lo,gain_over_age_hi
+neuroticism,age,0.0741,0.0461,0.1022,0.0,0.0,0.0
+neuroticism,age+sex,0.0894,0.0601,0.1188,0.0153,0.0059,0.0247
+neuroticism,age+sex+income,0.1166,0.0831,0.1502,0.0425,0.0268,0.0582
+neuroticism,age+sex+income+education+region,0.1111,0.0824,0.1398,0.037,0.0235,0.0505
+neuroticism,age+employment,0.1323,0.1031,0.1615,0.0582,0.0309,0.0854
+neuroticism,full Tier A,0.1506,0.1207,0.1806,0.0765,0.048,0.105
+social_desirability,age,0.0376,0.0188,0.0564,0.0,0.0,0.0
+social_desirability,age+sex,0.037,0.0187,0.0554,-0.0006,-0.0035,0.0024
+social_desirability,age+sex+income,0.0317,0.0156,0.0477,-0.0059,-0.0114,-0.0004
+social_desirability,age+sex+income+education+region,0.0298,0.015,0.0446,-0.0078,-0.0153,-0.0003
+social_desirability,age+employment,0.0395,0.0201,0.059,0.002,-0.0086,0.0125
+social_desirability,full Tier A,0.0624,0.0421,0.0827,0.0248,0.0125,0.0372

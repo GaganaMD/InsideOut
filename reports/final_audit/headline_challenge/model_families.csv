@@ -1,0 +1,19 @@
+construct,model,mean,lo,hi
+green,ridge,0.0231,0.0084,0.0378
+green,OLS,0.0058,-0.022,0.0336
+green,gradient boosting (interactions),-0.0147,-0.0465,0.0171
+social_desirability,ridge,0.0624,0.0421,0.0827
+social_desirability,OLS,0.0533,0.0245,0.0822
+social_desirability,gradient boosting (interactions),0.0186,-0.0188,0.0559
+spendthrift,ridge,0.0367,0.0147,0.0587
+spendthrift,OLS,0.0208,-0.0129,0.0544
+spendthrift,gradient boosting (interactions),-0.0134,-0.0468,0.02
+crt,ridge,0.0056,-0.0014,0.0125
+crt,OLS,-0.0158,-0.0364,0.0048
+crt,gradient boosting (interactions),-0.0503,-0.0776,-0.0231
+dictator_give,ridge,0.0016,-0.0023,0.0055
+dictator_give,OLS,-0.0292,-0.0471,-0.0113
+dictator_give,gradient boosting (interactions),-0.0564,-0.082,-0.0308
+neuroticism,ridge,0.1506,0.1207,0.1806
+neuroticism,OLS,0.1421,0.1045,0.1797
+neuroticism,gradient boosting (interactions),0.1309,0.0917,0.1701
