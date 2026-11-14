@@ -1,0 +1,203 @@
+{
+ "name": "2_multi_south_grads_30_49",
+ "definition": "region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); education in {College graduate/some postgrad, Postgraduate}; age_band = 30-49",
+ "criteria": {
+  "region": [
+   "South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)"
+  ],
+  "education": [
+   "College graduate/some postgrad",
+   "Postgraduate"
+  ],
+  "age_band": [
+   "30-49"
+  ]
+ },
+ "label": "",
+ "n_total": 154,
+ "n_train": 107,
+ "n_test": 47,
+ "share_of_population": 0.07482993197278912,
+ "built_from": "train split only",
+ "status": "ok",
+ "inner": [
+  {
+   "construct": "green",
+   "label": "Green values (1-5)",
+   "n": 107,
+   "typical_shrunk": 3.5539652093473912,
+   "raw_mean": 3.5825545171339557,
+   "mean_ci_lo": 3.3853669884893804,
+   "mean_ci_hi": 3.779742045778531,
+   "shrink_weight": 0.49546395337753657,
+   "sd": 1.0406753350215783,
+   "p10": 1.9333333333333336,
+   "median": 3.8333333333333335,
+   "p90": 4.833333333333333,
+   "pop_mean": 3.52588996763754,
+   "pop_sd": 1.002783579419562,
+   "d": 0.056507257058611274,
+   "d_lo": -0.14013290806925482,
+   "d_hi": 0.2531474221864774,
+   "share_opposite_side_of_pop_median": 0.3644859813084112,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w1_score_GREEN"
+  },
+  {
+   "construct": "social_desirability",
+   "label": "Social desirability (0-13)",
+   "n": 107,
+   "typical_shrunk": 6.05861454887205,
+   "raw_mean": 5.94392523364486,
+   "mean_ci_lo": 5.29437666754947,
+   "mean_ci_hi": 6.59347379974025,
+   "shrink_weight": 0.6574948088943577,
+   "sd": 3.428052353414907,
+   "p10": 2.0,
+   "median": 6.0,
+   "p90": 11.0,
+   "pop_mean": 6.278779472954231,
+   "pop_sd": 3.4270356965490634,
+   "d": -0.09770958605612429,
+   "d_lo": -0.2872461487331541,
+   "d_hi": 0.09182697662090553,
+   "share_opposite_side_of_pop_median": 0.4205607476635514,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w2_score_socialdesirability"
+  },
+  {
+   "construct": "spendthrift",
+   "label": "Tightwad(4)-spendthrift(26)",
+   "n": 107,
+   "typical_shrunk": 13.866380051059686,
+   "raw_mean": 13.644859813084112,
+   "mean_ci_lo": 12.858318310153981,
+   "mean_ci_hi": 14.431401316014243,
+   "shrink_weight": 0.4521942590001607,
+   "sd": 4.151045188793724,
+   "p10": 8.0,
+   "median": 14.0,
+   "p90": 18.400000000000006,
+   "pop_mean": 14.049237170596394,
+   "pop_sd": 4.394771999834098,
+   "d": -0.09201327339109891,
+   "d_lo": -0.27098535725798034,
+   "d_hi": 0.08695881047578252,
+   "share_opposite_side_of_pop_median": 0.4205607476635514,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 st_tw_rescored"
+  },
+  {
+   "construct": "crt",
+   "label": "Cognitive reflection (0-4)",
+   "n": 107,
+   "typical_shrunk": 2.4309462582859176,
+   "raw_mean": 2.5233644859813085,
+   "mean_ci_lo": 2.3004625420134794,
+   "mean_ci_hi": 2.7462664299491375,
+   "shrink_weight": 0.12721397820831298,
+   "sd": 1.176385529096001,
+   "p10": 1.0,
+   "median": 3.0,
+   "p90": 4.0,
+   "pop_mean": 2.4174757281553396,
+   "pop_sd": 1.1209566437290976,
+   "d": 0.0944628486911926,
+   "d_lo": -0.1043868973848902,
+   "d_hi": 0.2933125947672754,
+   "share_opposite_side_of_pop_median": 0.40186915887850466,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w1_crt2_score"
+  },
+  {
+   "construct": "dictator_give",
+   "label": "Dictator giving, % of $5 (hypothetical)",
+   "n": 107,
+   "typical_shrunk": 39.41747572815534,
+   "raw_mean": 38.87850467289719,
+   "mean_ci_lo": 35.39313206432134,
+   "mean_ci_hi": 42.363877281473044,
+   "shrink_weight": 0.0,
+   "sd": 18.394374796605533,
+   "p10": 20.0,
+   "median": 40.0,
+   "p90": 60.0,
+   "pop_mean": 39.41747572815534,
+   "pop_sd": 18.363109830449137,
+   "d": -0.02935075051200967,
+   "d_lo": -0.219153710945025,
+   "d_hi": 0.16045220992100567,
+   "share_opposite_side_of_pop_median": 0.1588785046728972,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w3_score_dictator_sender"
+  },
+  {
+   "construct": "neuroticism",
+   "label": "Neuroticism (1-5)",
+   "n": 107,
+   "typical_shrunk": 2.595507691284839,
+   "raw_mean": 2.5759345794392523,
+   "mean_ci_lo": 2.4043122061290454,
+   "mean_ci_hi": 2.747556952749459,
+   "shrink_weight": 0.8549822044716161,
+   "sd": 0.9057528742790057,
+   "p10": 1.375,
+   "median": 2.625,
+   "p90": 3.875,
+   "pop_mean": 2.710904993065187,
+   "pop_sd": 0.9847573188802247,
+   "d": -0.13705956892954174,
+   "d_lo": -0.31133841918003796,
+   "d_hi": 0.03721928132095448,
+   "share_opposite_side_of_pop_median": 0.4672897196261682,
+   "confidence": "not distinguishable from population",
+   "source": "Twin-2K-500 w1_score_neuroticism"
+  }
+ ],
+ "green_choice": [
+  {
+   "condition": "grey_default",
+   "n": 12,
+   "rate": 0.5833333333333334,
+   "lo": 0.3195073356553728,
+   "hi": 0.8067425380947535,
+   "pop_rate": 0.3592233009708738,
+   "pop_n": 206,
+   "status": "INSUFFICIENT EVIDENCE (n=12 < 20)"
+  },
+  {
+   "condition": "green_default",
+   "n": 19,
+   "rate": 0.5263157894736842,
+   "lo": 0.31707482511825114,
+   "hi": 0.7267049451255145,
+   "pop_rate": 0.5765765765765766,
+   "pop_n": 222,
+   "status": "INSUFFICIENT EVIDENCE (n=19 < 20)"
+  }
+ ],
+ "say_do_gap": [
+  {
+   "condition": "grey_default",
+   "n_high_green": 6,
+   "share_declining": 0.33333333333333337,
+   "lo": 0.09676933255921683,
+   "hi": 0.7000116786584712,
+   "pop_share_declining": 0.47126436781609193,
+   "status": "INSUFFICIENT EVIDENCE (n<10)"
+  },
+  {
+   "condition": "green_default",
+   "n_high_green": 9,
+   "share_declining": 0.33333333333333337,
+   "lo": 0.12058159868274293,
+   "hi": 0.6458026525009102,
+   "pop_share_declining": 0.2134831460674157,
+   "status": "INSUFFICIENT EVIDENCE (n<10)"
+  }
+ ],
+ "mega_study_participation": {
+  "n_train_in_default_eric": 31
+ },
+ "scores": "corrected social desirability and CRT (item-level re-scores, final audit)"
+}

@@ -1,0 +1,20 @@
+{
+ "name": "4_empty_retired_18_29",
+ "definition": "age_band = 18-29; employment = Retired",
+ "criteria": {
+  "age_band": [
+   "18-29"
+  ],
+  "employment": [
+   "Retired"
+  ]
+ },
+ "label": "",
+ "n_total": 1,
+ "n_train": 0,
+ "n_test": 1,
+ "share_of_population": 0.00048590864917395527,
+ "built_from": "train split only",
+ "status": "INSUFFICIENT EVIDENCE: n_train=0 < 30",
+ "scores": "corrected social desirability and CRT (item-level re-scores, final audit)"
+}

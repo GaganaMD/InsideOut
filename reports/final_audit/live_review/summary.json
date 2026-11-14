@@ -1,0 +1,297 @@
+[
+ {
+  "case": "1_broad_women",
+  "purpose": "broad group, sufficient evidence",
+  "criteria": "sex=Female",
+  "exit_code": 0,
+  "seconds": 3.1,
+  "stdout_last": "ok",
+  "stderr": "",
+  "status": "ok",
+  "n_total": 1044,
+  "n_train": 736,
+  "n_test": 308,
+  "inner": [
+   {
+    "construct": "green",
+    "typical": 3.6,
+    "ci": "3.54\u20133.68",
+    "d": 0.08,
+    "d_ci": "+0.01, +0.15",
+    "ci_width": 0.14,
+    "pop_mean": 3.53,
+    "confidence": "weak difference"
+   },
+   {
+    "construct": "social_desirability",
+    "typical": 6.4,
+    "ci": "6.16\u20136.66",
+    "d": 0.04,
+    "d_ci": "-0.03, +0.11",
+    "ci_width": 0.49,
+    "pop_mean": 6.28,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "spendthrift",
+    "typical": 14.52,
+    "ci": "14.29\u201314.95",
+    "d": 0.13,
+    "d_ci": "+0.05, +0.20",
+    "ci_width": 0.66,
+    "pop_mean": 14.05,
+    "confidence": "weak difference"
+   },
+   {
+    "construct": "crt",
+    "typical": 2.37,
+    "ci": "2.25\u20132.42",
+    "d": -0.07,
+    "d_ci": "-0.15, -0.00",
+    "ci_width": 0.16,
+    "pop_mean": 2.42,
+    "confidence": "weak difference"
+   },
+   {
+    "construct": "dictator_give",
+    "typical": 39.42,
+    "ci": "39.53\u201342.00",
+    "d": 0.07,
+    "d_ci": "+0.01, +0.14",
+    "ci_width": 2.47,
+    "pop_mean": 39.42,
+    "confidence": "weak difference"
+   },
+   {
+    "construct": "neuroticism",
+    "typical": 2.82,
+    "ci": "2.75\u20132.89",
+    "d": 0.11,
+    "d_ci": "+0.04, +0.18",
+    "ci_width": 0.14,
+    "pop_mean": 2.71,
+    "confidence": "weak difference"
+   }
+  ],
+  "green_choice": [
+   {
+    "condition": "grey_default",
+    "n": 97,
+    "rate": 0.4329896907216495,
+    "pop": 0.36,
+    "status": "ok"
+   },
+   {
+    "condition": "green_default",
+    "n": 102,
+    "rate": 0.6862745098039216,
+    "pop": 0.58,
+    "status": "ok"
+   }
+  ]
+ },
+ {
+  "case": "2_multi_south_grads_30_49",
+  "purpose": "several demographic constraints",
+  "criteria": "region=South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); education=College graduate/some postgrad|Postgraduate; age_band=30-49",
+  "exit_code": 0,
+  "seconds": 2.5,
+  "stdout_last": "ok",
+  "stderr": "",
+  "status": "ok",
+  "n_total": 154,
+  "n_train": 107,
+  "n_test": 47,
+  "inner": [
+   {
+    "construct": "green",
+    "typical": 3.55,
+    "ci": "3.39\u20133.78",
+    "d": 0.06,
+    "d_ci": "-0.14, +0.25",
+    "ci_width": 0.39,
+    "pop_mean": 3.53,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "social_desirability",
+    "typical": 6.06,
+    "ci": "5.29\u20136.59",
+    "d": -0.1,
+    "d_ci": "-0.29, +0.09",
+    "ci_width": 1.3,
+    "pop_mean": 6.28,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "spendthrift",
+    "typical": 13.87,
+    "ci": "12.86\u201314.43",
+    "d": -0.09,
+    "d_ci": "-0.27, +0.09",
+    "ci_width": 1.57,
+    "pop_mean": 14.05,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "crt",
+    "typical": 2.43,
+    "ci": "2.30\u20132.75",
+    "d": 0.09,
+    "d_ci": "-0.10, +0.29",
+    "ci_width": 0.45,
+    "pop_mean": 2.42,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "dictator_give",
+    "typical": 39.42,
+    "ci": "35.39\u201342.36",
+    "d": -0.03,
+    "d_ci": "-0.22, +0.16",
+    "ci_width": 6.97,
+    "pop_mean": 39.42,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "neuroticism",
+    "typical": 2.6,
+    "ci": "2.40\u20132.75",
+    "d": -0.14,
+    "d_ci": "-0.31, +0.04",
+    "ci_width": 0.34,
+    "pop_mean": 2.71,
+    "confidence": "not distinguishable from population"
+   }
+  ],
+  "green_choice": [
+   {
+    "condition": "grey_default",
+    "n": 12,
+    "rate": 0.5833333333333334,
+    "pop": 0.36,
+    "status": "INSUFFICIENT EVIDENCE (n=12 < 20)"
+   },
+   {
+    "condition": "green_default",
+    "n": 19,
+    "rate": 0.5263157894736842,
+    "pop": 0.58,
+    "status": "INSUFFICIENT EVIDENCE (n=19 < 20)"
+   }
+  ]
+ },
+ {
+  "case": "3_small_unemployed_50_64",
+  "purpose": "small group: uncertainty should widen",
+  "criteria": "employment=Unemployed; age_band=50-64",
+  "exit_code": 0,
+  "seconds": 2.4,
+  "stdout_last": "ok",
+  "stderr": "",
+  "status": "ok",
+  "n_total": 63,
+  "n_train": 48,
+  "n_test": 15,
+  "inner": [
+   {
+    "construct": "green",
+    "typical": 3.54,
+    "ci": "3.29\u20133.82",
+    "d": 0.03,
+    "d_ci": "-0.23, +0.29",
+    "ci_width": 0.52,
+    "pop_mean": 3.53,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "social_desirability",
+    "typical": 6.31,
+    "ci": "5.41\u20137.26",
+    "d": 0.02,
+    "d_ci": "-0.25, +0.29",
+    "ci_width": 1.85,
+    "pop_mean": 6.28,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "spendthrift",
+    "typical": 13.91,
+    "ci": "12.33\u201314.72",
+    "d": -0.12,
+    "d_ci": "-0.39, +0.15",
+    "ci_width": 2.39,
+    "pop_mean": 14.05,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "crt",
+    "typical": 2.41,
+    "ci": "2.06\u20132.69",
+    "d": -0.04,
+    "d_ci": "-0.32, +0.25",
+    "ci_width": 0.64,
+    "pop_mean": 2.42,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "dictator_give",
+    "typical": 39.42,
+    "ci": "35.99\u201343.18",
+    "d": 0.01,
+    "d_ci": "-0.19, +0.20",
+    "ci_width": 7.19,
+    "pop_mean": 39.42,
+    "confidence": "not distinguishable from population"
+   },
+   {
+    "construct": "neuroticism",
+    "typical": 2.78,
+    "ci": "2.51\u20133.13",
+    "d": 0.11,
+    "d_ci": "-0.20, +0.42",
+    "ci_width": 0.61,
+    "pop_mean": 2.71,
+    "confidence": "not distinguishable from population"
+   }
+  ],
+  "green_choice": [
+   {
+    "condition": "grey_default",
+    "n": 6,
+    "rate": 0.5,
+    "pop": 0.36,
+    "status": "INSUFFICIENT EVIDENCE (n=6 < 20)"
+   },
+   {
+    "condition": "green_default",
+    "n": 10,
+    "rate": 0.4,
+    "pop": 0.58,
+    "status": "INSUFFICIENT EVIDENCE (n=10 < 20)"
+   }
+  ]
+ },
+ {
+  "case": "4_empty_retired_18_29",
+  "purpose": "empty group: must return INSUFFICIENT EVIDENCE",
+  "criteria": "age_band=18-29; employment=Retired",
+  "exit_code": 0,
+  "seconds": 2.3,
+  "stdout_last": "INSUFFICIENT EVIDENCE: n_train=0 < 30",
+  "stderr": "",
+  "status": "INSUFFICIENT EVIDENCE: n_train=0 < 30",
+  "n_total": 1,
+  "n_train": 0,
+  "n_test": 1
+ },
+ {
+  "case": "5_prohibited_ideology",
+  "purpose": "prohibited (survey-only) variable: must be rejected",
+  "criteria": "ideology=Very liberal",
+  "exit_code": 2,
+  "seconds": 2.3,
+  "stdout_last": "",
+  "stderr": "ERROR: 'ideology' is not an allowed outer-layer variable. Allowed: ['region', 'sex', 'age_band', 'education', 'race', 'citizen', 'marital', 'income', 'hh_size', 'employment']"
+ }
+]

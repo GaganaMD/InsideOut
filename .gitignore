@@ -5,3 +5,4 @@ __pycache__/
 .cache/
 reports/generated/
 reports/robustness/cli_examples/
+.venv/
