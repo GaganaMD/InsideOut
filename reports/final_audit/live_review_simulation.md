@@ -51,4 +51,9 @@ Run with `python tools/live_review.py` (wrapping `python src/personas.py build â
 - Download: about 1.5 min when the network cooperates; it is resumable.
 
 ## D. Final fresh-clone verification
-*(filled in at the final commit; see below)*
+- **Run 3** (fresh clone at `b259541`, pip environment, `--skip-download`): 32/33 tests passed.
+  - The redistribution follow-up drifted by about 1e-5 relative, because a sparse Ridge model used an iterative solver.
+  - Fixed in `435e037` with dense input and an exact solver. Two report cells moved in the 3rd decimal; no conclusion changed (`statistical_audit.md`, Minor).
+- **Run 4** (same fresh clone pulled to `435e037`): `python run_all.py --skip-download` â†’ **exit 0, 33/33 tests passed, 10 min 50 s**.
+  - Every tracked output in `results/`, `reports/`, `audit/` and `data/split.csv` matches the committed version numerically (rtol 1e-9): **0 mismatches**.
+- **Not verified end-to-end:** a single uninterrupted `python run_all.py` that includes the download. On this network the Hugging Face host reset connections repeatedly. Download and pipeline were verified separately: the resumed download completed all 22 data files in 93 s.
