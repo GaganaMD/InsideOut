@@ -1,0 +1,10 @@
+model,kind,accuracy,balanced_accuracy,corr_with_choice,brier,predicted_green_rate,sd_prediction,true_green_rate
+LLM demographics-only (T=0.7),LLM hard 0/1 (published),0.5794,0.581,0.1619,0.4206,0.5234,0.4995,0.472
+LLM demographics-only (T=0),LLM hard 0/1 (published),0.5911,0.5936,0.1876,0.4089,0.5397,0.4984,0.472
+LLM empty persona (T=0.7),LLM hard 0/1 (published),0.5911,0.5923,0.1845,0.4089,0.5164,0.4997,0.472
+LLM full persona (no reasoning),LLM hard 0/1 (published),0.6893,0.6866,0.3751,0.3107,0.4416,0.4966,0.472
+Prevalence,statistical probability (OOF),0.528,0.5,-0.0088,0.2492,0.472,0.0011,0.472
+Default only (logistic),statistical probability (OOF),0.6075,0.6089,0.2095,0.2383,0.472,0.108,0.472
+Demographics + default (M1D),statistical probability (OOF),0.5584,0.5564,0.1829,0.2496,0.4729,0.1847,0.472
+Green values + default (no demographics),statistical probability (OOF),0.6799,0.6785,0.4317,0.2028,0.4725,0.2174,0.472
+Demographics + green values + default (M3),statistical probability (OOF),0.6589,0.6581,0.3903,0.2144,0.4741,0.2507,0.472

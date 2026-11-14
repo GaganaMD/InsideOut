@@ -1,0 +1,6 @@
+contrast,accuracy_diff,lo,hi
+LLM demographics-only (T=0) minus Prevalence,0.0631,-0.0047,0.1309
+LLM demographics-only (T=0) minus Default only (logistic),-0.0164,-0.0771,0.0421
+LLM demographics-only (T=0) minus Demographics + default (M1D),0.0327,-0.0304,0.0935
+LLM demographics-only (T=0) minus Green values + default (no demographics),-0.0888,-0.1449,-0.0327
+LLM demographics-only (T=0) minus Demographics + green values + default (M3),-0.0678,-0.1215,-0.014

@@ -1,0 +1,7 @@
+,green_default,grey_default
+human,0.577,0.359
+LLM demographics-only (T=0.7),0.577,0.466
+LLM demographics-only (T=0),0.608,0.466
+LLM empty persona (T=0.7),0.937,0.063
+LLM full persona (no reasoning),0.482,0.398
+Green values + default (no demographics),0.671,0.243
