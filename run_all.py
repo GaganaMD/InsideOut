@@ -19,6 +19,7 @@ STEPS = [
     ["src/personas.py", "build-config"],
     ["src/personas.py", "build", "--name", "sensitivity_party_republican", "--criteria", "party=Republican",
      "--allow-party", "--out", "reports/sensitivity"],
+    ["src/exploratory_values.py"],  # EXPLORATORY follow-up; train split only; writes reports/exploratory/
 ]
 
 

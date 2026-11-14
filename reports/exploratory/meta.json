@@ -1,0 +1,16 @@
+{
+ "n": 428,
+ "feature_timing": {
+  "Tier A demographics": "pre-decision (person)",
+  "GREEN": "pre-decision (person, measured by survey)",
+  "default": "choice architecture (known only when the choice is presented; set by the designer)"
+ },
+ "meaningful_brier": 0.01,
+ "fold_counts": [
+  86,
+  86,
+  86,
+  85,
+  85
+ ]
+}
