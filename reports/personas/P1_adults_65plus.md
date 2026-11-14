@@ -6,9 +6,9 @@
 
 | Part | Typical [p10–p90] | d vs pop. (95% CI) | Held-out d | Held-out error cut | Confidence |
 |---|---|---|---|---|---|
-| Green values | 3.62 [2.2–4.8] | +0.15 (+0.01, +0.28) | +0.14 | +3% | weak |
+| Green values | 3.62 [2.2–4.8] | +0.15 (+0.01, +0.28) | +0.14 | +3% | weak before shrinkage; **same as population after shrinkage** |
 | Social desirability | 7.34 [3–11]† | +0.39 (+0.26, +0.52)† | +0.47† | +9% | distinct |
-| Tightwad(4)-spendthrift(26) | 13.69 [9.0–19.0] | -0.13 (-0.26, -0.00) | -0.24 | +2% | weak |
+| Tightwad(4)-spendthrift(26) | 13.69 [9.0–19.0] | -0.13 (-0.26, -0.00) | -0.24 | +2% | weak before shrinkage; **same as population after shrinkage** |
 | Cognitive reflection | 2.40 [1–4]† | -0.06 (-0.21, +0.08)† | -0.07† | 0% | same as population |
 | Dictator giving | 39.42 [20.0–60.0] | +0.08 (-0.05, +0.20) | -0.06 | 0% | same as population |
 | Neuroticism | 2.32 [1.1–3.5] | -0.43 (-0.56, -0.30) | -0.58 | +13% | distinct |

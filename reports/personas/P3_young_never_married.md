@@ -6,7 +6,7 @@
 
 | Part | Typical [p10–p90] | d vs pop. (95% CI) | Held-out d | Held-out error cut | Confidence |
 |---|---|---|---|---|---|
-| Green values | 3.35 [1.9–4.5] | -0.27 (-0.42, -0.13) | -0.40 | +1% | distinct |
+| Green values | 3.35 [1.9–4.5] | -0.27 (-0.42, -0.13) | -0.40 | +1% | distinct before shrinkage; **weak after shrinkage** |
 | Social desirability | 5.83 [1–10]† | -0.16 (-0.29, -0.03)† | -0.30† | +2% | weak |
 | Tightwad(4)-spendthrift(26) | 14.27 [9.0–21.0] | +0.09 (-0.06, +0.23) | +0.10 | 0% | same as population |
 | Cognitive reflection | 2.40 [1–4]† | -0.07 (-0.21, +0.08)† | +0.04† | 0% | same as population |

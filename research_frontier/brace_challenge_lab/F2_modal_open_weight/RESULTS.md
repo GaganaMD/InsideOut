@@ -13,7 +13,7 @@ The design, metrics and decision rules were fixed in `PREREGISTRATION.md` and co
 | GPU | NVIDIA A10 | NVIDIA A10 |
 | Prompts | 1,524, all valid (A+B probability mass ≥ 0.99997) | 1,524, all valid (≥ 0.99997) |
 | Determinism (32 prompts re-scored in reverse order) | identical (max difference 0.0) | identical (0.0) |
-| **Position bias**: mean \|P(green) with green as A − with green as B\| | **0.51** | 0.12 |
+| **Order sensitivity**: mean \|P(green) with green as A − with green as B\|. Mostly directional, favouring option B (signed −0.47 / −0.12; `POSITION_BIAS_AUDIT.md`) | **0.51** | 0.12 |
 | Scoring time | 182 s | about 3 min |
 
 **Total Modal cost for this experiment:** $0.43. That covers both models, the smoke tests, the weight downloads, and one aborted run that sat waiting on a stalled download. The ceiling was $5. The cost comes from the Modal billing report.
@@ -63,7 +63,7 @@ The design, metrics and decision rules were fixed in `PREREGISTRATION.md` and co
 1. **Persona prompts made these open-weight models worse than doing nothing.** Group-level forecasts from a population average, or a 4-variable logistic model, were at least as good, and calibrated.
 2. **Narrative personas add confidence and stereotyping, not accuracy.** This is the most product-relevant result: persuasive persona prose increases false certainty.
 3. **Situation vs disposition.** Given psychological attributes, the models under-weight the randomised default, while humans respond to it by about 22 points. This mirrors the human-data finding that the situation (default) and one measured value both matter.
-4. **Position bias is large.** It averages 0.51 for Qwen2.5. Any single-order LLM survey of this model would be dominated by option order. Counterbalancing is mandatory.
+4. **Order sensitivity is large and directional.** It averages 0.51 for Qwen2.5 (absolute), almost all of it a preference for the second option. Any single-order LLM survey of this model would be dominated by option order. Counterbalancing is mandatory.
 
 ## Limits
 - One scenario (default_eric) and two small open-weight models.

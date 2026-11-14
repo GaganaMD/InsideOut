@@ -4,6 +4,7 @@ import json
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -85,6 +86,68 @@ def test_cli_rejects_duplicate_criteria_and_unsafe_names(tmp_path):
     assert personas.main(["build", "--name", "../escape", "--criteria", "sex=Male", "--out", str(tmp_path)]) == 2
     assert personas.main(["build", "--name", "a/b", "--criteria", "sex=Male", "--out", str(tmp_path)]) == 2
     assert not any(tmp_path.iterdir())
+
+
+RANK = {"not distinguishable from population": 0, "weak difference": 1, "distinct": 2}
+GROUPS = ["age_band=65+", "age_band=65+; income=Less than $30,000", "age_band=18-29; income=$100,000 or more",
+          "sex=Female", "education=Associate's degree", "employment=Student", "marital=Widowed",
+          "age_band=18-29; marital=Never been married", "region=Pacific (HI, AK)"]
+
+
+@pytest.fixture(scope="module")
+def corrected():
+    return load_people(corrected=True), load_green(corrected=True)
+
+
+def test_shrinkage_label_never_stronger_and_preregistered_label_unchanged(corrected):
+    people, green = corrected
+    for g in GROUPS:
+        rep = build("t", parse_criteria(g, people), people, green)
+        for r in rep.get("inner", []):
+            raw_distinct = abs(r["d"]) >= 0.20 and (r["d_lo"] > 0 or r["d_hi"] < 0)
+            assert (r["confidence"] == "distinct") == raw_distinct                      # pre-registered rule intact
+            assert RANK[r["confidence_shrinkage_adjusted"]] <= RANK[r["confidence"]], (g, r["construct"])
+            assert r["shrunk_ci_lo"] <= r["typical_shrunk"] <= r["shrunk_ci_hi"]
+            if r["confidence_shrinkage_adjusted"] == "distinct":                          # adjusted label is coherent
+                assert abs(r["shrunk_d"]) >= 0.20 and not (r["shrunk_ci_lo"] <= r["pop_mean"] <= r["shrunk_ci_hi"])
+
+
+def test_small_group_crt_label_flagged_after_shrinkage(corrected):
+    # stress-test case: 65+ with income < $30k, CRT raw-distinct but Typical falls outside its raw CI after shrinkage
+    from personas import confidence_text
+    people, green = corrected
+    rep = build("t", parse_criteria("age_band=65+; income=Less than $30,000", people), people, green)
+    crt = next(r for r in rep["inner"] if r["construct"] == "crt")
+    if crt["confidence"] == "distinct":
+        assert crt["confidence_shrinkage_adjusted"] != "distinct"
+        assert "after shrinkage" in confidence_text(crt)
+
+
+def test_median_side_shares_handle_ties(corrected):
+    people, green = corrected
+    rep = build("t", parse_criteria("age_band=65+; income=Less than $30,000", people), people, green)
+    tr = people[people.split == "train"]
+    for r in rep["inner"]:
+        if r["share_opposite_side_of_pop_median"] != r["share_opposite_side_of_pop_median"]:   # NaN when d == 0
+            continue
+        x = people[(people.split == "train") & mask(people, parse_criteria("age_band=65+; income=Less than $30,000", people))][r["construct"]]
+        med, side = tr[r["construct"]].median(), np.sign(r["raw_mean"] - r["pop_mean"])
+        same = float(((x - med) * side > 0).mean())
+        assert r["share_opposite_side_of_pop_median"] + r["share_at_pop_median"] + same == pytest.approx(1.0)
+    dg = next(r for r in rep["inner"] if r["construct"] == "dictator_give")
+    assert dg["share_at_pop_median"] > 0.3                                                # ties are real and now visible
+
+
+def test_behaviour_floor_is_20_for_choice_and_say_do(corrected):
+    from personas import MIN_N_BEHAVIOUR
+    assert MIN_N_BEHAVIOUR == 20
+    people, green = corrected
+    for g in GROUPS:
+        rep = build("t", parse_criteria(g, people), people, green)
+        for b in rep.get("green_choice", []):
+            assert (b["status"] == "ok") == (b["n"] >= 20)
+        for s in rep.get("say_do_gap", []):
+            assert (s["status"] == "ok") == (s["n_high_green"] >= 20), (g, s)
 
 
 def test_tier_a_has_no_inner_layer():

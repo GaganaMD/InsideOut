@@ -36,7 +36,12 @@
    "d_lo": -0.4173267065398275,
    "d_hi": -0.13039054320513366,
    "share_opposite_side_of_pop_median": 0.3401015228426396,
+   "share_at_pop_median": 0.10152284263959391,
    "confidence": "distinct",
+   "shrunk_d": -0.17759287525244333,
+   "shrunk_ci_lo": 3.2319484737688344,
+   "shrunk_ci_hi": 3.463657023256132,
+   "confidence_shrinkage_adjusted": "weak difference",
    "source": "Twin-2K-500 w1_score_GREEN"
   },
   {
@@ -58,7 +63,12 @@
    "d_lo": -0.3181812566743717,
    "d_hi": -0.053420752121610765,
    "share_opposite_side_of_pop_median": 0.350253807106599,
+   "share_at_pop_median": 0.10152284263959391,
    "confidence": "weak difference",
+   "shrunk_d": -0.14600706504772165,
+   "shrunk_ci_lo": 4.739803168188495,
+   "shrunk_ci_hi": 5.61937564810455,
+   "confidence_shrinkage_adjusted": "weak difference",
    "source": "Twin-2K-500 w2_score_socialdesirability"
   },
   {
@@ -80,7 +90,12 @@
    "d_lo": -0.055748344090343765,
    "d_hi": 0.22969816930826628,
    "share_opposite_side_of_pop_median": 0.4619289340101523,
+   "share_at_pop_median": 0.05583756345177665,
    "confidence": "not distinguishable from population",
+   "shrunk_d": 0.04912706146584126,
+   "shrunk_ci_lo": 13.793734074205634,
+   "shrunk_ci_hi": 14.736544735315569,
+   "confidence_shrinkage_adjusted": "not distinguishable from population",
    "source": "Twin-2K-500 st_tw_rescored"
   },
   {
@@ -102,7 +117,12 @@
    "d_lo": -0.15027393958862123,
    "d_hi": 0.1354162155185511,
    "share_opposite_side_of_pop_median": 0.4517766497461929,
+   "share_at_pop_median": 0.17766497461928935,
    "confidence": "not distinguishable from population",
+   "shrunk_d": -0.0019071390606007737,
+   "shrunk_ci_lo": 1.9488191769041334,
+   "shrunk_ci_hi": 2.1255799726508,
+   "confidence_shrinkage_adjusted": "not distinguishable from population",
    "source": "Twin-2K-500 w1_crt2_score"
   },
   {
@@ -124,7 +144,12 @@
    "d_lo": -0.07840074903580276,
    "d_hi": 0.24136114838167028,
    "share_opposite_side_of_pop_median": 0.19289340101522842,
+   "share_at_pop_median": 0.5228426395939086,
    "confidence": "not distinguishable from population",
+   "shrunk_d": 0.0,
+   "shrunk_ci_lo": 39.41747572815534,
+   "shrunk_ci_hi": 39.41747572815534,
+   "confidence_shrinkage_adjusted": "not distinguishable from population",
    "source": "Twin-2K-500 w3_score_dictator_sender"
   },
   {
@@ -146,7 +171,12 @@
    "d_lo": 0.3064796734991455,
    "d_hi": 0.557725788239641,
    "share_opposite_side_of_pop_median": 0.26903553299492383,
+   "share_at_pop_median": 0.02030456852791878,
    "confidence": "distinct",
+   "shrunk_d": 0.3971065524353835,
+   "shrunk_ci_lo": 2.983365702061815,
+   "shrunk_ci_hi": 3.2205514518406346,
+   "confidence_shrinkage_adjusted": "distinct",
    "source": "Twin-2K-500 w1_score_neuroticism"
   }
  ],
@@ -180,7 +210,7 @@
    "lo": 0.15003570882017148,
    "hi": 0.8499642911798285,
    "pop_share_declining": 0.47126436781609193,
-   "status": "INSUFFICIENT EVIDENCE (n<10)"
+   "status": "INSUFFICIENT EVIDENCE (n=4 < 20)"
   },
   {
    "condition": "green_default",
@@ -189,7 +219,7 @@
    "lo": 0.0,
    "hi": 0.3903430336530645,
    "pop_share_declining": 0.2134831460674157,
-   "status": "INSUFFICIENT EVIDENCE (n<10)"
+   "status": "INSUFFICIENT EVIDENCE (n=6 < 20)"
   }
  ],
  "mega_study_participation": {

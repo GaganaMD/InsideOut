@@ -118,14 +118,25 @@ def build(name: str, crit: dict, people: pd.DataFrame, green: pd.DataFrame, sens
         distinct = abs(d) >= D_DISTINCT and (d_lo > 0 or d_hi < 0)
         weak = (not distinct) and (d_lo > 0 or d_hi < 0)
         side = np.sign(mu_p - mu0)
-        opposite = float(((x - pop.median()) * side < 0).mean()) if side != 0 else np.nan
+        opposite = float(((x - pop.median()) * side < 0).mean()) if side != 0 else np.nan   # strict: ties excluded
+        at_median = float((x == pop.median()).mean())
+        # Shrinkage-consistent label (display only; the pre-registered `confidence` above is unchanged and still used
+        # for every frozen result). Normal-normal posterior: mean = shrunk, SD = sqrt(w) * se. Because the posterior z is
+        # sqrt(w) times the raw z, this label can only be equal to or weaker than the pre-registered one.
+        post_se = np.sqrt(w) * se
+        shrunk_d = (shrunk - mu0) / sd0
+        s_lo, s_hi = shrunk - 1.96 * post_se, shrunk + 1.96 * post_se
+        s_excl = (s_lo > mu0) or (s_hi < mu0)
+        adj = ("distinct" if (abs(shrunk_d) >= D_DISTINCT and s_excl)
+               else "weak difference" if s_excl else "not distinguishable from population")
         inner.append(dict(
             construct=c, label=label, n=n, typical_shrunk=shrunk, raw_mean=mu_p,
             mean_ci_lo=mu_p - 1.96 * se, mean_ci_hi=mu_p + 1.96 * se, shrink_weight=w,
             sd=s_p, p10=x.quantile(.1), median=x.median(), p90=x.quantile(.9),
             pop_mean=mu0, pop_sd=sd0, d=d, d_lo=d_lo, d_hi=d_hi,
-            share_opposite_side_of_pop_median=opposite,
+            share_opposite_side_of_pop_median=opposite, share_at_pop_median=at_median,
             confidence="distinct" if distinct else ("weak difference" if weak else "not distinguishable from population"),
+            shrunk_d=shrunk_d, shrunk_ci_lo=s_lo, shrunk_ci_hi=s_hi, confidence_shrinkage_adjusted=adj,
             source=f"Twin-2K-500 {CONSTRUCTS[c][0]}"))
     rep["inner"] = inner
 
@@ -150,7 +161,8 @@ def build(name: str, crit: dict, people: pd.DataFrame, green: pd.DataFrame, sens
         lo, hi = wilson(int((1 - s.chose_green).sum()), len(s))
         gap.append(dict(condition=cond, n_high_green=len(s), share_declining=1 - s.chose_green.mean() if len(s) else np.nan,
                         lo=lo, hi=hi, pop_share_declining=1 - p.chose_green.mean(),
-                        status="ok" if len(s) >= 10 else "INSUFFICIENT EVIDENCE (n<10)"))
+                        status="ok" if len(s) >= MIN_N_BEHAVIOUR else f"INSUFFICIENT EVIDENCE (n={len(s)} < {MIN_N_BEHAVIOUR})"))
+        # (was n >= 10; aligned 2026-11-15 with the pre-registered floor of 20 per default condition, hypotheses.md)
     rep["say_do_gap"] = gap
     rep["mega_study_participation"] = dict(n_train_in_default_eric=len(gm))
     return rep
@@ -184,6 +196,19 @@ def fmt(x, nd=2):
     return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x:.{nd}f}"
 
 
+def confidence_text(r: dict, pre: str | None = None, adj: str | None = None) -> str:
+    """Pre-registered label, plus the shrinkage-adjusted label when it is weaker (never silently replaced)."""
+    pre, adj = pre or r["confidence"], adj or r.get("confidence_shrinkage_adjusted", r["confidence"])
+    return pre if adj == pre else f"{pre} before shrinkage; **{adj} after shrinkage**"
+
+
+def other_side_text(r: dict) -> str:
+    o, t = r["share_opposite_side_of_pop_median"], r.get("share_at_pop_median", np.nan)
+    if o is None or (isinstance(o, float) and np.isnan(o)):
+        return "–"
+    return f"{o:.0%}" + ("" if t is None or np.isnan(t) else f" ({t:.0%})")
+
+
 def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | None = None,
                 scores_note: str | None = None) -> str:
     L = [f"# Persona: {rep['name']}", ""]
@@ -199,17 +224,21 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
     if interp and "Bottom line" in interp:
         L += ["## Bottom line", "", interp["Bottom line"], ""]
     L += ["## Inner layer (train members; typical = shrunken mean)", "",
-          "| Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % on other side of pop. median | Confidence |",
+          "| Construct | Typical | 95% CI (raw mean) | Spread p10–p90 (SD) | vs population (d, 95% CI) | % strictly on other side of pop. median (% exactly at it) | Confidence |",
           "|---|---|---|---|---|---|---|"]
     for r in rep["inner"]:
         L.append(f"| {r['label']} | {fmt(r['typical_shrunk'])} | {fmt(r['mean_ci_lo'])}–{fmt(r['mean_ci_hi'])} | "
                  f"{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)} ({fmt(r['sd'])}) | {r['d']:+.2f} ({r['d_lo']:+.2f}, {r['d_hi']:+.2f}) | "
-                 f"{r['share_opposite_side_of_pop_median']:.0%} | {r['confidence']} |")
+                 f"{other_side_text(r)} | {confidence_text(r)} |")
     L += ["", "Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see audit). "
           "**Typical** is an empirical-Bayes estimate pulled toward the population mean by an amount set by n and by how "
           "much Tier A groups differ on that construct (none, for dictator giving, so it equals the population mean). "
           "The **95% CI** is for the raw member mean, a different estimand. **d** is relative to the train population SD. "
-          "**Confidence**: *distinct* = |d| ≥ 0.20 and CI excludes 0; *weak* = CI excludes 0 but |d| < 0.20.", ""]
+          "**Confidence**: *distinct* = |d| ≥ 0.20 and CI excludes 0; *weak* = CI excludes 0 but |d| < 0.20 (pre-registered, "
+          "on the raw mean). The same rule is then re-applied to the shrunken estimate (d of Typical; posterior CI = "
+          "Typical ± 1.96·√w·SE, w = shrink weight); if it gives a weaker label, both are shown and only the shrinkage-"
+          "adjusted label should be narrated. **Other side of median** counts members strictly beyond the population "
+          "median on the opposite side; members exactly at the median (common on discrete scales) are shown separately.", ""]
     corr_path = ROOT / "reports/final_audit/corrected_scores/personas_sd_crt.csv"
     if corr_path.exists() and not rep.get("scores"):
         cc = pd.read_csv(corr_path)
@@ -263,7 +292,7 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
     return "\n".join(L)
 
 
-def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None) -> str:
+def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None, rep_corrected: dict | None = None) -> str:
     """One-page persona card (template fields); full tables live in <name>_evidence.md."""
     L = [f"# Persona: {rep['name']}", "",
          f"**Who (outer layer only):** {rep['definition']} · **n = {rep['n_total']}** "
@@ -280,15 +309,18 @@ def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None) -> str:
         if c in cc.index:  # corrected measurement (final audit) shown; original kept in the evidence file
             x = cc.loc[c]
             dtxt = f"{x.d_train_corrected:+.2f} ({x.d_lo_corrected:+.2f}, {x.d_hi_corrected:+.2f})†"
-            ttxt, conf = f"{x.d_test_corrected:+.2f}†", x.confidence_corrected
+            ttxt = f"{x.d_test_corrected:+.2f}†"
+            rc = next((q for q in (rep_corrected or {}).get("inner", []) if q["construct"] == c), None)
+            conf = confidence_text(rc, pre=x.confidence_corrected) if rc else x.confidence_corrected
             typ = f"{fmt(x.typical_corrected)} [{fmt(x.p10_corrected, 0)}–{fmt(x.p90_corrected, 0)}]†"
             gain = x.gain_pct_corrected
         else:
             dtxt = f"{r['d']:+.2f} ({r['d_lo']:+.2f}, {r['d_hi']:+.2f})"
             ttxt = f"{hd.loc[c, 'test_d']:+.2f}" if hd is not None else "–"
-            conf, typ = r["confidence"], f"{fmt(r['typical_shrunk'])} [{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)}]"
+            conf, typ = confidence_text(r), f"{fmt(r['typical_shrunk'])} [{fmt(r['p10'], 1)}–{fmt(r['p90'], 1)}]"
             gain = hd.loc[c, "gain_pct"] if hd is not None else np.nan
-        conf = {"not distinguishable from population": "same as population", "weak difference": "weak"}.get(conf, conf)
+        for long, short in (("not distinguishable from population", "same as population"), ("weak difference", "weak")):
+            conf = conf.replace(long, short)
         gtxt = "–" if pd.isna(gain) else ("0%" if abs(gain) < 0.5 else f"{gain:+.0f}%")
         L.append(f"| {r['label'].split(' (')[0].split(',')[0]} | {typ} | {dtxt} | {ttxt} | {gtxt} | {conf} |")
     L += ["", "Held-out error cut = reduction in absolute error vs the population mean on held-out members. "
@@ -379,7 +411,9 @@ def main(argv=None) -> int:
             note = ("FROZEN HISTORICAL ESTIMATES. Tables below use the " + LEGACY_LABEL + ". Corrected values for those two constructs follow the inner-layer table and are the ones cited "
                     "in the persona card and memo")
             (OUT / f"{p['name']}_evidence.md").write_text(to_markdown(rep, ev, h, scores_note=note), encoding="utf-8")
-            save(rep, to_card(rep, interp, h))
+            pc, gc = load_people(corrected=True), load_green(corrected=True)   # for the corrected rows' shrinkage label
+            rep_c = build(p["name"], parse_criteria(p["criteria"], pc, allow_party=p.get("allow_party", False)), pc, gc)
+            save(rep, to_card(rep, interp, h, rep_c))
         return 0
     return 1
 

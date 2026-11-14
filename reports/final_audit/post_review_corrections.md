@@ -26,6 +26,28 @@ Every change below is either a code defect fix or a correction to reporting and 
 
 | 11 | **"Nearly all" of social desirability's R² comes from age** (Workstream D). | `reports/final_audit/headline_challenge/nested.csv`: age-only R² 0.038 vs full Tier A 0.062 (corrected scores). | Now "about 60% of social desirability's (0.038 of 0.062)". | `reports/memo.md` §1 |
 
+| 12 | **Behaviour-cell floor inconsistent.** The say/do block used n ≥ 10, but the pre-registration (`hypotheses.md` line 76) and the memo require ≥ 20 per default condition for a behavioural estimate. | `src/personas.py`: `status="ok" if len(s) >= 10`. | The say/do block now uses `MIN_N_BEHAVIOUR` (20), the same floor as the choice rates. The only existing JSON values that change are `say_do_gap[*].status` for P1–P3; all shares, CIs and n are unchanged. | `src/personas.py` → `reports/personas/*` |
+| 13 | **"Distinct" label inconsistent with the shrunk "Typical" value.** The label came from the raw mean, while Typical is shrunk, and the two can disagree in small groups. For 65+ & < $30k, CRT was raw-distinct at shrink weight 0.04. | Stress test (`B_unseen`). | **The pre-registered `confidence` field is unchanged** and still feeds every frozen result (`results/holdout_personas.csv`). New fields `shrunk_d`, `shrunk_ci_lo/hi` and `confidence_shrinkage_adjusted` re-apply the same rule to the shrunk estimate: \|d_shrunk\| ≥ 0.20 and a posterior CI excluding the population mean, with posterior SD = √w·SE. Because the posterior z = √w × the raw z, the adjusted label can never be stronger. When the adjusted label is weaker, cards and evidence files show both ("distinct before shrinkage; **weak after shrinkage**"). | `src/personas.py` → `reports/personas/*` |
+| 14 | **"% on other side of median" hid ties.** For example, 72% of 65+ & < $30k sit exactly at the dictator-giving median. | Stress test. | The statistic is unchanged (strict: ties are not counted as "other side"). A new field, `share_at_pop_median`, is displayed in brackets, and the convention is stated under the table. | `src/personas.py` → evidence files and CLI output |
+
+**Effect of #13 on the submitted personas (display only):**
+
+| Persona | Construct | Before shrinkage → after shrinkage |
+|---|---|---|
+| P1 | green | weak → same as population |
+| P1 | spendthrift | weak → same as population |
+| P2 | social desirability† | distinct → weak |
+| P3 | green values | distinct → weak |
+
+The pre-registered labels, the held-out evaluation (H6) and the memo's §4 table are unchanged. The cards now show both labels.
+
+**Regression tests added** (`tests/test_pipeline.py`):
+- the shrinkage label is never stronger than the pre-registered one, which itself stays intact (9 groups, including small ones);
+- the 65+ & < $30k CRT label is flagged;
+- the three median shares sum to 1, and ties are visible;
+- the behaviour floor is 20 for both the choice rates and the say/do block;
+- plus the earlier tests for contradictory criteria and impossible groups.
+
 Checked and **not** changed: the memo's "22% are 65+ vs 10%" is correct for the 600 `default_eric` participants (22.0% vs 9.95%). `audit/AUDIT.md` reports 21% on a different base.
 
 ## Verification
