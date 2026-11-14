@@ -1,5 +1,16 @@
 # Live review simulation: 30 questions
 
+> **Update after commit `0852b63` / `5eddaf6` (2026-11-15).** Several defects quoted below as live have since been fixed in the submission. Each fix is logged in `reports/final_audit/post_review_corrections.md`:
+> - the repeated-criteria bug: `sex=Male; sex=Female` now exits 2 with "contradictory";
+> - the %/raw-unit CI tables;
+> - "concentrated in men";
+> - "is self-presentation";
+> - "every age band";
+> - the "top third" label;
+> - "nearly all" of SD's R².
+>
+> The strong answer is now: "We found it in an internal audit, fixed it without changing any estimate, and logged it." The 10-person behaviour-cell rule in the CLI, the raw-d vs shrunk-value labels, and the tie-blind "% other side" column are **still open**.
+
 **Purpose.** Rehearsal for the 90-minute Brace review. Each question gives: **Q** (as a sharp interviewer would put it), **Strong answer must** (what has to be covered), **Evidence** (file and exact number), **Weak answer** (and why it fails), **Follow-up**.
 
 **Ground rules for every answer**
