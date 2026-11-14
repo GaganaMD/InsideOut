@@ -1,0 +1,7 @@
+construct,shipped_column,scoring_rule,n,exact_match,n_mismatch,corr,shipped_reproduced_by,bug_rule_exact_match
+green,w1_score_GREEN,"mean QID235_1-6 (all pro-environment, 1-5)",2058,1.0,0,1.0,,
+neuroticism,w1_score_neuroticism,"BFI-44 N: mean items 4,9R,14,19,24R,29,34R,39",2058,1.0,0,1.0,,
+spendthrift,w3_score_ST-TW,Q31+Q32+(6-Q33)+(6-Q34),2058,0.8013,409,0.8264,QID31 options 6 and 11 scored 0,1.0
+social_desirability,w2_score_socialdesirability,"Reynolds Form C count, TRUE-keyed 5,7,9,10,13; FALSE-keyed rest; case-insensitive",2058,0.9125,180,0.8523,case-sensitive match on 'TRUE'/'FALSE' (178 exports read 'True'/'False'),0.9966
+crt,w1_crt2_score,"CRT-2: emily (case-insens.), 0, 2, 8 (numeric)",2058,0.7813,450,0.7836,"case-sensitive 'Emily' and exact strings '0','2','8' ('8.0'/'emily' marked wrong)",1.0
+dictator_give,w3_score_dictator_sender,(6 - QID231 code) x 20 = % of $5 sent,2058,1.0,0,1.0,,

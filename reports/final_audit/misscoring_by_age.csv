@@ -1,0 +1,5 @@
+age_band,n,social_desirability_share_misscored,crt_share_misscored,social_desirability_mean_bias,crt_mean_bias
+18-29,388,0.116,0.1881,-0.6546,-0.3144
+30-49,735,0.102,0.1429,-0.5918,-0.2259
+50-64,658,0.0729,0.2903,-0.5182,-0.5
+65+,277,0.0433,0.2924,-0.3032,-0.5415

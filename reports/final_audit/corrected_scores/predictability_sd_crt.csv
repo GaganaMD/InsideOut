@@ -1,0 +1,3 @@
+construct,cv_r2_original,cv_r2_corrected,cv_r2_corrected_lo,cv_r2_corrected_hi,mae_gain_pct_corrected,test_r2_corrected
+social_desirability,0.0506,0.0624,0.0421,0.0827,3.2964,0.0765
+crt,0.0164,0.0056,-0.0014,0.0125,0.6123,0.0208

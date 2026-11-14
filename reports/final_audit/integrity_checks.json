@@ -1,0 +1,32 @@
+{
+ "people_unique_pid": true,
+ "n_people": 2058,
+ "split_disjoint_and_complete": true,
+ "split_counts": {
+  "train": 1442,
+  "test": 616
+ },
+ "persona_criteria_variables": {
+  "P1": [
+   "age_band"
+  ],
+  "P2": [
+   "age_band",
+   "income"
+  ],
+  "P3": [
+   "age_band",
+   "marital"
+  ]
+ },
+ "persona_criteria_tier_a_only": true,
+ "green_rows": 600,
+ "green_condition_counts": {
+  "grey_default": 300,
+  "green_default": 300
+ },
+ "green_each_person_one_condition": true,
+ "commits_touching_models_split_hypotheses_config_after_holdout_script": [],
+ "saydo_OR_green_recomputed": 2.946800896403104,
+ "saydo_OR_green_reported": 2.946800896403104
+}

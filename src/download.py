@@ -34,6 +34,7 @@ TWIN_FILES = [
     "raw_data/wave 3 scores.csv",
     "raw_data/wave_1_labels_anonymized.csv",
     "raw_data/wave_1_numbers_anonymized.csv",
+    "raw_data/wave_2_labels_anonymized.csv",  # final audit: reproduces the shipped social-desirability scoring bug
 ]
 STUDIES = ["default_eric", "preference_redistribution", "context_effects"]
 MEGA_FILES = ["README.md"] + [

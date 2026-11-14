@@ -1,0 +1,29 @@
+{
+ "p3_rule_top_corrected": [
+  {
+   "definition": "age_band = 18-29; marital = Never been married",
+   "n_train": 197,
+   "mean_abs_d": 0.1843758349425428
+  },
+  {
+   "definition": "race = Black",
+   "n_train": 158,
+   "mean_abs_d": 0.1752409165889758
+  },
+  {
+   "definition": "race = Black; citizen = Yes",
+   "n_train": 158,
+   "mean_abs_d": 0.1752409165889758
+  }
+ ],
+ "saydo_sd_sensitivity_corrected": {
+  "green_z": 2.8881405461598204,
+  "sd_z": 1.084639584946875
+ },
+ "p1_neuroticism_sd_adjusted_corrected": {
+  "est": -0.31026228902429176,
+  "lo": -0.4467713280081338,
+  "hi": -0.1737532500404497,
+  "corr_sd_neuroticism": -0.4428071846046125
+ }
+}

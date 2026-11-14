@@ -35,8 +35,37 @@ def rescore_st_tw() -> pd.DataFrame:
     return r[["pid", "st_tw_rescored"]]
 
 
-def load_people() -> pd.DataFrame:
-    """One row per participant: pid, split, Tier A/B outer layer (categoricals), 6 constructs."""
+SD_TRUE_KEYED = [5, 7, 9, 10, 13]          # Reynolds (1982) Form C: socially desirable answer = TRUE
+SD_FALSE_KEYED = [1, 2, 3, 4, 6, 8, 11, 12]  # socially desirable answer = FALSE
+
+
+def rescore_sd_crt() -> pd.DataFrame:
+    """Item-level re-scoring of social desirability and CRT-2 from the cleaned catalog CSV (final audit).
+
+    The shipped scores are reproduced exactly by case-/format-sensitive string matching on the raw exports:
+      social desirability counts only 'TRUE'/'FALSE', so 178 people whose export reads 'True'/'False' are mis-scored;
+      CRT-2 accepts only 'Emily' and the strings '0', '2', '8', so 'emily' or '8.0' answers are marked wrong.
+    Here: SD = Form C keying, case-insensitive; CRT-2 = name equals 'emily' (case-insensitive, trailing '.' removed)
+    plus numeric answers 0 / 2 / 8.
+    """
+    lab = pd.read_csv(RAW_TWIN / "question_catalog_and_human_response_csv/wave1_3_response_label.csv",
+                      usecols=["pid", *[f"QID27_{i}" for i in range(1, 14)],
+                               "QID52_TEXT", "QID53_TEXT", "QID54_TEXT", "QID55_TEXT"])
+    true = {i: lab[f"QID27_{i}"].astype(str).str.strip().str.upper().eq("TRUE") for i in range(1, 14)}
+    sd = sum(true[i].astype(int) for i in SD_TRUE_KEYED) + sum((~true[i]).astype(int) for i in SD_FALSE_KEYED)
+    num = lambda c: pd.to_numeric(lab[c], errors="coerce")
+    name = lab.QID52_TEXT.astype(str).str.strip().str.lower().str.rstrip(".")
+    crt = (name == "emily").astype(int) + (num("QID53_TEXT") == 0).astype(int) \
+        + (num("QID54_TEXT") == 2).astype(int) + (num("QID55_TEXT") == 8).astype(int)
+    return pd.DataFrame({"pid": lab.pid, "sd_rescored": sd.astype(float), "crt_rescored": crt.astype(float)})
+
+
+def load_people(corrected: bool = False) -> pd.DataFrame:
+    """One row per participant: pid, split, Tier A/B outer layer (categoricals), 6 constructs.
+
+    corrected=False (default) reproduces every original, frozen result (shipped SD and CRT scores).
+    corrected=True replaces social desirability and CRT with item-level re-scores (final audit; see rescore_sd_crt).
+    """
     outer = pd.read_parquet(PROC / "outer.parquet")
     scores = pd.read_parquet(PROC / "scores.parquet").merge(rescore_st_tw(), on="pid")
     split = pd.read_csv(ROOT / "data/split.csv")
@@ -44,19 +73,23 @@ def load_people() -> pd.DataFrame:
     cons = scores[["pid"]].copy()
     for name, (col, _, _) in CONSTRUCTS.items():
         cons[name] = pd.to_numeric(scores[col], errors="raise").astype(float)
+    if corrected:
+        rs = cons[["pid"]].merge(rescore_sd_crt(), on="pid", how="left")
+        assert rs.sd_rescored.notna().all() and rs.crt_rescored.notna().all()
+        cons["social_desirability"], cons["crt"] = rs.sd_rescored.to_numpy(), rs.crt_rescored.to_numpy()
     df = df.merge(cons, on="pid")
     assert len(df) == 2058 and df.pid.is_unique
     return df
 
 
-def load_green() -> pd.DataFrame:
+def load_green(corrected: bool = False) -> pd.DataFrame:
     """default_eric green-energy item joined to people. chose_green: 1 = chose $39 renewable."""
     g = pd.read_parquet(PROC / "mega_default_eric.parquet")[["pid", "green_condition", "chose_green"]]
     g = g[g.green_condition.isin(["green_default", "grey_default"])].copy()
     g["pid"] = g.pid.astype(int)
     g["chose_green"] = g.chose_green.astype(float).astype(int)
     g["green_default"] = (g.green_condition == "green_default").astype(int)
-    return g.merge(load_people(), on="pid", how="inner")
+    return g.merge(load_people(corrected), on="pid", how="inner")
 
 
 def low_income(s: pd.Series) -> pd.Series:
