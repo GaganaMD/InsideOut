@@ -1,0 +1,544 @@
+{
+ "green_items": {
+  "QID235_1": "It is important to me that the products I use do not harm the environment.",
+  "QID235_2": "I consider the potential environmental impact of my actions when making many of my decisions.",
+  "QID235_3": "My purchase habits are affected by my concern for our environment.",
+  "QID235_4": "I am concerned about wasting the resources of our planet.",
+  "QID235_5": "I would describe myself as environmentally responsible.",
+  "QID235_6": "I am willing to be inconvenienced in order to take actions that are more environmentally friendly."
+ },
+ "green_response_scale": [
+  "Disagree strongly",
+  "Disagree a little",
+  "Neither agree nor disagree",
+  "Agree a little",
+  "Agree strongly"
+ ],
+ "mega_fielding_dates": [
+  "2025-05-30",
+  "2025-05-30"
+ ],
+ "twin_wave1_dates": [
+  "2025-01-29",
+  "2025-02-01"
+ ],
+ "n_train": 428,
+ "green_mu_sd_train": [
+  3.5315420560747666,
+  0.9986222150733056
+ ],
+ "alpha_all_train": {
+  "n": 1442,
+  "est": 0.9290764388992266,
+  "lo": 0.9222985144090238,
+  "hi": 0.9349242523511417
+ },
+ "alpha_choice_sample": {
+  "n": 428,
+  "est": 0.9262751865198174
+ },
+ "item_rest_r": {
+  "QID235_1": 0.8245553033787438,
+  "QID235_2": 0.851985695741722,
+  "QID235_3": 0.8415979867216804,
+  "QID235_4": 0.7061339042336394,
+  "QID235_5": 0.7591836325693577,
+  "QID235_6": 0.780059084937172
+ },
+ "alpha_if_dropped": {
+  "QID235_1": 0.9126726288383878,
+  "QID235_2": 0.9080681720511934,
+  "QID235_3": 0.9095423956476125,
+  "QID235_4": 0.9270156645395453,
+  "QID235_5": 0.9203607167805639,
+  "QID235_6": 0.9177478789780086
+ },
+ "green_ceiling_share_eq5": 0.0630841121495327,
+ "green_skew": -0.5718899118020688,
+ "tierA_model": {
+  "formula": "chose_green ~ green_z + green_default + C(region_c) + C(sex) + C(age_band) + C(edu_c) + C(race) + C(marital_c) + C(income) + C(hh_size) + C(emp_c)",
+  "pseudo_r2": 0.20548791303032676,
+  "OR_green": 2.7029115279692624,
+  "OR_green_ci": [
+   2.051495022716329,
+   3.5611739961015414
+  ],
+  "OR_default": 3.2819927462657015,
+  "OR_default_ci": [
+   2.02933874169187,
+   5.307875006397626
+  ]
+ },
+ "tierA_ames": {
+  "ame_green_1sd": {
+   "est": 0.17999859516051053,
+   "lo": 0.1397965807589343,
+   "hi": 0.2174588362086531,
+   "n_boot_ok": 1000
+  },
+  "ame_default": {
+   "est": 0.2265705016437642,
+   "lo": 0.1331103640430638,
+   "hi": 0.319218674580919,
+   "n_boot_ok": 1000
+  }
+ },
+ "unadjusted_ame_green_1sd": 0.18181407556272366,
+ "interaction_prob_scale_tierA": {
+  "ame_green_1sd_greydef": {
+   "est": 0.21023923343847362,
+   "lo": 0.1499769218108708,
+   "hi": 0.26526326071875694,
+   "n_boot_ok": 1000
+  },
+  "ame_green_1sd_greendef": {
+   "est": 0.1577351587315987,
+   "lo": 0.11053793701426452,
+   "hi": 0.2063969609581562,
+   "n_boot_ok": 1000
+  },
+  "diff_green_minus_grey": {
+   "est": -0.052504074706874904,
+   "lo": -0.1193284800421035,
+   "hi": 0.019016919273032448,
+   "n_boot_ok": 1000
+  },
+  "OR_interaction": {
+   "est": 0.773126675692338,
+   "lo": 0.3900390808097136,
+   "hi": 1.4315183838115921,
+   "n_boot_ok": 1000
+  },
+  "default_effect_at_lowgreen": {
+   "est": 0.25084025801109955,
+   "lo": 0.11832809783858342,
+   "hi": 0.37882205147840364,
+   "n_boot_ok": 1000
+  },
+  "default_effect_at_highgreen": {
+   "est": 0.19233127612628942,
+   "lo": 0.05998633821363522,
+   "hi": 0.33475288519674223,
+   "n_boot_ok": 1000
+  }
+ },
+ "lpm_interaction": {
+  "coef": -0.017136079462142236,
+  "ci": [
+   -0.09953871815939966,
+   0.06526655923511518
+  ],
+  "slope_grey": 0.19763662741090188
+ },
+ "contamination_checks": {
+  "green_first": {
+   "green_default": {
+    "OR": 2.513010187092618,
+    "p": 0.0024831707433684213
+   },
+   "green_first": {
+    "OR": 0.7576894463495137,
+    "p": 0.37339065915068526
+   },
+   "green_default:green_first": {
+    "OR": 1.7594506798245042,
+    "p": 0.19254616198643248
+   },
+   "green_z": {
+    "OR": 2.5451730905406507,
+    "p": 7.849438847385462e-14
+   }
+  },
+  "organ_donor_default": {
+   "C(organ_condition)[T.nondonor_default]": {
+    "OR": 0.6354602957832343,
+    "p": 0.1467909430648588
+   },
+   "green_default": {
+    "OR": 2.595979258896589,
+    "p": 0.00236245958672206
+   },
+   "green_default:C(organ_condition)[T.nondonor_default]": {
+    "OR": 1.613689430275886,
+    "p": 0.2704941031944087
+   },
+   "green_z": {
+    "OR": 2.542383341862752,
+    "p": 1.40827450488729e-13
+   }
+  },
+  "greenz_x_first": {
+   "green_z": {
+    "OR": 2.3548891074330984,
+    "p": 2.303377649939581e-07
+   },
+   "green_first": {
+    "OR": 0.9981378480581112,
+    "p": 0.993190228807419
+   },
+   "green_z:green_first": {
+    "OR": 1.1726263574865392,
+    "p": 0.511843461820358
+   },
+   "green_default": {
+    "OR": 3.3150395372608283,
+    "p": 7.819179907322525e-08
+   }
+  },
+  "rates_by_order_condition": [
+   {
+    "green_first": 0,
+    "green_condition": "green_default",
+    "size": 116,
+    "mean": 0.5344827586206896
+   },
+   {
+    "green_first": 0,
+    "green_condition": "grey_default",
+    "size": 102,
+    "mean": 0.37254901960784315
+   },
+   {
+    "green_first": 1,
+    "green_condition": "green_default",
+    "size": 106,
+    "mean": 0.6226415094339622
+   },
+   {
+    "green_first": 1,
+    "green_condition": "grey_default",
+    "size": 104,
+    "mean": 0.34615384615384615
+   }
+  ]
+ },
+ "subgroups": {
+  "age": {
+   "lr_test_p": 0.8812638194908116,
+   "ames": {
+    "age_band=18-29": {
+     "est": 0.20559179992577847,
+     "lo": 0.09106340225376654,
+     "hi": 0.31737156449105935,
+     "n_boot_ok": 499,
+     "n": 48
+    },
+    "age_band=30-49": {
+     "est": 0.16176338363961756,
+     "lo": 0.08969131607228797,
+     "hi": 0.22268265156275668,
+     "n_boot_ok": 499,
+     "n": 143
+    },
+    "age_band=50-64": {
+     "est": 0.1809031307341077,
+     "lo": 0.12361823980212434,
+     "hi": 0.23148127080276146,
+     "n_boot_ok": 499,
+     "n": 148
+    },
+    "age_band=65+": {
+     "est": 0.1835543079196003,
+     "lo": 0.08817053581681926,
+     "hi": 0.27814161920730657,
+     "n_boot_ok": 499,
+     "n": 89
+    }
+   },
+   "holm_p": 1.0
+  },
+  "income": {
+   "lr_test_p": 0.44900392628138264,
+   "ames": {
+    "low_inc=0": {
+     "est": 0.18831238145981094,
+     "lo": 0.13600625660453852,
+     "hi": 0.23937502332999636,
+     "n_boot_ok": 500,
+     "n": 255
+    },
+    "low_inc=1": {
+     "est": 0.16561087231556598,
+     "lo": 0.09672091153413408,
+     "hi": 0.23406712581071826,
+     "n_boot_ok": 500,
+     "n": 173
+    }
+   },
+   "holm_p": 1.0
+  },
+  "sex": {
+   "lr_test_p": 0.8077648666642603,
+   "ames": {
+    "sex=Female": {
+     "est": 0.1678553897184034,
+     "lo": 0.11679348230535537,
+     "hi": 0.21521501437279747,
+     "n_boot_ok": 500,
+     "n": 199
+    },
+    "sex=Male": {
+     "est": 0.1927089383750517,
+     "lo": 0.12711716440852913,
+     "hi": 0.2513099023255837,
+     "n_boot_ok": 500,
+     "n": 229
+    }
+   },
+   "holm_p": 1.0
+  },
+  "education": {
+   "lr_test_p": 0.25099785029219296,
+   "ames": {
+    "ba_plus=0": {
+     "est": 0.16651203378047053,
+     "lo": 0.10242816475740832,
+     "hi": 0.22543929160325038,
+     "n_boot_ok": 500,
+     "n": 210
+    },
+    "ba_plus=1": {
+     "est": 0.18969120324449495,
+     "lo": 0.1451156189704254,
+     "hi": 0.2360678850155458,
+     "n_boot_ok": 500,
+     "n": 218
+    }
+   },
+   "holm_p": 1.0
+  }
+ },
+ "item_level": {
+  "QID235_1": {
+   "text": "It is important to me that the products I use do not harm the environment.",
+   "OR": 2.6261813382957837,
+   "ame_1sd": 0.17652848839223145
+  },
+  "QID235_2": {
+   "text": "I consider the potential environmental impact of my actions when making many of my decisions.",
+   "OR": 2.0859549140305225,
+   "ame_1sd": 0.14376161005254545
+  },
+  "QID235_3": {
+   "text": "My purchase habits are affected by my concern for our environment.",
+   "OR": 2.2798841163426484,
+   "ame_1sd": 0.1569598613607135
+  },
+  "QID235_4": {
+   "text": "I am concerned about wasting the resources of our planet.",
+   "OR": 2.0563126795564313,
+   "ame_1sd": 0.14087891918921625
+  },
+  "QID235_5": {
+   "text": "I would describe myself as environmentally responsible.",
+   "OR": 1.7046455056302194,
+   "ame_1sd": 0.1092514400480954
+  },
+  "QID235_6": {
+   "text": "I am willing to be inconvenienced in order to take actions that are more environmentally friendly.",
+   "OR": 3.2373012781741717,
+   "ame_1sd": 0.20052179182348384
+  }
+ },
+ "reduced_scale_no_behavioural_items": {
+  "ame_green4_1sd": {
+   "est": 0.16390668807691933,
+   "lo": 0.12173524374843848,
+   "hi": 0.20460495599770218,
+   "n_boot_ok": 500
+  }
+ },
+ "policy_item_carbonfree_electricity": {
+  "n": 428,
+  "OR": 2.300628634747916,
+  "ame_1sd": 0.15823608588243054,
+  "r_with_green": 0.6138234530503229
+ },
+ "gap_threshold_sensitivity": {
+  "top 10% (>= p90)": {
+   "threshold": 4.833333333333333,
+   "share_of_sample": 0.102803738317757,
+   "grey_default": {
+    "n": 24,
+    "decline": 0.2916666666666667,
+    "lo": 0.14914460334164278,
+    "hi": 0.49168063658709704
+   },
+   "green_default": {
+    "n": 20,
+    "decline": 0.15,
+    "lo": 0.05236779195949584,
+    "hi": 0.36042329588695743
+   }
+  },
+  "top 20% (>= p80)": {
+   "threshold": 4.5,
+   "share_of_sample": 0.2102803738317757,
+   "grey_default": {
+    "n": 47,
+    "decline": 0.40425531914893614,
+    "lo": 0.27639828961388174,
+    "hi": 0.5465813176368735
+   },
+   "green_default": {
+    "n": 43,
+    "decline": 0.16279069767441862,
+    "lo": 0.08116524502857546,
+    "hi": 0.2997269533591824
+   }
+  },
+  "frozen 'top third' (>= p66.7)": {
+   "threshold": 4.0,
+   "share_of_sample": 0.411214953271028,
+   "grey_default": {
+    "n": 87,
+    "decline": 0.47126436781609193,
+    "lo": 0.3698208820020664,
+    "hi": 0.5751382556617353
+   },
+   "green_default": {
+    "n": 89,
+    "decline": 0.21348314606741572,
+    "lo": 0.14114687024752387,
+    "hi": 0.3095304123499324
+   }
+  },
+  "above median": {
+   "threshold": 3.6666666666666665,
+   "share_of_sample": 0.5490654205607477,
+   "grey_default": {
+    "n": 118,
+    "decline": 0.5084745762711864,
+    "lo": 0.41943704288165534,
+    "hi": 0.5969777120132246
+   },
+   "green_default": {
+    "n": 117,
+    "decline": 0.2564102564102564,
+    "lo": 0.1859156601937761,
+    "hi": 0.3423924721050348
+   }
+  },
+  "mean >= 4.5 ('agree' on avg)": {
+   "threshold": 4.5,
+   "share_of_sample": 0.2102803738317757,
+   "grey_default": {
+    "n": 47,
+    "decline": 0.40425531914893614,
+    "lo": 0.27639828961388174,
+    "hi": 0.5465813176368735
+   },
+   "green_default": {
+    "n": 43,
+    "decline": 0.16279069767441862,
+    "lo": 0.08116524502857546,
+    "hi": 0.2997269533591824
+   }
+  },
+  "GREEN == 5 (all 'agree strongly')": {
+   "threshold": 5.0,
+   "share_of_sample": 0.0630841121495327,
+   "grey_default": {
+    "n": 16,
+    "decline": 0.25,
+    "lo": 0.10181901984237346,
+    "hi": 0.49498768929398645
+   },
+   "green_default": {
+    "n": 11,
+    "decline": 0.0,
+    "lo": 2.7755575615628914e-17,
+    "hi": 0.2588400172488141
+   }
+  },
+  "all six items >= 4": {
+   "share_of_sample": 0.34579439252336447,
+   "grey_default": {
+    "n": 74,
+    "decline": 0.4594594594594595,
+    "ci": [
+     0.35073184428251214,
+     0.5721885478985324
+    ]
+   },
+   "green_default": {
+    "n": 74,
+    "decline": 0.22972972972972974,
+    "ci": [
+     0.1486706552074038,
+     0.33746529266622677
+    ]
+   }
+  }
+ },
+ "frozen_top_third_actual_share": 0.411214953271028,
+ "default_effect_in_top_third": {
+  "n": 176,
+  "est": 0.25778122174867624,
+  "lo": 0.1017851486354776,
+  "hi": 0.39472409661942703
+ },
+ "attenuation_grey_arm": {
+  "decline_top_third_true_r1.00": {
+   "est": 0.4172140896781833,
+   "lo": 0.3221484668238684,
+   "hi": 0.5235272248143882,
+   "n_boot_ok": 1000
+  },
+  "probit_slope_true_r1.00": {
+   "est": 0.6045132897280867,
+   "lo": 0.392461033675026,
+   "hi": 0.8593103118530668,
+   "n_boot_ok": 1000
+  },
+  "decline_top_third_true_r0.89": {
+   "est": 0.40147541849345136,
+   "lo": 0.3026670200606515,
+   "hi": 0.5111020718987357,
+   "n_boot_ok": 1000
+  },
+  "probit_slope_true_r0.89": {
+   "est": 0.6557631030939397,
+   "lo": 0.42002505753237757,
+   "hi": 0.9555125175521351,
+   "n_boot_ok": 1000
+  },
+  "decline_top_third_true_r0.80": {
+   "est": 0.38585240338345644,
+   "lo": 0.28252752517342117,
+   "hi": 0.49926063867149045,
+   "n_boot_ok": 1000
+  },
+  "probit_slope_true_r0.80": {
+   "est": 0.7090301674757907,
+   "lo": 0.44748486868997756,
+   "hi": 1.0639489417034411,
+   "n_boot_ok": 1000
+  },
+  "decline_top_third_true_r0.70": {
+   "est": 0.36437654773823586,
+   "lo": 0.25370161979056227,
+   "hi": 0.4842158032388343,
+   "n_boot_ok": 1000
+  },
+  "probit_slope_true_r0.70": {
+   "est": 0.7867632070697803,
+   "lo": 0.48537414936163287,
+   "hi": 1.2422827807780061,
+   "n_boot_ok": 1000
+  },
+  "decline_top_third_true_r0.60": {
+   "est": 0.33642430687602215,
+   "lo": 0.21439186728231696,
+   "hi": 0.46627674296645244,
+   "n_boot_ok": 1000
+  },
+  "probit_slope_true_r0.60": {
+   "est": 0.8973490728210334,
+   "lo": 0.5348698995955606,
+   "hi": 1.5569037003126776,
+   "n_boot_ok": 1000
+  }
+ },
+ "attenuation_note": "r=1.00 is the model-based decline among top-third of OBSERVED GREEN under a normal latent; r=alpha (~0.89) corrects for item-sampling error only; 0.80-0.60 represent additional transient/occasion error over the 3-5 month gap (no retest of GREEN exists, so not identified)."
+}
