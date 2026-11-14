@@ -3,3 +3,4 @@ data/processed/
 audit/_dl.log
 __pycache__/
 .cache/
+reports/generated/

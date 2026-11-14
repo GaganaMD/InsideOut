@@ -210,15 +210,25 @@ def to_markdown(rep: dict, interp: dict | None = None, holdout: pd.DataFrame | N
             L.append(f"| {h['construct']} | {int(h['n_test'])} | {fmt(h['mae_persona'])} | {fmt(h['mae_pop'])} | "
                      f"{h['gain_pct']:+.1f}% ({h['gain_lo']:+.3f}, {h['gain_hi']:+.3f}) | {h['cov_persona']:.0%} / {h['cov_pop']:.0%} |")
         L.append("")
+        bp = RESULTS / "holdout_persona_behaviour.csv"
+        if bp.exists():
+            hb = pd.read_csv(bp)
+            hb = hb[hb.persona == rep["name"]]
+            L += ["Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):", "",
+                  "| Condition | n test | Test rate | Persona train rate | Brier persona / population |", "|---|---|---|---|---|"]
+            for _, h in hb.iterrows():
+                L.append(f"| {h['condition']} | {int(h['n_test'])} | {h['test_rate']:.0%} | {h['persona_train_rate']:.0%}"
+                         f"{'' if h['used_persona_rate'] else ' (not used)'} | {h['brier_persona']:.3f} / {h['brier_pop']:.3f} |")
+            L.append("")
     return "\n".join(L)
 
 
-def save(rep: dict, md: str) -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+def save(rep: dict, md: str, out=OUT) -> None:
+    out.mkdir(parents=True, exist_ok=True)
     slug = rep["name"].replace(" ", "_")
-    json.dump(rep, open(OUT / f"{slug}.json", "w"), indent=1, default=float)
-    (OUT / f"{slug}.md").write_text(md, encoding="utf-8")
-    print("wrote", OUT / f"{slug}.md")
+    json.dump(rep, open(out / f"{slug}.json", "w", encoding="utf-8"), indent=1, default=float)
+    (out / f"{slug}.md").write_text(md, encoding="utf-8")
+    print("wrote", out / f"{slug}.md")
 
 
 def load_config() -> dict:
@@ -232,6 +242,7 @@ def main(argv=None) -> int:
     b.add_argument("--name", required=True)
     b.add_argument("--criteria", required=True)
     b.add_argument("--allow-party", action="store_true")
+    b.add_argument("--out", default=str(ROOT / "reports/generated"), help="output folder")
     sub.add_parser("select-p3")
     sub.add_parser("build-config")
     sub.add_parser("list-levels")
@@ -251,7 +262,7 @@ def main(argv=None) -> int:
             return 2
         label = "SENSITIVITY PERSONA — uses self-reported party (Tier B), not census-observable" if "party" in crit else ""
         rep = build(a.name, crit, people, green, label)
-        save(rep, to_markdown(rep))
+        save(rep, to_markdown(rep), out=__import__("pathlib").Path(a.out))
         print(rep["status"])
         return 0
     cfg = load_config()

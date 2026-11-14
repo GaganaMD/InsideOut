@@ -29,3 +29,33 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 - green_default: INSUFFICIENT EVIDENCE (n<10), n=6 (population 21%)
 
 *These are hypothetical survey choices, not purchases.*
+
+## Why it fits
+
+This group was chosen by the pre-registered rule as the most inner-layer-distinctive Tier A group of 150 or more people that is not mostly P1 or P2. It is high on **neuroticism** (+0.43 SD), mostly the age gradient it shares with P2. Its surprising feature is **lower green values** (−0.27 SD). Among 18–29-year-olds, the never-married score 3.25 vs 3.84 for those who are married, partnered or previously married. The gap survives adjustment for sex, income band and education (−0.45 SD, 95% CI −0.72 to −0.18). This contradicts the 'young people are greener' stereotype. One reading is that settling down (partnering, household formation) goes with environmental concern. That is a post-hoc hypothesis, not a finding.
+
+## Alternative explanations
+
+(1) **Composition.** P3 is 56% male vs 36% among other 18–29s. The adjustment handles sex as a main effect only. (2) **Selection of the never-married-young into this panel.** (3) **Chance.** The green gap was found while describing a persona that a search over about 1,000 candidate groups had selected. It was not pre-registered, so it is exploratory and needs the holdout.
+
+## Where it breaks
+
+There is too little behaviour to say anything: only 33 members were in the green-energy experiment (17 and 16 per condition), below the 20-per-condition threshold, so **no behavioural profile is reported**. Its neuroticism profile duplicates P2's, which shows that much of what Tier A 'sees' collapses onto a single age axis.
+
+## Held-out check (frozen test split, evaluated once)
+
+| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |
+|---|---|---|---|---|---|
+| green | 88 | 0.90 | 0.90 | +0.7% (-0.030, +0.044) | 73% / 77% |
+| social_desirability | 88 | 2.77 | 2.81 | +1.3% (-0.075, +0.149) | 99% / 100% |
+| spendthrift | 88 | 3.72 | 3.73 | +0.1% (-0.039, +0.049) | 86% / 81% |
+| crt | 88 | 1.11 | 1.11 | -0.0% (-0.001, +0.000) | 86% / 100% |
+| dictator_give | 88 | 12.14 | 12.14 | +0.0% (+0.000, +0.000) | 99% / 83% |
+| neuroticism | 88 | 0.79 | 0.92 | +14.4% (+0.061, +0.203) | 72% / 74% |
+
+Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):
+
+| Condition | n test | Test rate | Persona train rate | Brier persona / population |
+|---|---|---|---|---|
+| green_default | 7 | 43% | 69% (not used) | 0.267 / 0.267 |
+| grey_default | 6 | 50% | 24% (not used) | 0.270 / 0.270 |

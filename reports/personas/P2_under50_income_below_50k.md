@@ -29,3 +29,33 @@ Source: Twin-2K-500 wave 1–3 scores (spendthrift re-scored from items; see aud
 - green_default: INSUFFICIENT EVIDENCE (n<10), n=7 (population 21%)
 
 *These are hypothetical survey choices, not purchases.*
+
+## Why it fits
+
+The defining feature is **neuroticism** (+0.47 SD, the largest effect among the three personas), and it has two additive sources. Age contributes because younger people are higher. Income contributes too: within *every* age band, the lower-income group scores higher (train 18–29: 3.36 vs 2.99; 30–49: 3.07 vs 2.69; adjusted gap +0.30 SD, 95% CI 0.20 to 0.40). This is consistent with financial strain and negative affect reinforcing each other, though the direction cannot be identified here. Lower social desirability (−0.22 SD) follows the age gradient.
+
+## Alternative explanations
+
+(1) **Reverse causation or a third factor.** Emotional instability can lower earnings, and poor health can drive both. (2) **Household-income misclassification.** Students and young adults may report parental or partner income, so 'below $50k' mixes constrained adults with students. (3) The pre-registered prediction that P2 would be **more spendthrift failed** (d = −0.08, CI includes 0). Low income here does not show up as loose spending, which weakens a simple 'impulsive budget' story.
+
+## Where it breaks
+
+In the green scenario, P2 chose the $39 renewable option less often when it required switching (27% vs 36% for the population, n = 33, CI 15–44%). That is directionally a cost effect, but the population model's income term is null (OR 1.13, 0.73–1.74) and the green values × income interaction is not detectable. **We cannot claim a larger say–do gap for the financially constrained.** The top-third-green subgroup has 11 or fewer members per condition, too few to estimate.
+
+## Held-out check (frozen test split, evaluated once)
+
+| Construct | n test | MAE persona | MAE population mean | Gain (95% CI) | 80% interval coverage: persona / population |
+|---|---|---|---|---|---|
+| green | 134 | 0.81 | 0.81 | -0.1% (-0.019, +0.018) | 81% / 84% |
+| social_desirability | 134 | 2.98 | 3.04 | +2.0% (-0.051, +0.162) | 93% / 96% |
+| spendthrift | 134 | 4.07 | 4.04 | -0.8% (-0.068, -0.001) | 84% / 77% |
+| crt | 134 | 1.04 | 1.03 | -0.7% (-0.017, +0.003) | 83% / 100% |
+| dictator_give | 134 | 13.62 | 13.62 | +0.0% (+0.000, +0.000) | 83% / 83% |
+| neuroticism | 134 | 0.88 | 1.00 | +11.2% (+0.044, +0.184) | 76% / 69% |
+
+Green choice on held-out members (Brier score; lower is better; persona rate used only if n ≥ 20 on train):
+
+| Condition | n test | Test rate | Persona train rate | Brier persona / population |
+|---|---|---|---|---|
+| green_default | 10 | 80% | 58% | 0.207 / 0.210 |
+| grey_default | 19 | 47% | 27% | 0.290 / 0.262 |
