@@ -69,6 +69,7 @@ with age) and two persona rows are withdrawn. The memo and persona reports now c
 - τ² is a method-of-moments estimate from overlapping single-level groups, which is approximate.
 - Logged deviation: inner ridge CV switched from 5-fold to leave-one-out for runtime.
 - Chance imbalance between default arms (p = 0.04): the adjusted estimates are unchanged.
+- **Platform-dependent solver (found by the fresh-environment run; fixed).** The redistribution follow-up's Ridge model received sparse one-hot input, so scikit-learn used an iterative solver. Its results differed by about 1e-5 (relative) between pip and Anaconda builds. It now uses dense input, which gives an exact Cholesky solve. Two reported cells moved in the 3rd decimal at rounding boundaries: ideology-model MAE 0.791 → 0.792 and EQUALITY-model R² 0.174 → 0.175. No contrast, CI or conclusion changed. The frozen confirmatory models use RidgeCV's exact leave-one-out path and reproduce to better than 1e-9.
 
 ## Verified
 1. **Joins.** 2,058 unique `pid`s. Score files use `TWIN_ID` (same set). The Mega-Study raw `TWIN_ID` equals the parquet `PID` ("pid_n") for all three studies.

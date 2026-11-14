@@ -71,7 +71,7 @@ def folds(y: np.ndarray, seed: int = SEED) -> np.ndarray:
 
 
 def make_model(num: list[str], binary: bool = False):
-    parts = [("oh", OneHotEncoder(handle_unknown="ignore"), TIER_A)]
+    parts = [("oh", OneHotEncoder(handle_unknown="ignore", sparse_output=False), TIER_A)]  # dense -> exact solver (platform-stable)
     if num:
         parts.append(("num", make_pipeline(SimpleImputer(strategy="mean"), StandardScaler()), num))
     est = LogisticRegression(C=1.0, max_iter=2000) if binary else Ridge(alpha=1.0)

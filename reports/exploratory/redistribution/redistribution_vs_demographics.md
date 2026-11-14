@@ -13,7 +13,7 @@ n = 833 train participants ("don't know" and the attention-check failure exclude
 | M0 | Training-fold mean | 1.109 | +0.000 |
 | M1 | Tier A demographics | 1.078 | +0.006 |
 | M2 | Tier A + redistributive policy support | 0.844 | +0.348 |
-| M2_ideology | Tier A + ideology (sensitivity) | 0.791 | +0.389 |
+| M2_ideology | Tier A + ideology (sensitivity) | 0.792 | +0.389 |
 | M2_equality | Tier A + EQUALITY value (sensitivity) | 0.925 | +0.210 |
 
 | Contrast (A vs B) | ΔR² (95% CI) | ΔMAE (95% CI) | Verdict | ΔR² range over 5 other fold seeds |
@@ -36,7 +36,7 @@ n = 830 train participants ("don't know" and the attention-check failure exclude
 | M1 | Tier A demographics | 1.125 | +0.012 |
 | M2 | Tier A + redistributive policy support | 0.889 | +0.312 |
 | M2_ideology | Tier A + ideology (sensitivity) | 0.925 | +0.307 |
-| M2_equality | Tier A + EQUALITY value (sensitivity) | 0.994 | +0.174 |
+| M2_equality | Tier A + EQUALITY value (sensitivity) | 0.994 | +0.175 |
 
 | Contrast (A vs B) | ΔR² (95% CI) | ΔMAE (95% CI) | Verdict | ΔR² range over 5 other fold seeds |
 |---|---|---|---|---|
