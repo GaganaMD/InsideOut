@@ -11,6 +11,9 @@ ARMS = {
     "tierA": ["tier_a"],                           # census-observable demographics only
     "tierA_condition_blind": ["tier_a"],           # demographics, neutral scenario without the default manipulation
     "disposition": ["tier_a", "disposition"],      # demographics + binned measured disposition (e.g. green values)
+    # 2026-11-15 green_profiles experiment: a pre-rendered AGGREGATE block (no individual data), shown verbatim
+    "tierA_profile": ["tier_a", "text_block"],     # demographics + statistically estimated profile (numbers)
+    "narrative": ["text_block"],                   # the same numbers inside a narrative persona (demographics in prose)
 }
 
 USER_TEMPLATE = """{profile_block}Scenario:
@@ -31,7 +34,10 @@ def profile_block(profile: dict, fields: list[str]) -> str:
     if "disposition" in fields and profile.get("disposition"):
         for k, v in profile["disposition"].items():
             lines.append(f"- {k}: {v}")
-    return ("Person:\n" + "\n".join(lines) + "\n\n") if lines else ""
+    parts = ["Person:\n" + "\n".join(lines)] if lines else []
+    if "text_block" in fields and profile.get("text_block"):
+        parts.append(profile["text_block"])
+    return ("\n\n".join(parts) + "\n\n") if parts else ""
 
 
 def render(arm: str, profile: dict, item: dict) -> list[dict]:

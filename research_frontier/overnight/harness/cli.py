@@ -23,6 +23,12 @@ from .tasks import build, build_pilot
 HERE = Path(__file__).resolve().parents[1]
 CONFIRM = "I have authorization to send k-anonymous demographic cells to OpenRouter"
 PILOT_BUDGET_CAP = 1.0
+EXPERIMENT_TOTAL_CAP = 5.0       # green_profiles: pilot + full run together, measured from the run's own cache
+
+
+def spent_so_far(out: Path) -> float:
+    c = out / "cache.jsonl"
+    return sum(json.loads(l).get("cost_usd", 0.0) for l in c.read_text(encoding="utf-8").splitlines()) if c.exists() else 0.0
 
 
 def unique(tasks, cfg):
@@ -45,6 +51,8 @@ def main(argv=None) -> int:
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--rpm", type=int, default=60)
     ap.add_argument("--confirm", default="")
+    ap.add_argument("--experiment", choices=["default_eric", "green_profiles"], default="default_eric",
+                    help="green_profiles: matched demographics / numeric profile / narrative comparison (F3 pre-reg)")
     a = ap.parse_args(argv)
 
     if a.mode == "check-key":
@@ -61,11 +69,24 @@ def main(argv=None) -> int:
         print(f"model {a.model} not in pricing_snapshot.json; verify its price first", file=sys.stderr)
         return 2
     pr = prices[a.model]
-    tag = ("pilot__" if a.pilot else "") + a.model.replace("/", "__")
-    out = HERE / "runs" / ("live" if a.mode == "live" else "dry") / tag
-    cfg = RunConfig(model=a.model, price_in_per_m=pr["in_per_m"], price_out_per_m=pr["out_per_m"], budget_usd=a.budget,
-                    max_workers=a.workers, requests_per_minute=a.rpm, out_dir=out)
-    tasks = build_pilot()[0] if a.pilot else build(samples=a.samples)[0]
+    if a.experiment == "green_profiles":
+        # one shared run folder for pilot and full run, so pilot calls are cached and never paid twice
+        out = HERE / "runs" / ("live" if a.mode == "live" else "dry") / f"green_profiles__{a.model.replace('/', '__')}"
+        spent = spent_so_far(out)
+        if spent + a.budget > EXPERIMENT_TOTAL_CAP + 1e-9:
+            print(f"total cap: spent ${spent:.4f} + budget ${a.budget} exceeds ${EXPERIMENT_TOTAL_CAP}", file=sys.stderr)
+            return 2
+        cfg = RunConfig(model=a.model, price_in_per_m=pr["in_per_m"], price_out_per_m=pr["out_per_m"],
+                        budget_usd=a.budget, temperature=0.0, max_workers=a.workers, requests_per_minute=a.rpm,
+                        out_dir=out)
+        from .tasks_green_profiles import build as build_gp
+        tasks = build_gp(pilot=a.pilot)
+    else:
+        tag = ("pilot__" if a.pilot else "") + a.model.replace("/", "__")
+        out = HERE / "runs" / ("live" if a.mode == "live" else "dry") / tag
+        cfg = RunConfig(model=a.model, price_in_per_m=pr["in_per_m"], price_out_per_m=pr["out_per_m"],
+                        budget_usd=a.budget, max_workers=a.workers, requests_per_minute=a.rpm, out_dir=out)
+        tasks = build_pilot()[0] if a.pilot else build(samples=a.samples)[0]
     tasks = unique(tasks, cfg)
     est_in = sum(sum(len(m["content"]) for m in render(t.arm, t.profile, t.item)) / 3.5 for t in tasks)
     est = (est_in * pr["in_per_m"] + len(tasks) * cfg.max_tokens * pr["out_per_m"]) / 1e6
