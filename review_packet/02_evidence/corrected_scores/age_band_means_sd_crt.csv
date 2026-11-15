@@ -1,0 +1,9 @@
+construct,age_band,mean_original,mean_corrected
+social_desirability,18-29,5.14,5.75
+social_desirability,30-49,5.035,5.645
+social_desirability,50-64,6.182,6.74
+social_desirability,65+,7.304,7.608
+crt,18-29,2.055,2.382
+crt,30-49,2.214,2.454
+crt,50-64,1.928,2.427
+crt,65+,1.82,2.345

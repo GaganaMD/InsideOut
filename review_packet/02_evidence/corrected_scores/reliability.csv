@@ -1,0 +1,7 @@
+construct,reliability,n_items,method
+green,0.929,6,Cronbach alpha
+neuroticism,0.904,8,Cronbach alpha
+social_desirability (corrected),0.808,13,KR-20
+crt (corrected),0.584,4,KR-20
+spendthrift,0.809,4,alpha on standardised items (mixed 11-/5-point)
+dictator_give,,1,single item: reliability not estimable

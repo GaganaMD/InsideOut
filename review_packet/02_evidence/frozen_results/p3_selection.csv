@@ -1,0 +1,139 @@
+definition,criteria,n_train,overlap_p1,overlap_p2,mean_abs_d,d_green,d_social_desirability,d_spendthrift,d_crt,d_dictator_give,d_neuroticism
+age_band = 18-29; marital = Never been married,"{""age_band"": [""18-29""], ""marital"": [""Never been married""]}",197,0.0,0.4112,0.1779,0.2739,0.1858,0.087,0.0074,0.0815,0.4321
+race = Black,"{""race"": [""Black""]}",158,0.1076,0.2658,0.1624,0.0099,0.2975,0.2523,0.1775,0.0303,0.2069
+race = Black; citizen = Yes,"{""race"": [""Black""], ""citizen"": [""Yes""]}",158,0.1076,0.2658,0.1624,0.0099,0.2975,0.2523,0.1775,0.0303,0.2069
+sex = Female; marital = Never been married,"{""sex"": [""Female""], ""marital"": [""Never been married""]}",216,0.0694,0.3519,0.1586,0.0234,0.1976,0.229,0.1307,0.0317,0.3394
+sex = Female; age_band = 30-49,"{""sex"": [""Female""], ""age_band"": [""30-49""]}",246,0.0,0.3537,0.1537,0.0089,0.2373,0.2256,0.0708,0.0583,0.3214
+age_band = 18-29; citizen = Yes,"{""age_band"": [""18-29""], ""citizen"": [""Yes""]}",272,0.0,0.3971,0.148,0.1132,0.1566,0.1076,0.0128,0.0638,0.434
+age_band = 18-29,"{""age_band"": [""18-29""]}",272,0.0,0.3971,0.148,0.1132,0.1566,0.1076,0.0128,0.0638,0.434
+sex = Male; hh_size = 2,"{""sex"": [""Male""], ""hh_size"": [""2""]}",208,0.25,0.226,0.1464,0.1848,0.1131,0.3164,0.0521,0.073,0.1391
+citizen = Yes; employment = Unemployed,"{""citizen"": [""Yes""], ""employment"": [""Unemployed""]}",170,0.0353,0.3824,0.144,0.2057,0.1249,0.0219,0.011,0.0003,0.5004
+employment = Unemployed,"{""employment"": [""Unemployed""]}",171,0.0351,0.386,0.1419,0.2027,0.1221,0.0112,0.0155,0.0001,0.4999
+sex = Male; marital = Married,"{""sex"": [""Male""], ""marital"": [""Married""]}",273,0.1905,0.0513,0.1406,0.0526,0.1179,0.1287,0.0054,0.1638,0.3755
+age_band = 50-64; employment = Full-time employment,"{""age_band"": [""50-64""], ""employment"": [""Full-time employment""]}",197,0.0,0.0,0.1342,0.0459,0.0661,0.0743,0.128,0.1341,0.3566
+race = White; marital = Never been married,"{""race"": [""White""], ""marital"": [""Never been married""]}",272,0.0515,0.375,0.1338,0.0613,0.2263,0.0505,0.1995,0.0117,0.2534
+employment = Self-employed,"{""employment"": [""Self-employed""]}",195,0.1333,0.2564,0.1326,0.0304,0.1324,0.2294,0.1608,0.0373,0.205
+citizen = Yes; employment = Self-employed,"{""citizen"": [""Yes""], ""employment"": [""Self-employed""]}",195,0.1333,0.2564,0.1326,0.0304,0.1324,0.2294,0.1608,0.0373,0.205
+education = Postgraduate; race = White,"{""education"": [""Postgraduate""], ""race"": [""White""]}",172,0.2558,0.0523,0.1309,0.2815,0.1163,0.0006,0.0105,0.0887,0.288
+"education = College graduate/some postgrad; income = $100,000 or more","{""education"": [""College graduate/some postgrad""], ""income"": [""$100,000 or more""]}",170,0.0765,0.0,0.1309,0.1766,0.0447,0.0464,0.1121,0.1413,0.2642
+"sex = Male; income = $100,000 or more","{""sex"": [""Male""], ""income"": [""$100,000 or more""]}",203,0.1034,0.0,0.1293,0.0921,0.0755,0.0751,0.0201,0.1507,0.3624
+"age_band = 30-49; income = $100,000 or more","{""age_band"": [""30-49""], ""income"": [""$100,000 or more""]}",158,0.0,0.0,0.128,0.0236,0.1652,0.1573,0.1542,0.113,0.1547
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); marital = Never been married","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""marital"": [""Never been married""]}",200,0.045,0.4,0.1276,0.2037,0.1526,0.0878,0.0086,0.059,0.2542
+"income = $100,000 or more; employment = Full-time employment","{""income"": [""$100,000 or more""], ""employment"": [""Full-time employment""]}",249,0.0643,0.0,0.1265,0.1404,0.0322,0.1259,0.0104,0.117,0.3329
+age_band = 50-64; hh_size = 2,"{""age_band"": [""50-64""], ""hh_size"": [""2""]}",171,0.0,0.0,0.1261,0.1347,0.179,0.1469,0.0707,0.0129,0.2127
+sex = Female; hh_size = 3,"{""sex"": [""Female""], ""hh_size"": [""3""]}",152,0.0592,0.2434,0.1249,0.1404,0.0517,0.1535,0.0484,0.1535,0.2017
+age_band = 30-49; race = White,"{""age_band"": [""30-49""], ""race"": [""White""]}",334,0.0,0.3533,0.1236,0.0592,0.2562,0.031,0.1907,0.0335,0.1712
+sex = Male; age_band = 30-49,"{""sex"": [""Male""], ""age_band"": [""30-49""]}",269,0.0,0.3569,0.1236,0.079,0.1364,0.1432,0.2081,0.0978,0.0769
+sex = Male; age_band = 50-64,"{""sex"": [""Male""], ""age_band"": [""50-64""]}",209,0.0,0.0,0.1213,0.0394,0.0295,0.1625,0.1303,0.1402,0.2257
+marital = Married; employment = Full-time employment,"{""marital"": [""Married""], ""employment"": [""Full-time employment""]}",299,0.0602,0.0569,0.1207,0.0787,0.0435,0.0725,0.0087,0.1358,0.3853
+marital = Married; hh_size = 2,"{""marital"": [""Married""], ""hh_size"": [""2""]}",224,0.2946,0.0625,0.1183,0.1111,0.1194,0.1697,0.0982,0.0412,0.17
+age_band = 50-64; education = College graduate/some postgrad,"{""age_band"": [""50-64""], ""education"": [""College graduate/some postgrad""]}",166,0.0,0.0,0.1177,0.1955,0.0858,0.1072,0.0866,0.0252,0.2058
+"income = Less than $30,000","{""income"": [""Less than $30,000""]}",248,0.1613,0.496,0.1156,0.0305,0.0546,0.1984,0.0502,0.0625,0.2977
+"race = White; income = Less than $30,000","{""race"": [""White""], ""income"": [""Less than $30,000""]}",172,0.1977,0.4186,0.1146,0.0157,0.0295,0.2242,0.0533,0.0381,0.3268
+"citizen = Yes; income = Less than $30,000","{""citizen"": [""Yes""], ""income"": [""Less than $30,000""]}",247,0.1619,0.4939,0.112,0.0238,0.0535,0.1918,0.0472,0.0626,0.2931
+education = Postgraduate; citizen = Yes,"{""education"": [""Postgraduate""], ""citizen"": [""Yes""]}",231,0.2165,0.0519,0.1119,0.2533,0.0902,0.0252,0.0253,0.0034,0.2741
+education = Postgraduate,"{""education"": [""Postgraduate""]}",231,0.2165,0.0519,0.1119,0.2533,0.0902,0.0252,0.0253,0.0034,0.2741
+age_band = 50-64; marital = Married,"{""age_band"": [""50-64""], ""marital"": [""Married""]}",230,0.0,0.0,0.1114,0.0164,0.1483,0.0135,0.1249,0.1009,0.2644
+age_band = 30-49; employment = Full-time employment,"{""age_band"": [""30-49""], ""employment"": [""Full-time employment""]}",281,0.0,0.2313,0.1114,0.0239,0.1379,0.1175,0.0988,0.1078,0.1825
+sex = Male; marital = Never been married,"{""sex"": [""Male""], ""marital"": [""Never been married""]}",287,0.0209,0.3798,0.1102,0.1816,0.1233,0.2047,0.019,0.0127,0.1198
+race = White; hh_size = 4,"{""race"": [""White""], ""hh_size"": [""4""]}",162,0.0432,0.1481,0.108,0.0566,0.2219,0.1349,0.1294,0.0422,0.0632
+education = High school graduate,"{""education"": [""High school graduate""]}",192,0.099,0.3542,0.1079,0.2777,0.0131,0.0349,0.0708,0.0363,0.2142
+education = High school graduate; citizen = Yes,"{""education"": [""High school graduate""], ""citizen"": [""Yes""]}",192,0.099,0.3542,0.1079,0.2777,0.0131,0.0349,0.0708,0.0363,0.2142
+age_band = 30-49; education = College graduate/some postgrad,"{""age_band"": [""30-49""], ""education"": [""College graduate/some postgrad""]}",186,0.0,0.2688,0.1063,0.0126,0.1911,0.0487,0.1966,0.1557,0.0333
+sex = Female; employment = Full-time employment,"{""sex"": [""Female""], ""employment"": [""Full-time employment""]}",272,0.0441,0.1654,0.1044,0.1636,0.033,0.2155,0.0775,0.0638,0.0728
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); age_band = 50-64","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""age_band"": [""50-64""]}",191,0.0,0.0,0.1038,0.0162,0.2336,0.0267,0.1567,0.0139,0.1756
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); marital = Married","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""marital"": [""Married""]}",233,0.1288,0.073,0.1028,0.0422,0.1451,0.0171,0.1308,0.0431,0.2387
+"marital = Married; income = $100,000 or more","{""marital"": [""Married""], ""income"": [""$100,000 or more""]}",257,0.0856,0.0,0.1013,0.0434,0.0521,0.1207,0.026,0.0827,0.2828
+"region = West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM); sex = Male","{""region"": [""West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM)""], ""sex"": [""Male""]}",170,0.1118,0.1941,0.1009,0.017,0.0793,0.2374,0.0372,0.122,0.1126
+sex = Female; age_band = 50-64,"{""sex"": [""Female""], ""age_band"": [""50-64""]}",252,0.0,0.0,0.0987,0.0698,0.1979,0.0511,0.0584,0.036,0.1789
+"education = Some college, no degree; race = White","{""education"": [""Some college, no degree""], ""race"": [""White""]}",210,0.1429,0.1952,0.0973,0.1445,0.1177,0.1069,0.0339,0.0162,0.1648
+"sex = Female; income = $100,000 or more","{""sex"": [""Female""], ""income"": [""$100,000 or more""]}",195,0.0718,0.0,0.0971,0.1464,0.0092,0.2957,0.0222,0.0373,0.0716
+"region = Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); sex = Female","{""region"": [""Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)""], ""sex"": [""Female""]}",152,0.1316,0.2105,0.0969,0.1382,0.064,0.1295,0.0377,0.0317,0.18
+education = College graduate/some postgrad; marital = Never been married,"{""education"": [""College graduate/some postgrad""], ""marital"": [""Never been married""]}",165,0.0364,0.2909,0.0967,0.0097,0.2117,0.0315,0.1314,0.0185,0.1774
+sex = Male; education = College graduate/some postgrad,"{""sex"": [""Male""], ""education"": [""College graduate/some postgrad""]}",235,0.1191,0.1404,0.0965,0.0103,0.0622,0.1371,0.0199,0.1259,0.2239
+marital = Never been married,"{""marital"": [""Never been married""]}",503,0.0417,0.3678,0.0949,0.0936,0.1552,0.0184,0.0669,0.0209,0.2141
+citizen = Yes; marital = Living with a partner,"{""citizen"": [""Yes""], ""marital"": [""Living with a partner""]}",150,0.1067,0.2933,0.0948,0.0125,0.105,0.1223,0.0768,0.0046,0.2479
+marital = Living with a partner,"{""marital"": [""Living with a partner""]}",150,0.1067,0.2933,0.0948,0.0125,0.105,0.1223,0.0768,0.0046,0.2479
+education = College graduate/some postgrad; employment = Full-time employment,"{""education"": [""College graduate/some postgrad""], ""employment"": [""Full-time employment""]}",265,0.0528,0.1283,0.0947,0.0915,0.0298,0.0025,0.0634,0.1121,0.2688
+education = College graduate/some postgrad; marital = Married,"{""education"": [""College graduate/some postgrad""], ""marital"": [""Married""]}",212,0.1274,0.0755,0.0945,0.0957,0.0805,0.0627,0.0256,0.0916,0.2112
+citizen = Yes; marital = Never been married,"{""citizen"": [""Yes""], ""marital"": [""Never been married""]}",500,0.042,0.364,0.0945,0.0916,0.1544,0.0199,0.0675,0.0208,0.2126
+"citizen = Yes; income = $100,000 or more","{""citizen"": [""Yes""], ""income"": [""$100,000 or more""]}",398,0.0879,0.0,0.0931,0.1187,0.034,0.1066,0.0211,0.0586,0.2199
+"income = $100,000 or more","{""income"": [""$100,000 or more""]}",398,0.0879,0.0,0.0931,0.1187,0.034,0.1066,0.0211,0.0586,0.2199
+age_band = 50-64,"{""age_band"": [""50-64""]}",461,0.0,0.0,0.0931,0.056,0.1215,0.0458,0.091,0.0439,0.2001
+age_band = 50-64; citizen = Yes,"{""age_band"": [""50-64""], ""citizen"": [""Yes""]}",460,0.0,0.0,0.0924,0.0551,0.1187,0.0463,0.0911,0.044,0.199
+sex = Male; race = White,"{""sex"": [""Male""], ""race"": [""White""]}",472,0.1631,0.1949,0.0909,0.0737,0.0701,0.1799,0.0405,0.0767,0.1042
+age_band = 30-49,"{""age_band"": [""30-49""]}",515,0.0,0.3553,0.0904,0.0455,0.1846,0.033,0.1425,0.0233,0.1134
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); sex = Female","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""sex"": [""Female""]}",295,0.1424,0.1932,0.0899,0.0322,0.0602,0.2009,0.0324,0.1056,0.1081
+sex = Male; employment = Full-time employment,"{""sex"": [""Male""], ""employment"": [""Full-time employment""]}",345,0.0667,0.1536,0.0899,0.0311,0.0238,0.0026,0.0104,0.164,0.3073
+age_band = 30-49; citizen = Yes,"{""age_band"": [""30-49""], ""citizen"": [""Yes""]}",512,0.0,0.3516,0.0896,0.0433,0.184,0.0319,0.1436,0.0236,0.1113
+sex = Female; race = White,"{""sex"": [""Female""], ""race"": [""White""]}",504,0.1726,0.1508,0.0886,0.0781,0.0097,0.1441,0.0749,0.0879,0.1372
+"race = White; income = $100,000 or more","{""race"": [""White""], ""income"": [""$100,000 or more""]}",285,0.1018,0.0,0.0862,0.134,0.0029,0.1062,0.0682,0.0332,0.1727
+education = College graduate/some postgrad; race = White,"{""education"": [""College graduate/some postgrad""], ""race"": [""White""]}",330,0.1455,0.1394,0.0859,0.1001,0.1292,0.0409,0.1562,0.0607,0.028
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); sex = Male","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""sex"": [""Male""]}",288,0.1111,0.2431,0.0847,0.1164,0.0535,0.0957,0.0636,0.0439,0.1348
+hh_size = More than 4,"{""hh_size"": [""More than 4""]}",155,0.0516,0.2065,0.0845,0.0698,0.1676,0.1268,0.0482,0.0456,0.0487
+citizen = Yes; hh_size = More than 4,"{""citizen"": [""Yes""], ""hh_size"": [""More than 4""]}",155,0.0516,0.2065,0.0845,0.0698,0.1676,0.1268,0.0482,0.0456,0.0487
+"sex = Male; education = Some college, no degree","{""sex"": [""Male""], ""education"": [""Some college, no degree""]}",171,0.0877,0.2749,0.082,0.1386,0.1346,0.115,0.0515,0.019,0.033
+citizen = Yes; employment = Full-time employment,"{""citizen"": [""Yes""], ""employment"": [""Full-time employment""]}",615,0.0569,0.1577,0.0811,0.0569,0.0308,0.0994,0.0297,0.0639,0.2057
+sex = Female; education = College graduate/some postgrad,"{""sex"": [""Female""], ""education"": [""College graduate/some postgrad""]}",268,0.1082,0.1866,0.081,0.1751,0.0028,0.0873,0.1082,0.0358,0.0771
+marital = Never been married; hh_size = 1,"{""marital"": [""Never been married""], ""hh_size"": [""1""]}",171,0.0936,0.3275,0.0802,0.0199,0.158,0.0964,0.0012,0.0766,0.1295
+citizen = Yes; employment = Part-time employment,"{""citizen"": [""Yes""], ""employment"": [""Part-time employment""]}",189,0.1534,0.254,0.0799,0.1281,0.0856,0.0461,0.0716,0.0548,0.0934
+employment = Full-time employment,"{""employment"": [""Full-time employment""]}",617,0.0567,0.1588,0.0792,0.0547,0.0279,0.0965,0.0284,0.0636,0.2039
+marital = Never been married; employment = Full-time employment,"{""marital"": [""Never been married""], ""employment"": [""Full-time employment""]}",171,0.0175,0.3099,0.0784,0.0657,0.105,0.1032,0.1617,0.0129,0.0219
+race = White; employment = Full-time employment,"{""race"": [""White""], ""employment"": [""Full-time employment""]}",411,0.0754,0.146,0.078,0.0486,0.1134,0.0691,0.0194,0.061,0.1567
+hh_size = 4,"{""hh_size"": [""4""]}",249,0.0442,0.1687,0.0768,0.0082,0.1232,0.146,0.1222,0.0558,0.0052
+sex = Male; citizen = Yes,"{""sex"": [""Male""], ""citizen"": [""Yes""]}",704,0.1278,0.2116,0.0762,0.0872,0.0215,0.1379,0.0184,0.0766,0.1154
+employment = Part-time employment,"{""employment"": [""Part-time employment""]}",190,0.1526,0.2579,0.0759,0.1281,0.0771,0.0423,0.0625,0.0547,0.0905
+citizen = Yes; hh_size = 4,"{""citizen"": [""Yes""], ""hh_size"": [""4""]}",248,0.0444,0.1653,0.0756,0.007,0.1251,0.1393,0.1195,0.0561,0.0069
+hh_size = 2; employment = Full-time employment,"{""hh_size"": [""2""], ""employment"": [""Full-time employment""]}",174,0.0747,0.1437,0.075,0.065,0.0958,0.0452,0.0418,0.0497,0.1529
+sex = Male,"{""sex"": [""Male""]}",706,0.1275,0.2125,0.0747,0.0858,0.0189,0.1346,0.0173,0.0763,0.1155
+"education = Some college, no degree","{""education"": [""Some college, no degree""]}",320,0.1094,0.25,0.0738,0.1016,0.0889,0.0528,0.0196,0.0521,0.1278
+"education = Some college, no degree; citizen = Yes","{""education"": [""Some college, no degree""], ""citizen"": [""Yes""]}",319,0.1097,0.2476,0.0736,0.1029,0.0902,0.0473,0.0221,0.0522,0.1268
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); hh_size = 2","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""hh_size"": [""2""]}",186,0.1613,0.2204,0.0733,0.2019,0.0657,0.0173,0.0632,0.0327,0.0593
+sex = Female; citizen = Yes,"{""sex"": [""Female""], ""citizen"": [""Yes""]}",734,0.1417,0.1894,0.0727,0.0847,0.0198,0.1311,0.0178,0.0733,0.1097
+race = White; hh_size = 3,"{""race"": [""White""], ""hh_size"": [""3""]}",195,0.0974,0.1795,0.072,0.0782,0.0297,0.039,0.1566,0.0932,0.0351
+sex = Female,"{""sex"": [""Female""]}",736,0.1413,0.1916,0.0717,0.0824,0.0182,0.1292,0.0166,0.0732,0.1108
+"region = Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); race = White","{""region"": [""Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)""], ""race"": [""White""]}",197,0.1574,0.1675,0.0711,0.0628,0.1099,0.0493,0.0674,0.0401,0.097
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); age_band = 30-49","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""age_band"": [""30-49""]}",205,0.0,0.3854,0.0708,0.0534,0.1262,0.0532,0.1314,0.0105,0.0502
+education = College graduate/some postgrad; hh_size = 2,"{""education"": [""College graduate/some postgrad""], ""hh_size"": [""2""]}",178,0.1629,0.1461,0.0703,0.1161,0.0189,0.1442,0.0412,0.005,0.0965
+sex = Female; marital = Married,"{""sex"": [""Female""], ""marital"": [""Married""]}",297,0.1111,0.1044,0.065,0.0469,0.0451,0.1183,0.0903,0.0794,0.0103
+"region = West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM); sex = Female","{""region"": [""West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM)""], ""sex"": [""Female""]}",169,0.1243,0.1716,0.0611,0.0086,0.0634,0.0952,0.0209,0.1026,0.0758
+"income = $50,000-$75,000","{""income"": [""$50,000-$75,000""]}",292,0.1336,0.0,0.0607,0.0344,0.0404,0.0909,0.0913,0.0988,0.0086
+"citizen = Yes; income = $50,000-$75,000","{""citizen"": [""Yes""], ""income"": [""$50,000-$75,000""]}",292,0.1336,0.0,0.0607,0.0344,0.0404,0.0909,0.0913,0.0988,0.0086
+age_band = 30-49; marital = Married,"{""age_band"": [""30-49""], ""marital"": [""Married""]}",229,0.0,0.179,0.0607,0.0062,0.1147,0.0275,0.1357,0.0254,0.0545
+sex = Female; hh_size = 2,"{""sex"": [""Female""], ""hh_size"": [""2""]}",243,0.177,0.1358,0.0603,0.0152,0.1333,0.0356,0.0155,0.1079,0.0543
+education = Associate's degree,"{""education"": [""Associate's degree""]}",182,0.1758,0.2308,0.0596,0.0587,0.0905,0.0687,0.0234,0.0676,0.0488
+race = White; hh_size = 2,"{""race"": [""White""], ""hh_size"": [""2""]}",325,0.2369,0.1508,0.0593,0.0688,0.0002,0.1715,0.076,0.0116,0.0279
+marital = Married,"{""marital"": [""Married""]}",570,0.1491,0.0789,0.0588,0.0007,0.0799,0.0,0.0496,0.0371,0.1852
+citizen = Yes; marital = Married,"{""citizen"": [""Yes""], ""marital"": [""Married""]}",569,0.1494,0.0791,0.0584,0.0016,0.0776,0.0004,0.0496,0.0372,0.1843
+education = Associate's degree; citizen = Yes,"{""education"": [""Associate's degree""], ""citizen"": [""Yes""]}",180,0.1778,0.2278,0.056,0.0526,0.0818,0.0605,0.0278,0.068,0.0453
+age_band = 50-64; race = White,"{""age_band"": [""50-64""], ""race"": [""White""]}",345,0.0,0.0,0.0559,0.0257,0.0675,0.0587,0.0181,0.0251,0.1402
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); education = College graduate/some postgrad","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""education"": [""College graduate/some postgrad""]}",197,0.0863,0.1777,0.0545,0.0442,0.0377,0.0435,0.0591,0.0207,0.122
+citizen = Yes; hh_size = 1,"{""citizen"": [""Yes""], ""hh_size"": [""1""]}",280,0.2143,0.2393,0.0539,0.1077,0.0119,0.0657,0.0733,0.0266,0.0383
+"region = Northeast (PA, NY, NJ, RI, CT, MA, VT, NH, ME)","{""region"": [""Northeast (PA, NY, NJ, RI, CT, MA, VT, NH, ME)""]}",242,0.1694,0.1777,0.0534,0.0696,0.0418,0.0715,0.0353,0.0493,0.0526
+hh_size = 1,"{""hh_size"": [""1""]}",281,0.2135,0.242,0.0532,0.1079,0.0064,0.063,0.079,0.0264,0.0365
+"citizen = Yes; income = $75,000-$100,000","{""citizen"": [""Yes""], ""income"": [""$75,000-$100,000""]}",213,0.1221,0.0,0.0529,0.0578,0.0611,0.0475,0.0099,0.1135,0.0276
+hh_size = 2,"{""hh_size"": [""2""]}",451,0.2106,0.1774,0.0525,0.077,0.0197,0.1267,0.0324,0.0245,0.0349
+citizen = Yes; hh_size = 2,"{""citizen"": [""Yes""], ""hh_size"": [""2""]}",451,0.2106,0.1774,0.0525,0.077,0.0197,0.1267,0.0324,0.0245,0.0349
+race = White; hh_size = 1,"{""race"": [""White""], ""hh_size"": [""1""]}",202,0.2673,0.2277,0.0521,0.1239,0.0169,0.0326,0.0445,0.0168,0.078
+"region = Northeast (PA, NY, NJ, RI, CT, MA, VT, NH, ME); citizen = Yes","{""region"": [""Northeast (PA, NY, NJ, RI, CT, MA, VT, NH, ME)""], ""citizen"": [""Yes""]}",241,0.1701,0.1743,0.0521,0.0687,0.0433,0.0643,0.0322,0.0496,0.0546
+"income = $75,000-$100,000","{""income"": [""$75,000-$100,000""]}",214,0.1215,0.0,0.0516,0.0553,0.0543,0.0463,0.0097,0.1132,0.0309
+education = College graduate/some postgrad; citizen = Yes,"{""education"": [""College graduate/some postgrad""], ""citizen"": [""Yes""]}",502,0.1135,0.1633,0.0513,0.0884,0.0276,0.0189,0.0704,0.0399,0.0627
+education = College graduate/some postgrad,"{""education"": [""College graduate/some postgrad""]}",503,0.1133,0.165,0.0511,0.0885,0.0305,0.0175,0.0669,0.0397,0.0635
+"region = Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)","{""region"": [""Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)""]}",264,0.1477,0.2045,0.0502,0.0403,0.0575,0.0681,0.0452,0.0137,0.0767
+"region = Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH); citizen = Yes","{""region"": [""Midwest (ND, SD, NE, KS, MN, IA, MO, WI, IL, MI, IN, OH)""], ""citizen"": [""Yes""]}",264,0.1477,0.2045,0.0502,0.0403,0.0575,0.0681,0.0452,0.0137,0.0767
+citizen = Yes; hh_size = 3,"{""citizen"": [""Yes""], ""hh_size"": [""3""]}",304,0.0658,0.2237,0.0475,0.0474,0.0254,0.0674,0.0431,0.0568,0.0447
+sex = Male; hh_size = 3,"{""sex"": [""Male""], ""hh_size"": [""3""]}",154,0.0714,0.2078,0.0469,0.0528,0.0123,0.0289,0.0421,0.039,0.1062
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); employment = Full-time employment","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""employment"": [""Full-time employment""]}",250,0.048,0.172,0.0464,0.0065,0.005,0.0671,0.0225,0.0099,0.1675
+"race = White; income = $50,000-$75,000","{""race"": [""White""], ""income"": [""$50,000-$75,000""]}",189,0.1799,0.0,0.0458,0.0223,0.1163,0.0743,0.0107,0.049,0.0021
+hh_size = 3,"{""hh_size"": [""3""]}",306,0.0654,0.2255,0.0455,0.0432,0.0195,0.0617,0.0452,0.0566,0.0468
+"region = Northeast (PA, NY, NJ, RI, CT, MA, VT, NH, ME); race = White","{""region"": [""Northeast (PA, NY, NJ, RI, CT, MA, VT, NH, ME)""], ""race"": [""White""]}",180,0.2111,0.1722,0.0443,0.0804,0.0575,0.004,0.0677,0.0167,0.0393
+"region = West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM); race = White","{""region"": [""West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM)""], ""race"": [""White""]}",202,0.1683,0.1634,0.0442,0.0324,0.0135,0.0664,0.0974,0.0533,0.002
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); citizen = Yes","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""citizen"": [""Yes""]}",582,0.1271,0.2165,0.0413,0.0384,0.0564,0.0576,0.0493,0.0317,0.0144
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""]}",583,0.1269,0.2178,0.0407,0.0412,0.0569,0.0544,0.0478,0.0317,0.0119
+race = White; marital = Married,"{""race"": [""White""], ""marital"": [""Married""]}",432,0.1644,0.0625,0.031,0.0343,0.0155,0.0009,0.0093,0.0137,0.1125
+race = White; citizen = Yes,"{""race"": [""White""], ""citizen"": [""Yes""]}",975,0.1682,0.1713,0.024,0.0044,0.0393,0.0145,0.0575,0.0083,0.02
+race = White,"{""race"": [""White""]}",976,0.168,0.1721,0.0239,0.0047,0.0389,0.0126,0.0582,0.0083,0.0205
+"region = South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL); race = White","{""region"": [""South (TX, OK, AR, LA, KY, TN, MS, AL, WV, DC, MD, DE, VA, NC, SC, GA, FL)""], ""race"": [""White""]}",391,0.156,0.1765,0.0222,0.0343,0.0138,0.033,0.0158,0.0206,0.016
+"region = West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM)","{""region"": [""West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM)""]}",339,0.118,0.1829,0.0202,0.0042,0.0082,0.0716,0.0082,0.01,0.0187
+"region = West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM); citizen = Yes","{""region"": [""West (WA, OR, ID, MT, WY, CA, NV, UT, CO, AZ, NM)""], ""citizen"": [""Yes""]}",337,0.1187,0.181,0.0196,0.0061,0.0079,0.0747,0.0032,0.0103,0.0153
+citizen = Yes,"{""citizen"": [""Yes""]}",1438,0.1349,0.2003,0.0004,0.0005,0.0004,0.0006,0.0001,0.0001,0.0005
