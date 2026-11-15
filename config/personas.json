@@ -6,7 +6,7 @@
    "Bottom line": "This group is **calmer** (lower neuroticism) and **describes itself more favourably** (higher social desirability) than the panel. Both differences replicate on held-out people and survive all 5 one-criterion redefinitions. On values, money style, reflection, generosity and the hypothetical green choice, treat it as the population average. The earlier 'less reflective' (CRT) result was a scoring artefact and is withdrawn.",
    "Why it fits": "*Observed:* both traits move steadily across age bands (neuroticism 3.14 → 2.28 from 18–29 to 65+; corrected social desirability 5.75 → 7.61). *Interpretation:* this matches published age differences in emotional stability and socially desirable responding. *Speculation:* ageing, cohort and self-presentation cannot be separated in cross-sectional data. Adjusting for social desirability shrinks the neuroticism gap from −0.50 to −0.31 SD, so part of the calm may be self-description; one self-report scale cannot tell response style from real adjustment.",
    "Say vs do": "In the hypothetical $39 renewable offer, 43% chose renewable when it required switching (n = 49; population 36%) and 55% when it was the default (n = 40; 58%). Neither differs from the population, and neither predicts better than the population rate on held-out members.",
-   "Where it breaks": "This describes the group, not its members: a random 65+ member is more neurotic than a random 18–29-year-old 25% of the time. These are online-panel 65+ adults, and they are over-represented in the experiments (21% vs 10%)."
+   "Where it breaks": "This describes the group, not its members: a random 65+ member is more neurotic than a random 18–29-year-old 25% of the time. These are online-panel 65+ adults, and they are over-represented in the experiments (21% vs 10%). P1 is defined by age band alone, so it is the age gradient itself."
   }
  },
  "P2": {
@@ -16,7 +16,7 @@
    "Bottom line": "**Higher neuroticism** is the one dependable trait. It is the project's largest robust group difference and holds in all 6 redefinitions. It combines youth with lower income, and income still matters *within* each age band. The 'more spendthrift' prediction failed. The lower social desirability is fragile (it vanishes if the group is widened to 18–64), and the earlier CRT difference was a scoring artefact.",
    "Why it fits": "*Observed:* within each age band, lower-income members are more neurotic (18–29: 3.36 vs 2.99; 30–49: 3.07 vs 2.69; age-adjusted +0.30 SD, CI 0.20 to 0.40). *Interpretation:* consistent with the documented link between financial strain and negative affect. *Speculation:* the direction is unknown (strain → distress, distress → lower earnings, or health driving both). Household income may misclassify students on parental income.",
    "Say vs do": "When choosing renewable meant switching, 27% chose it on training data (n = 33; population 36%) but 47% on held-out members (n = 19). The tempting 'budget-constrained idealist' story **failed** the holdout, so no behavioural prediction is offered.",
-   "Where it breaks": "About a quarter of members are calmer than the median panel member. The neuroticism shift helps individual prediction by about a tenth."
+   "Where it breaks": "About a quarter of members are calmer than the median panel member. The neuroticism shift helps individual prediction by about a tenth. P2 contains 81 of P3's 197 training members, so the two are not independent evidence."
   }
  },
  "P3": {
@@ -28,7 +28,7 @@
    "Why it fits": "*Observed:* never-married 18–29s score 3.25 on green values vs 3.84 for other 18–29s (−0.45 SD after adjusting for sex, income and education). *Interpretation:* marital status partly marks *who* is in the group (56% men vs 36% among other 18–29s; 21% students), but adjusting for sex does not remove the gap. *Speculation (not claimed):* that partnering raises environmental concern.",
    "Sex-composition caveat": "Against the whole population, men d −0.40 (−0.59, −0.20), n = 111; women d −0.12 (−0.32, +0.09), n = 86. But within 18–29 (never-married vs partnered) the gap is −0.41 in men and −0.59 in women; the sex interaction is null (+0.18, CI −0.31 to 0.66). The gap vanishes without the marital criterion (all 18–29s: −0.11) or at ages 30–49 (−0.09), and it appears significant in only 3 of 6 redefinitions. It was found in a search over about 1,000 groups.",
    "Say vs do": "**Insufficient evidence**: 33 members took the green experiment (17 and 16 per condition, below the 20 minimum).",
-   "Where it breaks": "P3 predicts individual green values no better than the population mean. Census facts here mostly reveal one age axis, not three archetypes."
+   "Where it breaks": "P3 predicts individual green values no better than the population mean. Census facts here mostly reveal one age axis, not three archetypes: 41% of P3's training members are also in P2."
   }
  }
 }

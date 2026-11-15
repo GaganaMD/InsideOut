@@ -66,9 +66,10 @@ The persona cards cite these only as "published age differences", and they no lo
     - a fresh clone reproduces the committed outputs (`SUBMISSION_READINESS.md`).
 - **Post-submission LLM research (not part of the submitted findings).** In `research_frontier/`:
   - **Published GPT-4.1 predictions:** published GPT-4.1 digital-twin predictions (Peng et al.) were compared with human data.
-  - **Open-weight models on Modal:** Qwen2.5-7B and Qwen3-4B were run on Modal GPUs with pre-registered prompts. These prompts contained only k-anonymous demographic cells, public scenario text and cross-fitted aggregate profile estimates.
-  - **GPT-4.1 via OpenRouter:** attempted under the same rules, with a spending cap.
+  - **Open-weight models on Modal:** Qwen2.5-7B and Qwen3-4B were run on Modal GPUs with pre-registered prompts. These prompts contained only k-anonymous demographic cells, an abridged paraphrase of the public scenario text (not the survey's wording or its "Stay with / Switch to" answer options) and cross-fitted aggregate profile estimates.
+  - **GPT-4.1 via OpenRouter:** the overnight attempt made no successful call (expired key). Later on 2026-11-15 a 264-call feasibility pilot and then the full pre-registered run (1,556 calls; $1.25 billed in total) were completed, with a spending cap (`research_frontier/brace_challenge_lab/F3_gpt41/`). They are exploratory, and no submitted estimate uses them.
 
   These are labelled exploratory, and none of them changed a submitted estimate.
+- **Independent adversarial review (2026-11-15).** A separate Claude session that had not built the project reviewed the submission and proposed wording corrections: the scope of the six constructs, group versus individual prediction, the census definition, persona overlap, the shrinkage wording and the LLM descriptions. The author approved the mandatory ones before they were applied. No estimate, split or held-out result changed (`reports/final_audit/post_review_corrections.md`).
 
 An AI writing the analysis and also auditing it is a real limitation. The guards against it are a byte-identical regeneration check, 30+ tests and a reproduction of every reported bug from the raw exports. An independent human check of the scoring code (`src/common.py`, `src/final_audit.py`) is still advisable.

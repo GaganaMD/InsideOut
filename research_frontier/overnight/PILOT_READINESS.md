@@ -56,7 +56,7 @@ Every call uses the same system message:
 > You simulate how a person with the described characteristics would answer a survey question. Answer as that person
 > would, not as an expert. Respond with JSON only.
 
-**Empty persona, green-default condition.** The user message is the survey's own scenario text, followed by:
+**Empty persona, green-default condition.** The user message is an abridged paraphrase of the survey's scenario text, followed by:
 ```
 Question: Which electricity supplier do you choose?
 Options:

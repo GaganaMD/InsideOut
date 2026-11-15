@@ -61,6 +61,7 @@ When narrating a live persona:
 | `5eddaf6` | Social desirability R² share |
 | `f9cbe6b` | Behaviour floor 20, shrinkage-consistent labels, median ties, plus the Qwen order-bias audit |
 | `212481a` | Sensitivity persona regenerated |
+| Independent-review corrections (the commit after `58ed021`) | Wording only: scope of the six constructs and CRT-2, group versus individual prediction, census definition, persona overlap, shrinkage, LLM descriptions |
 
 Every change is listed in `reports/final_audit/post_review_corrections.md`. **No estimate, split or held-out result changed.**
 
@@ -71,7 +72,7 @@ Every change is listed in `reports/final_audit/post_review_corrections.md`. **No
 - **Persona behaviour rates:** they do not forecast at the persona level, because cells are small.
 - **Labels after shrinkage:** some pre-registered "distinct" labels weaken after shrinkage: P2 social desirability, P3 green values. Cards now show both labels.
 - **LLM comparisons are exploratory and outside the submission:**
-  - GPT-4.1 with an estimated profile was not run, because the OpenRouter key is expired.
+  - GPT-4.1 with an estimated profile: a 264-call feasibility pilot and then the full pre-registered run (1,556 calls; $1.25 billed in total) were completed on 2026-11-15 (`research_frontier/brace_challenge_lab/F3_gpt41/RESULTS.md`). No submitted estimate uses them.
   - The open-weight Qwen results cover one scenario and two small models.
 
 ## Files to send to Kush
@@ -83,6 +84,6 @@ Every change is listed in `reports/final_audit/post_review_corrections.md`. **No
 
 Render the markdown files to PDF if the brief asks for documents. `tools/page_count.py` produces A4 PDFs.
 
-**Optional, needs your decision:** `reports/ai_note.md` does not yet mention the 2026-11-15 AI-assisted audit and corrections (Claude subagents found the defects; Claude made the fixes; you approved each one). A one-sentence addition would keep it complete. It was not changed without your approval.
+`reports/ai_note.md` discloses the 2026-11-15 AI-assisted audit, the corrections and the later independent review.
 
 `research_frontier/` holds the post-submission research (mechanisms, stress tests, the LLM benchmarks). It is supporting material, not a deliverable.

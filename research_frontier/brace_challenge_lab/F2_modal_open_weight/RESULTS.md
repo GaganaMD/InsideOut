@@ -48,25 +48,26 @@ The design, metrics and decision rules were fixed in `PREREGISTRATION.md` and co
 
 ## Pre-registered decisions
 - **The LLM adds value beyond the demographic model: NO, for both models and all formats.**
-  - Only Qwen2.5 with no persona ties the baselines (0.241). That is because, averaged over answer orders, it reproduces roughly the population rate.
+  - Only Qwen2.5 with no persona ties the baselines (0.241). **Correction (2026-11-15):** this tie is a coincidence of averaging, not evidence of calibration. The no-persona arm is four prompts whose answer flips with option order (P(green) 0.27 vs 0.94 under the green default, 0.56 vs 0.00 under the grey default), and the mean happens to land near the human rates.
   - Every persona format is significantly *worse* than both the population average and the demographic model.
 - **The profile helps:**
-  - **Yes for Qwen2.5**, relative to its own demographics-only prompt. But it is still worse than a free statistical baseline.
+  - **Yes for Qwen2.5**, relative to its own demographics-only prompt. But it is still worse than baselines fitted to this experiment's own human outcomes.
   - **No for Qwen3.**
-- **Framing matters:** **yes, for confidence.** The narrative version makes predictions significantly more extreme in both models, with no accuracy gain. It is also more stereotyped: predictions track the green-values z-score more closely (r 0.76 vs 0.47–0.62).
+- **Framing matters:** **yes, for confidence.** The narrative version makes predictions significantly more extreme in both models, with no accuracy gain. **Correction (2026-11-15):** confidence was computed after averaging the two option orders, so a format with a smaller order gap looks more confident. On single prompts the difference is small for Qwen2.5 (0.42 vs 0.39) and absent for Qwen3 (0.487 vs 0.483). It is also more stereotyped: predictions track the green-values z-score more closely (r 0.76 vs 0.47–0.62).
 - **Default-effect recovery:**
   - Adding an inner-layer profile, whether numeric or narrative, **erases** the randomised default effect. The model predicts +0.01 to +0.12 against a human +0.215; for Qwen2.5 both error CIs exclude 0. The model lets the persona dominate the situation.
   - Demographic-only prompts land near or above the human effect, but with calibration slopes of about 0.05, so they carry almost no information at the individual or cell level.
 - **Individual-level fidelity:** not claimed. All predictions are at the cell level.
 
 ## Interpretation for Brace (cautious)
-1. **Persona prompts made these open-weight models worse than doing nothing.** Group-level forecasts from a population average, or a 4-variable logistic model, were at least as good, and calibrated.
-2. **Narrative personas add confidence and stereotyping, not accuracy.** This is the most product-relevant result: persuasive persona prose increases false certainty.
-3. **Situation vs disposition.** Given psychological attributes, the models under-weight the randomised default, while humans respond to it by about 22 points. This mirrors the human-data finding that the situation (default) and one measured value both matter.
+1. **Persona prompts did not help these open-weight models.** Group-level forecasts from a population average, or a 4-variable logistic model, were at least as good, and calibrated. Those baselines were fitted to human outcomes from this same experiment, which a client forecasting a new decision would not have; the models were zero-shot.
+2. **Narrative personas add confidence and stereotyping, not accuracy.** The confidence increase is partly an artefact of order averaging (see the correction above), so treat it as a hypothesis.
+3. **Situation vs disposition.** Given psychological attributes, the models under-weight the randomised default, while humans respond to it by about 22 points. This reading is weak, because the prompt omits the survey's stay/switch answer frame (see Limits).
 4. **Order sensitivity is large and directional.** It averages 0.51 for Qwen2.5 (absolute), almost all of it a preference for the second option. Any single-order LLM survey of this model would be dominated by option order. Counterbalancing is mandatory.
 
 ## Limits
 - One scenario (default_eric) and two small open-weight models.
+- **The scenario is an abridged paraphrase, not the survey item** (correction, 2026-11-15). It drops the suppliers' persuasive copy, the contract step and the answer options "Stay with …" / "Switch to …", and asks "Which electricity supplier do you choose?" with lettered products. The default is conveyed only in the narrative, so default-effect recovery here is not a test of the human manipulation, and these results are not comparable with the published GPT-4.1 twin predictions.
 - 76 cells with a median of 5 people, so per-cell human rates are noisy. Both baselines share this noise, so relative comparisons are fair.
 - Profiles are ridge estimates from 4 cell fields, not the submission's empirical-Bayes personas.
 - Next-token probabilities are only one elicitation method; verbal or sampled answers could behave differently.

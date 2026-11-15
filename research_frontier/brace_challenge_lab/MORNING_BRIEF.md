@@ -41,7 +41,7 @@
 - **Age effects:** maturation vs cohort vs panel selection.
 - **Social desirability:** response style vs real adjustment.
 - **Income and neuroticism:** the direction of causation.
-- **GPT-4.1 with an estimated profile:** not run, because the OpenRouter key is expired.
+- **GPT-4.1 with an estimated profile:** not run when this brief was written (expired key). Since then a 264-call pilot and the full pre-registered run (1,556 calls) were completed on 2026-11-15; see `F3_gpt41/RESULTS.md`.
 - **Generator issues:** the three found in the stress test (shrinkage labels, the behaviour floor, median ties) were fixed in `f9cbe6b` without changing any estimate.
 
 ## Practise these (in order)
@@ -53,11 +53,11 @@
    - students.
 2. **Live loop:** run `python src/personas.py build …`, read the definition and n back, check the shrink weight, then narrate only the "distinct" traits.
 3. **Hardest questions** (`D_review/REVIEW_SIMULATION.md`): H7 (say–do), H5 (interaction test), H3 (self-presentation), S3 (units), P3 (the CLI bug). Answer each with "found it, fixed it, no estimate changed".
-4. **One-sentence LLM answer:** "In our tests, LLM personas never beat a free statistical baseline. Narrative personas made them more confident, not more accurate."
+4. **One-sentence LLM answer:** "Two small open-weight Qwen models, given a paraphrased prompt, did not beat baselines fitted to the same experiment's human data, and narrative personas did not make them more accurate. The published GPT-4.1 full-persona twins are different: once recalibrated they beat the condition-only rate slightly (Brier gain 0.022, CI 0.004–0.042; `F_llm_benchmark/CALIBRATION_AND_FAILURES.md`), but they mis-size the default effect. All of this is exploratory."
 5. **Client logic** (`E_client/CLIENT_DECISION_BRIEFS.md`): test, don't infer. Ask for one measured attitude and run one small randomised test.
 
 **Costs:**
 - Modal: about $0.46 for the night (offline batch $0.03, open-weight benchmark $0.43), against the $5 cap.
-- OpenRouter: $0.
+- OpenRouter: $0 overnight (the later F3 pilot and full run were billed $1.25 in total).
 - No Modal apps are left running.
 - The cached model weights (`brace-hf-cache`, about 23 GB) cost about $2 a month if kept. To delete them: `modal volume delete brace-hf-cache`.

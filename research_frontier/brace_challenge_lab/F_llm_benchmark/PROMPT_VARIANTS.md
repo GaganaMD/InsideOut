@@ -17,7 +17,7 @@ F2 can render identical prompts; its results must be reported as a separate mode
 | `demo_stat` | D | `demo` + estimated inner-layer profile as numbers: for each of 6 constructs, typical value, population percentile, 80% band |
 | `demo_narr` | D-narrative | `demo` + the **same numbers** written as prose. `checks()` asserts that the multiset of numbers in `demo_stat` and `demo_narr` is identical for every prompt (776 prompt groups in the full design) |
 
-Fixed elements: system message (identical to the overnight harness), scenario wording from the survey files
+Fixed elements: system message (identical to the overnight harness), scenario wording abridged from the survey files
 (default_eric: harness `SCENARIOS`; targeting_fairness: QID1459/QID1460 text, condition coded from `Segment`),
 temperature 0.7, default model `openai/gpt-4.1`, max output tokens 40 (binary) / 120 (rating).
 
