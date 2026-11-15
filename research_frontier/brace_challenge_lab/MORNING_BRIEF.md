@@ -42,10 +42,7 @@
 - **Social desirability:** response style vs real adjustment.
 - **Income and neuroticism:** the direction of causation.
 - **GPT-4.1 with an estimated profile:** not run, because the OpenRouter key is expired.
-- **Open generator issues:**
-  - "distinct" labels use the raw effect, while the headline number is shrunk;
-  - the say/do block uses n ≥ 10, while the README says 20;
-  - the "% other side of median" column ignores ties.
+- **Generator issues:** the three found in the stress test (shrinkage labels, the behaviour floor, median ties) were fixed in `f9cbe6b` without changing any estimate.
 
 ## Practise these (in order)
 1. **Five hard live groups** (`B_unseen/PERSONA_STRESS_TEST.md`):
