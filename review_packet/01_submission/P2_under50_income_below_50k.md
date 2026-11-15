@@ -13,10 +13,10 @@
 | Dictator giving | 39.42 [20.0–60.0] | +0.11 (-0.01, +0.23) | +0.01 | 0% | same as population |
 | Neuroticism | 3.15 [1.9–4.4] | +0.47 (+0.36, +0.58) | +0.55 | +11% | distinct |
 
-Held-out error cut = reduction in absolute error vs the population mean on held-out members. *Distinct* = |d| ≥ 0.20 with CI excluding 0. † Corrected item-level scores; the dataset's shipped social-desirability and CRT scores are mis-scored for 180/450 people (`reports/final_audit/statistical_audit.md`, values in `reports/final_audit/corrected_scores/personas_sd_crt.csv`). Frozen legacy values: evidence file.
+Held-out error cut = reduction in absolute error vs the population mean on held-out members. *Distinct* = |d| ≥ 0.20 with CI excluding 0. *Typical* is shrunk toward the population mean (fully, for dictator giving); d and its CI describe the unshrunk member mean, so the two can differ. † Corrected item-level scores; the dataset's shipped social-desirability and CRT scores are mis-scored for 180/450 people (`reports/final_audit/statistical_audit.md`, values in `reports/final_audit/corrected_scores/personas_sd_crt.csv`). Frozen legacy values: evidence file.
 
 **Why it fits.** *Observed:* within each age band, lower-income members are more neurotic (18–29: 3.36 vs 2.99; 30–49: 3.07 vs 2.69; age-adjusted +0.30 SD, CI 0.20 to 0.40). *Interpretation:* consistent with the documented link between financial strain and negative affect. *Speculation:* the direction is unknown (strain → distress, distress → lower earnings, or health driving both). Household income may misclassify students on parental income.
 
 **Say vs do.** When choosing renewable meant switching, 27% chose it on training data (n = 33; population 36%) but 47% on held-out members (n = 19). The tempting 'budget-constrained idealist' story **failed** the holdout, so no behavioural prediction is offered.
 
-**Where it breaks.** About a quarter of members are calmer than the median panel member. The neuroticism shift helps individual prediction by about a tenth.
+**Where it breaks.** About a quarter of members are calmer than the median panel member. The neuroticism shift helps individual prediction by about a tenth. P2 contains 81 of P3's 197 training members, so the two are not independent evidence.

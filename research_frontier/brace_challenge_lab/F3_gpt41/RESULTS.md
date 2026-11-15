@@ -99,7 +99,7 @@ The baselines score A 0.241 and B 0.241.
 
 **What is identical across the three models:**
 - the cells and cross-fitted profiles;
-- the scenario text;
+- the scenario text. This is an abridged paraphrase of the survey item, not its exact wording: the survey shows a longer welcome letter and "Stay with X / Switch to Y" options. The caveat applies to all three models and to the comparison with human choices;
 - the person, profile and narrative text blocks;
 - both answer orders;
 - the participants, baselines and analysis code.

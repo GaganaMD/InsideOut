@@ -62,3 +62,20 @@ These are listed in `research_frontier/brace_challenge_lab/B_unseen/FAILURE_TAXO
 - **CIs on insufficient cells:** behaviour cells marked insufficient still print a CI.
 
 Each of these would change the generator's output logic. They are documented as live-review caveats rather than patched before the deadline.
+
+## Independent-review corrections (2026-11-15, second pass; wording only)
+An independent adversarial review (a Claude session that had not built the project) proposed these; the author approved the mandatory ones. **No estimate, split, persona definition or held-out result changed.**
+
+| Area | Change | Why |
+|---|---|---|
+| Memo §1, headline and H1 | Scoped to the six pre-registered constructs; "reasoning" → "CRT-2 reflection"; H1 "falsified as registered, for CRT-2 and not for cognitive ability in general" | The frozen map covers six constructs, and cognition was measured only by the four-item CRT-2 (KR-20 0.58) |
+| Memo §1, new scope bullet | Reports an exploratory sweep of all 50 usable shipped scores: median R² 0.05, maximum 0.16, eleven at 0.10 or more | The six are not representative. The sweep is training-only, sits outside `run_all.py` (`research_frontier/breadth_sweep/`), and uses scores that were not independently re-scored |
+| Memo §1.4 | Group-level and individual-level conclusions separated; the behaviour null qualified by cell size | A 0.4–0.6 SD group shift and a one-tenth individual gain are both true; about 40 people per cell cannot exclude 10–15 point differences |
+| Memo §3 | Census definition: party is excluded because no census form asks it, not because it is self-reported; most items are ACS; clients see areas | Every Tier A variable is self-reported (`audit/variable_map_outer.csv`) |
+| Memo §1.3, §5 and the three cards | Persona overlap and age dependence stated: three of four holdout gains are neuroticism; 41% of P3's training members are in P2; P1 is age alone; none covers 50–64 | `results/p3_selection.csv`, `results/holdout_personas.csv` |
+| Memo §5 and card footnote (`src/personas.py`, text only) | Shrinkage: "Typical" is a shrunken estimate, the CI is for the raw mean, the prior is zero for dictator giving | Statistical audit M2; the old text blamed a "Tier A-specific" prior |
+| Memo §5, AI note, readiness file | Stale LLM statements corrected: post-submission runs exist; a 264-call GPT-4.1 pilot and then the full pre-registered run were completed (commit `58ed021`); no submitted estimate uses them | `research_frontier/brace_challenge_lab/F3_gpt41/RESULTS.md` |
+| `research_frontier/` write-ups | Qwen prompt described as an abridged paraphrase without the survey's stay/switch options; the no-persona tie and the confidence result qualified; "never beat a free baseline" corrected | Survey QSF against the prompt code; raw Qwen outputs; `F_llm_benchmark/CALIBRATION_AND_FAILURES.md` |
+| Memo, space only | Shortened passages to stay at 4 pages; no finding removed | Page limit |
+
+Verification: memo 4 pages, cards 1 page each, `tests/` pass, `results/` and `data/split.csv` unchanged, persona JSON regenerated identical in content.

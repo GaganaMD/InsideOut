@@ -1,5 +1,12 @@
 # Independent audit and prioritisation (2026-11-15)
 
+> **Later update (same day).** The GPT-4.1 matched comparison listed as an extension below has been run. Details are in `F3_gpt41/RESULTS.md` (1,556 calls; $1.25 billed). It is exploratory and does not contribute to any submitted estimate.
+> - No GPT-4.1 format beat the demographic model. The persona formats were worse by +0.018 to +0.027 in Brier, with CIs including 0.
+> - Profile vs demographics, and narrative vs profile, were both null.
+> - The predicted default effect was about +0.08, against +0.215 in people.
+>
+> All LLM prompts used an abridged paraphrase of the survey item, not its exact wording.
+
 Scales are H/M/L. **Evidence** is the strength of the evidence, **Rel.** is relevance to Brace's assignment, and **Nov.** is novelty relative to the frozen submission.
 
 ## Findings ranked

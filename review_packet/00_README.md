@@ -1,4 +1,6 @@
-# Review packet (snapshot of commit `3f4179d`, 2026-11-15)
+# Review packet (snapshot of commit `3f4179d`, 2026-11-15; submission copies refreshed at `f9ee2bc`)
+
+> The memo, the three persona cards, the AI-use note and `post_review_corrections.md` were refreshed from `f9ee2bc`, after the independent-review wording corrections. The evidence tables and frozen results are unchanged (byte-identical).
 
 This packet is for an independent review of the Brace persona assignment. It contains the submitted deliverables, the evidence tables they rely on, the evaluation protocol, the known limitations and reproduction instructions.
 

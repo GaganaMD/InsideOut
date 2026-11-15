@@ -4,6 +4,18 @@
 
 Every deliverable requirement is met and verified. No critical defect is open.
 
+### Final integration check at `f9ee2bc`
+This commit combines the GPT-4.1 results (`58ed021`), the exploratory breadth sweep (`8906c18`) and the independent-review wording corrections (`f9ee2bc`).
+
+- **Fresh clone:** `python run_all.py` exited 0 in 11m22s, and `pytest` passed **43**.
+- **Generated outputs:** ignoring line endings, the only difference from the committed files is `reports/final_audit/integrity_checks.json`, which records the git log. `results/`, `data/split.csv`, `reports/personas/*` and the memo regenerate identically.
+- **Page limits:** the memo is 4 pages and each persona card 1 page (`tools/page_count.py`).
+- **Research harness tests:** 39 passed.
+- **Unchanged since the holdout:** the frozen split (sha256 `8ef47da0…`), `results/` and `hypotheses.md`.
+- **Outside the submission pipeline:** the breadth sweep (`research_frontier/breadth_sweep/`) is not referenced by `run_all.py`, `src/`, `tests/` or `tools/`.
+- **LLM work:** the GPT-4.1 run (1,556 responses, about $1.25 billed) and the Qwen runs are exploratory, under `research_frontier/`, and contribute to no submitted estimate.
+- **Separate review folder:** `independent_review/` is kept local and excluded via `.git/info/exclude`. It is not part of the submission.
+
 ## Requirement checks
 
 | Requirement | Status | Evidence |
