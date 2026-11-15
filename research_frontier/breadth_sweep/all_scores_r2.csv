@@ -1,0 +1,55 @@
+score,n,cv_r2,ci_half,status
+w1_score_agency,1442,0.1601,0.034,UNAUDITED shipped score
+w1_score_crystallized,1442,0.1537,0.0293,UNAUDITED shipped score
+w1_score_neuroticism,1442,0.1506,0.03,verified against items
+w1_score_conscientiousness,1442,0.1345,0.0249,UNAUDITED shipped score
+w1_score_synonym,1442,0.1233,0.023,UNAUDITED shipped score
+w1_score_antonym,1442,0.1202,0.0278,UNAUDITED shipped score
+w1_score_BES,1442,0.1112,0.0196,UNAUDITED shipped score
+w1_score_actual_total,1442,0.109,0.0307,UNAUDITED shipped score
+w3_score_depression,1442,0.1083,0.0313,UNAUDITED shipped score
+w2_score_numeracy,1442,0.1064,0.0277,UNAUDITED shipped score
+w2_score_VC,1442,0.1049,0.0242,UNAUDITED shipped score
+w3_score_SCC,1442,0.0994,0.0267,UNAUDITED shipped score
+w2_score_conscientiousness,1442,0.0878,0.0217,UNAUDITED shipped score
+w1_score_overplacement,1442,0.0843,0.0243,UNAUDITED shipped score
+w1_score_extraversion,1442,0.0829,0.0216,UNAUDITED shipped score
+w2_score_finliteracy,1442,0.0755,0.0265,UNAUDITED shipped score
+w1_score_syllogism_merged,1442,0.0737,0.0263,UNAUDITED shipped score
+w2_score_VI,1442,0.0694,0.0303,UNAUDITED shipped score
+w3_score_RFS,1442,0.0668,0.0239,UNAUDITED shipped score
+w1_score_agreeableness,1442,0.0632,0.0214,UNAUDITED shipped score
+w2_score_socialdesirability,1442,0.0624,0.0203,re-scored from items (shipped score defective)
+w2_score_HC,1442,0.0597,0.0227,UNAUDITED shipped score
+w1_score_syllogism_test,1442,0.0594,0.0276,UNAUDITED shipped score
+w1_score_communion,1442,0.0569,0.0227,UNAUDITED shipped score
+w3_score_selfmonitor,1442,0.0531,0.0257,UNAUDITED shipped score
+w1_score_needforcognition,1442,0.0481,0.0223,UNAUDITED shipped score
+w1_score_syllogism_priming,1442,0.0375,0.0168,UNAUDITED shipped score
+w3_score_ST-TW,1442,0.0367,0.022,re-scored from items (shipped score defective)
+w2_score_HI,1442,0.0355,0.0149,UNAUDITED shipped score
+w1_score_openness,1442,0.0315,0.016,UNAUDITED shipped score
+w2_score_anxiety,1442,0.0305,0.0171,UNAUDITED shipped score
+w1_score_fluid,1442,0.0304,0.0167,UNAUDITED shipped score
+w3_score_needforclosure,1442,0.0277,0.0118,UNAUDITED shipped score
+w1_score_GREEN,1442,0.0231,0.0147,verified against items
+w3_score_CNFU-S,1442,0.023,0.0153,UNAUDITED shipped score
+w1_rotsum,1442,0.0222,0.0127,UNAUDITED shipped score
+w1_score_overconfidence,1442,0.0203,0.013,UNAUDITED shipped score
+w1_score_mentalaccounting,1442,0.0147,0.0113,UNAUDITED shipped score
+w1_score_minimalism,1442,0.0142,0.0105,UNAUDITED shipped score
+w2_score_deductive_certainty,1442,0.0102,0.0086,UNAUDITED shipped score
+w1_MXsum,1442,0.0096,0.0124,UNAUDITED shipped score
+w1_score_ultimatum_accepted,1442,0.0067,0.007,UNAUDITED shipped score
+w1_crt2_score,1442,0.0056,0.007,re-scored from items (shipped score defective)
+w3_score_maximization,1442,0.0055,0.008,UNAUDITED shipped score
+w2_score_trustgame_sender,1442,0.0048,0.0057,UNAUDITED shipped score
+w3_score_dictator_sender,1442,0.0016,0.0039,verified against items
+w2_score_forwardflow,1441,-0.0002,0.0061,UNAUDITED shipped score
+w1_score_ultimatum_sender,1442,-0.0009,0.0038,UNAUDITED shipped score
+w2_score_trustgame_receiver,1442,-0.0016,0.0024,UNAUDITED shipped score
+w3_score_wason,1442,-0.0024,0.0021,UNAUDITED shipped score
+w2_score_discount,1304,,,excluded: non-numeric codes
+w2_score_presentbias,1303,,,excluded: non-numeric codes
+w2_score_riskaversion,1277,,,excluded: non-numeric codes
+w2_score_lossaversion,458,,,excluded: non-numeric codes

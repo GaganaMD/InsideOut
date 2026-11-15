@@ -1,0 +1,23 @@
+{
+ "n": 428,
+ "donor_rate_by_default": {
+  "donor_default": {
+   "rate": 0.6172248803827751,
+   "n": 209
+  },
+  "nondonor_default": {
+   "rate": 0.5296803652968036,
+   "n": 219
+  }
+ },
+ "brier": {
+  "condition_only": 0.2447487255715924,
+  "condition_plus_tierA": 0.24357197126147292
+ },
+ "brier_diff_tierA_minus_condition": {
+  "est": -0.0011767543101194968,
+  "lo": -0.009172006378309656,
+  "hi": 0.0065199387214853795
+ },
+ "coding": "organ_donor = 1 if the participant ends as a potential donor (OPTOUT_Organ == 1 or OPTIN_Organ == 2)"
+}
