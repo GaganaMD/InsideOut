@@ -6,7 +6,7 @@
 - ran the pipeline;
 - drafted the hypotheses, persona interpretations, memo and this log.
 
-Two web-fetch subagents read the dataset cards and the two arXiv papers to confirm the file structure. No OpenRouter or other LLM was used.
+Two web-fetch subagents read the dataset cards and the two arXiv papers to confirm the file structure. **No LLM was used to produce any number in the submission** (memo, personas, `results/`). LLM *simulations* appear only in the separate post-submission research folder `research_frontier/`; see the last section.
 
 **How the work was checked**
 - **Numbers.** Every figure in the reports is produced by the pipeline (`results/`, `reports/personas/*.json`). Prose numbers were copied from those outputs, and `python run_all.py` regenerates all of them.
@@ -39,5 +39,36 @@ The persona cards cite these only as "published age differences", and they no lo
 - added opt-in corrected scoring, with the default path still reproducing the frozen results (tested);
 - reran the affected analyses side by side with the originals;
 - ran a fresh-clone, fresh-virtual-environment reproduction and a live-review CLI simulation (`reports/final_audit/`).
+
+**Overnight audit, research and corrections (2026-11-14/15).** Claude, including parallel Claude subagents, audited the submission, ran exploratory research and debugged the tooling. Each change to a submitted file was approved by the author before it was made.
+
+- **AI-generated suggestions.** Subagent reviews *proposed* these defects:
+  - a repeated-criteria bug in the CLI;
+  - percentage gains printed next to raw-unit CIs;
+  - several overstated sentences;
+  - shrinkage-inconsistent "distinct" labels;
+  - median ties;
+  - a behaviour-cell floor of 10 instead of 20.
+
+  Their literature summaries and interpretations in `research_frontier/brace_challenge_lab/` are AI-written and were **not** independently verified by a human.
+- **Checks actually performed before any change.**
+  - **Reproduced:** each proposed defect was reproduced from code or data. For example:
+    - `sex=Male; sex=Female` profiled all 1,044 women;
+    - `src/holdout.py` showed that the CI was in raw units;
+    - the "top third" cut was recomputed as 41% of training;
+    - the "nearly all" claim was checked against `nested.csv`.
+  - **Rejected when the evidence disagreed:** one suggested inconsistency (21% vs 22% aged 65+) was checked and not changed.
+  - **Locked:** fixes come with regression tests.
+  - **Every change logged** in `reports/final_audit/post_review_corrections.md`.
+  - **Verified after the changes:**
+    - `results/` and `data/split.csv` are unchanged;
+    - the memo and cards still meet the page limits;
+    - a fresh clone reproduces the committed outputs (`SUBMISSION_READINESS.md`).
+- **Post-submission LLM research (not part of the submitted findings).** In `research_frontier/`:
+  - **Published GPT-4.1 predictions:** published GPT-4.1 digital-twin predictions (Peng et al.) were compared with human data.
+  - **Open-weight models on Modal:** Qwen2.5-7B and Qwen3-4B were run on Modal GPUs with pre-registered prompts. These prompts contained only k-anonymous demographic cells, public scenario text and cross-fitted aggregate profile estimates.
+  - **GPT-4.1 via OpenRouter:** attempted under the same rules, with a spending cap.
+
+  These are labelled exploratory, and none of them changed a submitted estimate.
 
 An AI writing the analysis and also auditing it is a real limitation. The guards against it are a byte-identical regeneration check, 30+ tests and a reproduction of every reported bug from the raw exports. An independent human check of the scoring code (`src/common.py`, `src/final_audit.py`) is still advisable.
