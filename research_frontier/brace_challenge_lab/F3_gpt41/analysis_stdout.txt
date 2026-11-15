@@ -1,0 +1,186 @@
+{
+ "n": 427,
+ "n_cells": 76,
+ "models": {
+  "Qwen2.5-7B-Instruct": {
+   "model_id": "Qwen/Qwen2.5-7B-Instruct",
+   "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+   "license": "apache-2.0",
+   "gpu": "NVIDIA A10",
+   "load_s": 7.901762962341309,
+   "score_s": 181.77259922027588,
+   "n_prompts": 1524,
+   "mean_mass": 0.9999992157676366,
+   "share_mass_below_0_5": 0.0,
+   "order_gap_mean_abs": 0.5066940928825622
+  },
+  "Qwen3-4B-Instruct-2507": {
+   "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+   "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+   "license": "apache-2.0",
+   "gpu": "NVIDIA A10",
+   "load_s": 7.2392003536224365,
+   "score_s": 117.27272439002991,
+   "n_prompts": 1524,
+   "mean_mass": 0.9999995982620697,
+   "share_mass_below_0_5": 0.0,
+   "order_gap_mean_abs": 0.12395286499714889
+  },
+  "gpt-4.1": {
+   "model_id": "openai/gpt-4.1",
+   "revision": "openai/gpt-4.1",
+   "license": "proprietary (API)",
+   "gpu": "n/a (OpenRouter)",
+   "load_s": 0,
+   "score_s": 0,
+   "n_prompts": 1524,
+   "mean_mass": 1.0,
+   "share_mass_below_0_5": 0.0,
+   "order_gap_mean_abs": 0.03926509186351707
+  }
+ },
+ "contrasts": {
+  "B_demographic_model - A_population": {
+   "diff": -0.00041837785349769103,
+   "ci": [
+    -0.013809876349137122,
+    0.012707567901212746
+   ]
+  },
+  "Qwen2.5-7B-Instruct:empty - A_population": {
+   "diff": -0.0005093407345728532,
+   "ci": [
+    -0.008704686361329265,
+    0.00782620319431749
+   ]
+  },
+  "Qwen2.5-7B-Instruct:demo - A_population": {
+   "diff": 0.11787464440977043,
+   "ci": [
+    0.06496803281855733,
+    0.17242227714105401
+   ]
+  },
+  "Qwen2.5-7B-Instruct:profile - A_population": {
+   "diff": 0.048886106171751535,
+   "ci": [
+    0.01441758730304394,
+    0.08948067002713507
+   ]
+  },
+  "Qwen2.5-7B-Instruct:narrative - A_population": {
+   "diff": 0.08429661952703776,
+   "ci": [
+    0.039561922125819785,
+    0.13551748228305885
+   ]
+  },
+  "Qwen3-4B-Instruct-2507:empty - A_population": {
+   "diff": 0.22656915268423816,
+   "ci": [
+    0.16162341201512018,
+    0.2893128989768916
+   ]
+  },
+  "Qwen3-4B-Instruct-2507:demo - A_population": {
+   "diff": 0.15719361220775405,
+   "ci": [
+    0.09996794949118237,
+    0.22193888094917266
+   ]
+  },
+  "Qwen3-4B-Instruct-2507:profile - A_population": {
+   "diff": 0.15130348838294935,
+   "ci": [
+    0.09291611177155086,
+    0.2118114030178621
+   ]
+  },
+  "Qwen3-4B-Instruct-2507:narrative - A_population": {
+   "diff": 0.1750103320715995,
+   "ci": [
+    0.11666601353083271,
+    0.23527434496874622
+   ]
+  },
+  "gpt-4.1:empty - A_population": {
+   "diff": 0.08573347738449602,
+   "ci": [
+    0.04645938476426365,
+    0.12565464746651112
+   ]
+  },
+  "gpt-4.1:demo - A_population": {
+   "diff": 0.026839449281451523,
+   "ci": [
+    -0.0027016582520251672,
+    0.060141481690217956
+   ]
+  },
+  "gpt-4.1:profile - A_population": {
+   "diff": 0.017774343895034666,
+   "ci": [
+    -0.008125084851657239,
+    0.04682070299718214
+   ]
+  },
+  "gpt-4.1:narrative - A_population": {
+   "diff": 0.018890795885666986,
+   "ci": [
+    -0.007113948653906509,
+    0.04668611946349545
+   ]
+  },
+  "Qwen2.5-7B-Instruct:empty - B_demographic_model": {
+   "diff": -9.096288107515993e-05,
+   "ci": [
+    -0.01634007441751219,
+    0.016613607443366554
+   ]
+  },
+  "Qwen2.5-7B-Instruct:demo - B_demographic_model": {
+   "diff": 0.1182930222632681,
+   "ci": [
+    0.06255281983111473,
+    0.17364202064827403
+   ]
+  },
+  "Qwen2.5-7B-Instruct:profile - B_demographic_model": {
+   "diff": 0.04930448402524923,
+   "ci": [
+    0.0164654005240423,
+    0.08817371415261144
+   ]
+  },
+  "Qwen2.5-7B-Instruct:narrative - B_demographic_model": {
+   "diff": 0.08471499738053545,
+   "ci": [
+    0.04302304435827477,
+    0.13168889494643898
+   ]
+  },
+  "Qwen3-4B-Instruct-2507:empty - B_demographic_model": {
+   "diff": 0.22698753053773588,
+   "ci": [
+    0.16020649694896277,
+    0.2936441367462509
+   ]
+  },
+  "Qwen3-4B-Instruct-2507:demo - B_demographic_model": {
+   "diff": 0.15761199006125173,
+   "ci": [
+    0.098404648
+A_population                           brier 0.2414 conf 0.107 cal -0.01/0.79 effect +nan
+B_demographic_model                    brier 0.2410 conf 0.123 cal -0.04/0.63 effect +nan
+Qwen2.5-7B-Instruct:empty              brier 0.2409 conf 0.159 cal +0.03/0.65 effect +0.322
+Qwen2.5-7B-Instruct:demo               brier 0.3593 conf 0.392 cal +0.03/0.05 effect +0.345
+Qwen2.5-7B-Instruct:profile            brier 0.2903 conf 0.170 cal -0.11/0.04 effect +0.037
+Qwen2.5-7B-Instruct:narrative          brier 0.3257 conf 0.229 cal -0.12/0.02 effect +0.006
+Qwen3-4B-Instruct-2507:empty           brier 0.4680 conf 0.498 cal +1.53/0.23 effect +0.005
+Qwen3-4B-Instruct-2507:demo            brier 0.3986 conf 0.433 cal +0.33/0.07 effect +0.248
+Qwen3-4B-Instruct-2507:profile         brier 0.3927 conf 0.375 cal +0.06/0.03 effect +0.051
+Qwen3-4B-Instruct-2507:narrative       brier 0.4164 conf 0.465 cal -0.01/0.03 effect +0.120
+gpt-4.1:empty                          brier 0.3271 conf 0.250 cal +nan/nan effect +0.000
+gpt-4.1:demo                           brier 0.2682 conf 0.217 cal +0.19/0.42 effect +0.085
+gpt-4.1:profile                        brier 0.2592 conf 0.194 cal +0.23/0.54 effect +0.077
+gpt-4.1:narrative                      brier 0.2603 conf 0.195 cal +0.19/0.48 effect +0.082

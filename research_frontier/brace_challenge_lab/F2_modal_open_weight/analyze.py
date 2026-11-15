@@ -85,7 +85,10 @@ def counterfactual(h, t, tag, fmt):
 def calib(y, p):
     import statsmodels.api as sm
     p = np.clip(p, 1e-4, 1 - 1e-4)
-    m = sm.GLM(y, sm.add_constant(np.log(p / (1 - p))), family=sm.families.Binomial()).fit()
+    lp = np.log(p / (1 - p))
+    if np.ptp(lp) < 1e-9:   # constant prediction (added 2026-11-15 for GPT-4.1 'empty'): slope undefined; was a crash
+        return {"intercept": float("nan"), "slope": float("nan"), "note": "constant prediction; calibration undefined"}
+    m = sm.GLM(y, sm.add_constant(lp), family=sm.families.Binomial()).fit()
     return {"intercept": float(m.params[0]), "slope": float(m.params[1])}
 
 
