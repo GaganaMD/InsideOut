@@ -7,7 +7,7 @@
 
 ## Bottom line
 
-P3 was chosen by a pre-registered search rule. Its robust trait, **higher neuroticism** (stable in all 6 redefinitions), is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile** (no reliable sex difference), and it barely improves individual prediction. Treat it as a hypothesis. Behaviour cannot be assessed.
+Its robust trait, **higher neuroticism**, is the same age gradient P2 shows. Its eye-catching trait, **lower green values**, replicated as a group shift but is **fragile** (no reliable sex difference), and it barely improves individual prediction.
 
 ## Inner layer (train members; typical = shrunken mean)
 

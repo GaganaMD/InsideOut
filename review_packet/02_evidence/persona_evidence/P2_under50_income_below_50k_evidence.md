@@ -7,7 +7,7 @@
 
 ## Bottom line
 
-**Higher neuroticism** is the one dependable trait. It is the project's largest robust group difference and holds in all 6 redefinitions. It combines youth with lower income, and income still matters *within* each age band. The 'more spendthrift' prediction failed. The lower social desirability is fragile (it vanishes if the group is widened to 18–64), and the earlier CRT difference was a scoring artefact.
+**Higher neuroticism** is the one dependable trait. It is the project's largest robust group difference and holds in all 6 redefinitions. The 'more spendthrift' prediction failed. The lower social desirability is fragile (it vanishes if the group is widened to 18–64), and the earlier CRT difference was a scoring artefact.
 
 ## Inner layer (train members; typical = shrunken mean)
 

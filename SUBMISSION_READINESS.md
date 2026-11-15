@@ -4,7 +4,25 @@
 
 Every deliverable requirement is met and verified. No critical defect is open.
 
-### Final integration check at `f9ee2bc`
+### Final verified state (final submission commit, 2026-11-15)
+This commit applies the independent reviewer's persona-extension patch, prepared against `efcd76b`, plus integration adjustments. Every change is logged in `reports/final_audit/post_review_corrections.md`.
+
+- **Exploratory content.** The extended profiles, within-age contrasts, counterexamples, two-cluster description and say–do check are exploratory: training split only, not pre-registered, no held-out check. They live in `research_frontier/persona_extension/`, outside `run_all.py`, and reproduce byte-identically from their script.
+- **Unchanged frozen material:**
+  - the split (sha256 `8ef47da0…`);
+  - `results/` and `hypotheses.md`;
+  - the persona criteria and persona JSON estimates;
+  - the confirmatory six-construct evaluation.
+- **Fresh clone of the candidate** (`efcd76b` plus these changes, before the final documentation-only edits):
+  - `python run_all.py` exited 0 in 11m12s, and `pytest` passed **43**;
+  - the only regenerated difference is `integrity_checks.json`, which records the git log.
+- **After the final documentation-only edits** (P1 wording, `SUBMISSION.md`, review-packet copies, this file), checked on the working tree before committing:
+  - the cards were regenerated;
+  - the research harness passed 39 tests;
+  - the submission suite passed 40. The 3 `test_originals_untouched` guards flagged only the intentionally edited config, cards and P2/P3 evidence files; they compare against the last commit, so they pass once this commit exists.
+- **Page limits:** the memo is 4 pages (page 4 has no slack) and each persona card is 1 page.
+
+### Earlier integration check at `f9ee2bc` (historical; superseded by the section above)
 This commit combines the GPT-4.1 results (`58ed021`), the exploratory breadth sweep (`8906c18`) and the independent-review wording corrections (`f9ee2bc`).
 
 - **Fresh clone:** `python run_all.py` exited 0 in 11m22s, and `pytest` passed **43**.

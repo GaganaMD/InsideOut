@@ -29,6 +29,7 @@
 | Exploratory follow-ups (green values vs demographics; redistribution attitude) | `reports/exploratory/` | Training data only; added after the holdout was inspected |
 | Robustness analyses and first adversarial review | `reports/robustness/` | Persona stability used the **legacy** social-desirability score. The adversarial review predates the final audit, which supersedes it |
 | Party sensitivity persona | `reports/sensitivity/` | Self-reported party (Tier B), legacy scoring |
+| Persona extension (extended profiles, within-age contrasts, counterexamples, two-cluster description, say–do check), cited by the memo and the persona cards | `research_frontier/persona_extension/` | Exploratory; training split only; not pre-registered; no held-out check (protocol written, not run); outside `run_all.py` |
 | Reviewer preparation (for the presenter) | `reports/final_audit/reviewer_defense.md` | Optional to share |
 
 ## D. Not submitted

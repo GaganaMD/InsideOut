@@ -1,0 +1,37 @@
+persona,construct,status,raw_mean,p10,p90,pop_mean,n,d,lo,hi,d_half1,d_half2
+P1_adults_65plus,conscientiousness,"re-derived from items, exact match",4.161,3.256,5.0,3.933,194,0.302,0.18,0.424,0.322,0.281
+P1_adults_65plus,agreeableness,"re-derived from items, exact match",4.144,3.333,4.889,3.905,194,0.345,0.217,0.472,0.447,0.238
+P1_adults_65plus,extraversion,"re-derived from items, exact match",3.081,1.913,4.213,2.867,194,0.23,0.102,0.358,0.213,0.247
+P1_adults_65plus,openness,"re-derived from items, exact match",3.791,2.83,4.6,3.74,194,0.073,-0.073,0.22,0.058,0.09
+P1_adults_65plus,need_for_cognition,"re-derived from items, exact match",3.466,2.333,4.539,3.382,194,0.102,-0.042,0.245,0.22,-0.022
+P1_adults_65plus,self_concept_clarity,"re-derived from items, exact match",3.992,2.833,4.917,3.586,194,0.425,0.309,0.542,0.448,0.402
+P1_adults_65plus,neuroticism,pre-registered construct,2.284,1.125,3.5,2.711,194,-0.434,-0.564,-0.304,-0.483,-0.383
+P1_adults_65plus,social_desirability,pre-registered construct,7.608,3.0,11.0,6.279,194,0.388,0.256,0.52,0.493,0.278
+P1_adults_65plus,green,pre-registered construct,3.673,2.217,4.833,3.526,194,0.146,0.009,0.284,0.241,0.048
+P1_adults_65plus,spendthrift,pre-registered construct,13.479,9.0,19.0,14.049,194,-0.13,-0.255,-0.004,-0.174,-0.083
+P1_adults_65plus,crt,pre-registered construct,2.345,1.0,4.0,2.417,194,-0.064,-0.212,0.083,-0.102,-0.025
+P1_adults_65plus,dictator_give,pre-registered construct,40.825,20.0,60.0,39.417,194,0.077,-0.048,0.201,0.208,-0.06
+P2_under50_income_below_50k,conscientiousness,"re-derived from items, exact match",3.574,2.556,4.667,3.933,291,-0.477,-0.598,-0.357,-0.452,-0.505
+P2_under50_income_below_50k,agreeableness,"re-derived from items, exact match",3.724,2.778,4.778,3.905,291,-0.263,-0.381,-0.144,-0.21,-0.321
+P2_under50_income_below_50k,extraversion,"re-derived from items, exact match",2.435,1.25,3.625,2.867,291,-0.465,-0.57,-0.36,-0.441,-0.492
+P2_under50_income_below_50k,openness,"re-derived from items, exact match",3.737,2.9,4.6,3.74,291,-0.004,-0.122,0.113,0.07,-0.085
+P2_under50_income_below_50k,need_for_cognition,"re-derived from items, exact match",3.201,2.0,4.278,3.382,291,-0.217,-0.341,-0.094,-0.077,-0.371
+P2_under50_income_below_50k,self_concept_clarity,"re-derived from items, exact match",3.195,2.0,4.5,3.586,291,-0.41,-0.526,-0.293,-0.393,-0.429
+P2_under50_income_below_50k,neuroticism,pre-registered construct,3.175,1.875,4.375,2.711,291,0.472,0.364,0.579,0.461,0.484
+P2_under50_income_below_50k,social_desirability,pre-registered construct,5.55,1.0,10.0,6.279,291,-0.213,-0.324,-0.101,-0.2,-0.226
+P2_under50_income_below_50k,green,pre-registered construct,3.375,2.0,4.5,3.526,291,-0.151,-0.261,-0.041,-0.146,-0.156
+P2_under50_income_below_50k,spendthrift,pre-registered construct,13.704,8.0,21.0,14.049,291,-0.078,-0.206,0.049,-0.005,-0.159
+P2_under50_income_below_50k,crt,pre-registered construct,2.423,1.0,4.0,2.417,291,0.005,-0.11,0.119,0.027,-0.019
+P2_under50_income_below_50k,dictator_give,pre-registered construct,41.375,20.0,60.0,39.417,291,0.107,-0.014,0.227,0.039,0.181
+P3_young_never_married,conscientiousness,"re-derived from items, exact match",3.473,2.556,4.489,3.933,197,-0.611,-0.752,-0.47,-0.686,-0.528
+P3_young_never_married,agreeableness,"re-derived from items, exact match",3.651,2.889,4.556,3.905,197,-0.367,-0.497,-0.236,-0.455,-0.27
+P3_young_never_married,extraversion,"re-derived from items, exact match",2.536,1.45,3.625,2.867,197,-0.356,-0.483,-0.23,-0.413,-0.294
+P3_young_never_married,openness,"re-derived from items, exact match",3.647,2.9,4.5,3.74,197,-0.134,-0.263,-0.004,-0.154,-0.111
+P3_young_never_married,need_for_cognition,"re-derived from items, exact match",3.138,2.2,4.056,3.382,197,-0.294,-0.416,-0.172,-0.267,-0.323
+P3_young_never_married,self_concept_clarity,"re-derived from items, exact match",3.047,1.917,4.333,3.586,197,-0.565,-0.695,-0.434,-0.504,-0.63
+P3_young_never_married,neuroticism,pre-registered construct,3.136,2.0,4.25,2.711,197,0.432,0.306,0.558,0.388,0.48
+P3_young_never_married,social_desirability,pre-registered construct,5.721,1.0,10.0,6.279,197,-0.163,-0.294,-0.032,-0.195,-0.128
+P3_young_never_married,green,pre-registered construct,3.251,1.933,4.5,3.526,197,-0.274,-0.417,-0.13,-0.295,-0.25
+P3_young_never_married,spendthrift,pre-registered construct,14.431,9.0,21.0,14.049,197,0.087,-0.056,0.23,0.104,0.069
+P3_young_never_married,crt,pre-registered construct,2.34,1.0,4.0,2.417,197,-0.069,-0.213,0.075,0.035,-0.183
+P3_young_never_married,dictator_give,pre-registered construct,40.914,0.0,60.0,39.417,197,0.081,-0.078,0.241,-0.011,0.182

@@ -296,7 +296,7 @@ def fig_llm_benchmark() -> pd.DataFrame:
         if not np.isnan(row.effect):
             a2.plot(row.effect, y_, "o", color=row.color, ms=6)
     a2.set_xlabel("Predicted effect of the green default\n(probability points)", fontsize=9)
-    a2.set_title("Situation: profiles shrink the default effect\n(grey band = 95% CI for people)", fontsize=9.5)
+    a2.set_title("Situation: predicted vs actual default effect\n(grey band = 95% CI for people)", fontsize=9.5)
     fig.suptitle("EXPLORATORY · LLM personas vs simple statistics (hypothetical green-energy choice, training split)",
                  x=0.01, ha="left", fontsize=10.5, fontweight="bold")
     fig.text(0.01, 0.01, "427 training participants in 76 demographic cells; profiles cross-fitted from demographics. Bars: 95% "
@@ -342,11 +342,13 @@ def fig_overview() -> pd.DataFrame:
     arrow((8.7, 3.9), (8.7, 3.18), "", ORANGE, 3.0)
     ax.text(8.82, 3.54, "+25 pts (causal)", fontsize=7.6, color=ORANGE, va="center")
     arrow((1.1, 3.16), (8.1, 3.16), "", GREY, 1.2, ls="--", rad=-0.2)
-    ax.text(4.6, 4.0, "demographics alone: no better than the base rate", ha="center", va="bottom", fontsize=7.6,
+    ax.text(4.2, 4.0, "demographics alone: no detectable gain over the base rate (exploratory CV; personas on held-out)",
+            ha="center", va="bottom", fontsize=7.2,
             color=GREY)
     arrow((6.6, 0.62), (8.4, 1.92), "", "#8a3b78", 1.2, ls="--")
     ax.text(7.75, 0.55, "no LLM format beat\nthe demographic model", ha="left", va="center", fontsize=7.6, color="#8a3b78")
-    ax.text(0.1, 4.92, "What census facts reveal, and what drives the choice", fontsize=11.5, fontweight="bold", va="top")
+    ax.text(0.1, 4.92, "What census facts reveal, and what predicts or shifts the choice", fontsize=10.5,
+            fontweight="bold", va="top")
     ax.text(0.1, 4.5, "Arrow width ≈ strength of evidence. Solid = supported; dashed = no detectable added value.",
             fontsize=7.8, color="#333333", va="top")
     save(fig, "fig0_overview")

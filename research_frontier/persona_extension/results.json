@@ -1,0 +1,1193 @@
+{
+ "note": "EXPLORATORY; training split only; not pre-registered; no held-out check",
+ "n_train": 1442,
+ "scale_audit": {
+  "conscientiousness": {
+   "items": 9,
+   "reverse_keyed": [
+    8,
+    18,
+    23,
+    43
+   ],
+   "exact_match_with_shipped": 1.0,
+   "cronbach_alpha": 0.874
+  },
+  "agreeableness": {
+   "items": 9,
+   "reverse_keyed": [
+    2,
+    12,
+    27,
+    37
+   ],
+   "exact_match_with_shipped": 1.0,
+   "cronbach_alpha": 0.821
+  },
+  "extraversion": {
+   "items": 8,
+   "reverse_keyed": [
+    6,
+    21,
+    31
+   ],
+   "exact_match_with_shipped": 1.0,
+   "cronbach_alpha": 0.881
+  },
+  "openness": {
+   "items": 10,
+   "reverse_keyed": [
+    35,
+    41
+   ],
+   "exact_match_with_shipped": 1.0,
+   "cronbach_alpha": 0.845
+  },
+  "need_for_cognition": {
+   "items": 18,
+   "reverse_keyed": [
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    12,
+    16,
+    17
+   ],
+   "exact_match_with_shipped": 1.0,
+   "cronbach_alpha": 0.939
+  },
+  "self_concept_clarity": {
+   "items": 12,
+   "reverse_keyed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    12
+   ],
+   "exact_match_with_shipped": 1.0,
+   "cronbach_alpha": 0.925
+  }
+ },
+ "isolates": {
+  "P2_low_income_within_18_49_adjusted_for_age_band": {
+   "conscientiousness": {
+    "est": -0.394,
+    "lo": -0.537,
+    "hi": -0.251,
+    "p": 0.0,
+    "n": 787
+   },
+   "agreeableness": {
+    "est": -0.154,
+    "lo": -0.298,
+    "hi": -0.01,
+    "p": 0.036,
+    "n": 787
+   },
+   "extraversion": {
+    "est": -0.47,
+    "lo": -0.609,
+    "hi": -0.332,
+    "p": 0.0,
+    "n": 787
+   },
+   "openness": {
+    "est": 0.047,
+    "lo": -0.093,
+    "hi": 0.187,
+    "p": 0.51,
+    "n": 787
+   },
+   "need_for_cognition": {
+    "est": -0.225,
+    "lo": -0.367,
+    "hi": -0.084,
+    "p": 0.002,
+    "n": 787
+   },
+   "self_concept_clarity": {
+    "est": -0.245,
+    "lo": -0.388,
+    "hi": -0.103,
+    "p": 0.001,
+    "n": 787
+   },
+   "neuroticism": {
+    "est": 0.38,
+    "lo": 0.242,
+    "hi": 0.518,
+    "p": 0.0,
+    "n": 787
+   },
+   "social_desirability": {
+    "est": -0.062,
+    "lo": -0.202,
+    "hi": 0.077,
+    "p": 0.382,
+    "n": 787
+   },
+   "green": {
+    "est": -0.128,
+    "lo": -0.273,
+    "hi": 0.018,
+    "p": 0.086,
+    "n": 787
+   },
+   "spendthrift": {
+    "est": -0.221,
+    "lo": -0.373,
+    "hi": -0.069,
+    "p": 0.004,
+    "n": 787
+   },
+   "crt": {
+    "est": -0.007,
+    "lo": -0.152,
+    "hi": 0.138,
+    "p": 0.924,
+    "n": 787
+   },
+   "dictator_give": {
+    "est": 0.155,
+    "lo": 0.007,
+    "hi": 0.303,
+    "p": 0.04,
+    "n": 787
+   }
+  },
+  "P3_never_married_within_18_29_adjusted_for_sex_income_education": {
+   "conscientiousness": {
+    "est": -0.332,
+    "lo": -0.611,
+    "hi": -0.053,
+    "p": 0.02,
+    "n": 272
+   },
+   "agreeableness": {
+    "est": -0.096,
+    "lo": -0.368,
+    "hi": 0.176,
+    "p": 0.487,
+    "n": 272
+   },
+   "extraversion": {
+    "est": -0.151,
+    "lo": -0.41,
+    "hi": 0.108,
+    "p": 0.252,
+    "n": 272
+   },
+   "openness": {
+    "est": -0.154,
+    "lo": -0.407,
+    "hi": 0.098,
+    "p": 0.23,
+    "n": 272
+   },
+   "need_for_cognition": {
+    "est": -0.237,
+    "lo": -0.495,
+    "hi": 0.021,
+    "p": 0.071,
+    "n": 272
+   },
+   "self_concept_clarity": {
+    "est": 0.117,
+    "lo": -0.153,
+    "hi": 0.387,
+    "p": 0.393,
+    "n": 272
+   },
+   "neuroticism": {
+    "est": -0.005,
+    "lo": -0.261,
+    "hi": 0.25,
+    "p": 0.968,
+    "n": 272
+   },
+   "social_desirability": {
+    "est": -0.069,
+    "lo": -0.35,
+    "hi": 0.212,
+    "p": 0.629,
+    "n": 272
+   },
+   "green": {
+    "est": -0.476,
+    "lo": -0.753,
+    "hi": -0.2,
+    "p": 0.001,
+    "n": 272
+   },
+   "spendthrift": {
+    "est": 0.021,
+    "lo": -0.274,
+    "hi": 0.315,
+    "p": 0.89,
+    "n": 272
+   },
+   "crt": {
+    "est": -0.047,
+    "lo": -0.345,
+    "hi": 0.252,
+    "p": 0.758,
+    "n": 272
+   },
+   "dictator_give": {
+    "est": -0.01,
+    "lo": -0.32,
+    "hi": 0.3,
+    "p": 0.949,
+    "n": 272
+   }
+  },
+  "P1_65plus_vs_50_64": {
+   "conscientiousness": {
+    "est": 0.056,
+    "lo": -0.096,
+    "hi": 0.209,
+    "p": 0.469,
+    "n": 655
+   },
+   "agreeableness": {
+    "est": 0.217,
+    "lo": 0.055,
+    "hi": 0.378,
+    "p": 0.009,
+    "n": 655
+   },
+   "extraversion": {
+    "est": 0.047,
+    "lo": -0.119,
+    "hi": 0.212,
+    "p": 0.579,
+    "n": 655
+   },
+   "openness": {
+    "est": 0.05,
+    "lo": -0.125,
+    "hi": 0.224,
+    "p": 0.576,
+    "n": 655
+   },
+   "need_for_cognition": {
+    "est": 0.026,
+    "lo": -0.144,
+    "hi": 0.196,
+    "p": 0.764,
+    "n": 655
+   },
+   "self_concept_clarity": {
+    "est": 0.191,
+    "lo": 0.041,
+    "hi": 0.341,
+    "p": 0.013,
+    "n": 655
+   },
+   "neuroticism": {
+    "est": -0.234,
+    "lo": -0.394,
+    "hi": -0.074,
+    "p": 0.004,
+    "n": 655
+   },
+   "social_desirability": {
+    "est": 0.253,
+    "lo": 0.085,
+    "hi": 0.422,
+    "p": 0.003,
+    "n": 655
+   },
+   "green": {
+    "est": 0.09,
+    "lo": -0.075,
+    "hi": 0.256,
+    "p": 0.285,
+    "n": 655
+   },
+   "spendthrift": {
+    "est": -0.084,
+    "lo": -0.239,
+    "hi": 0.072,
+    "p": 0.29,
+    "n": 655
+   },
+   "crt": {
+    "est": -0.073,
+    "lo": -0.242,
+    "hi": 0.096,
+    "p": 0.395,
+    "n": 655
+   },
+   "dictator_give": {
+    "est": 0.121,
+    "lo": -0.043,
+    "hi": 0.284,
+    "p": 0.149,
+    "n": 655
+   }
+  },
+  "age_band_means_in_sd_units": {
+   "18-29": {
+    "conscientiousness": -0.496,
+    "agreeableness": -0.311,
+    "extraversion": -0.299,
+    "openness": -0.084,
+    "need_for_cognition": -0.234,
+    "self_concept_clarity": -0.584,
+    "neuroticism": 0.434,
+    "social_desirability": -0.154,
+    "green": -0.113,
+    "spendthrift": 0.108,
+    "crt": -0.031,
+    "dictator_give": 0.064
+   },
+   "30-49": {
+    "conscientiousness": -0.072,
+    "agreeableness": -0.08,
+    "extraversion": -0.093,
+    "openness": -0.004,
+    "need_for_cognition": 0.018,
+    "self_concept_clarity": -0.061,
+    "neuroticism": 0.113,
+    "social_desirability": -0.185,
+    "green": -0.046,
+    "spendthrift": 0.033,
+    "crt": 0.033,
+    "dictator_give": -0.023
+   },
+   "50-64": {
+    "conscientiousness": 0.246,
+    "agreeableness": 0.128,
+    "extraversion": 0.183,
+    "openness": 0.024,
+    "need_for_cognition": 0.076,
+    "self_concept_clarity": 0.234,
+    "neuroticism": -0.2,
+    "social_desirability": 0.134,
+    "green": 0.056,
+    "spendthrift": -0.046,
+    "crt": 0.009,
+    "dictator_give": -0.044
+   },
+   "65+": {
+    "conscientiousness": 0.302,
+    "agreeableness": 0.345,
+    "extraversion": 0.23,
+    "openness": 0.073,
+    "need_for_cognition": 0.102,
+    "self_concept_clarity": 0.425,
+    "neuroticism": -0.434,
+    "social_desirability": 0.388,
+    "green": 0.146,
+    "spendthrift": -0.13,
+    "crt": -0.064,
+    "dictator_give": 0.077
+   }
+  },
+  "overlap_train": {
+   "P2_only": 210,
+   "P3_only": 116,
+   "both": 81
+  }
+ },
+ "counterexamples": {
+  "note": "subgroups found by inspecting several splits; uncorrected for that search",
+  "P1_income_under_30k": {
+   "neuroticism": {
+    "n": 40,
+    "d": -0.09,
+    "lo": -0.4,
+    "hi": 0.22
+   },
+   "self_concept_clarity": {
+    "n": 40,
+    "d": 0.41,
+    "lo": 0.151,
+    "hi": 0.668
+   },
+   "conscientiousness": {
+    "n": 40,
+    "d": 0.04,
+    "lo": -0.292,
+    "hi": 0.373
+   }
+  },
+  "P1_other_incomes": {
+   "neuroticism": {
+    "n": 154,
+    "d": -0.523,
+    "lo": -0.664,
+    "hi": -0.383
+   },
+   "self_concept_clarity": {
+    "n": 154,
+    "d": 0.43,
+    "lo": 0.299,
+    "hi": 0.56
+   },
+   "conscientiousness": {
+    "n": 154,
+    "d": 0.37,
+    "lo": 0.245,
+    "hi": 0.495
+   }
+  },
+  "P1_under_30k_vs_rest": {
+   "neuroticism": {
+    "est": 0.433,
+    "lo": 0.113,
+    "hi": 0.752,
+    "p": 0.008,
+    "n": 194
+   },
+   "self_concept_clarity": {
+    "est": -0.02,
+    "lo": -0.31,
+    "hi": 0.27,
+    "p": 0.892,
+    "n": 194
+   },
+   "conscientiousness": {
+    "est": -0.33,
+    "lo": -0.63,
+    "hi": -0.029,
+    "p": 0.032,
+    "n": 194
+   }
+  },
+  "P2_full_time": {
+   "neuroticism": {
+    "n": 98,
+    "d": 0.199,
+    "lo": -0.004,
+    "hi": 0.402
+   },
+   "conscientiousness": {
+    "n": 98,
+    "d": -0.225,
+    "lo": -0.431,
+    "hi": -0.019
+   },
+   "extraversion": {
+    "n": 98,
+    "d": -0.251,
+    "lo": -0.429,
+    "hi": -0.073
+   }
+  },
+  "P2_not_full_time": {
+   "neuroticism": {
+    "n": 193,
+    "d": 0.61,
+    "lo": 0.489,
+    "hi": 0.731
+   },
+   "conscientiousness": {
+    "n": 193,
+    "d": -0.606,
+    "lo": -0.752,
+    "hi": -0.46
+   },
+   "extraversion": {
+    "n": 193,
+    "d": -0.574,
+    "lo": -0.702,
+    "hi": -0.446
+   }
+  },
+  "P2_full_time_vs_rest": {
+   "neuroticism": {
+    "est": -0.411,
+    "lo": -0.635,
+    "hi": -0.187,
+    "p": 0.0,
+    "n": 291
+   },
+   "conscientiousness": {
+    "est": 0.381,
+    "lo": 0.128,
+    "hi": 0.634,
+    "p": 0.003,
+    "n": 291
+   },
+   "extraversion": {
+    "est": 0.323,
+    "lo": 0.103,
+    "hi": 0.544,
+    "p": 0.004,
+    "n": 291
+   }
+  },
+  "P3_full_time": {
+   "conscientiousness": {
+    "n": 58,
+    "d": -0.072,
+    "lo": -0.288,
+    "hi": 0.144
+   },
+   "neuroticism": {
+    "n": 58,
+    "d": 0.156,
+    "lo": -0.107,
+    "hi": 0.418
+   },
+   "self_concept_clarity": {
+    "n": 58,
+    "d": -0.343,
+    "lo": -0.573,
+    "hi": -0.112
+   }
+  },
+  "P3_unemployed": {
+   "conscientiousness": {
+    "n": 50,
+    "d": -1.307,
+    "lo": -1.552,
+    "hi": -1.062
+   },
+   "neuroticism": {
+    "n": 50,
+    "d": 0.89,
+    "lo": 0.673,
+    "hi": 1.108
+   },
+   "self_concept_clarity": {
+    "n": 50,
+    "d": -0.86,
+    "lo": -1.121,
+    "hi": -0.599
+   }
+  },
+  "P3_full_time_vs_rest": {
+   "conscientiousness": {
+    "est": 0.764,
+    "lo": 0.472,
+    "hi": 1.056,
+    "p": 0.0,
+    "n": 197
+   },
+   "neuroticism": {
+    "est": -0.392,
+    "lo": -0.664,
+    "hi": -0.119,
+    "p": 0.005,
+    "n": 197
+   },
+   "self_concept_clarity": {
+    "est": 0.314,
+    "lo": 0.029,
+    "hi": 0.599,
+    "p": 0.031,
+    "n": 197
+   }
+  }
+ },
+ "two_clusters": {
+  "note": "descriptive correlations; the factor solution is exploratory and is not a confirmatory model",
+  "scales": [
+   "neuroticism",
+   "conscientiousness",
+   "self_concept_clarity",
+   "social_desirability",
+   "green",
+   "openness",
+   "need_for_cognition",
+   "agreeableness",
+   "extraversion"
+  ],
+  "raw_r": [
+   [
+    1.0,
+    -0.555,
+    -0.557,
+    -0.443,
+    -0.117,
+    -0.117,
+    -0.224,
+    -0.452,
+    -0.395
+   ],
+   [
+    -0.555,
+    1.0,
+    0.511,
+    0.392,
+    0.197,
+    0.208,
+    0.286,
+    0.435,
+    0.303
+   ],
+   [
+    -0.557,
+    0.511,
+    1.0,
+    0.344,
+    0.088,
+    0.062,
+    0.146,
+    0.305,
+    0.219
+   ],
+   [
+    -0.443,
+    0.392,
+    0.344,
+    1.0,
+    0.1,
+    0.021,
+    0.104,
+    0.522,
+    0.184
+   ],
+   [
+    -0.117,
+    0.197,
+    0.088,
+    0.1,
+    1.0,
+    0.342,
+    0.302,
+    0.243,
+    0.172
+   ],
+   [
+    -0.117,
+    0.208,
+    0.062,
+    0.021,
+    0.342,
+    1.0,
+    0.622,
+    0.127,
+    0.29
+   ],
+   [
+    -0.224,
+    0.286,
+    0.146,
+    0.104,
+    0.302,
+    0.622,
+    1.0,
+    0.177,
+    0.272
+   ],
+   [
+    -0.452,
+    0.435,
+    0.305,
+    0.522,
+    0.243,
+    0.127,
+    0.177,
+    1.0,
+    0.247
+   ],
+   [
+    -0.395,
+    0.303,
+    0.219,
+    0.184,
+    0.172,
+    0.29,
+    0.272,
+    0.247,
+    1.0
+   ]
+  ],
+  "partial_r_tierA_removed": [
+   [
+    1.0,
+    -0.5,
+    -0.508,
+    -0.411,
+    -0.087,
+    -0.109,
+    -0.182,
+    -0.438,
+    -0.332
+   ],
+   [
+    -0.5,
+    1.0,
+    0.461,
+    0.362,
+    0.154,
+    0.194,
+    0.244,
+    0.386,
+    0.204
+   ],
+   [
+    -0.508,
+    0.461,
+    1.0,
+    0.312,
+    0.064,
+    0.05,
+    0.105,
+    0.266,
+    0.155
+   ],
+   [
+    -0.411,
+    0.362,
+    0.312,
+    1.0,
+    0.082,
+    0.009,
+    0.106,
+    0.501,
+    0.131
+   ],
+   [
+    -0.087,
+    0.154,
+    0.064,
+    0.082,
+    1.0,
+    0.326,
+    0.276,
+    0.223,
+    0.129
+   ],
+   [
+    -0.109,
+    0.194,
+    0.05,
+    0.009,
+    0.326,
+    1.0,
+    0.617,
+    0.114,
+    0.286
+   ],
+   [
+    -0.182,
+    0.244,
+    0.105,
+    0.106,
+    0.276,
+    0.617,
+    1.0,
+    0.162,
+    0.232
+   ],
+   [
+    -0.438,
+    0.386,
+    0.266,
+    0.501,
+    0.223,
+    0.114,
+    0.162,
+    1.0,
+    0.19
+   ],
+   [
+    -0.332,
+    0.204,
+    0.155,
+    0.131,
+    0.129,
+    0.286,
+    0.232,
+    0.19,
+    1.0
+   ]
+  ],
+  "mean_abs_r": {
+   "raw": {
+    "within_adjustment": 0.467,
+    "within_values": 0.422,
+    "between": 0.139
+   },
+   "tierA_removed": {
+    "within_adjustment": 0.426,
+    "within_values": 0.406,
+    "between": 0.115
+   }
+  },
+  "composite_r": {
+   "adjustment_vs_values3": 0.246,
+   "tierA_removed": 0.208,
+   "green_vs_adjustment": 0.161,
+   "green_vs_open_nfc": 0.357
+  },
+  "tierA_predictability": {
+   "adjustment_composite": {
+    "cv_r2": 0.171,
+    "heuristic_half_width": 0.03
+   },
+   "open_nfc_composite": {
+    "cv_r2": 0.041,
+    "heuristic_half_width": 0.019
+   },
+   "conscientiousness": {
+    "cv_r2": 0.135,
+    "heuristic_half_width": 0.025
+   },
+   "agreeableness": {
+    "cv_r2": 0.063,
+    "heuristic_half_width": 0.021
+   },
+   "extraversion": {
+    "cv_r2": 0.083,
+    "heuristic_half_width": 0.022
+   },
+   "openness": {
+    "cv_r2": 0.031,
+    "heuristic_half_width": 0.016
+   },
+   "need_for_cognition": {
+    "cv_r2": 0.048,
+    "heuristic_half_width": 0.022
+   },
+   "self_concept_clarity": {
+    "cv_r2": 0.099,
+    "heuristic_half_width": 0.027
+   }
+  },
+  "eigenvalues": [
+   3.33,
+   1.65,
+   0.91,
+   0.76,
+   0.7,
+   0.48,
+   0.43,
+   0.39,
+   0.35
+  ],
+  "two_factor_varimax_loadings": {
+   "neuroticism": [
+    0.787,
+    0.105
+   ],
+   "conscientiousness": [
+    -0.692,
+    -0.214
+   ],
+   "self_concept_clarity": [
+    -0.655,
+    -0.04
+   ],
+   "social_desirability": [
+    -0.596,
+    0.002
+   ],
+   "green": [
+    -0.15,
+    -0.39
+   ],
+   "openness": [
+    -0.036,
+    -0.865
+   ],
+   "need_for_cognition": [
+    -0.181,
+    -0.709
+   ],
+   "agreeableness": [
+    -0.593,
+    -0.123
+   ],
+   "extraversion": [
+    -0.377,
+    -0.311
+   ]
+  },
+  "green_choice_n": 428,
+  "choice_on_composites": {
+   "Intercept": {
+    "OR": 0.565,
+    "lo": 0.423,
+    "hi": 0.755,
+    "p": 0.0
+   },
+   "green_default": {
+    "OR": 2.45,
+    "lo": 1.653,
+    "hi": 3.632,
+    "p": 0.0
+   },
+   "adjustment": {
+    "OR": 1.012,
+    "lo": 0.788,
+    "hi": 1.3,
+    "p": 0.924
+   },
+   "open_nfc": {
+    "OR": 1.324,
+    "lo": 1.067,
+    "hi": 1.644,
+    "p": 0.011
+   }
+  },
+  "choice_on_composites_plus_green": {
+   "Intercept": {
+    "OR": 0.466,
+    "lo": 0.339,
+    "hi": 0.641,
+    "p": 0.0
+   },
+   "green_default": {
+    "OR": 3.335,
+    "lo": 2.153,
+    "hi": 5.166,
+    "p": 0.0
+   },
+   "z_green": {
+    "OR": 2.589,
+    "lo": 1.997,
+    "hi": 3.355,
+    "p": 0.0
+   },
+   "adjustment": {
+    "OR": 0.882,
+    "lo": 0.671,
+    "hi": 1.158,
+    "p": 0.365
+   },
+   "open_nfc": {
+    "OR": 1.023,
+    "lo": 0.804,
+    "hi": 1.302,
+    "p": 0.853
+   }
+  }
+ },
+ "say_do_high_green": {
+  "definition": "green values >= 4.0 (the 67th-percentile cut; 41% of train because of ties); participants in the green experiment",
+  "n": 176,
+  "decline_by_default": {
+   "green_default": {
+    "k": 19,
+    "n": 89,
+    "rate": 0.213,
+    "lo": 0.141,
+    "hi": 0.31
+   },
+   "grey_default": {
+    "k": 41,
+    "n": 87,
+    "rate": 0.471,
+    "lo": 0.37,
+    "hi": 0.575
+   }
+  },
+  "default_difference_in_decline": {
+   "diff": 0.258,
+   "lo": 0.122,
+   "hi": 0.394
+  },
+  "decline_by_group": {
+   "low_inc": {
+    "yes": {
+     "k": 21,
+     "n": 58,
+     "rate": 0.362,
+     "lo": 0.251,
+     "hi": 0.491
+    },
+    "no": {
+     "k": 39,
+     "n": 118,
+     "rate": 0.331,
+     "lo": 0.252,
+     "hi": 0.42
+    },
+    "diff": 0.032,
+    "lo": -0.12,
+    "hi": 0.183
+   },
+   "older": {
+    "yes": {
+     "k": 30,
+     "n": 100,
+     "rate": 0.3,
+     "lo": 0.219,
+     "hi": 0.396
+    },
+    "no": {
+     "k": 30,
+     "n": 76,
+     "rate": 0.395,
+     "lo": 0.292,
+     "hi": 0.507
+    },
+    "diff": -0.095,
+    "lo": -0.238,
+    "hi": 0.048
+   },
+   "female": {
+    "yes": {
+     "k": 27,
+     "n": 91,
+     "rate": 0.297,
+     "lo": 0.213,
+     "hi": 0.397
+    },
+    "no": {
+     "k": 33,
+     "n": 85,
+     "rate": 0.388,
+     "lo": 0.292,
+     "hi": 0.495
+    },
+    "diff": -0.092,
+    "lo": -0.232,
+    "hi": 0.049
+   },
+   "college": {
+    "yes": {
+     "k": 33,
+     "n": 102,
+     "rate": 0.324,
+     "lo": 0.241,
+     "hi": 0.419
+    },
+    "no": {
+     "k": 27,
+     "n": 74,
+     "rate": 0.365,
+     "lo": 0.264,
+     "hi": 0.479
+    },
+    "diff": -0.041,
+    "lo": -0.185,
+    "hi": 0.102
+   }
+  },
+  "decline_by_tightwad_tercile": {
+   "tightwad": {
+    "k": 22,
+    "n": 69,
+    "rate": 0.319,
+    "lo": 0.221,
+    "hi": 0.436
+   },
+   "middle": {
+    "k": 24,
+    "n": 62,
+    "rate": 0.387,
+    "lo": 0.276,
+    "hi": 0.512
+   },
+   "spendthrift": {
+    "k": 14,
+    "n": 45,
+    "rate": 0.311,
+    "lo": 0.195,
+    "hi": 0.457
+   }
+  },
+  "joint_test_of_11_demographic_and_trait_terms": {
+   "lr_chi2": 6.328,
+   "df": 11,
+   "p": 0.851
+  },
+  "decline_model_odds_ratios": {
+   "Intercept": {
+    "OR": 4.649,
+    "lo": 1.345,
+    "hi": 16.066,
+    "p": 0.015
+   },
+   "green_default": {
+    "OR": 0.245,
+    "lo": 0.119,
+    "hi": 0.504,
+    "p": 0.0
+   },
+   "z_green": {
+    "OR": 0.196,
+    "lo": 0.066,
+    "hi": 0.582,
+    "p": 0.003
+   },
+   "low_inc": {
+    "OR": 1.16,
+    "lo": 0.523,
+    "hi": 2.572,
+    "p": 0.714
+   },
+   "older": {
+    "OR": 0.626,
+    "lo": 0.306,
+    "hi": 1.28,
+    "p": 0.199
+   },
+   "female": {
+    "OR": 0.864,
+    "lo": 0.411,
+    "hi": 1.814,
+    "p": 0.699
+   },
+   "college": {
+    "OR": 1.078,
+    "lo": 0.51,
+    "hi": 2.281,
+    "p": 0.843
+   },
+   "z_spendthrift": {
+    "OR": 1.061,
+    "lo": 0.732,
+    "hi": 1.537,
+    "p": 0.756
+   },
+   "z_crt": {
+    "OR": 1.034,
+    "lo": 0.728,
+    "hi": 1.467,
+    "p": 0.852
+   },
+   "z_neuroticism": {
+    "OR": 0.719,
+    "lo": 0.454,
+    "hi": 1.141,
+    "p": 0.162
+   },
+   "z_conscientiousness": {
+    "OR": 1.107,
+    "lo": 0.637,
+    "hi": 1.924,
+    "p": 0.719
+   },
+   "z_openness": {
+    "OR": 1.106,
+    "lo": 0.7,
+    "hi": 1.748,
+    "p": 0.667
+   },
+   "z_need_for_cognition": {
+    "OR": 1.0,
+    "lo": 0.631,
+    "hi": 1.586,
+    "p": 0.999
+   },
+   "z_self_concept_clarity": {
+    "OR": 0.958,
+    "lo": 0.614,
+    "hi": 1.494,
+    "p": 0.849
+   }
+  },
+  "power": {
+   "note": "two equal groups, alpha 0.05, power 0.80",
+   "smallest_detectable_difference_in_decline_rate": 0.208,
+   "base_rate": 0.341
+  }
+ }
+}

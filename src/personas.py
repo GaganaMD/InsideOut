@@ -324,10 +324,9 @@ def to_card(rep: dict, interp: dict, holdout: pd.DataFrame | None, rep_corrected
         gtxt = "–" if pd.isna(gain) else ("0%" if abs(gain) < 0.5 else f"{gain:+.0f}%")
         L.append(f"| {r['label'].split(' (')[0].split(',')[0]} | {typ} | {dtxt} | {ttxt} | {gtxt} | {conf} |")
     L += ["", "Held-out error cut = reduction in absolute error vs the population mean on held-out members. "
-          "*Distinct* = |d| ≥ 0.20 with CI excluding 0. *Typical* is shrunk toward the population mean (fully, for dictator "
-          "giving); d and its CI describe the unshrunk member mean, so the two can differ. † Corrected item-level scores; the dataset's shipped social-desirability "
-          "and CRT scores are mis-scored for 180/450 people (`reports/final_audit/statistical_audit.md`, values in "
-          "`reports/final_audit/corrected_scores/personas_sd_crt.csv`). Frozen legacy values: evidence file.", ""]
+          "*Distinct* = |d| ≥ 0.20 with CI excluding 0. *Typical* is a shrunken estimate (fully shrunk for dictator giving); d and its CI "
+          "describe the raw mean. † Corrected item-level scores; the dataset's shipped social-desirability "
+          "and CRT scores are mis-scored for 180/450 people (`reports/final_audit/statistical_audit.md`). Frozen legacy values: evidence file.", ""]
     for k, v in interp.items():
         if k not in ("Bottom line",):
             L += [f"**{k}.** {v}", ""]

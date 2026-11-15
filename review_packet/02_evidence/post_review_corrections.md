@@ -79,3 +79,21 @@ An independent adversarial review (a Claude session that had not built the proje
 | Memo, space only | Shortened passages to stay at 4 pages; no finding removed | Page limit |
 
 Verification: memo 4 pages, cards 1 page each, `tests/` pass, `results/` and `data/split.csv` unchanged, persona JSON regenerated identical in content.
+
+## Persona-extension additions (2026-11-15, third pass; exploratory, training split only)
+Made after re-reading the brief, which weights the "why" most. **No frozen estimate, split, hypothesis or persona definition changed.** Source for every new number: `research_frontier/persona_extension/` (outside `run_all.py`).
+
+| Area | Addition | Status |
+|---|---|---|
+| Cards | "Why this persona" (the question each one asks); an extended profile of six further scales; one within-persona counterexample; named sources in "Why it fits" | Scales re-derived from items (exact match). Training members only; not pre-registered; no held-out check. Counterexamples were found by inspection |
+| Memo §1 | Who declines among high green-values scorers: not identifiable from the tested demographics and traits; detectable gap about 20 points | Exploratory; absence of evidence, stated as such |
+| Memo §2 | Two loose trait clusters and their relation to Tier A and to the choice | Descriptive correlations; no confirmatory factor model |
+| Memo §3, §5 | The question each persona asks; party judged against the brief's "census or public records" test; "two dimensions, not three archetypes" | Wording |
+| Memo §6 | Compressed to make room; every number kept | Space only |
+
+A held-out check of the extended profile is specified in `research_frontier/persona_extension/HOLDOUT_PROTOCOL.md` and has **not** been run.
+
+**Integration adjustments to that pass** (wording only; made when applying it):
+- **CRT caveat restored.** The withdrawn "less reflective" CRT caveat is back on the P1 and P2 cards.
+- **No equivalence claim.** P1's behaviour line now says the small samples did not establish a difference and that this is not evidence of equivalence. It gives the held-out cell sizes (25 and 18, per `results/holdout_persona_behaviour.csv`).
+- **Correlational wording in memo §2.** "the choice follows values" became "goes with values", and the bullet now states that it is a correlational description, not a mechanism.

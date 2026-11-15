@@ -11,7 +11,7 @@ Three findings:
 
 In separate, exploratory benchmarks run after the submission, giving LLM personas a demographic-inferred psychological profile did **not** improve prediction of that choice over a simple statistical demographic baseline. This is evidence from one limited benchmark, not a general result about LLM personas. *Brace research assignment.*
 
-![Overview: what census facts reveal, and what drives the choice](figures/fig0_overview.png)
+![Overview: what census facts reveal, and what predicts or shifts the choice](figures/fig0_overview.png)
 
 *Overview.*
 - *Census facts (the outer layer) reveal group-level temperament but little about individuals.*
@@ -82,10 +82,13 @@ Membership is defined only by census-observable facts. Each card fits on one pag
 | [P2](reports/personas/P2_under50_income_below_50k.md) | Age 18–49, household income < $50k | 425 | Higher neuroticism (+0.47 → +0.55); income matters within each age band under 65 | "More spendthrift" falsified; "budget-constrained green chooser" failed the holdout; lower social desirability is weak after shrinkage |
 | [P3](reports/personas/P3_young_never_married.md) | Age 18–29, never married | 285 | Higher neuroticism (+0.43 → +0.55) | Lower green values (−0.27 → −0.40) are fragile: weak after shrinkage, no supported sex difference, significant in only 3 of 6 redefinitions |
 
-**The personas are not independent.**
-- P1 is defined by age alone.
+**Two dimensions, not three independent archetypes.** The held-out evaluation largely confirms one age gradient.
+- **P1** captures the older end of life stage. It is defined by age alone.
+- **P2** adds financial position within age groups.
+- **P3** captures the younger end of life stage. Its green-values finding is exploratory and fragile.
 - P2 and P3 share a high-neuroticism profile, and 41% of P3's training members are also in P2.
-- The held-out evaluation largely confirms one age gradient; three personas are closer to two.
+
+The persona cards also carry an **exploratory extended profile**: six further scales re-derived from items, reported for training members only with no held-out check ([`research_frontier/persona_extension/`](research_frontier/persona_extension/README.md)). There, a within-age contrast supports P2's income dimension, and P3 differs from other 18–29-year-olds only on green values and conscientiousness.
 
 ![Persona differences with confidence intervals](figures/fig2_persona_d.png)
 
@@ -111,17 +114,7 @@ Membership is defined only by census-observable facts. Each card fits on one pag
 
 These were run after the submission, in [`research_frontier/`](research_frontier/), on training participants only. **No submitted estimate depends on them.**
 
-**Question.** Does an LLM persona predict the green-energy choice better than statistics? Three prompt formats were compared:
-- demographics only;
-- demographics plus a **demographic-inferred** psychological profile, as numbers;
-- the same numbers written as a **narrative** persona.
-
-**Design:**
-- Profiles were estimated from census cells on the other half of the training data.
-- Prompts contained only k-anonymous demographic cells (k ≥ 5), aggregate profile estimates and scenario text.
-- Both answer orders were averaged.
-- Scoring was a pre-registered, cross-fitted Brier score at the group level, applied to each participant (427 people in 76 cells).
-- Uncertainty is a paired cluster bootstrap over cells.
+**Question.** Does giving an LLM a **demographic-inferred** psychological profile, as numbers or as a narrative, help it predict the green-energy choice better than simple statistics?
 
 **GPT-4.1** via OpenRouter: 1,556 responses, all valid, about $1.25 billed ([results](research_frontier/brace_challenge_lab/F3_gpt41/RESULTS.md), [decision memo](research_frontier/brace_challenge_lab/F3_gpt41/DECISION_MEMO.md)).
 
@@ -135,11 +128,9 @@ These were run after the submission, in [`research_frontier/`](research_frontier
 
 Lower Brier is better.
 
-- **None of the GPT-4.1 formats passed the pre-registered "adds value" criterion,** which required beating the demographic model with a CI excluding 0.
-- **Profile vs demographics:** −0.009 [−0.024, +0.006].
-- **Narrative vs numeric:** +0.001.
-- **The default effect:** GPT-4.1 predicted about +0.08, against +0.215 in people on the same participants.
-- **No-persona prompt:** GPT-4.1 ignored the default entirely, answering 0.75 in both conditions (Brier 0.327).
+**None of the GPT-4.1 formats passed the pre-registered "adds value" criterion,** which required beating the demographic model with a CI excluding 0. Two open-weight Qwen models did worse.
+
+The models used different probability-extraction methods, so this is not a controlled model comparison (see the details below).
 
 ![Exploratory LLM persona benchmark](figures/fig6_llm_benchmark.png)
 
@@ -148,6 +139,27 @@ Lower Brier is better.
 - *Right: the predicted effect of the green default, against people's +0.22 (grey band: 95% CI).*
 - *Qwen2.5's no-persona tie with the baselines averages two strongly order-dependent answers, so it is not evidence of skill.*
 - *Source: [`figures/data/fig6_llm_benchmark.csv`](figures/data/fig6_llm_benchmark.csv).*
+
+<details>
+<summary><b>Design, further GPT-4.1 results, Qwen results and comparison caveats</b></summary>
+
+**Formats compared:**
+- demographics only;
+- demographics plus a demographic-inferred psychological profile, as numbers;
+- the same numbers written as a narrative persona.
+
+**Design:**
+- Profiles were estimated from census cells on the other half of the training data.
+- Prompts contained only k-anonymous demographic cells (k ≥ 5), aggregate profile estimates and scenario text.
+- Both answer orders were averaged.
+- Scoring was a pre-registered, cross-fitted Brier score at the group level, applied to each participant (427 people in 76 cells).
+- Uncertainty is a paired cluster bootstrap over cells.
+
+**More GPT-4.1 results:**
+- **Profile vs demographics:** −0.009 [−0.024, +0.006].
+- **Narrative vs numeric:** +0.001.
+- **The default effect:** GPT-4.1 predicted about +0.08, against +0.215 in people on the same participants.
+- **No-persona prompt:** GPT-4.1 ignored the default entirely, answering 0.75 in both conditions (Brier 0.327).
 
 **Qwen2.5-7B and Qwen3-4B** (open-weight, run on Modal GPUs; [results](research_frontier/brace_challenge_lab/F2_modal_open_weight/RESULTS.md)):
 - Every persona format scored worse than the demographic model (Brier 0.29–0.42).
@@ -160,6 +172,8 @@ Lower Brier is better.
 - The **published** GPT-4.1 digital-twin predictions (Peng et al.) are a third, separate source, compared in [`research_frontier/09_existing_llm_benchmark.md`](research_frontier/09_existing_llm_benchmark.md). Those twins received much richer information than our census-only models:
   - the full-persona twins saw about 500 of each participant's own survey answers;
   - the demographics-only prompts' exact fields are not public.
+
+</details>
 
 ## What This Study Suggests
 
@@ -276,5 +290,6 @@ python src/personas.py build --name midwest_women_50plus --criteria "region=Midw
 |---|---|
 | [`research_frontier/`](research_frontier/README.md) | Red team, literature, theory audit and next steps |
 | [`research_frontier/brace_challenge_lab/`](research_frontier/brace_challenge_lab/MORNING_BRIEF.md) | Persona mechanisms, unseen-group stress test, say–do reassessment, review simulation, client briefs, LLM benchmarks (F, F2, F3) |
+| [`research_frontier/persona_extension/`](research_frontier/persona_extension/README.md) | Extended persona profiles (six item-checked scales), within-age contrasts, counterexamples, two-cluster description, say–do check (exploratory, training only; held-out protocol written, not run) |
 | [`research_frontier/breadth_sweep/`](research_frontier/breadth_sweep/README.md) | All 50 usable shipped scores, and the organ-donation choice (exploratory, unaudited) |
 | [`review_packet/`](review_packet/00_README.md) | Compact packet for an independent review |
