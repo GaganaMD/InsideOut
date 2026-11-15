@@ -1,0 +1,48 @@
+{
+ "attempted": 264,
+ "valid": 264,
+ "invalid": 0,
+ "errors": 0,
+ "valid_rate": 1.0,
+ "cost_usd_computed": 0.210374,
+ "cost_usd_billed_by_openrouter": 0.210374,
+ "estimate_upper_usd": 0.3073,
+ "prompt_tokens": 89347,
+ "completion_tokens": 3960,
+ "served_models": [
+  "openai/gpt-4.1"
+ ],
+ "providers": [
+  "OpenAI"
+ ],
+ "retries": [],
+ "stopped_reason": "",
+ "reask_n": 20,
+ "reask_mean_abs_dp": 0.03200000000000001,
+ "reask_same_choice": 0.9,
+ "choice_p_agreement": 1.0,
+ "p_sd": 0.22876090831767745,
+ "p_modal_share": 0.10984848484848485,
+ "order_gap_mean_abs": 0.03557377049180329,
+ "order_gap_signed_AB_minus_BA": 0.01868852459016395,
+ "mean_p_green_by_fmt_cond": {
+  "demo|green_default": 0.373,
+  "demo|grey_default": 0.296,
+  "empty|green_default": 0.75,
+  "empty|grey_default": 0.75,
+  "narrative|green_default": 0.398,
+  "narrative|grey_default": 0.319,
+  "profile|green_default": 0.379,
+  "profile|grey_default": 0.319
+ },
+ "go_criteria": {
+  "valid_rate>=0.98": true,
+  "cost<=2x_estimate_and<=1": true,
+  "reask_mean_abs_dp<=0.10": true,
+  "reask_same_choice>=0.90": true,
+  "choice_p_agreement>=0.95": true,
+  "p_not_degenerate": true,
+  "served_model_is_gpt41": true
+ },
+ "verdict": "GO (propose full run; needs separate authorization)"
+}
