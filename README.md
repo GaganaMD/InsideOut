@@ -11,6 +11,14 @@ Three findings:
 
 In separate, exploratory benchmarks run after the submission, giving LLM personas a demographic-inferred psychological profile did **not** improve prediction of that choice over a simple statistical demographic baseline. This is evidence from one limited benchmark, not a general result about LLM personas. *Brace research assignment.*
 
+![Overview: what census facts reveal, and what drives the choice](figures/fig0_overview.png)
+
+*Overview.*
+- *Census facts (the outer layer) reveal group-level temperament but little about individuals.*
+- *The hypothetical green choice tracks the randomised default (causal) and measured green values (associational).*
+- *Neither demographics alone nor exploratory LLM personas built from them beat a simple statistical baseline.*
+- *Every number is from the [memo](reports/memo.md) or the [GPT-4.1 results](research_frontier/brace_challenge_lab/F3_gpt41/RESULTS.md).*
+
 **Contents:**
 - [Key findings](#key-findings)
 - [Personas](#the-three-personas)
@@ -56,6 +64,13 @@ A persona can do well on the first and still fail the other two.
 - *Because the predictions are averages for demographic cells, R² = 0.17 for neuroticism means those averages differ meaningfully while 83% of person-to-person variation remains unexplained.*
 - *Bars: 95% bootstrap intervals over held-out participants, conditional on the fitted model. They do not include model-refitting uncertainty, which a training-only check found similar for neuroticism but about 2–3× larger for green values and CRT. CRT's held-out R² of 0.02 is therefore not a robust positive signal: with refitting, its training-only interval includes zero ([audit](research_frontier/01_project_red_team.md)).*
 - *† Corrected item-level scoring applied after the audit. Source: [`figures/data/fig1_heldout_r2.csv`](figures/data/fig1_heldout_r2.csv).*
+
+![Group difference vs individual overlap in neuroticism](figures/fig5_group_vs_individual.png)
+
+*Group differences vs individual prediction.*
+- *Neuroticism of 18–29-year-olds vs adults 65+ (training split).*
+- *The means differ by 0.87 SD, a large group difference, yet the distributions overlap so much that a random 65+ member is more neurotic than a random 18–29-year-old 25% of the time.*
+- *Source: [`figures/data/fig5_group_vs_individual.csv`](figures/data/fig5_group_vs_individual.csv).*
 
 ## The three personas
 
@@ -126,6 +141,14 @@ Lower Brier is better.
 - **The default effect:** GPT-4.1 predicted about +0.08, against +0.215 in people on the same participants.
 - **No-persona prompt:** GPT-4.1 ignored the default entirely, answering 0.75 in both conditions (Brier 0.327).
 
+![Exploratory LLM persona benchmark](figures/fig6_llm_benchmark.png)
+
+*Exploratory LLM benchmark (not part of the submission).*
+- *Left: Brier score for each method, with 95% paired cluster-bootstrap intervals for the difference from the demographic model.*
+- *Right: the predicted effect of the green default, against people's +0.22 (grey band: 95% CI).*
+- *Qwen2.5's no-persona tie with the baselines averages two strongly order-dependent answers, so it is not evidence of skill.*
+- *Source: [`figures/data/fig6_llm_benchmark.csv`](figures/data/fig6_llm_benchmark.csv).*
+
 **Qwen2.5-7B and Qwen3-4B** (open-weight, run on Modal GPUs; [results](research_frontier/brace_challenge_lab/F2_modal_open_weight/RESULTS.md)):
 - Every persona format scored worse than the demographic model (Brier 0.29–0.42).
 - Narrative wording made predictions more confident without making them more accurate.
@@ -158,34 +181,9 @@ These are cautious readings of a limited benchmark: one hypothetical choice, one
 
 ## Research design and data
 
-```mermaid
-flowchart TD
-    A["Twin-2K-500 survey<br/>2,058 US adults, ~500 items"] --> C
-    B["Mega-Study experiment default_eric<br/>hypothetical green tariff, n = 600"] --> C
-    C["Data audit: ID joins, codebook, missingness"] --> D
-    subgraph PRE["Before the holdout was inspected"]
-        D["Frozen 70/30 participant split<br/>1,442 train / 616 test (hashed)"]
-        S["Item-scoring check<br/>spendthrift re-scored from items"]
-        E["Pre-registered hypotheses<br/>committed before modelling"]
-        F["Training-only model selection<br/>predictability map, say-do model, P3 rule"]
-        G["Three personas built from<br/>training members only"]
-        D --> S --> E --> F --> G
-    end
-    H["One-time held-out evaluation<br/>616 test participants"]
-    subgraph POST["After the holdout was inspected: labelled audit or exploratory"]
-        I["Full item-scoring audit<br/>SD and CRT shipped scores corrected"]
-        J["Same frozen models re-scored<br/>with corrected measures"]
-        K["Exploratory follow-ups and robustness<br/>training split only"]
-        I --> J
-    end
-    G --> H
-    H --> I
-    H --> K
-    J --> L["Memo and one-page persona cards"]
-    K --> L
-    G --> M["Persona generator CLI<br/>new outer-layer criteria, corrected scores by default"]
-```
-*Figure 4. Analysis pipeline. A static copy is at [`figures/fig4_pipeline.png`](figures/fig4_pipeline.png).*
+<p align="center"><img src="figures/fig4_pipeline.png" width="560" alt="Analysis pipeline: data audit, frozen split, pre-registration, training-only modelling, one-time held-out evaluation, then labelled audit and exploratory work"></p>
+
+*Figure 4. Analysis pipeline. Mermaid source: [`figures/pipeline.mmd`](figures/pipeline.mmd) (render with `python tools/render_mermaid.py`).*
 
 ### Evaluation protocol
 - **Split:** the participant split (`data/split.csv`; 1,442 train / 616 test) was frozen and hashed before analysis. A test checks the hash.
