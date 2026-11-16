@@ -97,3 +97,26 @@ A held-out check of the extended profile is specified in `research_frontier/pers
 - **CRT caveat restored.** The withdrawn "less reflective" CRT caveat is back on the P1 and P2 cards.
 - **No equivalence claim.** P1's behaviour line now says the small samples did not establish a difference and that this is not evidence of equivalence. It gives the held-out cell sizes (25 and 18, per `results/holdout_persona_behaviour.csv`).
 - **Correlational wording in memo §2.** "the choice follows values" became "goes with values", and the bullet now states that it is a correlational description, not a mechanism.
+
+## Final documentation pass (2026-11-17; wording only)
+**No estimate, split, hypothesis or persona definition changed.**
+
+### Memo §6, robustness bullet
+- **The problem.** The bullet read "best AUC 0.58, ΔBrier −0.004". That ΔBrier belongs to the redistribution outcome; the best green-choice model is ΔBrier −0.0025.
+- **The evidence.** `reports/robustness/demographic_complexity/demographic_complexity.md`, model D4 for each outcome:
+
+  | Outcome | ΔBrier (95% CI) | AUC |
+  |---|---|---|
+  | Green choice | −0.0025 (−0.0056, +0.0007) | 0.576 |
+  | Redistribution | −0.0042 (−0.0084, −0.0002) | 0.578 |
+
+  The pre-set bar was ΔBrier ≤ −0.010.
+- **The fix.** The bullet now reports each outcome separately. The memo is still 4 pages.
+
+### README
+Rewritten as the entry point. Findings now carry evidence labels, there are two figures, and limitations are listed in full.
+
+### Outstanding limitation: a pre-registered output that was never produced
+- **What was promised.** `hypotheses.md` (lines 77–78) lists, among the persona outcome estimates, "the population model's predicted rate for persona members", alongside the raw green-choice rate per condition.
+- **What exists.** It was not computed. `src/personas.py` and `src/holdout.py` report only the raw rates and the population rate, and no file in `results/` or `reports/personas/` contains a model-predicted rate.
+- **What was decided.** It is recorded here as an unreported deviation from the pre-registration. It is not added now, because that would mean new modelling after the holdout.

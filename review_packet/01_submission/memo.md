@@ -121,4 +121,4 @@ The 80% intervals covered 72–99% of held-out members. Coverage is informative 
 ## 6. Exploratory follow-ups (after the holdout was inspected; training split only; `reports/exploratory/`)
 - **Green choice** (n = 428). Tier A did not beat the base rate (ΔBrier +0.011, CI −0.004 to +0.026). Adding green values improved prediction by ΔBrier −0.035 (−0.051 to −0.019); AUC rose from 0.60 to 0.73.
 - **Redistribution, a stated attitude and not a choice** (n = 833). Demographics added nothing (ΔR² +0.006, −0.036 to +0.048). Policy support measured five months earlier added ΔR² +0.34 (+0.28 to +0.40), and one ideology item did as well, so the gain reflects construct proximity.
-- Simpler and more regularised demographic models agree (`reports/robustness/`: best AUC 0.58, ΔBrier −0.004, against a pre-set threshold of 0.010).
+- Regularised demographic models agree (`reports/robustness/`; bar −0.010): best ΔBrier −0.003 for the green choice (CI includes 0), −0.004 for redistribution; AUC 0.58.

@@ -11,3 +11,4 @@ reports/robustness/cli_examples/
 .env
 .env.*
 !.env.example
+/presentation/
